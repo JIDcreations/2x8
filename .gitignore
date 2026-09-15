@@ -1,0 +1,5 @@
+.DS_Store
+
+# Raw screen recordings — huge (100MB+), some exceed GitHub's hard limit.
+# The site only references the compressed *-web.mp4 derivatives in assets/.
+*.mov

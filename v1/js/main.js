@@ -205,24 +205,22 @@
   /* Marquee: speeds up with scroll velocity                           */
   /* ---------------------------------------------------------------- */
   function marquee() {
-    if (reduce) return;
-    $$('[data-marquee]').forEach(function (el) {
-      var track = $('[data-marquee-track]', el);
-      var duration = Number(el.getAttribute('data-marquee-duration')) || 40;
-      var loop = gsap.to(track, { xPercent: -50, ease: 'none', duration: duration, repeat: -1 });
+    var el = $('[data-marquee]');
+    if (!el || reduce) return;
+    var track = $('[data-marquee-track]', el);
+    var loop = gsap.to(track, { xPercent: -50, ease: 'none', duration: 40, repeat: -1 });
 
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top bottom',
-        end: 'bottom top',
-        onToggle: function (self) { self.isActive ? loop.play() : loop.pause(); },
-      });
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top bottom',
+      end: 'bottom top',
+      onToggle: function (self) { self.isActive ? loop.play() : loop.pause(); },
+    });
 
-      gsap.ticker.add(function () {
-        var v = lenis ? Math.abs(lenis.velocity) : 0;
-        var target = 1 + Math.min(v * 0.35, 6);
-        loop.timeScale(gsap.utils.interpolate(loop.timeScale(), target, 0.08));
-      });
+    gsap.ticker.add(function () {
+      var v = lenis ? Math.abs(lenis.velocity) : 0;
+      var target = 1 + Math.min(v * 0.35, 6);
+      loop.timeScale(gsap.utils.interpolate(loop.timeScale(), target, 0.08));
     });
   }
 
@@ -294,46 +292,6 @@
   }
 
   /* ---------------------------------------------------------------- */
-  /* Case reel: big screen-recording video on a case page               */
-  /* ---------------------------------------------------------------- */
-  function caseReels() {
-    $$('[data-case-reel]').forEach(function (video) {
-      if (reduce) {
-        video.removeAttribute('autoplay');
-        video.pause();
-        video.controls = true;
-        return;
-      }
-      // Some browsers ignore the autoplay attribute if it was set before JS took over.
-      video.play().catch(function () {});
-    });
-  }
-
-  /* ---------------------------------------------------------------- */
-  /* Proof panels: the live site looks back at your cursor             */
-  /* ---------------------------------------------------------------- */
-  function proofPanels() {
-    if (reduce || !finePointer) return;
-    $$('.proof-panel').forEach(function (panel) {
-      var img = $('.proof-panel__frame img', panel);
-      if (!img) return;
-      var xTo = gsap.quickTo(img, 'xPercent', { duration: 0.7, ease: 'power3' });
-      var yTo = gsap.quickTo(img, 'yPercent', { duration: 0.7, ease: 'power3' });
-      panel.addEventListener('pointermove', function (e) {
-        var r = panel.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        xTo(px * -4);
-        yTo(py * -4);
-      });
-      panel.addEventListener('pointerleave', function () {
-        xTo(0);
-        yTo(0);
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------------- */
   /* Magnetic CTAs                                                     */
   /* ---------------------------------------------------------------- */
   function magnetic() {
@@ -363,8 +321,6 @@
     workTrack();
     textReveals();
     marquee();
-    proofPanels();
-    caseReels();
     nav();
     menu();
     magnetic();
