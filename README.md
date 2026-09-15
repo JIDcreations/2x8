@@ -9,7 +9,9 @@ Plain HTML, CSS and JS. Double-click `index.html` to open it, or drag this folde
 - `js/main.js`: all animation (preloader, text reveals, proof panels, spotlight reveals, marquee, nav, mobile menu)
 - `assets/`: real project cover images and screen-recording videos, one folder per project
 - `info/`: brand guide (standalone, not linked from the pages)
-- `v1/`: the previous version of the site, kept for reference — not linked from anywhere live
+
+The previous version of the site isn't in the working tree anymore, but it's still in git history —
+`git log` shows it, and any file from it can be recovered with `git show <commit>:<path>`.
 
 GSAP, Lenis and the fonts (Sora, JetBrains Mono) load from a CDN, so you need an internet connection.
 
