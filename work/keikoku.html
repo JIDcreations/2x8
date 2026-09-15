@@ -146,7 +146,7 @@
             <div>
               <dt class="mono muted">Online</dt>
               <dd>
-                <a class="link" href="https://keikokuimpens.netlify.app/" target="_blank" rel="noopener">
+                <a class="btn btn--sm" href="https://keikokuimpens.netlify.app/" target="_blank" rel="noopener" data-magnetic>
                   Bezoek site
                   <span class="btn__arrow" aria-hidden="true">↗</span>
                 </a>
@@ -165,13 +165,18 @@
         </header>
 
         <div class="wrap">
-          <figure class="case-cover" data-cover>
-            <img
-              src="../assets/Keikuko/Cover_keikuko.png"
-              alt="Keikoku Atelier, architectuurstudio"
-              decoding="async"
-              fetchpriority="high"
-            />
+          <figure class="case-cover case-cover--video" data-cover>
+            <video
+              data-case-reel
+              src="../assets/Keikuko/keikuko-web.mp4"
+              poster="../assets/Keikuko/Cover_keikuko.png"
+              aria-label="Schermopname van Keikoku Atelier, architectuurstudio"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
           </figure>
         </div>
 
@@ -179,7 +184,7 @@
           <div class="case-body">
             <section class="case-block grid">
               <h2 class="mono">Uitdaging</h2>
-              <p data-reveal>22 privéwoningen en hoofdkantoren op drie continenten, ontworpen door een studio die zweert bij &ldquo;subtractie&rdquo; &mdash; ramen, muren en gebaren wegnemen tot alleen de noodzakelijke structuur overblijft. Die terughoudendheid moest ook uit de site zelf spreken, niet alleen uit de tekst erover.</p>
+              <p data-reveal>22 privéwoningen en hoofdkantoren op drie continenten, ontworpen door een studio die zweert bij &ldquo;subtractie&rdquo;: ramen, muren en gebaren wegnemen tot alleen de noodzakelijke structuur overblijft. Die terughoudendheid moest ook uit de site zelf spreken, niet alleen uit de tekst erover.</p>
             </section>
             <section class="case-block grid">
               <h2 class="mono">Aanpak</h2>
@@ -187,31 +192,10 @@
             </section>
             <section class="case-block grid">
               <h2 class="mono">Resultaat</h2>
-              <p data-reveal>Een site die zelf &ldquo;subtractie&rdquo; toepast &mdash; het ontwerpprincipe van het bureau, vertaald naar het medium van het scherm.</p>
+              <p data-reveal>Een site die zelf &ldquo;subtractie&rdquo; toepast: het ontwerpprincipe van het bureau, vertaald naar het medium van het scherm.</p>
             </section>
           </div>
         </div>
-
-        <section class="case-reel">
-          <div class="case-reel__frame">
-            <video
-              data-case-reel
-              src="../assets/Keikuko/keikuko-web.mp4"
-              poster="../assets/Keikuko/Cover_keikuko.png"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-            ></video>
-          </div>
-          <div class="wrap case-reel__caption">
-            <span class="mono muted">Schermopname &middot; live site</span>
-            <a class="link" href="https://keikokuimpens.netlify.app/" target="_blank" rel="noopener"
-              >Bezoek de site<span class="btn__arrow" aria-hidden="true">↗</span></a
-            >
-          </div>
-        </section>
 
         <div class="wrap">
           <div class="case-gallery grid">

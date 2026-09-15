@@ -1185,26 +1185,11 @@ button {
   align-items: center;
   margin-top: 28px;
 }
-.spotlight--compact {
-  padding-block: clamp(48px, 6vw, 96px);
-}
-.spotlight--compact .spotlight__media {
-  grid-column: 1 / span 6;
-  aspect-ratio: 16 / 9;
-}
-.spotlight--compact .spotlight__text {
-  grid-column: 7 / -1;
-}
-.spotlight--compact .spotlight__name {
-  font-size: clamp(1.75rem, 3vw, 3rem);
-}
 @media (max-width: 899px) {
   .spotlight__media,
   .spotlight__text,
   .spotlight--reverse .spotlight__media,
-  .spotlight--reverse .spotlight__text,
-  .spotlight--compact .spotlight__media,
-  .spotlight--compact .spotlight__text {
+  .spotlight--reverse .spotlight__text {
     grid-column: 1 / -1;
     order: initial;
   }
@@ -1526,11 +1511,21 @@ button {
   aspect-ratio: 16 / 9;
   background: #e9e8e6;
 }
-.case-cover img {
+.case-cover img,
+.case-cover video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.case-cover img {
   filter: grayscale(1);
+}
+/* Screen recordings: match the container to the recording's own ratio so
+   object-fit: cover never has to crop the sides, the whole capture stays in frame. */
+.case-cover--video {
+  aspect-ratio: 1920 / 1044;
+  background: #0a0a0a;
 }
 .case-body {
   padding-top: clamp(40px, 8vw, 120px);
@@ -1553,29 +1548,6 @@ button {
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.18;
-}
-.case-reel {
-  margin-top: clamp(64px, 9vw, 120px);
-}
-.case-reel__frame {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: #0a0a0a;
-}
-.case-reel__frame video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.case-reel__caption {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--u);
-  padding-top: 16px;
 }
 .case-gallery {
   row-gap: var(--u);

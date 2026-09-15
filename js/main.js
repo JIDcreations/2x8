@@ -168,11 +168,16 @@
         { clipPath: 'inset(12% 8% 12% 8%)' },
         { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.6, ease: 'expo.inOut', delay: 0.2 }
       );
-      gsap.fromTo(
-        $('img', cover),
-        { scale: 1.25 },
-        { scale: 1, ease: 'none', scrollTrigger: { trigger: cover, start: 'top 90%', end: 'bottom top', scrub: true } }
-      );
+      // Only stills get the scroll-linked zoom: a recording needs its full frame in view at all times,
+      // a scale scrub would crop the edges of the page it's showing.
+      var coverImg = $('img', cover);
+      if (coverImg) {
+        gsap.fromTo(
+          coverImg,
+          { scale: 1.25 },
+          { scale: 1, ease: 'none', scrollTrigger: { trigger: cover, start: 'top 90%', end: 'bottom top', scrub: true } }
+        );
+      }
     }
   }
 

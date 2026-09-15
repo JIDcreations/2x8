@@ -10,19 +10,22 @@ Plain HTML, CSS and JS. Double-click `index.html` to open it, or drag this folde
 - `assets/`: real project cover images and screen-recording videos, one folder per project
 - `info/`: brand guide (standalone, not linked from the pages)
 
-The previous version of the site isn't in the working tree anymore, but it's still in git history —
+The previous version of the site isn't in the working tree anymore, but it's still in git history.
 `git log` shows it, and any file from it can be recovered with `git show <commit>:<path>`.
 
 GSAP, Lenis and the fonts (Sora, JetBrains Mono) load from a CDN, so you need an internet connection.
 
 ## Assets
 Each case under `assets/<Project>/` has a `Cover_*.png` (used as the poster/thumbnail everywhere that
-project appears) and, where recorded, a `*-web.mp4` — a compressed, silent, web-ready version of the raw
+project appears) and, where recorded, a `*-web.mp4`: a compressed, silent, web-ready version of the raw
 screen recording. Raw `.mov` originals stay in the folder for reference but are git-ignored (several are
 well over 100MB, past GitHub's hard limit) and aren't referenced by any page.
+
+Where a project has a video, it plays directly in the `<figure class="case-cover" data-cover">` slot at
+the top of its case page (swap the `<img>` for a `<video autoplay muted loop playsinline>`, and add the
+`case-cover--video` class so the frame matches the recording's own aspect ratio instead of cropping it).
 
 ## Still open
 - Portraits and roles for Florian & Jasper (Studio section still uses placeholder photos)
 - LinkedIn / Instagram links (still placeholders)
-- Studio Klei doesn't have a screen-recording video yet — add `assets/StudioKlei/*-web.mp4` and wire it
-  into `work/studio-klei.html` the same way the other three case pages do (`<section class="case-reel">`)
+- Studio Klei doesn't have a screen-recording video yet
