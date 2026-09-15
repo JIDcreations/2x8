@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2X8 | Digital interfaces, built and advised</title>
+    <meta
+      name="description"
+      content="2X8 is the studio of Florian and Jasper. We build websites and web apps and advise on software like Odoo and Softtouch and on AI workflows."
+    />
+    <link rel="canonical" href="https://2x8.be/en/" />
+    <link rel="alternate" hreflang="en" href="https://2x8.be/en/" />
+    <link rel="alternate" hreflang="nl" href="https://2x8.be/" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="2X8 | Digital interfaces, built and advised" />
+    <meta
+      property="og:description"
+      content="2X8 is the studio of Florian and Jasper. We build websites and web apps and advise on software like Odoo and Softtouch and on AI workflows."
+    />
+    <meta property="og:url" content="https://2x8.be/en/" />
+    <meta property="og:locale" content="en_GB" />
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        if (sessionStorage.getItem("2x8-intro")) document.documentElement.classList.add("intro-seen");
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div class="loader" data-loader aria-hidden="true">
+      <div class="loader__row">
+        <svg
+          class="logo"
+          viewBox="159 334 1602 412"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="2X8"
+          fill="currentColor"
+        >
+          <g class="logo-glyph" data-glyph="2">
+            <path
+              d="M631.88,744.78l-380.98.15c-52.35.02-91.61-45.1-87.77-96.29-2.19-28.65,6.69-54.62,26.04-75.51,28.99-30.05,71.29-43.61,111.25-55.85,51.43-15.75,102.96-27.51,155.27-39.1,10.9-2.41,17.42-13.61,13.87-23.29-3.1-8.47-11.77-11.93-20.45-11.56-22.68.96-44.06,3.82-66.33,8.6l-128,27.43c-17.36,3.72-33.37,7.93-50.85,9.85-20.93,2.3-39.23-11.95-40.79-32.93v-25.42c1.76-30.44,16.49-57.62,41.62-74.98,18.68-12.91,40.37-20.64,63.89-20.65l302.95-.14c19.38,0,37.01,4.38,53.56,13.45,38.43,21.05,57.81,66.09,45.98,108.4-10.11,36.19-46.73,62.64-81.21,74.36l-66.15,22.48-147.71,49.12c-8.27,2.75-11.91,12.52-10.89,18.94,1.36,8.65,9.19,14.36,18.38,13.83,22.68-1.31,44.2-5.27,66.57-10.36l117.29-26.66,64.75-13.68c21.14-4.47,41.94,12.48,41.86,34.46l-.32,83.93c-.08,20.36-19.17,41.43-41.83,41.44Z"
+            ></path>
+          </g>
+          <g class="logo-glyph" data-glyph="x">
+            <path
+              d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"
+            ></path>
+          </g>
+          <g class="logo-glyph" data-glyph="8">
+            <path
+              d="M1635.18,745.06l-290.89.07c-27.09,0-52.74-8.86-74.04-24.55-30.01-22.11-46.01-58.27-42.46-95.02,3.32-34.45,23.75-63.69,52.83-81.64,2.55-1.57,3.42-3.89,3.5-6.2.12-3.04-1.84-4.54-4.61-6.46-20.18-13.94-35.81-33.55-43.04-57.25-11.88-38.91.54-79.82,31.34-106.97,22.31-19.66,51.65-31.85,82.6-31.86l286.92-.1c65.97-.02,123.62,53.95,115.95,119.41-3.75,32.06-22.58,58.76-48.59,77.06-2.43,1.71-3.72,3.83-3.83,6.1-.15,3.2,1.35,4.97,4.4,6.88,29.71,18.58,50.15,49.54,51.82,85.03,3.06,65.11-57.46,115.48-121.9,115.5ZM1559.6,495.95c20.03-.13,31.67-19.82,30.92-37.61-.75-17.97-13.09-34.87-32.21-34.9l-127.53-.21c-20.93-.03-34.17,16.8-34.51,36.19-.38,21.38,14.88,37.53,37.01,37.38l126.32-.84ZM1558.77,656.39c20.02-.03,32.05-19.01,31.87-36.75-.18-18.39-12.84-35.86-32.39-35.88l-128.76-.14c-20.41-.02-33.35,16.85-33.58,36.01-.23,18.54,12.03,37,32.34,36.97l130.52-.21Z"
+            ></path>
+          </g>
+        </svg>
+        <span class="loader__dec" data-loader-dec>000</span>
+      </div>
+      <div class="loader__row">
+        <span class="loader__bits" data-loader-bits>00000000</span>
+      </div>
+    </div>
+
+    <header class="nav" data-nav>
+      <a href="index.html" class="nav__logo" aria-label="2X8 home"
+        ><svg
+          class="logo"
+          viewBox="159 334 1602 412"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="2X8"
+          fill="currentColor"
+        >
+          <g class="logo-glyph" data-glyph="2">
+            <path
+              d="M631.88,744.78l-380.98.15c-52.35.02-91.61-45.1-87.77-96.29-2.19-28.65,6.69-54.62,26.04-75.51,28.99-30.05,71.29-43.61,111.25-55.85,51.43-15.75,102.96-27.51,155.27-39.1,10.9-2.41,17.42-13.61,13.87-23.29-3.1-8.47-11.77-11.93-20.45-11.56-22.68.96-44.06,3.82-66.33,8.6l-128,27.43c-17.36,3.72-33.37,7.93-50.85,9.85-20.93,2.3-39.23-11.95-40.79-32.93v-25.42c1.76-30.44,16.49-57.62,41.62-74.98,18.68-12.91,40.37-20.64,63.89-20.65l302.95-.14c19.38,0,37.01,4.38,53.56,13.45,38.43,21.05,57.81,66.09,45.98,108.4-10.11,36.19-46.73,62.64-81.21,74.36l-66.15,22.48-147.71,49.12c-8.27,2.75-11.91,12.52-10.89,18.94,1.36,8.65,9.19,14.36,18.38,13.83,22.68-1.31,44.2-5.27,66.57-10.36l117.29-26.66,64.75-13.68c21.14-4.47,41.94,12.48,41.86,34.46l-.32,83.93c-.08,20.36-19.17,41.43-41.83,41.44Z"
+            ></path>
+          </g>
+          <g class="logo-glyph" data-glyph="x">
+            <path
+              d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"
+            ></path>
+          </g>
+          <g class="logo-glyph" data-glyph="8">
+            <path
+              d="M1635.18,745.06l-290.89.07c-27.09,0-52.74-8.86-74.04-24.55-30.01-22.11-46.01-58.27-42.46-95.02,3.32-34.45,23.75-63.69,52.83-81.64,2.55-1.57,3.42-3.89,3.5-6.2.12-3.04-1.84-4.54-4.61-6.46-20.18-13.94-35.81-33.55-43.04-57.25-11.88-38.91.54-79.82,31.34-106.97,22.31-19.66,51.65-31.85,82.6-31.86l286.92-.1c65.97-.02,123.62,53.95,115.95,119.41-3.75,32.06-22.58,58.76-48.59,77.06-2.43,1.71-3.72,3.83-3.83,6.1-.15,3.2,1.35,4.97,4.4,6.88,29.71,18.58,50.15,49.54,51.82,85.03,3.06,65.11-57.46,115.48-121.9,115.5ZM1559.6,495.95c20.03-.13,31.67-19.82,30.92-37.61-.75-17.97-13.09-34.87-32.21-34.9l-127.53-.21c-20.93-.03-34.17,16.8-34.51,36.19-.38,21.38,14.88,37.53,37.01,37.38l126.32-.84ZM1558.77,656.39c20.02-.03,32.05-19.01,31.87-36.75-.18-18.39-12.84-35.86-32.39-35.88l-128.76-.14c-20.41-.02-33.35,16.85-33.58,36.01-.23,18.54,12.03,37,32.34,36.97l130.52-.21Z"
+            ></path>
+          </g></svg
+      ></a>
+
+      <nav aria-label="Main menu">
+        <ul class="nav__links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__right">
+        <div class="lang">
+          <a href="../index.html" hreflang="nl" lang="nl">NL</a>
+          <span aria-hidden="true">/</span>
+          <a href="index.html" aria-current="true" hreflang="en" lang="en">EN</a>
+        </div>
+        <a class="btn btn--sm" href="#contact" data-magnetic>Start a project</a>
+        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
+          Menu
+        </button>
+      </div>
+    </header>
+
+    <div class="menu theme-ink" id="menu" data-menu hidden>
+      <button class="menu__close" type="button" data-menu-close>Close</button>
+      <ul class="menu__links">
+        <li>
+          <a href="#work" data-menu-link><span>Work</span></a>
+        </li>
+        <li>
+          <a href="#services" data-menu-link><span>Services</span></a>
+        </li>
+        <li>
+          <a href="#studio" data-menu-link><span>Studio</span></a>
+        </li>
+        <li>
+          <a href="#contact" data-menu-link><span>Contact</span></a>
+        </li>
+      </ul>
+      <div class="menu__foot">
+        <a class="link" href="mailto:hallo@2x8.be">hallo@2x8.be</a>
+        <div class="lang">
+          <a href="../index.html">NL</a>
+          <span aria-hidden="true">/</span>
+          <a href="index.html" aria-current="true">EN</a>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="hero" data-hero>
+        <div class="wrap">
+          <h1 class="hero__title display" data-hero-title>
+            Digital interfaces, <br class="br" />built and advised.<span class="cursor" aria-hidden="true"></span>
+          </h1>
+
+          <div class="hero__row grid">
+            <p class="lede" data-hero-fade>
+              Custom websites and web apps, plus the software and AI workflows that make your business run smarter.
+            </p>
+            <div class="hero__cta" data-hero-fade>
+              <a class="link" href="#work">See work<span class="btn__arrow" aria-hidden="true">↓</span></a>
+              <a class="btn" href="#contact" data-magnetic
+                >Start a project<span class="btn__arrow" aria-hidden="true">→</span></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__mark" data-hero-mark aria-hidden="true">
+          <svg
+            class="logo"
+            viewBox="159 334 1602 412"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label
+            fill="currentColor"
+          >
+            <g class="logo-glyph" data-glyph="2">
+              <path
+                d="M631.88,744.78l-380.98.15c-52.35.02-91.61-45.1-87.77-96.29-2.19-28.65,6.69-54.62,26.04-75.51,28.99-30.05,71.29-43.61,111.25-55.85,51.43-15.75,102.96-27.51,155.27-39.1,10.9-2.41,17.42-13.61,13.87-23.29-3.1-8.47-11.77-11.93-20.45-11.56-22.68.96-44.06,3.82-66.33,8.6l-128,27.43c-17.36,3.72-33.37,7.93-50.85,9.85-20.93,2.3-39.23-11.95-40.79-32.93v-25.42c1.76-30.44,16.49-57.62,41.62-74.98,18.68-12.91,40.37-20.64,63.89-20.65l302.95-.14c19.38,0,37.01,4.38,53.56,13.45,38.43,21.05,57.81,66.09,45.98,108.4-10.11,36.19-46.73,62.64-81.21,74.36l-66.15,22.48-147.71,49.12c-8.27,2.75-11.91,12.52-10.89,18.94,1.36,8.65,9.19,14.36,18.38,13.83,22.68-1.31,44.2-5.27,66.57-10.36l117.29-26.66,64.75-13.68c21.14-4.47,41.94,12.48,41.86,34.46l-.32,83.93c-.08,20.36-19.17,41.43-41.83,41.44Z"
+              ></path>
+            </g>
+            <g class="logo-glyph" data-glyph="x">
+              <path
+                d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"
+              ></path>
+            </g>
+            <g class="logo-glyph" data-glyph="8">
+              <path
+                d="M1635.18,745.06l-290.89.07c-27.09,0-52.74-8.86-74.04-24.55-30.01-22.11-46.01-58.27-42.46-95.02,3.32-34.45,23.75-63.69,52.83-81.64,2.55-1.57,3.42-3.89,3.5-6.2.12-3.04-1.84-4.54-4.61-6.46-20.18-13.94-35.81-33.55-43.04-57.25-11.88-38.91.54-79.82,31.34-106.97,22.31-19.66,51.65-31.85,82.6-31.86l286.92-.1c65.97-.02,123.62,53.95,115.95,119.41-3.75,32.06-22.58,58.76-48.59,77.06-2.43,1.71-3.72,3.83-3.83,6.1-.15,3.2,1.35,4.97,4.4,6.88,29.71,18.58,50.15,49.54,51.82,85.03,3.06,65.11-57.46,115.48-121.9,115.5ZM1559.6,495.95c20.03-.13,31.67-19.82,30.92-37.61-.75-17.97-13.09-34.87-32.21-34.9l-127.53-.21c-20.93-.03-34.17,16.8-34.51,36.19-.38,21.38,14.88,37.53,37.01,37.38l126.32-.84ZM1558.77,656.39c20.02-.03,32.05-19.01,31.87-36.75-.18-18.39-12.84-35.86-32.39-35.88l-128.76-.14c-20.41-.02-33.35,16.85-33.58,36.01-.23,18.54,12.03,37,32.34,36.97l130.52-.21Z"
+              ></path>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section class="section wrap rule">
+        <div class="intro grid">
+          <span class="byte" aria-hidden="true">00000010 × 00001000</span>
+          <p class="intro__text" data-words>
+            Small team, full package. We design and build interfaces people enjoy using, and we set up the software that
+            runs behind them. From first sketch to launch, and the tools that make it smarter after.
+          </p>
+        </div>
+      </section>
+
+      <section class="section wrap" id="services">
+        <div class="services__head">
+          <h2 class="display h-lg" data-split>Build &amp; advise.</h2>
+        </div>
+
+        <div class="svc-group grid">
+          <div class="svc-group__label">
+            <span class="byte">00000001</span>
+            <h3 class="mono">Creation</h3>
+          </div>
+          <div class="svc-group__items">
+            <details class="svc" name="services" open>
+              <summary>
+                <span class="svc__name">Websites</span>
+                <span class="svc__toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="svc__body">
+                <p class="svc__desc">
+                  Brand and marketing sites that load fast, rank well and are easy to manage yourself.
+                </p>
+                <ul class="tags">
+                  <li class="tag">Brand sites</li>
+                  <li class="tag">E-commerce</li>
+                  <li class="tag">CMS</li>
+                  <li class="tag">SEO &amp; performance</li>
+                </ul>
+              </div>
+            </details>
+            <details class="svc" name="services">
+              <summary>
+                <span class="svc__name">Web apps</span>
+                <span class="svc__toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="svc__body">
+                <p class="svc__desc">
+                  Portals, dashboards and internal tools, designed around how your team actually works.
+                </p>
+                <ul class="tags">
+                  <li class="tag">Client portals</li>
+                  <li class="tag">Dashboards</li>
+                  <li class="tag">Internal tools</li>
+                  <li class="tag">Integrations</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+        <div class="svc-group grid">
+          <div class="svc-group__label">
+            <span class="byte">00000010</span>
+            <h3 class="mono">Consulting</h3>
+          </div>
+          <div class="svc-group__items">
+            <details class="svc" name="services">
+              <summary>
+                <span class="svc__name">Software</span>
+                <span class="svc__toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="svc__body">
+                <p class="svc__desc">We select, resell and configure the right packages so they fit your processes.</p>
+                <ul class="tags">
+                  <li class="tag">Odoo</li>
+                  <li class="tag">Softtouch</li>
+                  <li class="tag">Licensing</li>
+                  <li class="tag">Implementation</li>
+                </ul>
+              </div>
+            </details>
+            <details class="svc" name="services">
+              <summary>
+                <span class="svc__name">AI workflows</span>
+                <span class="svc__toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="svc__body">
+                <p class="svc__desc">We map repetitive work and automate it with AI, safely and measurably.</p>
+                <ul class="tags">
+                  <li class="tag">Process analysis</li>
+                  <li class="tag">Automation</li>
+                  <li class="tag">AI assistants</li>
+                  <li class="tag">Training</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="work theme-ink" id="work" data-theme-ink data-hscroll>
+        <div class="work__pin">
+          <div class="work__head wrap">
+            <h2 class="display h-lg" data-split>Selected work</h2>
+            <span class="work__count">(04)</span>
+          </div>
+
+          <div class="work__viewport">
+            <ul class="work__track" data-hscroll-track>
+              <li class="card card--tall">
+                <a href="work/atelier-noor.html" class="card__link" aria-label="Atelier Noor, View case">
+                  <div class="card__media">
+                    <img
+                      src="https://picsum.photos/seed/2x8-noor-cover/1600/2000?grayscale"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="1600"
+                      height="1200"
+                    />
+                  </div>
+                  <div class="card__meta">
+                    <span class="byte card__idx">01</span>
+                    <h3 class="card__name">Atelier Noor</h3>
+                    <span class="mono muted">Website</span>
+                  </div>
+                </a>
+              </li>
+              <li class="card card--wide">
+                <a href="work/veldwerk.html" class="card__link" aria-label="Veldwerk, View case">
+                  <div class="card__media">
+                    <img
+                      src="https://picsum.photos/seed/2x8-veldwerk-cover/2000/1250?grayscale"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="1600"
+                      height="1200"
+                    />
+                  </div>
+                  <div class="card__meta">
+                    <span class="byte card__idx">02</span>
+                    <h3 class="card__name">Veldwerk</h3>
+                    <span class="mono muted">Web app &amp; Odoo</span>
+                  </div>
+                </a>
+              </li>
+              <li class="card card--tall">
+                <a href="work/kade-twaalf.html" class="card__link" aria-label="Kade Twaalf, View case">
+                  <div class="card__media">
+                    <img
+                      src="https://picsum.photos/seed/2x8-kade-cover/1600/2000?grayscale"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="1600"
+                      height="1200"
+                    />
+                  </div>
+                  <div class="card__meta">
+                    <span class="byte card__idx">03</span>
+                    <h3 class="card__name">Kade Twaalf</h3>
+                    <span class="mono muted">Website &amp; bookings</span>
+                  </div>
+                </a>
+              </li>
+              <li class="card card--wide">
+                <a href="work/maes-print.html" class="card__link" aria-label="Maes Print, View case">
+                  <div class="card__media">
+                    <img
+                      src="https://picsum.photos/seed/2x8-maes-cover/2000/1250?grayscale"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="1600"
+                      height="1200"
+                    />
+                  </div>
+                  <div class="card__meta">
+                    <span class="byte card__idx">04</span>
+                    <h3 class="card__name">Maes Print</h3>
+                    <span class="mono muted">AI workflow</span>
+                  </div>
+                </a>
+              </li>
+              <li class="work__end">
+                <p class="display h-md">Your project here.</p>
+                <a class="btn" href="#contact" data-magnetic
+                  >Start a project<span class="btn__arrow" aria-hidden="true">→</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="work__progress" aria-hidden="true"><span data-hscroll-progress></span></div>
+      </section>
+      <section class="marquee" aria-label="Tools we work with" data-marquee>
+        <div class="marquee__track" data-marquee-track>
+          <ul class="marquee__set">
+            <li class="marquee__item">Odoo</li>
+            <li class="marquee__item">Softtouch</li>
+            <li class="marquee__item">Figma</li>
+            <li class="marquee__item">Astro</li>
+            <li class="marquee__item">Next.js</li>
+            <li class="marquee__item">n8n</li>
+            <li class="marquee__item">Claude</li>
+            <li class="marquee__item">Shopify</li>
+          </ul>
+          <ul class="marquee__set" aria-hidden="true">
+            <li class="marquee__item">Odoo</li>
+            <li class="marquee__item">Softtouch</li>
+            <li class="marquee__item">Figma</li>
+            <li class="marquee__item">Astro</li>
+            <li class="marquee__item">Next.js</li>
+            <li class="marquee__item">n8n</li>
+            <li class="marquee__item">Claude</li>
+            <li class="marquee__item">Shopify</li>
+          </ul>
+        </div>
+      </section>
+      <section class="section wrap" id="process">
+        <div class="process grid">
+          <div class="process__head">
+            <h2 class="display h-md" data-split>From first sketch to launch.</h2>
+          </div>
+          <ol class="process__list">
+            <li class="step" data-reveal>
+              <span class="step__bin" aria-hidden="true">00</span>
+              <div>
+                <h3 class="step__name">Discover</h3>
+                <p class="step__desc">
+                  We get to know your business, your users and your processes before drawing anything.
+                </p>
+              </div>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__bin" aria-hidden="true">01</span>
+              <div>
+                <h3 class="step__name">Design</h3>
+                <p class="step__desc">Wireframes and design in short rounds, with you at the table.</p>
+              </div>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__bin" aria-hidden="true">10</span>
+              <div>
+                <h3 class="step__name">Build</h3>
+                <p class="step__desc">Fast, accessible code, or the right software set up properly.</p>
+              </div>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__bin" aria-hidden="true">11</span>
+              <div>
+                <h3 class="step__name">Improve</h3>
+                <p class="step__desc">After launch we measure, adjust and automate what is still manual work.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section class="section wrap rule" id="studio">
+        <h2 class="display h-xl studio__title" data-split>2 people. 8 bits. One studio.</h2>
+
+        <div class="studio__grid grid">
+          <p class="studio__body" data-reveal>
+            The name adds up: two makers, eight bits per byte. You always work with us directly, from first call to
+            handover.
+          </p>
+          <article class="person" data-reveal>
+            <div class="person__media">
+              <img
+                src="https://picsum.photos/seed/2x8-florian/900/1200?grayscale"
+                alt="Florian"
+                loading="lazy"
+                decoding="async"
+                width="900"
+                height="1200"
+                data-parallax
+              />
+            </div>
+            <div class="person__meta">
+              <h3 class="person__name">Florian</h3>
+              <span class="mono muted">Design &amp; front-end</span>
+            </div>
+          </article>
+          <article class="person" data-reveal>
+            <div class="person__media">
+              <img
+                src="https://picsum.photos/seed/2x8-jasper/900/1200?grayscale"
+                alt="Jasper"
+                loading="lazy"
+                decoding="async"
+                width="900"
+                height="1200"
+                data-parallax
+              />
+            </div>
+            <div class="person__meta">
+              <h3 class="person__name">Jasper</h3>
+              <span class="mono muted">Development &amp; consulting</span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="contact theme-ink" id="contact" data-theme-ink>
+        <div class="wrap">
+          <h2 class="display contact__title" data-split>Let&#39;s build.</h2>
+          <div class="contact__row grid">
+            <p class="lede contact__body" data-reveal>
+              Tell us what you are working on. We reply within two business days.
+            </p>
+            <a class="contact__mail" href="mailto:hallo@2x8.be?subject=New%20project" data-reveal>hallo@2x8.be</a>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="wrap">
+            <div class="footer__bar">
+              <ul class="footer__links mono">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="https://www.linkedin.com/" rel="noopener" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/" rel="noopener" target="_blank">Instagram</a></li>
+              </ul>
+              <span class="mono muted">© 2026 2X8. All rights reserved.</span>
+              <a class="mono" href="#main" data-to-top>Back to top ↑</a>
+            </div>
+          </div>
+          <div class="footer__mark" data-footer-mark>
+            <svg
+              class="logo"
+              viewBox="159 334 1602 412"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="2X8"
+              fill="currentColor"
+            >
+              <g class="logo-glyph" data-glyph="2">
+                <path
+                  d="M631.88,744.78l-380.98.15c-52.35.02-91.61-45.1-87.77-96.29-2.19-28.65,6.69-54.62,26.04-75.51,28.99-30.05,71.29-43.61,111.25-55.85,51.43-15.75,102.96-27.51,155.27-39.1,10.9-2.41,17.42-13.61,13.87-23.29-3.1-8.47-11.77-11.93-20.45-11.56-22.68.96-44.06,3.82-66.33,8.6l-128,27.43c-17.36,3.72-33.37,7.93-50.85,9.85-20.93,2.3-39.23-11.95-40.79-32.93v-25.42c1.76-30.44,16.49-57.62,41.62-74.98,18.68-12.91,40.37-20.64,63.89-20.65l302.95-.14c19.38,0,37.01,4.38,53.56,13.45,38.43,21.05,57.81,66.09,45.98,108.4-10.11,36.19-46.73,62.64-81.21,74.36l-66.15,22.48-147.71,49.12c-8.27,2.75-11.91,12.52-10.89,18.94,1.36,8.65,9.19,14.36,18.38,13.83,22.68-1.31,44.2-5.27,66.57-10.36l117.29-26.66,64.75-13.68c21.14-4.47,41.94,12.48,41.86,34.46l-.32,83.93c-.08,20.36-19.17,41.43-41.83,41.44Z"
+                ></path>
+              </g>
+              <g class="logo-glyph" data-glyph="x">
+                <path
+                  d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"
+                ></path>
+              </g>
+              <g class="logo-glyph" data-glyph="8">
+                <path
+                  d="M1635.18,745.06l-290.89.07c-27.09,0-52.74-8.86-74.04-24.55-30.01-22.11-46.01-58.27-42.46-95.02,3.32-34.45,23.75-63.69,52.83-81.64,2.55-1.57,3.42-3.89,3.5-6.2.12-3.04-1.84-4.54-4.61-6.46-20.18-13.94-35.81-33.55-43.04-57.25-11.88-38.91.54-79.82,31.34-106.97,22.31-19.66,51.65-31.85,82.6-31.86l286.92-.1c65.97-.02,123.62,53.95,115.95,119.41-3.75,32.06-22.58,58.76-48.59,77.06-2.43,1.71-3.72,3.83-3.83,6.1-.15,3.2,1.35,4.97,4.4,6.88,29.71,18.58,50.15,49.54,51.82,85.03,3.06,65.11-57.46,115.48-121.9,115.5ZM1559.6,495.95c20.03-.13,31.67-19.82,30.92-37.61-.75-17.97-13.09-34.87-32.21-34.9l-127.53-.21c-20.93-.03-34.17,16.8-34.51,36.19-.38,21.38,14.88,37.53,37.01,37.38l126.32-.84ZM1558.77,656.39c20.02-.03,32.05-19.01,31.87-36.75-.18-18.39-12.84-35.86-32.39-35.88l-128.76-.14c-20.41-.02-33.35,16.85-33.58,36.01-.23,18.54,12.03,37,32.34,36.97l130.52-.21Z"
+                ></path>
+              </g>
+            </svg>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
