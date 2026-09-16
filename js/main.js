@@ -270,53 +270,121 @@
   }
 
   /* ---------------------------------------------------------------- */
-  /* Testimonial carousel: one card, manual + auto-advance              */
+  /* Fake Finder: a real, clickable file browser for the lab section   */
   /* ---------------------------------------------------------------- */
-  function testimonialCarousel() {
-    var root = $('[data-testimonial-carousel]');
+  function fakeFinder() {
+    var root = $('[data-finder]');
     if (!root) return;
-    var slides = $$('[data-testimonial-slide]', root);
-    var indexEl = $('[data-testimonial-index]', root);
-    var prevBtn = $('[data-testimonial-prev]', root);
-    var nextBtn = $('[data-testimonial-next]', root);
-    if (!slides.length) return;
 
-    var i = 0;
-    var timer = null;
+    var sidebarItems = $$('[data-finder-project]', root);
+    var grids = $$('[data-finder-grid]', root);
+    var pathEl = $('[data-finder-path]', root);
+    var statusEl = $('[data-finder-status]', root);
+    var searchInput = $('[data-finder-search]', root);
+    var previewPane = $('[data-finder-preview-pane]', root);
+    var previewBody = $('[data-finder-preview-body]', root);
+    var backBtn = $('[data-finder-back]', root);
 
-    function render() {
-      slides.forEach(function (slide, idx) { slide.classList.toggle('is-active', idx === i); });
-      if (indexEl) {
-        indexEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    var labels = {
+      specter: 'Specter',
+      'studio-klei': 'Studio Klei',
+      keikoku: 'Keikoku Atelier',
+      'jasper-impens': 'Jasper Impens',
+      readme: 'README.md',
+    };
+    var currentProject = 'specter';
+
+    function activeGrid() {
+      return $('[data-finder-grid="' + currentProject + '"]', root);
+    }
+
+    function updateStatus() {
+      var grid = activeGrid();
+      var files = grid ? $$('.finder__file', grid) : [];
+      var visible = files.filter(function (f) { return f.style.display !== 'none'; });
+      statusEl.textContent = visible.length + (visible.length === 1 ? ' item' : ' items');
+    }
+
+    function updatePath(fileLabel) {
+      var base = currentProject === 'readme' ? '2X8 › README.md' : '2X8 › Werk › ' + labels[currentProject];
+      pathEl.textContent = fileLabel ? base + ' › ' + fileLabel : base;
+    }
+
+    function closePreview() {
+      previewPane.hidden = true;
+      previewBody.innerHTML = '';
+      updatePath();
+      updateStatus();
+    }
+
+    function selectProject(id) {
+      currentProject = id;
+      sidebarItems.forEach(function (btn) {
+        var active = btn.getAttribute('data-finder-project') === id;
+        btn.classList.toggle('is-active', active);
+        if (active) btn.setAttribute('aria-current', 'true');
+        else btn.removeAttribute('aria-current');
+      });
+      grids.forEach(function (g) {
+        g.classList.toggle('is-active', g.getAttribute('data-finder-grid') === id);
+      });
+      if (searchInput) searchInput.value = '';
+      closePreview();
+    }
+
+    function openPreview(fileBtn) {
+      var type = fileBtn.getAttribute('data-finder-preview');
+      var name = $('.finder__file-name', fileBtn).textContent;
+      previewBody.innerHTML = '';
+
+      if (type === 'image') {
+        var img = document.createElement('img');
+        img.src = fileBtn.getAttribute('data-finder-src');
+        img.alt = fileBtn.getAttribute('data-finder-alt') || name;
+        previewBody.appendChild(img);
+      } else if (type === 'video') {
+        var video = document.createElement('video');
+        video.src = fileBtn.getAttribute('data-finder-src');
+        video.controls = true;
+        video.muted = true;
+        video.playsInline = true;
+        previewBody.appendChild(video);
+      } else if (type === 'text') {
+        var pre = document.createElement('pre');
+        pre.textContent = fileBtn.getAttribute('data-finder-text') || '';
+        previewBody.appendChild(pre);
       }
+
+      previewPane.hidden = false;
+      updatePath(currentProject === 'readme' ? null : name);
+      statusEl.textContent = 'Voorbeeld · ' + name;
     }
 
-    function go(dir) {
-      i = (i + dir + slides.length) % slides.length;
-      render();
-    }
-
-    function stop() {
-      if (timer) clearInterval(timer);
-      timer = null;
-    }
-    function start() {
-      if (reduce) return;
-      stop();
-      timer = setInterval(function () { go(1); }, 6000);
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', function () { go(-1); start(); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { go(1); start(); });
-    root.addEventListener('pointerenter', stop);
-    root.addEventListener('pointerleave', start);
-    root.addEventListener('focusin', stop);
-    root.addEventListener('focusout', function (e) {
-      if (!root.contains(e.relatedTarget)) start();
+    sidebarItems.forEach(function (btn) {
+      btn.addEventListener('click', function () { selectProject(btn.getAttribute('data-finder-project')); });
     });
 
-    render();
-    start();
+    $$('.finder__file[data-finder-preview]', root).forEach(function (btn) {
+      btn.addEventListener('click', function () { openPreview(btn); });
+    });
+
+    if (backBtn) backBtn.addEventListener('click', closePreview);
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        var q = searchInput.value.trim().toLowerCase();
+        var grid = activeGrid();
+        if (!grid) return;
+        $$('.finder__file', grid).forEach(function (file) {
+          var name = $('.finder__file-name', file).textContent.toLowerCase();
+          file.style.display = !q || name.indexOf(q) !== -1 ? '' : 'none';
+        });
+        updateStatus();
+      });
+    }
+
+    updatePath();
+    updateStatus();
   }
 
   /* ---------------------------------------------------------------- */
@@ -551,7 +619,7 @@
     wipeUp();
     parallaxDrift();
     hoverReels();
-    testimonialCarousel();
+    fakeFinder();
     serviceTabs();
     counters();
 
