@@ -209,27 +209,85 @@
   }
 
   /* ---------------------------------------------------------------- */
-  /* Work: vertical scroll drives a horizontal track                   */
+  /* Wipe-up: clip-path reveal for founder portraits and case media    */
   /* ---------------------------------------------------------------- */
-  function workTrack() {
-    var section = $('[data-hscroll]');
-    if (!section) return;
-    var track = $('[data-hscroll-track]', section);
-    var bar = $('[data-hscroll-progress]', section);
+  function wipeUp() {
+    var els = $$('[data-wipe-up]');
+    if (!els.length || reduce) return;
 
-    gsap.matchMedia().add('(min-width: 900px) and (prefers-reduced-motion: no-preference)', function () {
-      var distance = function () { return Math.max(0, track.scrollWidth - window.innerWidth); };
-      var st = {
-        trigger: section,
-        start: 'top top',
-        end: function () { return '+=' + distance(); },
-        scrub: 1,
-        invalidateOnRefresh: true,
-      };
-      gsap.to(track, { x: function () { return -distance(); }, ease: 'none', scrollTrigger: Object.assign({}, st, { pin: true }) });
-      if (bar) {
-        gsap.fromTo(bar, { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: Object.assign({}, st, { scrub: true }) });
+    gsap.set(els, { clipPath: 'inset(100% 0 0 0)', y: 30 });
+    ScrollTrigger.batch(els, {
+      start: 'top 88%',
+      once: true,
+      onEnter: function (batch) {
+        gsap.to(batch, { clipPath: 'inset(0% 0 0 0)', y: 0, duration: 1, ease: 'expo.out', stagger: 0.12 });
+      },
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Parallax drift: sibling elements drift opposite directions,       */
+  /* scrubbed for as long as their shared group is in view             */
+  /* ---------------------------------------------------------------- */
+  function parallaxDrift() {
+    if (reduce || !finePointer) return;
+    $$('[data-parallax-y]').forEach(function (el) {
+      var dir = Number(el.getAttribute('data-parallax-y')) || 0;
+      if (!dir) return;
+      var group = el.closest('[data-parallax-group]') || el.parentElement;
+      gsap.to(el, {
+        yPercent: dir * 14,
+        ease: 'none',
+        scrollTrigger: { trigger: group, start: 'top bottom', end: 'bottom top', scrub: true },
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Case stack: each project card sticks, then recedes as the next    */
+  /* one scrolls up and parallaxes over it                             */
+  /* ---------------------------------------------------------------- */
+  function caseStack() {
+    var cards = $$('.case__card');
+    if (!cards.length || reduce) return;
+
+    cards.forEach(function (card, i) {
+      if (i === cards.length - 1) return;
+      var section = card.closest('.case');
+      gsap.to(card, {
+        scale: 0.94,
+        filter: 'brightness(0.8)',
+        ease: 'none',
+        scrollTrigger: { trigger: section, start: 'top top', end: 'bottom top', scrub: true },
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Counters: numbers count up as their group scrolls into view       */
+  /* ---------------------------------------------------------------- */
+  function counters() {
+    $$('[data-counter]').forEach(function (group) {
+      var nums = $$('[data-count-to]', group);
+      if (!nums.length) return;
+
+      if (reduce) {
+        nums.forEach(function (n) { n.textContent = n.getAttribute('data-count-to'); });
+        return;
       }
+
+      var proxy = { v: 0 };
+      gsap.to(proxy, {
+        v: 1,
+        ease: 'none',
+        scrollTrigger: { trigger: group, start: 'top 90%', end: 'top 40%', scrub: 0.4 },
+        onUpdate: function () {
+          nums.forEach(function (n) {
+            var target = Number(n.getAttribute('data-count-to'));
+            n.textContent = Math.round(target * proxy.v);
+          });
+        },
+      });
     });
   }
 
@@ -391,8 +449,6 @@
   initScroll();
 
   document.fonts.ready.then(function () {
-    // Pinned sections first so later triggers measure the pin spacing
-    workTrack();
     textReveals();
     marquee();
     proofPanels();
@@ -400,6 +456,10 @@
     nav();
     menu();
     magnetic();
+    wipeUp();
+    parallaxDrift();
+    caseStack();
+    counters();
 
     // Arriving from a case page on "index.html#work": jump to the section
     if (location.hash && lenis) {
