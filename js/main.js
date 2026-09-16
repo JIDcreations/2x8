@@ -244,21 +244,113 @@
   }
 
   /* ---------------------------------------------------------------- */
-  /* Case stack: each project card sticks, then recedes as the next    */
-  /* one scrolls up and parallaxes over it                             */
+  /* Case tile reels: the work-grid video only plays on hover/focus,    */
+  /* so four cards don't all animate at once                           */
   /* ---------------------------------------------------------------- */
-  function caseStack() {
-    var cards = $$('.case__card');
-    if (!cards.length || reduce) return;
+  function hoverReels() {
+    if (reduce) return;
+    $$('.case-tile__media').forEach(function (media) {
+      var video = $('video[data-hover-reel]', media);
+      if (!video) return;
 
-    cards.forEach(function (card, i) {
-      if (i === cards.length - 1) return;
-      var section = card.closest('.case');
-      gsap.to(card, {
-        scale: 0.94,
-        filter: 'brightness(0.8)',
-        ease: 'none',
-        scrollTrigger: { trigger: section, start: 'top top', end: 'bottom top', scrub: true },
+      function play() {
+        media.classList.add('is-playing');
+        video.play().catch(function () {});
+      }
+      function stop() {
+        media.classList.remove('is-playing');
+        video.pause();
+      }
+
+      media.addEventListener('pointerenter', play);
+      media.addEventListener('pointerleave', stop);
+      media.addEventListener('focus', play);
+      media.addEventListener('blur', stop);
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Testimonial carousel: one card, manual + auto-advance              */
+  /* ---------------------------------------------------------------- */
+  function testimonialCarousel() {
+    var root = $('[data-testimonial-carousel]');
+    if (!root) return;
+    var slides = $$('[data-testimonial-slide]', root);
+    var indexEl = $('[data-testimonial-index]', root);
+    var prevBtn = $('[data-testimonial-prev]', root);
+    var nextBtn = $('[data-testimonial-next]', root);
+    if (!slides.length) return;
+
+    var i = 0;
+    var timer = null;
+
+    function render() {
+      slides.forEach(function (slide, idx) { slide.classList.toggle('is-active', idx === i); });
+      if (indexEl) {
+        indexEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      }
+    }
+
+    function go(dir) {
+      i = (i + dir + slides.length) % slides.length;
+      render();
+    }
+
+    function stop() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+    function start() {
+      if (reduce) return;
+      stop();
+      timer = setInterval(function () { go(1); }, 6000);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { go(-1); start(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { go(1); start(); });
+    root.addEventListener('pointerenter', stop);
+    root.addEventListener('pointerleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', function (e) {
+      if (!root.contains(e.relatedTarget)) start();
+    });
+
+    render();
+    start();
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Service tabs: one panel, two states, ARIA tabs pattern             */
+  /* ---------------------------------------------------------------- */
+  function serviceTabs() {
+    var tabs = $$('[data-service-tab]');
+    if (!tabs.length) return;
+    var panels = $$('[data-service-panel]');
+    var visualNum = $('[data-service-visual]');
+
+    function activate(tab, focusTab) {
+      tabs.forEach(function (t) {
+        var active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', String(active));
+        t.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach(function (p) {
+        p.classList.toggle('is-active', p.getAttribute('data-service-panel') === tab.getAttribute('data-service-tab'));
+      });
+      if (visualNum) {
+        visualNum.textContent = tab.getAttribute('data-service-tab') === 'build' ? '01' : '02';
+      }
+      if (focusTab) tab.focus();
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { activate(tab); });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+        activate(next, true);
       });
     });
   }
@@ -458,7 +550,9 @@
     magnetic();
     wipeUp();
     parallaxDrift();
-    caseStack();
+    hoverReels();
+    testimonialCarousel();
+    serviceTabs();
     counters();
 
     // Arriving from a case page on "index.html#work": jump to the section
