@@ -1178,7 +1178,8 @@ button {
 .lab__head {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   gap: clamp(24px, 4vw, 56px);
   flex-wrap: wrap;
   margin-bottom: clamp(32px, 5vw, 56px);
@@ -1742,7 +1743,15 @@ button {
 .footer {
   margin-top: clamp(96px, 12vw, 176px);
 }
-.footer__bar {
+.footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px 32px;
+  padding-block: 20px;
+}
+.footer__bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
