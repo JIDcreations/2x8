@@ -97,15 +97,15 @@
 
       <nav aria-label="Hoofdmenu">
         <ul class="nav__links">
-          <li><a href="#work">Werk</a></li>
-          <li><a href="#services">Diensten</a></li>
-          <li><a href="#studio">Studio</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="werk.html">Werk</a></li>
+          <li><a href="diensten.html">Diensten</a></li>
+          <li><a href="studio.html">Studio</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav__right">
-        <a class="btn btn--sm" href="#contact" data-magnetic>Start een project</a>
+        <a class="btn btn--sm" href="contact.html" data-magnetic>Start een project</a>
         <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
           Menu
         </button>
@@ -115,10 +115,10 @@
     <div class="menu theme-ink" id="menu" data-menu hidden>
       <button class="menu__close" type="button" data-menu-close>Sluit</button>
       <ul class="menu__links">
-        <li><a href="#work" data-menu-link><span>Werk</span></a></li>
-        <li><a href="#services" data-menu-link><span>Diensten</span></a></li>
-        <li><a href="#studio" data-menu-link><span>Studio</span></a></li>
-        <li><a href="#contact" data-menu-link><span>Contact</span></a></li>
+        <li><a href="werk.html" data-menu-link><span>Werk</span></a></li>
+        <li><a href="diensten.html" data-menu-link><span>Diensten</span></a></li>
+        <li><a href="studio.html" data-menu-link><span>Studio</span></a></li>
+        <li><a href="contact.html" data-menu-link><span>Contact</span></a></li>
       </ul>
       <div class="menu__foot">
         <a class="link" href="mailto:hallo@2x8.be">hallo@2x8.be</a>
@@ -138,7 +138,7 @@
             </p>
             <div class="hero__cta" data-hero-fade>
               <a class="link" href="#work">Bekijk werk<span class="btn__arrow" aria-hidden="true">↓</span></a>
-              <a class="btn" href="#contact" data-magnetic
+              <a class="btn" href="contact.html" data-magnetic
                 >Start een project<span class="btn__arrow" aria-hidden="true">→</span></a
               >
             </div>
@@ -235,158 +235,103 @@
           <span class="byte" aria-hidden="true">00000010 × 00001000</span>
           <p class="intro__text" data-words>
             Klein team, volledig pakket. We ontwerpen en bouwen interfaces waar mensen graag mee werken, en we richten
-            de software in die erachter draait. Geen concepten: hieronder staan de live sites.
+            de software in die erachter draait. Geen concepten: hierboven staan de live sites.
           </p>
         </div>
       </section>
 
-      <section class="spotlights theme-ink" id="work" data-theme-ink>
-        <div class="wrap" style="padding-top: clamp(64px, 9vw, 120px)">
-          <div class="work__head" style="padding-bottom: 0">
-            <h2 class="display h-lg" data-split>Bewezen werk.</h2>
-            <span class="work__count">(04)</span>
+      <section class="work rule" id="work" data-hscroll>
+        <div class="work__pin">
+          <div class="wrap">
+            <div class="work__head">
+              <h2 class="display h-lg" data-split>Bewezen werk.</h2>
+              <span class="work__count">(04)</span>
+            </div>
           </div>
+
+          <div class="work__viewport">
+            <div class="work__track" data-hscroll-track>
+              <a class="card card--wide" href="work/specter.html" aria-label="Specter, bekijk case">
+                <div class="card__media">
+                  <img
+                    src="assets/Specter/Cover_specter.png"
+                    alt="Specter, brutalistische tailoring webshop"
+                    loading="lazy"
+                    decoding="async"
+                    width="2994"
+                    height="1638"
+                  />
+                </div>
+                <div class="card__meta">
+                  <span class="byte card__idx">01</span>
+                  <span class="card__name">Specter</span>
+                  <span class="mono muted">Webshop</span>
+                </div>
+              </a>
+
+              <a class="card card--tall" href="work/studio-klei.html" aria-label="Studio Klei, bekijk case">
+                <div class="card__media">
+                  <img
+                    src="assets/StudioKlei/Cover-Klei.png"
+                    alt="Studio Klei, handgemaakt keramiek uit Gent"
+                    loading="lazy"
+                    decoding="async"
+                    width="3024"
+                    height="1658"
+                  />
+                </div>
+                <div class="card__meta">
+                  <span class="byte card__idx">02</span>
+                  <span class="card__name">Studio Klei</span>
+                  <span class="mono muted">Webshop</span>
+                </div>
+              </a>
+
+              <a class="card card--wide" href="work/keikoku.html" aria-label="Keikoku Atelier, bekijk case">
+                <div class="card__media">
+                  <img
+                    src="assets/Keikuko/Cover_keikuko.png"
+                    alt="Keikoku Atelier, architectuurstudio"
+                    loading="lazy"
+                    decoding="async"
+                    width="2992"
+                    height="1632"
+                  />
+                </div>
+                <div class="card__meta">
+                  <span class="byte card__idx">03</span>
+                  <span class="card__name">Keikoku Atelier</span>
+                  <span class="mono muted">Website</span>
+                </div>
+              </a>
+
+              <a class="card card--tall" href="work/jasper-impens.html" aria-label="Portfolio van Jasper, bekijk case">
+                <div class="card__media">
+                  <img
+                    src="assets/Jasper-site/Cover_portfolio.png"
+                    alt="Portfolio van Jasper Impens"
+                    loading="lazy"
+                    decoding="async"
+                    width="3024"
+                    height="1660"
+                  />
+                </div>
+                <div class="card__meta">
+                  <span class="byte card__idx">04</span>
+                  <span class="card__name">Jasper Impens</span>
+                  <span class="mono muted">Portfolio</span>
+                </div>
+              </a>
+
+              <div class="work__end">
+                <p class="lede">Vier live projecten. Geen mockups, geen concepten.</p>
+                <a class="btn" href="werk.html" data-magnetic>Bekijk alle cases<span class="btn__arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="work__progress"><span data-hscroll-progress></span></div>
         </div>
-
-        <article class="spotlight wrap">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="work/specter.html" aria-label="Specter, bekijk case" data-reveal>
-              <img
-                src="assets/Specter/Cover_specter.png"
-                alt="Specter, brutalistische tailoring webshop uit Antwerpen"
-                loading="lazy"
-                decoding="async"
-                width="2994"
-                height="1638"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">01 / 04</span>
-              <h3 class="spotlight__name">SPECTER</h3>
-              <p class="spotlight__quote">&ldquo;Cut like architecture.&rdquo;</p>
-              <p class="spotlight__desc">
-                Een brutalistische webshop voor een maatkleding-atelier in Antwerpen. Negen stuks, geen rek, alles op
-                afspraak: de site moest exact dezelfde restrictie uitstralen als het kledingstuk zelf.
-              </p>
-              <ul class="tags spotlight__meta">
-                <li class="tag">Webshop</li>
-                <li class="tag">Tailoring</li>
-                <li class="tag">WordPress</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="work/specter.html">Bekijk case<span class="btn__arrow" aria-hidden="true">→</span></a>
-                <a class="link" href="https://mediumslateblue-shrew-186739.hostingersite.com/" target="_blank" rel="noopener"
-                  >Bezoek de site<span class="btn__arrow" aria-hidden="true">↗</span></a
-                >
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="spotlight spotlight--reverse wrap">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="work/studio-klei.html" aria-label="Studio Klei, bekijk case" data-reveal>
-              <img
-                src="assets/StudioKlei/Cover-Klei.png"
-                alt="Studio Klei, handgemaakt keramiek uit Gent"
-                loading="lazy"
-                decoding="async"
-                width="3024"
-                height="1658"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">02 / 04</span>
-              <h3 class="spotlight__name">STUDIO KLEI</h3>
-              <p class="spotlight__quote">&ldquo;Keramiek voor elke dag.&rdquo;</p>
-              <p class="spotlight__desc">
-                Een warme, Nederlandstalige webshop voor een keramiekatelier in Gent. Categorieën, workshops en een
-                winkelmandje, gebouwd om net zo persoonlijk te voelen als het handwerk dat het verkoopt.
-              </p>
-              <ul class="tags spotlight__meta">
-                <li class="tag">Webshop</li>
-                <li class="tag">Keramiek</li>
-                <li class="tag">WordPress</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="work/studio-klei.html">Bekijk case<span class="btn__arrow" aria-hidden="true">→</span></a>
-                <a class="link" href="https://hotpink-crane-600793.hostingersite.com/" target="_blank" rel="noopener"
-                  >Bezoek de site<span class="btn__arrow" aria-hidden="true">↗</span></a
-                >
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="spotlight wrap">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="work/keikoku.html" aria-label="Keikoku Atelier, bekijk case" data-reveal>
-              <img
-                src="assets/Keikuko/Cover_keikuko.png"
-                alt="Keikoku Atelier, architectuurstudio voor privéwoningen en hoofdkantoren"
-                loading="lazy"
-                decoding="async"
-                width="2992"
-                height="1632"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">03 / 04</span>
-              <h3 class="spotlight__name">KEIKOKU ATELIER</h3>
-              <p class="spotlight__quote">&ldquo;Restraint is the material we use most.&rdquo;</p>
-              <p class="spotlight__desc">
-                Een rustige, beeldgedreven site voor een architectenbureau dat huizen ontwerpt die honderd jaar moeten
-                meegaan. Vier commissies op drie continenten, verteld in evenveel beeld als tekst.
-              </p>
-              <ul class="tags spotlight__meta">
-                <li class="tag">Website</li>
-                <li class="tag">Architectuur</li>
-                <li class="tag">Netlify</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="work/keikoku.html">Bekijk case<span class="btn__arrow" aria-hidden="true">→</span></a>
-                <a class="link" href="https://keikokuimpens.netlify.app/" target="_blank" rel="noopener"
-                  >Bezoek de site<span class="btn__arrow" aria-hidden="true">↗</span></a
-                >
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="spotlight spotlight--reverse wrap">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="work/jasper-impens.html" aria-label="Portfolio van Jasper, bekijk case" data-reveal>
-              <img
-                src="assets/Jasper-site/Cover_portfolio.png"
-                alt="Portfolio van Jasper Impens"
-                loading="lazy"
-                decoding="async"
-                width="3024"
-                height="1660"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">04 / 04</span>
-              <h3 class="spotlight__name">Impens Jasper COMMV</h3>
-              <p class="spotlight__quote">&ldquo;Everything worked out to the last detail, so it simply works.&rdquo;</p>
-              <p class="spotlight__desc">
-                Geen klantenproject, maar het eigen portfolio van medeoprichter Jasper: vijf soorten werk, van
-                merksites tot AI-consultancy, elk uitgewerkt tot in het laatste detail. Een extra bewijs van het
-                niveau waarop we werken.
-              </p>
-              <ul class="tags spotlight__meta">
-                <li class="tag">Portfolio</li>
-                <li class="tag">Design &amp; development</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="work/jasper-impens.html">Bekijk case<span class="btn__arrow" aria-hidden="true">→</span></a>
-                <a class="link" href="https://www.jasperimpens.be/" target="_blank" rel="noopener"
-                  >Bezoek de site<span class="btn__arrow" aria-hidden="true">↗</span></a
-                >
-              </div>
-            </div>
-          </div>
-        </article>
       </section>
 
       <section class="quote-marquee" aria-hidden="true" data-marquee data-marquee-duration="34">
@@ -406,131 +351,34 @@
         </div>
       </section>
 
-      <section class="section wrap" id="services">
-        <div class="services__head">
+      <section class="section wrap rule" id="services">
+        <div class="teaser-head">
           <h2 class="display h-lg" data-split>Bouwen &amp; adviseren.</h2>
         </div>
-
-        <div class="svc-group grid">
-          <div class="svc-group__label">
-            <span class="byte">00000001</span>
-            <h3 class="mono">Creatie</h3>
+        <div class="services-teaser grid">
+          <div class="services-teaser__col" data-bin="01000011" data-reveal>
+            <h3 class="mono">00000001 &middot; Creatie</h3>
+            <p>Merksites, webshops en marketingsites: ontworpen en gebouwd, niet in elkaar geklikt.</p>
+            <ul class="tags">
+              <li class="tag">Websites</li>
+              <li class="tag">Webshops</li>
+              <li class="tag">CMS</li>
+              <li class="tag">SEO &amp; performance</li>
+            </ul>
           </div>
-          <div class="svc-group__items">
-            <article class="svc-showcase">
-              <div class="svc-showcase__head">
-                <h4 class="svc-showcase__name" data-split>Websites</h4>
-                <p class="svc-showcase__desc" data-reveal>
-                  Merksites en marketingsites die snel laden, goed vindbaar zijn en die je zelf eenvoudig beheert.
-                </p>
-              </div>
-              <div class="svc-showcase__cases">
-                <a class="svc-showcase__case" href="work/keikoku.html" data-reveal>
-                  <div class="svc-showcase__media">
-                    <img src="assets/Keikuko/Cover_keikuko.png" alt="" loading="lazy" decoding="async" width="2992" height="1632" />
-                  </div>
-                  <div class="svc-showcase__meta">
-                    <span class="byte svc-showcase__idx">01</span>
-                    <span class="svc-showcase__case-name">Keikoku Atelier</span>
-                    <span class="mono muted">Website</span>
-                  </div>
-                </a>
-                <a class="svc-showcase__case" href="work/jasper-impens.html" data-reveal>
-                  <div class="svc-showcase__media">
-                    <img src="assets/Jasper-site/Cover_portfolio.png" alt="" loading="lazy" decoding="async" width="3024" height="1660" />
-                  </div>
-                  <div class="svc-showcase__meta">
-                    <span class="byte svc-showcase__idx">02</span>
-                    <span class="svc-showcase__case-name">Jasper Impens</span>
-                    <span class="mono muted">Portfolio</span>
-                  </div>
-                </a>
-              </div>
-              <ul class="tags svc-showcase__tags">
-                <li class="tag">Merksites</li>
-                <li class="tag">CMS</li>
-                <li class="tag">SEO &amp; performance</li>
-                <li class="tag">Portfolio's</li>
-              </ul>
-            </article>
-            <article class="svc-showcase">
-              <div class="svc-showcase__head">
-                <h4 class="svc-showcase__name" data-split>Webshops</h4>
-                <p class="svc-showcase__desc" data-reveal>
-                  Volledige webshops met productbeheer, mandje en betaling, gebouwd om te passen bij het merk.
-                </p>
-              </div>
-              <div class="svc-showcase__cases">
-                <a class="svc-showcase__case" href="work/specter.html" data-reveal>
-                  <div class="svc-showcase__media">
-                    <img src="assets/Specter/Cover_specter.png" alt="" loading="lazy" decoding="async" width="2994" height="1638" />
-                  </div>
-                  <div class="svc-showcase__meta">
-                    <span class="byte svc-showcase__idx">01</span>
-                    <span class="svc-showcase__case-name">Specter</span>
-                    <span class="mono muted">Tailoring</span>
-                  </div>
-                </a>
-                <a class="svc-showcase__case" href="work/studio-klei.html" data-reveal>
-                  <div class="svc-showcase__media">
-                    <img src="assets/StudioKlei/Cover-Klei.png" alt="" loading="lazy" decoding="async" width="3024" height="1658" />
-                  </div>
-                  <div class="svc-showcase__meta">
-                    <span class="byte svc-showcase__idx">02</span>
-                    <span class="svc-showcase__case-name">Studio Klei</span>
-                    <span class="mono muted">Keramiek</span>
-                  </div>
-                </a>
-              </div>
-              <ul class="tags svc-showcase__tags">
-                <li class="tag">Productbeheer</li>
-                <li class="tag">Winkelmandje &amp; betaling</li>
-                <li class="tag">WordPress / WooCommerce</li>
-              </ul>
-            </article>
+          <div class="services-teaser__col" data-bin="01001011" data-reveal>
+            <h3 class="mono">00000010 &middot; Consultatie</h3>
+            <p>Advies over de software die je al gebruikt, en de AI-workflows die handwerk overnemen.</p>
+            <ul class="tags">
+              <li class="tag">Odoo</li>
+              <li class="tag">Softtouch</li>
+              <li class="tag">AI-workflows</li>
+              <li class="tag">Automatisatie</li>
+            </ul>
           </div>
         </div>
-        <div class="svc-group grid">
-          <div class="svc-group__label">
-            <span class="byte">00000010</span>
-            <h3 class="mono">Consultatie</h3>
-          </div>
-          <div class="svc-group__items">
-            <details class="svc" name="services">
-              <summary>
-                <span class="svc__name">Software</span>
-                <span class="svc__toggle" aria-hidden="true"></span>
-              </summary>
-              <div class="svc__body">
-                <p class="svc__desc">
-                  We kiezen, leveren en configureren de juiste pakketten, zodat ze passen bij je processen.
-                </p>
-                <ul class="tags">
-                  <li class="tag">Odoo</li>
-                  <li class="tag">Softtouch</li>
-                  <li class="tag">Licenties</li>
-                  <li class="tag">Implementatie</li>
-                </ul>
-              </div>
-            </details>
-            <details class="svc" name="services">
-              <summary>
-                <span class="svc__name">AI-workflows</span>
-                <span class="svc__toggle" aria-hidden="true"></span>
-              </summary>
-              <div class="svc__body">
-                <p class="svc__desc">
-                  We brengen repetitief werk in kaart en automatiseren het met AI, veilig en meetbaar.
-                </p>
-                <ul class="tags">
-                  <li class="tag">Procesanalyse</li>
-                  <li class="tag">Automatisatie</li>
-                  <li class="tag">AI-assistenten</li>
-                  <li class="tag">Opleiding</li>
-                </ul>
-              </div>
-            </details>
-          </div>
+        <div class="teaser-foot">
+          <a class="link" href="diensten.html">Bekijk alle diensten<span class="btn__arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
       <section class="marquee" aria-label="Tools waar we mee werken" data-marquee>
@@ -557,87 +405,42 @@
           </ul>
         </div>
       </section>
-      <section class="section wrap" id="process">
-        <div class="process grid">
-          <div class="process__head">
-            <h2 class="display h-md" data-split>Van eerste schets tot livegang.</h2>
-          </div>
-          <ol class="process__list">
-            <li class="step" data-reveal>
-              <span class="step__bin" aria-hidden="true">00</span>
-              <div>
-                <h3 class="step__name">Verkennen</h3>
-                <p class="step__desc">
-                  We leren je bedrijf, je gebruikers en je processen kennen voor we iets tekenen.
-                </p>
-              </div>
-            </li>
-            <li class="step" data-reveal>
-              <span class="step__bin" aria-hidden="true">01</span>
-              <div>
-                <h3 class="step__name">Ontwerpen</h3>
-                <p class="step__desc">Wireframes en design in korte rondes, met jou mee aan tafel.</p>
-              </div>
-            </li>
-            <li class="step" data-reveal>
-              <span class="step__bin" aria-hidden="true">10</span>
-              <div>
-                <h3 class="step__name">Bouwen</h3>
-                <p class="step__desc">Snelle, toegankelijke code, of de juiste software correct ingericht.</p>
-              </div>
-            </li>
-            <li class="step" data-reveal>
-              <span class="step__bin" aria-hidden="true">11</span>
-              <div>
-                <h3 class="step__name">Verbeteren</h3>
-                <p class="step__desc">Na livegang meten we, sturen we bij en automatiseren we wat nog handwerk is.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
       <section class="section wrap rule" id="studio">
-        <h2 class="display h-xl studio__title" data-split>2 mensen. 8 bits. Eén studio.</h2>
-
-        <div class="studio__grid grid">
-          <p class="studio__body" data-reveal>
-            De naam telt op: twee makers, acht bits per byte. Je werkt altijd rechtstreeks met ons, van eerste gesprek
-            tot oplevering.
+        <div class="teaser-head">
+          <h2 class="display h-lg" data-split>2 mensen. 8 bits.</h2>
+        </div>
+        <div class="studio-teaser">
+          <div class="studio-teaser__cards">
+            <div class="studio-teaser__card" data-reveal>
+              <div class="studio-teaser__media studio-teaser__media--placeholder" aria-hidden="true">
+                <span class="studio-teaser__initial">F</span>
+              </div>
+              <strong class="studio-teaser__name">Florian</strong>
+              <span class="studio-teaser__role">Design &amp; front-end</span>
+            </div>
+            <div class="studio-teaser__card" data-reveal>
+              <div class="studio-teaser__media">
+                <img
+                  src="assets/Studio/jasper.jpeg"
+                  alt="Jasper"
+                  loading="lazy"
+                  decoding="async"
+                  width="1122"
+                  height="1402"
+                  data-parallax
+                />
+              </div>
+              <strong class="studio-teaser__name">Jasper</strong>
+              <span class="studio-teaser__role">Development &amp; consultancy</span>
+            </div>
+          </div>
+          <p class="studio-teaser__text" data-reveal>
+            Florian &amp; Jasper. Twee makers, acht bits per byte. Je werkt altijd rechtstreeks met ons, nooit via
+            een account-manager ertussen.
           </p>
-          <article class="person" data-reveal>
-            <div class="person__media">
-              <img
-                src="https://picsum.photos/seed/2x8-florian/900/1200?grayscale"
-                alt="Florian"
-                loading="lazy"
-                decoding="async"
-                width="900"
-                height="1200"
-                data-parallax
-              />
-            </div>
-            <div class="person__meta">
-              <h3 class="person__name">Florian</h3>
-              <span class="mono muted">Design &amp; front-end</span>
-            </div>
-          </article>
-          <article class="person" data-reveal>
-            <div class="person__media">
-              <img
-                src="https://www.jasperimpens.be/assets/jasper/about/About-1.jpeg"
-                alt="Jasper"
-                loading="lazy"
-                decoding="async"
-                width="900"
-                height="1200"
-                data-parallax
-              />
-            </div>
-            <div class="person__meta">
-              <h3 class="person__name">Jasper</h3>
-              <span class="mono muted">Development &amp; consultancy</span>
-            </div>
-          </article>
+        </div>
+        <div class="teaser-foot">
+          <a class="link" href="studio.html">Ontmoet de studio<span class="btn__arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
       <section class="contact theme-ink" id="contact" data-theme-ink>
@@ -655,8 +458,10 @@
           <div class="wrap">
             <div class="footer__bar">
               <ul class="footer__links mono">
-                <li><a href="#work">Werk</a></li>
-                <li><a href="#services">Diensten</a></li>
+                <li><a href="werk.html">Werk</a></li>
+                <li><a href="diensten.html">Diensten</a></li>
+                <li><a href="studio.html">Studio</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a href="https://www.linkedin.com/" rel="noopener" target="_blank">LinkedIn</a></li>
                 <li><a href="https://www.instagram.com/" rel="noopener" target="_blank">Instagram</a></li>
               </ul>

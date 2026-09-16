@@ -92,6 +92,33 @@
       ease: 'none',
       scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true },
     });
+
+    // Cursor parallax on the glyphs, each drifting a little further than the last. Translate only,
+    // same brand rule as above: never rotate or distort the mark.
+    if (finePointer) {
+      var xTos = glyphs.map(function (g) {
+        return gsap.quickTo(g, 'x', { duration: 0.9, ease: 'power3' });
+      });
+      var yTos = glyphs.map(function (g) {
+        return gsap.quickTo(g, 'y', { duration: 0.9, ease: 'power3' });
+      });
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        glyphs.forEach(function (g, i) {
+          var depth = (i + 1) * 6;
+          xTos[i](px * depth);
+          yTos[i](py * depth * 0.6);
+        });
+      });
+      hero.addEventListener('pointerleave', function () {
+        glyphs.forEach(function (g, i) {
+          xTos[i](0);
+          yTos[i](0);
+        });
+      });
+    }
   }
 
   /* ---------------------------------------------------------------- */
