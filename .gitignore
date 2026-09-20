@@ -3,3 +3,8 @@
 # Raw screen recordings — huge (100MB+), some exceed GitHub's hard limit.
 # The site only references the compressed *-web.mp4 derivatives in assets/.
 *.mov
+
+# Mailconfiguratie met de Brevo-sleutel. De echte hoort buiten de docroot
+# (~/2x8-mail-config.php op de server), nooit hier.
+2x8-mail-config.php
+2x8-mail.log
