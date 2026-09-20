@@ -560,6 +560,30 @@
   }
 
   /* ---------------------------------------------------------------- */
+  /* Proof panels: the live site looks back at your cursor             */
+  /* ---------------------------------------------------------------- */
+  function proofPanels() {
+    if (reduce || !finePointer) return;
+    $$('.proof-panel').forEach(function (panel) {
+      var img = $('.proof-panel__frame img', panel);
+      if (!img) return;
+      var xTo = gsap.quickTo(img, 'xPercent', { duration: 0.7, ease: 'power3' });
+      var yTo = gsap.quickTo(img, 'yPercent', { duration: 0.7, ease: 'power3' });
+      panel.addEventListener('pointermove', function (e) {
+        var r = panel.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        xTo(px * -4);
+        yTo(py * -4);
+      });
+      panel.addEventListener('pointerleave', function () {
+        xTo(0);
+        yTo(0);
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
   /* Magnetic CTAs                                                     */
   /* ---------------------------------------------------------------- */
   function magnetic() {
@@ -587,6 +611,7 @@
   document.fonts.ready.then(function () {
     textReveals();
     marquee();
+    proofPanels();
     caseReels();
     nav();
     menu();

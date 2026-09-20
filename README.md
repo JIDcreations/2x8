@@ -3,7 +3,7 @@
 Plain HTML, CSS and JS. Double-click `index.html` to open it, or drag this folder onto Netlify.
 
 ## Files
-- `index.html`: homepage (NL) — hero, proof strip, a one-line-per-project work index, condensed
+- `index.html`: homepage (NL) — hero, a one-line-per-project work index, condensed
   service/studio teasers, and a contact CTA. Full depth lives on its own page (see below); the homepage
   never repeats a case's cover image more than once.
 - `werk.html`, `diensten.html`, `studio.html`, `contact.html`: the full version of each of those
@@ -14,6 +14,13 @@ Plain HTML, CSS and JS. Double-click `index.html` to open it, or drag this folde
 - `assets/`: real project cover images and screen-recording videos, one folder per project; `assets/Studio/`
   holds founder portraits
 - `info/`: brand guide (standalone, not linked from the pages)
+- `backup/`: frozen copy of the site as it stood on 2026-09-20, served at `/backup/`. Kept out of
+  search results by `robots.txt` (`Disallow: /backup/`), a `noindex, nofollow` meta tag on every page
+  in it, and an `X-Robots-Tag` header via `_headers` (Netlify). Its HTML/CSS/JS are its own copies;
+  it shares `assets/` with the live site through absolute `/assets/...` paths. Don't edit it.
+
+The work grid on the homepage widens the tile you hover and narrows its row neighbour
+(`.cases__grid` is a wrapping flex row, not a grid, so flex-grow can animate per row).
 
 ## Studio page
 Florian and Jasper get the exact same card: same media box size, same baseline, no offset — that's

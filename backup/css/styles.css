@@ -572,6 +572,142 @@ button {
   }
 }
 
+/* ---------- Proof strip: the 3 top projects, right under the hero ---------- */
+/* Browser-chrome panels that expand on hover, one live site at a time */
+.proof-strip__label {
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+.proof-panels {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(12px, 1.6vw, 20px);
+  height: clamp(300px, 34vw, 440px);
+}
+.proof-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: #111;
+  transition: flex-grow 0.6s var(--ease);
+}
+.proof-panel--feature {
+  flex-grow: 1.25;
+}
+.proof-panels:has(.proof-panel:hover) .proof-panel,
+.proof-panels:has(.proof-panel:focus-within) .proof-panel {
+  flex-grow: 0.55;
+}
+.proof-panel:hover,
+.proof-panel:focus-within {
+  flex-grow: 2.6 !important;
+}
+.proof-panel__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  padding: 10px 12px;
+  background: #1a1a1a;
+  border-bottom: 1px solid rgb(250 251 252 / 0.1);
+}
+.proof-panel__dots {
+  display: flex;
+  gap: 5px;
+  flex: none;
+}
+.proof-panel__dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(250 251 252 / 0.25);
+}
+.proof-panel__url {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ash-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.proof-panel__frame {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+.proof-panel__frame img {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(0.25) contrast(1.03);
+  transition: filter 0.5s var(--ease);
+  will-change: transform;
+}
+.proof-panel:hover .proof-panel__frame img,
+.proof-panel:focus-within .proof-panel__frame img {
+  filter: grayscale(0) contrast(1);
+}
+.proof-panel__caption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 9px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+.proof-panel:hover .proof-panel__caption,
+.proof-panel:focus-within .proof-panel__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 767px) {
+  .proof-panels {
+    flex-direction: column;
+    height: auto;
+  }
+  .proof-panel,
+  .proof-panel--feature {
+    flex: none;
+    height: 220px;
+  }
+  .proof-panels:has(.proof-panel:hover) .proof-panel,
+  .proof-panel:hover,
+  .proof-panel:focus-within {
+    flex-grow: 0 !important;
+  }
+  .proof-panel__caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .proof-panel {
+    transition: none;
+  }
+  .proof-panel__caption {
+    transition: none;
+  }
+}
+
 /* ---------- Intro ---------- */
 .intro {
   row-gap: 40px;
@@ -836,30 +972,17 @@ button {
 .cases__head-lede {
   max-width: 34ch;
 }
-/* Two per row, but as a wrapping flex row so a hovered tile can widen and its
-   row neighbour give way — the same move the old proof strip made. */
 .cases__grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(20px, 2.4vw, 32px);
 }
 .case-tile {
   display: flex;
   flex-direction: column;
-  flex: 1 1 36%;
-  min-width: 0;
   border: 1px solid var(--line-strong);
   background: var(--paper);
   color: var(--ink);
-  transition: flex-grow 0.6s var(--ease);
-}
-.cases__grid:has(.case-tile:hover) .case-tile,
-.cases__grid:has(.case-tile:focus-within) .case-tile {
-  flex-grow: 0.45;
-}
-.case-tile:hover,
-.case-tile:focus-within {
-  flex-grow: 3 !important;
 }
 .case-tile__bar {
   display: flex;
@@ -935,13 +1058,8 @@ button {
   border-top: 1px solid var(--line);
 }
 @media (max-width: 767px) {
-  .case-tile,
-  .cases__grid:has(.case-tile:hover) .case-tile,
-  .case-tile:hover,
-  .case-tile:focus-within {
-    flex: none;
-    width: 100%;
-    flex-grow: 0 !important;
+  .cases__grid {
+    grid-template-columns: 1fr;
   }
   .case-tile__bar {
     flex-wrap: wrap;
