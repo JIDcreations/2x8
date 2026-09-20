@@ -458,9 +458,12 @@
     if (reduce) return;
     $$('[data-marquee]').forEach(function (el) {
       var track = $('[data-marquee-track]', el);
-      var duration = Number(el.getAttribute('data-marquee-duration')) || 40;
+      // Rustig, vast tempo. De band liep vroeger mee met de scrollsnelheid van
+      // Lenis; nu schuift ze gewoon door, wat je ook doet.
+      var duration = Number(el.getAttribute('data-marquee-duration')) || 80;
       var loop = gsap.to(track, { xPercent: -50, ease: 'none', duration: duration, repeat: -1 });
 
+      // Buiten beeld stilzetten scheelt werk en ziet niemand.
       ScrollTrigger.create({
         trigger: el,
         start: 'top bottom',
@@ -468,11 +471,33 @@
         onToggle: function (self) { self.isActive ? loop.play() : loop.pause(); },
       });
 
-      gsap.ticker.add(function () {
-        var v = lenis ? Math.abs(lenis.velocity) : 0;
-        var target = 1 + Math.min(v * 0.35, 6);
-        loop.timeScale(gsap.utils.interpolate(loop.timeScale(), target, 0.08));
+      // Hover houdt de band tegen, zodat je de namen kunt lezen. Uitlopen in
+      // plaats van blokkeren, anders schokt ze.
+      //
+      // De tijdschaal loopt via een los object: `gsap.to(loop, {timeScale: 0})`
+      // zet op een tween een gelijknamige property náást de methode, en de
+      // animatie trekt zich daar niets van aan. Via onUpdate de setter
+      // aanroepen doet wel wat het zegt.
+      var speed = { v: 1 };
+      var glide = function (to) {
+        gsap.to(speed, {
+          v: to,
+          duration: to === 0 ? 0.6 : 0.9,
+          ease: 'power2.out',
+          overwrite: true,
+          onUpdate: function () { loop.timeScale(speed.v); },
+        });
+      };
+
+      el.addEventListener('pointerenter', function (e) {
+        // De media query hier uitlezen in plaats van bij het laden: of er een
+        // muis is, weet de browser soms pas na de eerste beweging. Een vinger
+        // mag de band niet stilzetten.
+        if (e.pointerType === 'touch' || !window.matchMedia('(hover: hover)').matches) return;
+        glide(0);
       });
+      el.addEventListener('pointerleave', function () { glide(1); });
+      el.addEventListener('pointercancel', function () { glide(1); });
     });
   }
 
@@ -580,6 +605,103 @@
   }
 
   /* ---------------------------------------------------------------- */
+  /* Contactformulier: verstuurt via fetch, valt terug op een gewone   */
+  /* POST als JS niet draait.                                          */
+  /* ---------------------------------------------------------------- */
+  function contactForm() {
+    var form = $('[data-cform]');
+    if (!form) return;
+
+    var status = $('[data-cform-status]', form);
+    var submit = $('[data-cform-submit]', form);
+    var elapsed = $('[data-cform-elapsed]', form);
+    var started = 0;
+
+    // Duur sinds de eerste echte interactie; de server gebruikt ze om bots te
+    // herkennen die het formulier in een oogwenk invullen.
+    form.addEventListener('input', function () {
+      if (!started) started = Date.now();
+      if (elapsed) elapsed.value = String(Date.now() - started);
+    });
+
+    function clearErrors() {
+      $$('[data-error-for]', form).forEach(function (el) {
+        el.hidden = true;
+        el.textContent = '';
+      });
+      $$('.field__input', form).forEach(function (el) { el.removeAttribute('aria-invalid'); });
+    }
+
+    function showErrors(errors) {
+      var first = null;
+      Object.keys(errors || {}).forEach(function (name) {
+        var slot = $('[data-error-for="' + name + '"]', form);
+        var input = form.elements[name];
+        if (slot) {
+          slot.textContent = errors[name];
+          slot.hidden = false;
+        }
+        if (input) {
+          input.setAttribute('aria-invalid', 'true');
+          if (!first) first = input;
+        }
+      });
+      if (first) first.focus();
+    }
+
+    function setStatus(message, ok) {
+      if (!status) return;
+      status.textContent = message;
+      status.className = 'cform__status ' + (ok ? 'cform__status--ok' : 'cform__status--fail');
+      status.hidden = false;
+    }
+
+    form.addEventListener('submit', function (e) {
+      if (!window.fetch || !window.FormData) return; // laat de browser het gewoon posten
+      e.preventDefault();
+      clearErrors();
+
+      submit.disabled = true;
+      var label = submit.querySelector('span');
+      var original = label ? label.textContent : '';
+      if (label) label.textContent = 'Versturen…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json', 'X-Requested-With': 'fetch' }
+      })
+        .then(function (r) { return r.json().catch(function () { return { ok: false, message: '' }; }); })
+        .then(function (data) {
+          if (data.ok) {
+            form.reset();
+            started = 0;
+            if (elapsed) elapsed.value = '';
+            setStatus(data.message || 'Bedankt, je bericht is verstuurd.', true);
+            return;
+          }
+          showErrors(data.errors);
+          setStatus(data.message || 'Er ging iets mis. Probeer het nog eens.', false);
+        })
+        .catch(function () {
+          setStatus('Er ging iets mis met de verbinding. Mail ons gerust op hello@2x8.be.', false);
+        })
+        .then(function () {
+          submit.disabled = false;
+          if (label) label.textContent = original;
+        });
+    });
+
+    // Terugkomen van de no-JS redirect: toon dezelfde melding.
+    var params = new URLSearchParams(location.search);
+    if (params.has('verzonden')) {
+      setStatus('Bedankt! Je bericht is verstuurd, je bevestiging staat in je mailbox.', true);
+    } else if (params.has('fout')) {
+      setStatus('Het versturen lukte niet. Mail ons gerust op hello@2x8.be.', false);
+    }
+  }
+
+  /* ---------------------------------------------------------------- */
   /* Boot                                                              */
   /* ---------------------------------------------------------------- */
   initScroll();
@@ -597,6 +719,7 @@
     fakeFinder();
     serviceTabs();
     counters();
+    contactForm();
 
     // Arriving from a case page on "index.html#work": jump to the section
     if (location.hash && lenis) {

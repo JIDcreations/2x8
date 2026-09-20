@@ -3,18 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>2X8 | Digitale interfaces, gebouwd én bewezen</title>
+    <title data-i18n="meta.title">2X8 | Digitale interfaces, gebouwd én bewezen</title>
     <meta
       name="description"
+      data-i18n-attr="content:meta.description"
       content="2X8 is de studio van Florian en Jasper. We bouwen websites en webshops en adviseren over software zoals Odoo en Softtouch en AI-workflows."
     />
     <link rel="canonical" href="https://2x8.be/" />
+    <link rel="alternate" hreflang="nl" href="https://2x8.be/" />
+    <link rel="alternate" hreflang="fr" href="https://2x8.be/fr/" />
+    <link rel="alternate" hreflang="en" href="https://2x8.be/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://2x8.be/" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="theme-color" content="#0A0A0A" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="2X8 | Digitale interfaces, gebouwd én bewezen" />
+    <meta property="og:title" data-i18n-attr="content:meta.title" content="2X8 | Digitale interfaces, gebouwd én bewezen" />
     <meta
       property="og:description"
+      data-i18n-attr="content:meta.description"
       content="2X8 is de studio van Florian en Jasper. We bouwen websites en webshops en adviseren over software zoals Odoo en Softtouch en AI-workflows."
     />
     <meta property="og:url" content="https://2x8.be/" />
@@ -31,10 +37,19 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
     />
-    <link rel="stylesheet" href="css/styles.css?v=6" />
+    <link rel="stylesheet" href="css/styles.css?v=11" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L8GZKB8CKW');
+    </script>
   </head>
   <body>
-    <a class="skip" href="#main">Naar inhoud</a>
+    <a class="skip" href="#main" data-i18n="nav.skip">Naar inhoud</a>
 
     <div class="loader" data-loader aria-hidden="true">
       <div class="loader__row">
@@ -95,33 +110,40 @@
           </g>
         </svg></a>
 
-      <nav aria-label="Hoofdmenu">
+      <nav aria-label="Hoofdmenu" data-i18n-attr="aria-label:nav.menuLabel">
         <ul class="nav__links">
-          <li><a href="/werk">Werk</a></li>
-          <li><a href="/diensten">Diensten</a></li>
-          <li><a href="/studio">Studio</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/werk" data-i18n="nav.work">Werk</a></li>
+          <li><a href="/diensten" data-i18n="nav.services">Diensten</a></li>
+          <li><a href="/studio" data-i18n="nav.studio">Studio</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav__right">
-        <a class="btn btn--sm" href="/contact" data-magnetic>Start een project</a>
-        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
+        <nav class="langs" aria-label="Taal / Langue / Language">
+          <ul class="langs__list">
+          <li><a class="langs__link is-current" href="/" hreflang="nl" lang="nl" aria-current="true">NL</a></li>
+          <li><a class="langs__link" href="/fr/" hreflang="fr" lang="fr">FR</a></li>
+          <li><a class="langs__link" href="/en/" hreflang="en" lang="en">EN</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--sm" href="/contact" data-magnetic data-i18n="cta.start">Start een project</a>
+        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-open data-i18n="nav.open">
           Menu
         </button>
       </div>
     </header>
 
     <div class="menu theme-ink" id="menu" data-menu hidden>
-      <button class="menu__close" type="button" data-menu-close>Sluit</button>
+      <button class="menu__close" type="button" data-menu-close data-i18n="nav.close">Sluit</button>
       <ul class="menu__links">
-        <li><a href="/werk" data-menu-link><span>Werk</span></a></li>
-        <li><a href="/diensten" data-menu-link><span>Diensten</span></a></li>
-        <li><a href="/studio" data-menu-link><span>Studio</span></a></li>
-        <li><a href="/contact" data-menu-link><span>Contact</span></a></li>
+        <li><a href="/werk" data-menu-link><span data-i18n="nav.work">Werk</span></a></li>
+        <li><a href="/diensten" data-menu-link><span data-i18n="nav.services">Diensten</span></a></li>
+        <li><a href="/studio" data-menu-link><span data-i18n="nav.studio">Studio</span></a></li>
+        <li><a href="/contact" data-menu-link><span data-i18n="nav.contact">Contact</span></a></li>
       </ul>
       <div class="menu__foot">
-        <a class="link" href="mailto:hallo@2x8.be">hallo@2x8.be</a>
+        <a class="link" href="mailto:hello@2x8.be">hello@2x8.be</a>
       </div>
     </div>
 
@@ -129,14 +151,14 @@
       <section class="hero" data-hero>
         <div class="wrap">
           <h1 class="hero__title display" data-hero-title>
-            Digitale interfaces, <br class="br" />gebouwd én bewezen<span class="cursor" aria-hidden="true"></span>
+            <span data-i18n-html="hero.title">Digitale interfaces, <br class="br" />gebouwd én bewezen</span><span class="cursor" aria-hidden="true"></span>
           </h1>
 
           <div class="hero__row grid">
             <div class="hero__cta" data-hero-fade>
-              <a class="link" href="#work">Bekijk werk<span class="btn__arrow" aria-hidden="true">↓</span></a>
+              <a class="link" href="#work"><span data-i18n="hero.seeWork">Bekijk werk</span><span class="btn__arrow" aria-hidden="true">↓</span></a>
               <a class="btn" href="/contact" data-magnetic
-                >Start een project<span class="btn__arrow" aria-hidden="true">→</span></a
+                ><span data-i18n="cta.start">Start een project</span><span class="btn__arrow" aria-hidden="true">→</span></a
               >
             </div>
           </div>
@@ -173,7 +195,7 @@
       <section class="section wrap rule">
         <div class="intro grid">
           <span class="byte" aria-hidden="true">00000010 × 00001000</span>
-          <p class="intro__text" data-words>
+          <p class="intro__text" data-words data-i18n="intro.text">
             Klein team, volledig pakket. We ontwerpen en bouwen interfaces waar mensen graag mee werken, en we richten
             de software in die erachter draait.
           </p>
@@ -182,20 +204,20 @@
 
       <section class="cases rule" id="work">
         <div class="wrap cases__head">
-          <h2 class="display h-lg cases__head-title" data-split>Werk.</h2>
+          <h2 class="display h-lg cases__head-title" data-split data-i18n="cases.title">Werk.</h2>
         </div>
 
         <div class="wrap cases__grid">
           <article class="case-tile" data-wipe-up>
             <div class="case-tile__bar">
-              <span class="mono case-tile__idx">01 / 04</span>
+              <span class="mono case-tile__idx">01 / 05</span>
               <h3 class="case-tile__name">Specter</h3>
-              <span class="tag">Webshop</span>
+              <span class="tag" data-i18n="tag.webshop">Webshop</span>
             </div>
-            <a class="case-tile__media" href="/work/specter" aria-label="Specter, bekijk case">
+            <a class="case-tile__media" href="/work/specter" data-i18n-attr="aria-label:case.specter.aria" aria-label="Specter, bekijk case">
               <img
                 src="assets/Specter/Cover_specter.png"
-                alt="Specter, brutalistische tailoring webshop"
+                data-i18n-attr="alt:case.specter.alt" alt="Specter, brutalistische tailoring webshop"
                 loading="lazy"
                 decoding="async"
                 width="2994"
@@ -204,21 +226,21 @@
               <video data-hover-reel src="assets/Specter/specter-web.mp4" aria-hidden="true" muted loop playsinline preload="metadata"></video>
             </a>
             <div class="case-tile__foot">
-              <p class="case-tile__quote">&ldquo;Cut like architecture.&rdquo;</p>
-              <a class="link" href="/work/specter">Bekijk case<span class="btn__arrow" aria-hidden="true">→</span></a>
+              <p class="case-tile__quote" data-i18n-html="case.specter.quote">&ldquo;Cut like architecture.&rdquo;</p>
+              <a class="link" href="/work/specter"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
           <article class="case-tile" data-wipe-up>
             <div class="case-tile__bar">
-              <span class="mono case-tile__idx">02 / 04</span>
+              <span class="mono case-tile__idx">02 / 05</span>
               <h3 class="case-tile__name">Studio Klei</h3>
-              <span class="tag">Webshop</span>
+              <span class="tag" data-i18n="tag.webshop">Webshop</span>
             </div>
-            <a class="case-tile__media" href="/work/studio-klei" aria-label="Studio Klei, bekijk case">
+            <a class="case-tile__media" href="/work/studio-klei" data-i18n-attr="aria-label:case.studio-klei.aria" aria-label="Studio Klei, bekijk case">
               <img
                 src="assets/StudioKlei/Cover-Klei.png"
-                alt="Studio Klei, handgemaakt keramiek uit Gent"
+                data-i18n-attr="alt:case.studio-klei.alt" alt="Studio Klei, handgemaakt keramiek uit Gent"
                 loading="lazy"
                 decoding="async"
                 width="3024"
@@ -226,21 +248,21 @@
               />
             </a>
             <div class="case-tile__foot">
-              <p class="case-tile__quote">&ldquo;Keramiek voor elke dag.&rdquo;</p>
-              <a class="link" href="/work/studio-klei">Bekijk case<span class="btn__arrow" aria-hidden="true">→</span></a>
+              <p class="case-tile__quote" data-i18n-html="case.studio-klei.quote">&ldquo;Keramiek voor elke dag.&rdquo;</p>
+              <a class="link" href="/work/studio-klei"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
           <article class="case-tile" data-wipe-up>
             <div class="case-tile__bar">
-              <span class="mono case-tile__idx">03 / 04</span>
+              <span class="mono case-tile__idx">03 / 05</span>
               <h3 class="case-tile__name">Keikoku Atelier</h3>
-              <span class="tag">Website</span>
+              <span class="tag" data-i18n="tag.website">Website</span>
             </div>
-            <a class="case-tile__media" href="/work/keikoku" aria-label="Keikoku Atelier, bekijk case">
+            <a class="case-tile__media" href="/work/keikoku" data-i18n-attr="aria-label:case.keikoku.aria" aria-label="Keikoku Atelier, bekijk case">
               <img
                 src="assets/Keikuko/Cover_keikuko.png"
-                alt="Keikoku Atelier, architectuurstudio"
+                data-i18n-attr="alt:case.keikoku.alt" alt="Keikoku Atelier, architectuurstudio"
                 loading="lazy"
                 decoding="async"
                 width="2992"
@@ -249,21 +271,21 @@
               <video data-hover-reel src="assets/Keikuko/keikuko-web.mp4" aria-hidden="true" muted loop playsinline preload="metadata"></video>
             </a>
             <div class="case-tile__foot">
-              <p class="case-tile__quote">&ldquo;Restraint is the material we use most.&rdquo;</p>
-              <a class="link" href="/work/keikoku">Bekijk case<span class="btn__arrow" aria-hidden="true">→</span></a>
+              <p class="case-tile__quote" data-i18n-html="case.keikoku.quote">&ldquo;Restraint is the material we use most.&rdquo;</p>
+              <a class="link" href="/work/keikoku"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
           <article class="case-tile" data-wipe-up>
             <div class="case-tile__bar">
-              <span class="mono case-tile__idx">04 / 04</span>
+              <span class="mono case-tile__idx">04 / 05</span>
               <h3 class="case-tile__name">Jasper Impens</h3>
-              <span class="tag">Portfolio</span>
+              <span class="tag" data-i18n="tag.portfolio">Portfolio</span>
             </div>
-            <a class="case-tile__media" href="/work/jasper-impens" aria-label="Portfolio van Jasper Impens, bekijk case">
+            <a class="case-tile__media" href="/work/jasper-impens" data-i18n-attr="aria-label:case.jasper-impens.aria" aria-label="Portfolio van Jasper Impens, bekijk case">
               <img
                 src="assets/Jasper-site/Cover_portfolio.png"
-                alt="Portfolio van Jasper Impens"
+                data-i18n-attr="alt:case.jasper-impens.alt" alt="Portfolio van Jasper Impens"
                 loading="lazy"
                 decoding="async"
                 width="3024"
@@ -272,44 +294,67 @@
               <video data-hover-reel src="assets/Jasper-site/impens-web.mp4" aria-hidden="true" muted loop playsinline preload="metadata"></video>
             </a>
             <div class="case-tile__foot">
-              <p class="case-tile__quote">&ldquo;Everything worked out to the last detail, so it simply works.&rdquo;</p>
-              <a class="link" href="/work/jasper-impens">Bekijk case<span class="btn__arrow" aria-hidden="true">→</span></a>
+              <p class="case-tile__quote" data-i18n-html="case.jasper-impens.quote">&ldquo;Everything worked out to the last detail, so it simply works.&rdquo;</p>
+              <a class="link" href="/work/jasper-impens"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="case-tile" data-wipe-up>
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">05 / 05</span>
+              <h3 class="case-tile__name">Elevator Antwerp</h3>
+              <span class="tag" data-i18n="tag.website">Website</span>
+            </div>
+            <a class="case-tile__media" href="/work/elevator-antwerp" data-i18n-attr="aria-label:case.elevator-antwerp.aria" aria-label="Elevator Antwerp, bekijk case">
+              <img
+                src="assets/Elevator-Antwerp/Cover-elevator.png"
+                data-i18n-attr="alt:case.elevator-antwerp.alt"
+                alt="Elevator Antwerp, mobiele galerie voor hedendaagse kunst"
+                loading="lazy"
+                decoding="async"
+                width="1671"
+                height="941"
+              />
+            </a>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n-html="case.elevator-antwerp.quote">&ldquo;Telling stories with contemporary art.&rdquo;</p>
+              <a class="link" href="/work/elevator-antwerp"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
 
         <div class="wrap cases__foot">
-          <a class="btn" href="/werk" data-magnetic>Bekijk alle cases<span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn" href="/werk" data-magnetic><span data-i18n="cases.all">Bekijk alle cases</span><span class="btn__arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
 
       <!-- Tijdelijk verborgen op verzoek: haal het hidden-attribuut weg om "Blader zelf even mee" terug te zetten. -->
       <section class="lab rule" id="lab" hidden>
         <div class="wrap lab__head">
-          <h2 class="display h-lg" data-split>Blader zelf even mee.</h2>
+          <h2 class="display h-lg" data-split data-i18n="lab.title">Blader zelf even mee.</h2>
         </div>
 
         <div class="wrap">
           <div class="finder" data-finder>
             <div class="finder__bar">
               <div class="finder__dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="finder__path mono" data-finder-path>2X8 &rsaquo; Werk</div>
+              <div class="finder__path mono" data-finder-path data-i18n-html="lab.path">2X8 &rsaquo; Werk</div>
               <label class="finder__search">
-                <span class="sr-only">Zoek bestanden</span>
-                <input type="text" class="finder__search-input" placeholder="Zoek&hellip;" data-finder-search />
+                <span class="sr-only" data-i18n="lab.searchLabel">Zoek bestanden</span>
+                <input type="text" class="finder__search-input" data-i18n-attr="placeholder:lab.searchPlaceholder" placeholder="Zoek&hellip;" data-finder-search />
               </label>
             </div>
 
             <div class="finder__body">
-              <nav class="finder__sidebar" aria-label="Projecten">
-                <span class="mono muted finder__sidebar-label">Favorieten</span>
+              <nav class="finder__sidebar" data-i18n-attr="aria-label:lab.projects" aria-label="Projecten">
+                <span class="mono muted finder__sidebar-label" data-i18n="lab.favourites">Favorieten</span>
                 <ul class="finder__sidebar-list">
                   <li><button type="button" class="finder__sidebar-item is-active" data-finder-project="specter" aria-current="true">Specter</button></li>
                   <li><button type="button" class="finder__sidebar-item" data-finder-project="studio-klei">Studio Klei</button></li>
                   <li><button type="button" class="finder__sidebar-item" data-finder-project="keikoku">Keikoku Atelier</button></li>
                   <li><button type="button" class="finder__sidebar-item" data-finder-project="jasper-impens">Jasper Impens</button></li>
                 </ul>
-                <span class="mono muted finder__sidebar-label">Overig</span>
+                <span class="mono muted finder__sidebar-label" data-i18n="lab.other">Overig</span>
                 <ul class="finder__sidebar-list">
                   <li><button type="button" class="finder__sidebar-item" data-finder-project="readme">README.md</button></li>
                 </ul>
@@ -317,7 +362,7 @@
 
               <div class="finder__main">
                 <div class="finder__grid is-active" data-finder-grid="specter">
-                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Specter/Cover_specter.png" data-finder-alt="Specter, brutalistische tailoring webshop">
+                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Specter/Cover_specter.png" data-i18n-attr="data-finder-alt:case.specter.alt" data-finder-alt="Specter, brutalistische tailoring webshop">
                     <span class="finder__file-icon" aria-hidden="true"></span>
                     <span class="finder__file-name mono">Cover_specter.png</span>
                   </button>
@@ -327,23 +372,23 @@
                   </button>
                   <a class="finder__file finder__file--link" href="/work/specter">
                     <span class="finder__file-icon finder__file-icon--link" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">Bekijk-case.link</span>
+                    <span class="finder__file-name mono" data-i18n="lab.caseLink">Bekijk-case.link</span>
                   </a>
                 </div>
 
                 <div class="finder__grid" data-finder-grid="studio-klei">
-                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/StudioKlei/Cover-Klei.png" data-finder-alt="Studio Klei, handgemaakt keramiek uit Gent">
+                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/StudioKlei/Cover-Klei.png" data-i18n-attr="data-finder-alt:case.studio-klei.alt" data-finder-alt="Studio Klei, handgemaakt keramiek uit Gent">
                     <span class="finder__file-icon" aria-hidden="true"></span>
                     <span class="finder__file-name mono">Cover-Klei.png</span>
                   </button>
                   <a class="finder__file finder__file--link" href="/work/studio-klei">
                     <span class="finder__file-icon finder__file-icon--link" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">Bekijk-case.link</span>
+                    <span class="finder__file-name mono" data-i18n="lab.caseLink">Bekijk-case.link</span>
                   </a>
                 </div>
 
                 <div class="finder__grid" data-finder-grid="keikoku">
-                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Keikuko/Cover_keikuko.png" data-finder-alt="Keikoku Atelier, architectuurstudio">
+                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Keikuko/Cover_keikuko.png" data-i18n-attr="data-finder-alt:case.keikoku.alt" data-finder-alt="Keikoku Atelier, architectuurstudio">
                     <span class="finder__file-icon" aria-hidden="true"></span>
                     <span class="finder__file-name mono">Cover_keikuko.png</span>
                   </button>
@@ -353,12 +398,12 @@
                   </button>
                   <a class="finder__file finder__file--link" href="/work/keikoku">
                     <span class="finder__file-icon finder__file-icon--link" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">Bekijk-case.link</span>
+                    <span class="finder__file-name mono" data-i18n="lab.caseLink">Bekijk-case.link</span>
                   </a>
                 </div>
 
                 <div class="finder__grid" data-finder-grid="jasper-impens">
-                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Jasper-site/Cover_portfolio.png" data-finder-alt="Portfolio van Jasper Impens">
+                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Jasper-site/Cover_portfolio.png" data-i18n-attr="data-finder-alt:case.jasper-impens.alt" data-finder-alt="Portfolio van Jasper Impens">
                     <span class="finder__file-icon" aria-hidden="true"></span>
                     <span class="finder__file-name mono">Cover_portfolio.png</span>
                   </button>
@@ -368,30 +413,30 @@
                   </button>
                   <a class="finder__file finder__file--link" href="/work/jasper-impens">
                     <span class="finder__file-icon finder__file-icon--link" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">Bekijk-case.link</span>
+                    <span class="finder__file-name mono" data-i18n="lab.caseLink">Bekijk-case.link</span>
                   </a>
                 </div>
 
                 <div class="finder__grid" data-finder-grid="readme">
-                  <button type="button" class="finder__file" data-finder-preview="text" data-finder-text="2X8 &mdash; klein team, volledig pakket.&#10;&#10;Twee makers, acht bits per byte. Open een map om te bladeren, of mail hallo@2x8.be als je iets wil bouwen.">
+                  <button type="button" class="finder__file" data-finder-preview="text" data-i18n-attr="data-finder-text:lab.readme" data-finder-text="2X8 &mdash; klein team, volledig pakket.&#10;&#10;Twee makers, acht bits per byte. Open een map om te bladeren, of mail hello@2x8.be als je iets wil bouwen.">
                     <span class="finder__file-icon" aria-hidden="true"></span>
                     <span class="finder__file-name mono">README.md</span>
                   </button>
                 </div>
 
                 <div class="finder__preview" data-finder-preview-pane hidden>
-                  <button type="button" class="link finder__back" data-finder-back><span class="btn__arrow" aria-hidden="true">&larr;</span>Terug</button>
+                  <button type="button" class="link finder__back" data-finder-back><span class="btn__arrow" aria-hidden="true">&larr;</span><span data-i18n="lab.back">Terug</span></button>
                   <div class="finder__preview-body" data-finder-preview-body></div>
                 </div>
               </div>
             </div>
 
-            <div class="finder__status mono muted" data-finder-status aria-live="polite">3 items</div>
+            <div class="finder__status mono muted" data-finder-status aria-live="polite" data-i18n="lab.items">3 items</div>
           </div>
         </div>
       </section>
 
-      <section class="marquee" aria-label="Tools waar we mee werken" data-marquee>
+      <section class="marquee" aria-label="Tools waar we mee werken" data-i18n-attr="aria-label:marquee.label" data-marquee>
         <div class="marquee__track" data-marquee-track>
           <ul class="marquee__set">
             <li class="marquee__item">Odoo</li>
@@ -417,7 +462,7 @@
       </section>
       <section class="section wrap rule" id="studio">
         <div class="teaser-head">
-          <h2 class="display h-lg" data-split>2 mensen. 8 bits.</h2>
+          <h2 class="display h-lg" data-split data-i18n="studio.title">2 mensen. 8 bits.</h2>
         </div>
         <div class="studio-layout">
           <div class="studio-backdrop theme-ink" data-parallax-group>
@@ -435,9 +480,12 @@
                   />
                 </div>
                 <strong class="studio-portrait__name">Jasper</strong>
-                <span class="studio-portrait__role">Design &amp; front-end</span>
+                <span class="studio-portrait__role" data-i18n-html="studio.role.jasper">Design &amp; front-end</span>
               </div>
-              <span class="studio-x" aria-hidden="true">&times;</span>
+              <svg class="studio-x" viewBox="706 334 495 411" xmlns="http://www.w3.org/2000/svg"
+                   aria-hidden="true" focusable="false" fill="currentColor">
+                <path d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"></path>
+              </svg>
               <div class="studio-portrait studio-portrait--b" data-wipe-up data-parallax-y="1">
                 <div class="studio-portrait__media">
                   <img
@@ -451,7 +499,7 @@
                   />
                 </div>
                 <strong class="studio-portrait__name">Florian</strong>
-                <span class="studio-portrait__role">Development &amp; consultancy</span>
+                <span class="studio-portrait__role" data-i18n-html="studio.role.florian">Development &amp; consultancy</span>
               </div>
             </div>
           </div>
@@ -460,18 +508,18 @@
             <div class="studio-stats" data-counter>
               <div class="studio-stat">
                 <span class="studio-stat__num" data-count-to="2">0</span>
-                <span class="mono muted">Makers</span>
+                <span class="mono muted" data-i18n="studio.stat.makers">Makers</span>
               </div>
               <div class="studio-stat">
                 <span class="studio-stat__num" data-count-to="8">0</span>
-                <span class="mono muted">Bits per byte</span>
+                <span class="mono muted" data-i18n="studio.stat.bits">Bits per byte</span>
               </div>
               <div class="studio-stat">
                 <span class="studio-stat__num studio-stat__num--zero" data-count-to="0">0</span>
-                <span class="mono muted">Account-managers ertussen</span>
+                <span class="mono muted" data-i18n="studio.stat.managers">Account-managers ertussen</span>
               </div>
             </div>
-            <a class="link" href="/studio">Meer over ons<span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="link" href="/studio"><span data-i18n="studio.more">Meer over ons</span><span class="btn__arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
@@ -479,11 +527,11 @@
         <footer class="footer">
           <div class="wrap footer__top">
             <ul class="footer__links mono">
-              <li><a href="/werk">Werk</a></li>
-              <li><a href="/diensten">Diensten</a></li>
-              <li><a href="/studio">Studio</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="mailto:hallo@2x8.be">hallo@2x8.be</a></li>
+              <li><a href="/werk" data-i18n="nav.work">Werk</a></li>
+              <li><a href="/diensten" data-i18n="nav.services">Diensten</a></li>
+              <li><a href="/studio" data-i18n="nav.studio">Studio</a></li>
+              <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+              <li><a href="mailto:hello@2x8.be">hello@2x8.be</a></li>
               <li><a href="https://www.linkedin.com/" rel="noopener" target="_blank">LinkedIn</a></li>
               <li><a href="https://www.instagram.com/" rel="noopener" target="_blank">Instagram</a></li>
             </ul>
@@ -515,8 +563,8 @@
         </svg>
           </div>
           <div class="wrap footer__bottom">
-            <span class="mono muted">© 2026 2X8. Alle rechten voorbehouden.</span>
-            <a class="mono muted" href="/privacy">Privacybeleid</a>
+            <span class="mono muted" data-i18n="footer.rights">© 2026 2X8. Alle rechten voorbehouden.</span>
+            <a class="mono muted" href="/privacy" data-i18n="footer.privacy">Privacybeleid</a>
           </div>
         </footer>
       </section>
@@ -526,6 +574,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="js/main.js?v=4"></script>
+    <script src="js/main.js?v=11"></script>
   </body>
 </html>

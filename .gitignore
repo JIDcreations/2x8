@@ -8,3 +8,8 @@
 # (~/2x8-mail-config.php op de server), nooit hier.
 2x8-mail-config.php
 2x8-mail.log
+
+# Vertaalde pagina's: volledig gegenereerd door `node build.js` uit de
+# Nederlandse bron plus i18n/*.json. Niet met de hand bewerken, niet bewaren.
+/fr/
+/en/

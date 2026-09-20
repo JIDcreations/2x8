@@ -14,8 +14,9 @@
   --bg: var(--paper);
   --fg: var(--ink);
   --muted: var(--ash);
-  --line: rgb(10 10 10 / 0.14);
+  --line: var(--ink);
   --line-strong: var(--ink);
+  --wash: rgb(10 10 10 / 0.08);
 
   --font: 'Sora', system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
@@ -37,8 +38,9 @@
   --bg: var(--ink);
   --fg: var(--paper);
   --muted: var(--ash-2);
-  --line: rgb(250 251 252 / 0.16);
+  --line: var(--paper);
   --line-strong: var(--paper);
+  --wash: rgb(250 251 252 / 0.1);
   background: var(--bg);
   color: var(--fg);
   color-scheme: dark;
@@ -347,7 +349,7 @@ button {
   inset: 0;
   z-index: -1;
   background: var(--paper);
-  border-bottom: 1px solid rgb(10 10 10 / 0.1);
+  border-bottom: 1px solid var(--ink);
   transition: background-color 0.3s linear;
 }
 .nav--ink {
@@ -355,7 +357,7 @@ button {
 }
 .nav--ink::before {
   background: var(--ink);
-  border-bottom-color: rgb(250 251 252 / 0.12);
+  border-bottom-color: var(--paper);
 }
 .nav--hidden {
   transform: translateY(-100%);
@@ -477,8 +479,7 @@ button {
     grid-template-columns: 1fr auto;
   }
   .nav > nav,
-  .nav__right .btn,
-  .nav__right .lang {
+  .nav__right .btn {
     display: none;
   }
   .nav__burger {
@@ -1094,7 +1095,7 @@ button {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 1px solid rgb(250 251 252 / 0.5);
+  border: 1px solid var(--paper);
 }
 .finder__path {
   flex: 1;
@@ -1111,7 +1112,7 @@ button {
   height: 26px;
   padding-inline: 10px;
   background: rgb(250 251 252 / 0.1);
-  border: 1px solid rgb(250 251 252 / 0.3);
+  border: 1px solid var(--paper);
   color: var(--paper);
   font-family: var(--mono);
   font-size: 12px;
@@ -1156,7 +1157,7 @@ button {
   cursor: pointer;
 }
 .finder__sidebar-item:hover {
-  background: var(--line);
+  background: var(--wash);
 }
 .finder__sidebar-item.is-active {
   background: var(--ink);
@@ -1190,12 +1191,12 @@ button {
 .finder__file:hover,
 .finder__file:focus-visible {
   border-color: var(--line-strong);
-  background: var(--line);
+  background: var(--wash);
 }
 .finder__file-icon {
   width: 36px;
   height: 44px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--ink);
   clip-path: polygon(0 0, 65% 0, 100% 30%, 100% 100%, 0 100%);
   position: relative;
 }
@@ -1206,8 +1207,8 @@ button {
   right: 0;
   width: 35%;
   height: 30%;
-  border-left: 1.5px solid var(--ink);
-  border-bottom: 1.5px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
 }
 .finder__file-icon--link {
   clip-path: none;
@@ -1220,8 +1221,8 @@ button {
   margin: auto;
   width: 10px;
   height: 10px;
-  border-top: 1.5px solid var(--ink);
-  border-right: 1.5px solid var(--ink);
+  border-top: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
   transform: translate(-2px, 2px) rotate(45deg);
   border-left: none;
   border-bottom: none;
@@ -1297,7 +1298,9 @@ button {
 .marquee {
   overflow: hidden;
   padding-block: clamp(40px, 6vw, 96px);
-  border-bottom: 1px solid var(--line-strong);
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 1px solid var(--ink);
 }
 .marquee__track {
   display: flex;
@@ -1318,7 +1321,7 @@ button {
 }
 .marquee__item:nth-child(even) {
   color: transparent;
-  -webkit-text-stroke: 2px var(--ink);
+  -webkit-text-stroke: 2px var(--paper);
   /* Outline-letters verdragen de krappe tracking van de gevulde woorden niet:
      daar tekent de stroke elke botsing tussen twee letters uit. */
   letter-spacing: -0.01em;
@@ -1330,7 +1333,7 @@ button {
    af, zodat enkel het silhouet overblijft. */
 @supports (paint-order: stroke) {
   .marquee__item:nth-child(even) {
-    color: var(--paper);
+    color: var(--ink);
     paint-order: stroke fill;
     /* De vulling dekt de binnenste helft van de stroke af, dus dubbel zo dik
        tekenen om op dezelfde optische lijndikte uit te komen. */
@@ -1431,14 +1434,14 @@ button {
   z-index: 2;
   pointer-events: none;
   user-select: none;
-  font-family: var(--mono);
-  font-weight: 800;
-  font-size: clamp(1.75rem, 3vw, 3rem);
-  line-height: 1;
+  width: clamp(26px, 3vw, 42px);
+  height: auto;
+  /* De padding moet buiten de opgegeven breedte vallen, anders krimpt de X
+     mee en blijft het witte blokje leeg. */
+  box-sizing: content-box;
   color: var(--orange);
   background: var(--bg);
-  padding: 0 12px;
-  pointer-events: none;
+  padding: 14px;
 }
 .founder {
   grid-column: span 6;
@@ -1601,8 +1604,25 @@ button {
 .contact--page {
   padding-top: calc(var(--nav-h) + clamp(56px, 10vh, 112px));
 }
+.contact--page {
+  padding-bottom: clamp(64px, 9vw, 128px);
+}
 .contact--page .case-head__top {
   color: var(--muted);
+}
+.contact__alt {
+  margin-top: clamp(40px, 6vw, 72px);
+  padding-top: clamp(24px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.contact--page .contact__mail {
+  grid-column: auto;
+  justify-self: auto;
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
 }
 .contact__title {
   font-size: clamp(3.25rem, 12vw, 15rem);
@@ -1640,9 +1660,6 @@ button {
 }
 .contact__mail:hover::after {
   transform: scaleX(1);
-}
-.footer {
-  margin-top: clamp(96px, 12vw, 176px);
 }
 .footer__top {
   display: flex;
@@ -1855,15 +1872,16 @@ button {
 .studio-portraits--equal {
   align-items: center;
 }
+/* De X tussen de twee portretten is de x uit het logo, niet het teken &times;:
+   een deco-X op deze site is altijd die glyph. De SVG schaalt op breedte, dus
+   die sturen we in plaats van font-size. */
 .studio-x {
   flex: none;
   pointer-events: none;
   user-select: none;
-  font-family: var(--mono);
-  font-weight: 800;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  width: clamp(24px, 3vw, 40px);
+  height: auto;
   color: var(--orange);
-  line-height: 1;
 }
 .studio-portrait {
   width: clamp(180px, 20vw, 300px);
@@ -1936,7 +1954,7 @@ button {
 }
 .studio-stat {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: clamp(12px, 2vw, 20px);
   padding-block: clamp(10px, 1.6vw, 16px);
   border-top: 1px solid var(--line);
@@ -2129,4 +2147,412 @@ button {
   .js .hero__title {
     visibility: visible;
   }
+}
+
+/* ==========================================================================
+   Software-pagina's (/software/*) — tekstpagina's per pakket
+   Hergebruikt .wrap / .grid / .tag / .byte. Eigen prose- en FAQ-schaal,
+   want .case-block p is displaytekst en te groot voor lopende tekst.
+   ========================================================================== */
+.sw-head {
+  padding-top: calc(var(--nav-h) + clamp(40px, 8vh, 96px));
+}
+.sw-head__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--u);
+  margin-bottom: clamp(24px, 4vw, 48px);
+}
+.sw-head__kicker {
+  display: block;
+  margin-bottom: 12px;
+}
+.sw-head__title {
+  font-size: clamp(3rem, 9vw, 11rem);
+}
+.sw-head__summary {
+  margin-top: 24px;
+  font-size: clamp(1.2rem, 1.9vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
+  max-width: 34ch;
+}
+.sw-head__tags {
+  margin-top: clamp(32px, 5vw, 56px);
+  padding-top: 16px;
+  border-top: 1px solid var(--line-strong);
+}
+
+/* ---------- Tekstblokken ---------- */
+.sw-body {
+  padding-top: clamp(40px, 7vw, 96px);
+}
+.sw-block {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  padding-block: clamp(32px, 5vw, 64px);
+  border-top: 1px solid var(--line);
+  row-gap: 16px;
+}
+.sw-block:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.sw-block__label {
+  grid-column: 1 / span 3;
+  padding-top: 0.5em;
+  color: var(--muted);
+  align-self: start;
+}
+.sw-prose {
+  grid-column: 5 / -1;
+  max-width: 62ch;
+}
+.sw-prose > * + * {
+  margin-top: 1em;
+}
+.sw-prose h3 {
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 1.8em;
+}
+.sw-prose p,
+.sw-prose li {
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.6;
+}
+.sw-prose strong {
+  font-weight: 700;
+}
+.sw-prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.sw-prose a:hover {
+  color: var(--orange);
+}
+
+/* ---------- Opsomming met tellers ---------- */
+.sw-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.4em;
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  counter-reset: sw-i;
+}
+.sw-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--u);
+  padding: 16px 0;
+  background: var(--bg);
+}
+.sw-list li::before {
+  content: counter(sw-i, decimal-leading-zero);
+  counter-increment: sw-i;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 0.45em;
+}
+
+/* ---------- FAQ ---------- */
+.sw-faq-sec {
+  padding-block: clamp(64px, 10vw, 144px);
+}
+.sw-faq {
+  margin-top: clamp(32px, 5vw, 56px);
+  border-top: 1px solid var(--line-strong);
+}
+.sw-faq__item {
+  border-bottom: 1px solid var(--line);
+  interpolate-size: allow-keywords;
+}
+.sw-faq__item summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--u);
+  padding-block: clamp(18px, 2.4vw, 28px);
+  cursor: pointer;
+}
+.sw-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+.sw-faq__q {
+  font-size: clamp(1.1rem, 1.8vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
+  max-width: 46ch;
+  transition: transform 0.6s var(--ease);
+}
+.sw-faq__item summary:hover .sw-faq__q {
+  transform: translateX(clamp(4px, 0.8vw, 12px));
+}
+.sw-faq__toggle {
+  position: relative;
+  width: clamp(20px, 2vw, 28px);
+  aspect-ratio: 1;
+  flex: none;
+}
+.sw-faq__toggle::before,
+.sw-faq__toggle::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 2px;
+  margin-top: -1px;
+  background: currentColor;
+  transition:
+    transform 0.6s var(--ease),
+    background-color 0.3s;
+}
+.sw-faq__toggle::after {
+  transform: rotate(90deg);
+}
+.sw-faq__item summary:hover .sw-faq__toggle::before,
+.sw-faq__item summary:hover .sw-faq__toggle::after,
+.sw-faq__item[open] .sw-faq__toggle::before,
+.sw-faq__item[open] .sw-faq__toggle::after {
+  background: var(--orange);
+}
+.sw-faq__item[open] .sw-faq__toggle::after {
+  transform: rotate(0deg);
+}
+.sw-faq__item::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition:
+    block-size 0.7s var(--ease),
+    content-visibility 0.7s allow-discrete;
+}
+.sw-faq__item[open]::details-content {
+  block-size: auto;
+}
+.sw-faq__a {
+  padding-bottom: clamp(24px, 3vw, 40px);
+  max-width: 68ch;
+}
+.sw-faq__a > * + * {
+  margin-top: 0.9em;
+}
+.sw-faq__a p,
+.sw-faq__a li {
+  font-size: clamp(0.98rem, 1.15vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--fg);
+}
+.sw-faq__a ul {
+  padding-left: 1.2em;
+}
+
+/* ---------- Afsluiter ---------- */
+.sw-cta {
+  padding-block: clamp(48px, 7vw, 96px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--u);
+}
+.sw-cta__title {
+  font-size: clamp(1.8rem, 4vw, 3.6rem);
+  max-width: 24ch;
+}
+.sw-related {
+  padding-bottom: clamp(48px, 7vw, 96px);
+}
+.sw-related__label {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.sw-related__links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+@media (max-width: 860px) {
+  .sw-block {
+    display: block;
+  }
+  .sw-block__label {
+    margin-bottom: 12px;
+    padding-top: 0;
+  }
+  .sw-prose {
+    max-width: none;
+  }
+}
+
+/* ---------- Contactformulier ---------- */
+.cform {
+  margin-top: clamp(32px, 5vw, 64px);
+}
+.contact--page .cform {
+  max-width: 50%;
+}
+@media (max-width: 900px) {
+  .contact--page .cform {
+    max-width: none;
+  }
+}
+.cform__lede {
+  margin-top: 16px;
+  max-width: 46ch;
+}
+.cform__form {
+  margin-top: clamp(32px, 4vw, 56px);
+}
+/* Buiten beeld in plaats van display:none — een bot die CSS negeert vult hem
+   alsnog in, en dat is precies de bedoeling. */
+.cform__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.cform__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--u) clamp(16px, 2.4vw, 32px);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.field--wide {
+  grid-column: 1 / -1;
+}
+.field__label {
+  color: var(--muted);
+}
+.field__input {
+  font: inherit;
+  font-size: 16px;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 14px 16px;
+  width: 100%;
+  transition:
+    border-color 0.3s var(--ease),
+    background-color 0.3s var(--ease);
+}
+.field__input:hover {
+  background: var(--wash);
+}
+.field__input:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+.field__input--area {
+  resize: vertical;
+  min-height: 160px;
+}
+.field__input--select {
+  appearance: none;
+  /* Eigen pijl: de systeempijl breekt de vlakke, radiusloze look. */
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% + 2px), calc(100% - 14px) calc(50% + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 44px;
+}
+.field__input[aria-invalid='true'] {
+  border-color: var(--orange);
+}
+.field__error {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--orange);
+}
+.cform__foot {
+  margin-top: clamp(24px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 32px);
+  flex-wrap: wrap;
+}
+.cform__note {
+  max-width: 34ch;
+}
+.cform__status {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  font-size: 15px;
+}
+.cform__status--ok {
+  border-color: var(--line);
+  background: var(--wash);
+}
+.cform__status--fail {
+  border-color: var(--orange);
+}
+[data-cform-submit][disabled] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+@media (max-width: 760px) {
+  .cform__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Taalwisselaar ---------- */
+/* Staat in de bovenbalk en blijft ook op mobiel staan. De build zet de links
+   per pagina vast, dus wisselen houdt je op dezelfde pagina. */
+.langs__list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.langs__link {
+  position: relative;
+  display: block;
+  padding: 4px 7px;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+}
+.langs__link:hover {
+  color: currentColor;
+}
+.langs__link.is-current {
+  color: inherit;
+}
+.langs__link.is-current::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: 2px;
+  height: 1px;
+  background: currentColor;
+}
+/* Nog niet vertaald: de link gaat naar de homepage van die taal, en dat mag je
+   zien voor je klikt. */
+.langs__link[title] {
+  opacity: 0.55;
 }

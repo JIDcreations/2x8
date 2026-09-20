@@ -1,0 +1,61 @@
+{
+  "languages": {
+    "nl": { "label": "NL", "name": "Nederlands", "htmlLang": "nl", "ogLocale": "nl_BE", "prefix": "",
+            "notTranslated": "{taal}: deze pagina is nog niet vertaald, je gaat naar de homepage" },
+    "fr": { "label": "FR", "name": "Français",   "htmlLang": "fr", "ogLocale": "fr_BE", "prefix": "/fr",
+            "notTranslated": "{taal} : cette page n’est pas encore traduite, vous arrivez sur l’accueil" },
+    "en": { "label": "EN", "name": "English",    "htmlLang": "en", "ogLocale": "en_GB", "prefix": "/en",
+            "notTranslated": "{taal}: this page is not translated yet, you’ll land on the home page" }
+  },
+  "default": "nl",
+  "site": "https://2x8.be",
+
+  "_comment": "slug = het pad per taal, zonder .html. 'done' zegt welke talen af zijn: de build maakt alleen die, en de taalwisselaar valt voor de rest terug op de homepage van die taal.",
+
+  "pages": {
+    "index.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/", "fr": "/fr/", "en": "/en/" }
+    },
+    "werk.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/werk", "fr": "/fr/projets/", "en": "/en/work/" }
+    },
+    "diensten.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten", "fr": "/fr/services", "en": "/en/services" }
+    },
+    "studio.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/studio", "fr": "/fr/studio", "en": "/en/studio" }
+    },
+    "contact.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/contact", "fr": "/fr/contact", "en": "/en/contact" }
+    },
+    "privacy.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/privacy", "fr": "/fr/confidentialite", "en": "/en/privacy" }
+    },
+    "work/specter.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/specter", "fr": "/fr/projets/specter", "en": "/en/work/specter" }
+    },
+    "work/studio-klei.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/studio-klei", "fr": "/fr/projets/studio-klei", "en": "/en/work/studio-klei" }
+    },
+    "work/keikoku.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/keikoku", "fr": "/fr/projets/keikoku", "en": "/en/work/keikoku" }
+    },
+    "work/jasper-impens.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/jasper-impens", "fr": "/fr/projets/jasper-impens", "en": "/en/work/jasper-impens" }
+    },
+    "work/elevator-antwerp.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/elevator-antwerp", "fr": "/fr/projets/elevator-antwerp", "en": "/en/work/elevator-antwerp" }
+    }
+  }
+}
