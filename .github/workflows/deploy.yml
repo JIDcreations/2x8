@@ -1,0 +1,97 @@
+# Zet 2x8.be online zodra er naar main gepusht wordt.
+#
+# De Nederlandse pagina's in de root zijn de bron; `node build.js` maakt /fr en
+# /en. Daarom bouwt deze workflow eerst en uploadt ze pas daarna: wie pusht hoeft
+# zelf geen Node te draaien en de drie talen lopen nooit uit elkaar.
+#
+# Nodig in Settings -> Secrets and variables -> Actions:
+#   DEPLOY_SSH_KEY   private sleutel van het deploy-paar (id_2x8_deploy)
+#   DEPLOY_HOST      IP van de Hostinger-server
+#   DEPLOY_USER      uXXXXXXXX
+#
+# Er wordt nooit met --delete gesynct: wat enkel op de server staat (/backup/,
+# .htaccess, de mailconfig buiten de docroot) blijft ongemoeid.
+
+name: Deploy naar 2x8.be
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Twee deploys tegelijk over dezelfde docroot is vragen om half werk.
+concurrency:
+  group: deploy-2x8
+  cancel-in-progress: false
+
+env:
+  SSH_PORT: '65002'
+  DOCROOT: domains/2x8.be/public_html
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Controleren of elke vertaalsleutel er is
+        run: node build.js --check
+
+      - name: /fr en /en bouwen
+        run: node build.js
+
+      - name: SSH klaarzetten
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy
+          chmod 600 ~/.ssh/deploy
+          ssh-keyscan -p "$SSH_PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Backup nemen op de server
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          ssh -i ~/.ssh/deploy -p "$SSH_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "
+            set -e
+            mkdir -p ~/backups
+            cd ~/$DOCROOT
+            tar -czf ~/backups/2x8-public_html-\$(date +%Y%m%d-%H%M%S).tar.gz .
+            ls -t ~/backups/2x8-public_html-*.tar.gz | tail -n +11 | xargs -r rm --
+          "
+
+      - name: Uploaden
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          rsync -rltvz --human-readable \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.gitignore' \
+            --exclude='node_modules/' \
+            --exclude='*.mov' \
+            --exclude='/backup/' \
+            --exclude='.htaccess' \
+            --exclude='/build.js' \
+            --exclude='/i18n/' \
+            --exclude='/README.md' \
+            --exclude='/mail-config.example.php' \
+            --chmod=D755,F644 \
+            -e "ssh -i ~/.ssh/deploy -p $SSH_PORT" \
+            ./ "$DEPLOY_USER@$DEPLOY_HOST:~/$DOCROOT/"
+
+      - name: Nakijken of de site rechtstaat
+        run: |
+          for url in https://2x8.be/ https://2x8.be/werk https://2x8.be/fr/ https://2x8.be/en/; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$url")
+            echo "$code  $url"
+            [ "$code" = "200" ] || exit 1
+          done
