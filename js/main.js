@@ -290,6 +290,7 @@
       'studio-klei': 'Studio Klei',
       keikoku: 'Keikoku Atelier',
       'jasper-impens': 'Jasper Impens',
+      'elevator-antwerp': 'Elevator Antwerp',
       readme: 'README.md',
     };
     var currentProject = 'specter';
