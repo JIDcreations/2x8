@@ -1319,6 +1319,23 @@ button {
 .marquee__item:nth-child(even) {
   color: transparent;
   -webkit-text-stroke: 2px var(--ink);
+  /* Outline-letters verdragen de krappe tracking van de gevulde woorden niet:
+     daar tekent de stroke elke botsing tussen twee letters uit. */
+  letter-spacing: -0.01em;
+}
+/* Sora heeft op gewicht 800 overlappende contouren binnen een letter (de twee
+   V's van de W, de staart van de e). Gevuld zie je dat niet, met alleen een
+   stroke wel: je krijgt streepjes dwars door de letter. Eerst de stroke tekenen
+   en er daarna de vulling in papierkleur overheen leggen dekt die binnenlijnen
+   af, zodat enkel het silhouet overblijft. */
+@supports (paint-order: stroke) {
+  .marquee__item:nth-child(even) {
+    color: var(--paper);
+    paint-order: stroke fill;
+    /* De vulling dekt de binnenste helft van de stroke af, dus dubbel zo dik
+       tekenen om op dezelfde optische lijndikte uit te komen. */
+    -webkit-text-stroke-width: 4px;
+  }
 }
 .marquee__item::after {
   content: '';
