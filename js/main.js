@@ -291,6 +291,9 @@
       keikoku: 'Keikoku Atelier',
       'jasper-impens': 'Jasper Impens',
       'elevator-antwerp': 'Elevator Antwerp',
+      eqty: 'EQTY',
+      nadir: 'NADIR',
+      delta: 'DLTA',
       readme: 'README.md',
     };
     var currentProject = 'specter';
@@ -503,6 +506,51 @@
   }
 
   /* ---------------------------------------------------------------- */
+  /* Work filter: Alles / Websites / Apps / Platforms                  */
+  /* ---------------------------------------------------------------- */
+  function workFilter() {
+    var root = $('[data-work-filter]');
+    if (!root) return;
+    var btns = $$('[data-work-filter-btn]', root);
+    var items = $$('[data-work-category]');
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var val = btn.getAttribute('data-work-filter-btn');
+        btns.forEach(function (b) {
+          var active = b === btn;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-selected', active ? 'true' : 'false');
+          b.tabIndex = active ? 0 : -1;
+        });
+        items.forEach(function (item) {
+          var show = val === 'all' || item.getAttribute('data-work-category') === val;
+          item.hidden = !show;
+        });
+        if (!reduce) ScrollTrigger.refresh();
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Case pages: floating "visit site" button while scrolling the case */
+  /* ---------------------------------------------------------------- */
+  function caseFloatCta() {
+    var cta = $('[data-case-float-cta]');
+    var cover = $('[data-cover]');
+    if (!cta || !cover) return;
+    var contact = $('#contact');
+
+    ScrollTrigger.create({
+      trigger: cover,
+      start: 'bottom top',
+      endTrigger: contact || undefined,
+      end: contact ? 'top center' : 'max',
+      onToggle: function (self) { cta.classList.toggle('is-visible', self.isActive); },
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
   /* Mobile menu                                                       */
   /* ---------------------------------------------------------------- */
   function menu() {
@@ -616,6 +664,8 @@
     caseReels();
     nav();
     menu();
+    caseFloatCta();
+    workFilter();
     magnetic();
     wipeUp();
     parallaxDrift();

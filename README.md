@@ -8,7 +8,8 @@ Plain HTML, CSS and JS. Double-click `index.html` to open it, or drag this folde
   never repeats a case's cover image more than once.
 - `werk.html`, `diensten.html`, `studio.html`, `contact.html`: the full version of each of those
   sections. Same nav on every page, with the current page highlighted (`aria-current="page"`).
-- `work/*.html`: case pages (Specter, Studio Klei, Keikoku Atelier, Jasper Impens)
+- `work/*.html`: case pages (Specter, Studio Klei, Keikoku Atelier, Jasper Impens, Elevator Antwerp,
+  EQTY, NADIR, DLTA)
 - `css/styles.css`: all styling (colors, type, layout)
 - `js/main.js`: all animation (preloader, text reveals, proof panels, spotlight reveals, marquee, nav, mobile menu)
 - `assets/`: real project cover images and screen-recording videos, one folder per project; `assets/Studio/`
@@ -40,6 +41,14 @@ well over 100MB, past GitHub's hard limit) and aren't referenced by any page.
 Where a project has a video, it plays directly in the `<figure class="case-cover" data-cover">` slot at
 the top of its case page (swap the `<img>` for a `<video autoplay muted loop playsinline>`, and add the
 `case-cover--video` class so the frame matches the recording's own aspect ratio instead of cropping it).
+
+Each case's `.case-gallery` below the cover shows real screenshots of parts of that project (a
+homepage, a product page, a dashboard section, ...), captured with Playwright and saved locally under
+`assets/<Project>/gallery-*.jpg` — never hotlinked from the live site, so they still render for anyone
+who clones the repo without a live connection to that project.
+
+EQTY, NADIR and DLTA are Jasper's own app/platform builds (not client work), so their case pages link
+to GitHub under "Code" instead of a live "Online" link.
 
 ## Still open
 - A real photo for Florian (see "Studio page" above)
