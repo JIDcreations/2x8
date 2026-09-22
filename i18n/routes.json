@@ -41,13 +41,25 @@
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/work/specter", "fr": "/fr/projets/specter", "en": "/en/work/specter" }
     },
+    "work/eqty.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/eqty", "fr": "/fr/projets/eqty", "en": "/en/work/eqty" }
+    },
     "work/studio-klei.html": {
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/work/studio-klei", "fr": "/fr/projets/studio-klei", "en": "/en/work/studio-klei" }
     },
+    "work/nadir.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/nadir", "fr": "/fr/projets/nadir", "en": "/en/work/nadir" }
+    },
     "work/keikoku.html": {
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/work/keikoku", "fr": "/fr/projets/keikoku", "en": "/en/work/keikoku" }
+    },
+    "work/delta.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/delta", "fr": "/fr/projets/delta", "en": "/en/work/delta" }
     },
     "work/jasper-impens.html": {
       "done": ["nl", "fr", "en"],

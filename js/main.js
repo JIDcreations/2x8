@@ -423,6 +423,42 @@
     });
   }
 
+
+  /* ---------------------------------------------------------------- */
+  /* Work filter: Alles / Websites / Apps / Platforms                   */
+  /* ---------------------------------------------------------------- */
+  function workFilter() {
+    var root = $('[data-work-filter]');
+    if (!root) return;
+    var btns = $$('[data-work-filter-btn]', root);
+    var items = $$('[data-work-category]');
+
+    function activate(btn, focusBtn) {
+      var val = btn.getAttribute('data-work-filter-btn');
+      btns.forEach(function (b) {
+        var active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-selected', String(active));
+        b.tabIndex = active ? 0 : -1;
+      });
+      items.forEach(function (item) {
+        item.hidden = val !== 'all' && item.getAttribute('data-work-category') !== val;
+      });
+      // Hiding a spotlight changes every scroll position below it.
+      if (!reduce) ScrollTrigger.refresh();
+      if (focusBtn) btn.focus();
+    }
+
+    btns.forEach(function (btn, i) {
+      btn.addEventListener('click', function () { activate(btn); });
+      btn.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        activate(btns[(i + (e.key === 'ArrowRight' ? 1 : -1) + btns.length) % btns.length], true);
+      });
+    });
+  }
+
   /* ---------------------------------------------------------------- */
   /* Counters: numbers count up as their group scrolls into view       */
   /* ---------------------------------------------------------------- */
@@ -584,6 +620,28 @@
     });
   }
 
+
+  /* ---------------------------------------------------------------- */
+  /* Case pages: floating "visit site" button while reading the case    */
+  /* ---------------------------------------------------------------- */
+  function caseFloatCta() {
+    var cta = $('[data-case-float-cta]');
+    var cover = $('[data-cover]');
+    if (!cta || !cover) return;
+    var contact = $('#contact');
+
+    // From the moment the cover has scrolled away until the contact block:
+    // before that the button sits on top of the header that already has it,
+    // after that the page asks the same thing in full size.
+    ScrollTrigger.create({
+      trigger: cover,
+      start: 'bottom top',
+      endTrigger: contact || undefined,
+      end: contact ? 'top center' : 'max',
+      onToggle: function (self) { cta.classList.toggle('is-visible', self.isActive); },
+    });
+  }
+
   /* ---------------------------------------------------------------- */
   /* Magnetic CTAs                                                     */
   /* ---------------------------------------------------------------- */
@@ -710,6 +768,7 @@
     textReveals();
     marquee();
     caseReels();
+    caseFloatCta();
     nav();
     menu();
     magnetic();
@@ -718,6 +777,7 @@
     hoverReels();
     fakeFinder();
     serviceTabs();
+    workFilter();
     counters();
     contactForm();
 

@@ -24,7 +24,10 @@ Plain HTML, CSS and JS. Double-click `index.html` to open it, or drag this folde
   it shares `assets/` with the live site through absolute `/assets/...` paths. Don't edit it.
 
 The work grid on the homepage widens the tile you hover and narrows its row neighbour
-(`.cases__grid` is a wrapping flex row, not a grid, so flex-grow can animate per row).
+(`.cases__grid` is a wrapping flex row, not a grid, so flex-grow can animate per row). A last tile
+left alone on its row — 5 of 5, 7 of 7 — is pinned to full width and opted out of that effect
+(`.case-tile:last-child:nth-child(odd)`): it has no neighbour to trade space with, and a flex-grow
+below 1 would otherwise shrink it the moment you hovered a tile above it.
 
 ## Languages
 The Dutch pages in the root are the source: they hold both the markup and the Dutch copy.
