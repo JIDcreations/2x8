@@ -9,7 +9,7 @@
 2x8-mail-config.php
 2x8-mail.log
 
-# Vertaalde pagina's: volledig gegenereerd door `node build.js` uit de
-# Nederlandse bron plus i18n/*.json. Niet met de hand bewerken, niet bewaren.
-/fr/
-/en/
+# /fr en /en staan bewust WEL in deze repo, ook al maakt build.js ze.
+# Hostinger pullt deze repo rechtstreeks in de docroot en draait geen Node,
+# dus de vertaalde pagina's moeten hier als gewone bestanden staan.
+# Na het aanpassen van Nederlandse copy: `node build.js` en beide mee committen.

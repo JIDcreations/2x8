@@ -1,18 +1,21 @@
 <!doctype html>
-<html lang="nl">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Contact | 2X8</title>
-    <meta name="description" content="Vertel ons waar je mee zit. 2X8 antwoordt binnen twee werkdagen, altijd rechtstreeks met Florian en Jasper." />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="canonical" href="https://2x8.be/en/work/studio-klei" />
+    <link rel="alternate" hreflang="nl" href="https://2x8.be/work/studio-klei" />
+    <link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/studio-klei" />
+    <link rel="alternate" hreflang="en" href="https://2x8.be/en/work/studio-klei" />
+    <link rel="alternate" hreflang="x-default" href="https://2x8.be/work/studio-klei" />
+    <title data-i18n="case.studio-klei.meta.title">Studio Klei | 2X8</title>
+    <meta name="description" data-i18n-attr="content:case.studio-klei.meta.description" content="A warm, Dutch-language online shop for a ceramics studio in Ghent: categories, workshops and a cart." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#0A0A0A" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Contact | 2X8" />
-    <meta property="og:description" content="Vertel ons waar je mee zit. 2X8 antwoordt binnen twee werkdagen, altijd rechtstreeks met Florian en Jasper." />
-    <meta property="og:url" content="https://2x8.be/contact.html" />
-    <meta property="og:locale" content="nl_BE" />
+    <meta property="og:title" data-i18n-attr="content:case.studio-klei.meta.title" content="Studio Klei | 2X8" />
+    <meta property="og:description" data-i18n-attr="content:case.studio-klei.meta.description" content="A warm, Dutch-language online shop for a ceramics studio in Ghent: categories, workshops and a cart." />
+    <meta property="og:locale" content="en_GB" />
     <script>
       document.documentElement.classList.add("js");
       try {
@@ -25,10 +28,19 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
     />
-    <link rel="stylesheet" href="css/styles.css?v=4" />
+    <link rel="stylesheet" href="/css/styles.css?v=16" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L8GZKB8CKW');
+    </script>
   </head>
   <body>
-    <a class="skip" href="#main">Naar inhoud</a>
+    <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
 
     <div class="loader" data-loader aria-hidden="true">
       <div class="loader__row">
@@ -64,7 +76,7 @@
     </div>
 
     <header class="nav" data-nav>
-      <a href="index.html" class="nav__logo" aria-label="2X8 home"><svg
+      <a href="/en/" class="nav__logo" aria-label="2X8 home"><svg
           class="logo"
           viewBox="159 334 1602 412"
           xmlns="http://www.w3.org/2000/svg"
@@ -89,82 +101,153 @@
           </g>
         </svg></a>
 
-      <nav aria-label="Hoofdmenu">
+      <nav aria-label="Main menu" data-i18n-attr="aria-label:nav.menuLabel">
         <ul class="nav__links">
-          <li><a href="werk.html">Werk</a></li>
-          <li><a href="diensten.html">Diensten</a></li>
-          <li><a href="studio.html">Studio</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li><a href="/en/work/" data-i18n="nav.work">Work</a></li>
+          <li><a href="/en/services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/en/studio" data-i18n="nav.studio">Studio</a></li>
+          <li><a href="/en/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav__right">
-        <a class="btn btn--sm" href="contact.html" data-magnetic>Start een project</a>
-        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
-          Menu
-        </button>
+        <nav class="langs" aria-label="Taal / Langue / Language">
+          <ul class="langs__list">
+          <li><a class="langs__link" href="/work/studio-klei" hreflang="nl" lang="nl">NL</a></li>
+          <li><a class="langs__link" href="/fr/projets/studio-klei" hreflang="fr" lang="fr">FR</a></li>
+          <li><a class="langs__link is-current" href="/en/work/studio-klei" hreflang="en" lang="en" aria-current="true">EN</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--sm" href="/en/contact" data-magnetic data-i18n="cta.start">Start a project</a>
+        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-open data-i18n="nav.open">Menu</button>
       </div>
     </header>
 
     <div class="menu theme-ink" id="menu" data-menu hidden>
-      <button class="menu__close" type="button" data-menu-close>Sluit</button>
+      <button class="menu__close" type="button" data-menu-close data-i18n="nav.close">Close</button>
       <ul class="menu__links">
-        <li><a href="werk.html" data-menu-link><span>Werk</span></a></li>
-        <li><a href="diensten.html" data-menu-link><span>Diensten</span></a></li>
-        <li><a href="studio.html" data-menu-link><span>Studio</span></a></li>
-        <li><a href="contact.html" data-menu-link aria-current="page"><span>Contact</span></a></li>
+        <li><a href="/en/work/" data-menu-link><span data-i18n="nav.work">Work</span></a></li>
+        <li><a href="/en/services" data-menu-link><span data-i18n="nav.services">Services</span></a></li>
+        <li><a href="/en/studio" data-menu-link><span data-i18n="nav.studio">Studio</span></a></li>
+        <li><a href="/en/contact" data-menu-link><span data-i18n="nav.contact">Contact</span></a></li>
       </ul>
       <div class="menu__foot">
-        <a class="link" href="mailto:hallo@2x8.be">hallo@2x8.be</a>
+        <a class="link" href="mailto:hello@2x8.be">hello@2x8.be</a>
       </div>
     </div>
 
     <main id="main">
-      <section class="contact contact--page theme-ink" id="contact" data-theme-ink>
-        <div class="wrap">
+      <a class="btn case-float-cta" data-case-float-cta href="https://hotpink-crane-600793.hostingersite.com/" target="_blank" rel="noopener">
+        <span data-i18n="werk.visitSite">Visit the site</span>
+        <span class="btn__arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      <article>
+        <header class="case-head wrap">
           <div class="case-head__top">
-            <a class="link" href="index.html"><span class="btn__arrow" aria-hidden="true">&larr;</span>Home</a>
-            <span class="byte">Contact</span>
+            <a class="link" href="/en/work/"><span class="btn__arrow" aria-hidden="true">←</span><span data-i18n="case.allWork">All work</span></a>
+            <span class="byte">03 / 08</span>
           </div>
-          <div class="contact__row grid">
-            <p class="lede contact__body" data-reveal>
-              Vertel ons waar je mee zit, wat je al hebt en waar je naartoe wil. We antwoorden binnen twee
-              werkdagen, met een eerlijke inschatting van scope en planning.
-            </p>
-            <a class="contact__mail" href="mailto:hallo@2x8.be?subject=Nieuw%20project" data-reveal>hallo@2x8.be</a>
-          </div>
+          <h1 class="display case-head__title" data-split>Studio Klei</h1>
+          <p class="case-head__summary" data-reveal data-i18n="case.studio-klei.summary">A warm, Dutch-language online shop for a ceramics studio in Ghent: categories, workshops and a cart.</p>
 
           <dl class="case-meta grid" data-reveal>
             <div>
-              <dt class="mono muted">E-mail</dt>
-              <dd><a class="link" href="mailto:hallo@2x8.be?subject=Nieuw%20project">hallo@2x8.be</a></dd>
+              <dt class="mono muted" data-i18n="case.label.client">Client</dt>
+              <dd>Studio Klei</dd>
             </div>
             <div>
-              <dt class="mono muted">Reactietijd</dt>
-              <dd>Binnen 2 werkdagen</dd>
+              <dt class="mono muted" data-i18n="case.label.year">Year</dt>
+              <dd>2026</dd>
             </div>
             <div>
-              <dt class="mono muted">Aanpak</dt>
-              <dd>Rechtstreeks met Florian &amp; Jasper</dd>
+              <dt class="mono muted" data-i18n="case.label.services">Services</dt>
+              <dd data-i18n="case.studio-klei.services">Design, Development, WordPress / WooCommerce</dd>
             </div>
             <div>
-              <dt class="mono muted">Sociale media</dt>
+              <dt class="mono muted" data-i18n="case.label.online">Online</dt>
               <dd>
-                <a class="link" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-                &middot;
-                <a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+                <a class="btn btn--sm" href="https://hotpink-crane-600793.hostingersite.com/" target="_blank" rel="noopener" data-magnetic>
+                  <span data-i18n="case.visitSite">Visit site</span>
+                  <span class="btn__arrow" aria-hidden="true">↗</span>
+                </a>
               </dd>
             </div>
           </dl>
+        </header>
+
+        <div class="wrap">
+          <figure class="case-cover" data-cover>
+            <img
+              src="/assets/StudioKlei/Cover-Klei.png"
+              data-i18n-attr="alt:case.studio-klei.cover" alt="Studio Klei, handmade ceramics from Ghent"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </figure>
         </div>
 
+        <div class="wrap">
+          <div class="case-body">
+            <section class="case-block grid">
+              <h2 class="mono" data-i18n="case.block.challenge">Challenge</h2>
+              <p data-reveal data-i18n-html="case.studio-klei.challenge">Selling handmade ceramics through an online shop easily ends up looking generic: a grid of products that looks like every other shop. Studio Klei wanted a shop that feels as personal as the Ghent studio itself.</p>
+            </section>
+            <section class="case-block grid">
+              <h2 class="mono" data-i18n="case.block.approach">Approach</h2>
+              <p data-reveal data-i18n-html="case.studio-klei.approach">We split the collection into three clear categories (mugs, bowls &amp; plates, vases), put the workshops next to the products instead of tucked away on a separate page, and gave the studio's story &mdash; from kitchen table to a print works in Ghent &mdash; a proper place.</p>
+            </section>
+            <section class="case-block grid">
+              <h2 class="mono" data-i18n="case.block.result">Result</h2>
+              <p data-reveal data-i18n-html="case.studio-klei.result">One shop carrying both sales and workshop bookings, true to its own promise: &ldquo;ceramics for every day.&rdquo;</p>
+            </section>
+          </div>
+
+          <div class="case-gallery grid">
+            <figure data-reveal>
+              <img
+                src="https://hotpink-crane-600793.hostingersite.com/wp-content/uploads/2026/09/cat-mokken2-768x1152.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                data-parallax
+              />
+            </figure>
+            <figure data-reveal>
+              <img
+                src="https://hotpink-crane-600793.hostingersite.com/wp-content/uploads/2026/09/mok-aarde-scaled-600x600.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                data-parallax
+              />
+            </figure>
+            <figure data-reveal>
+              <img
+                src="https://hotpink-crane-600793.hostingersite.com/wp-content/uploads/2026/09/atelier-boven-1024x1010.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                data-parallax
+              />
+            </figure>
+          </div>
+        </div>
+
+        <a class="next-case wrap rule" href="/en/work/nadir">
+          <span class="mono muted" data-i18n="case.next">Next case</span>
+          <span class="display next-case__name"> NADIR<span class="arrow" aria-hidden="true">→</span> </span>
+        </a>
+      </article>
+
+      <section class="contact theme-ink" id="contact" data-theme-ink>
         <footer class="footer">
           <div class="wrap footer__top">
             <ul class="footer__links mono">
-              <li><a href="werk.html">Werk</a></li>
-              <li><a href="diensten.html">Diensten</a></li>
-              <li><a href="studio.html">Studio</a></li>
-              <li><a href="mailto:hallo@2x8.be">hallo@2x8.be</a></li>
+              <li><a href="/en/work/" data-i18n="nav.work">Work</a></li>
+              <li><a href="/en/services" data-i18n="nav.services">Services</a></li>
+              <li><a href="/en/studio" data-i18n="nav.studio">Studio</a></li>
+              <li><a href="/en/contact" data-i18n="nav.contact">Contact</a></li>
+              <li><a href="mailto:hello@2x8.be">hello@2x8.be</a></li>
               <li><a href="https://www.linkedin.com/" rel="noopener" target="_blank">LinkedIn</a></li>
               <li><a href="https://www.instagram.com/" rel="noopener" target="_blank">Instagram</a></li>
             </ul>
@@ -196,18 +279,17 @@
         </svg>
           </div>
           <div class="wrap footer__bottom">
-            <span class="mono muted">&copy; 2026 2X8. Alle rechten voorbehouden.</span>
-            <a class="mono muted" href="privacy.html">Privacybeleid</a>
+            <span class="mono muted" data-i18n-html="footer.rights">© 2026 2X8. All rights reserved.</span>
+            <a class="mono muted" href="/en/privacy" data-i18n="footer.privacy">Privacy policy</a>
           </div>
         </footer>
       </section>
-
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="js/main.js?v=3"></script>
+    <script src="/js/main.js?v=16"></script>
   </body>
 </html>
