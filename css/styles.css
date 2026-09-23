@@ -24,6 +24,20 @@
   --u: 16px;
   --gx: clamp(16px, 2.4vw, 40px);
   --nav-h: 64px;
+
+  /* Verticaal ritme. Eén schaal voor de hele site: elke witruimte tussen
+     blokken is een van deze acht stappen, niets ertussenin. sp-1 en sp-2 zijn
+     de vaste halve en hele 16px-eenheid, sp-3 en hoger schalen mee met het
+     scherm. --page-top is de enige maat boven een paginakop. */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: clamp(20px, 2.4vw, 32px);
+  --sp-4: clamp(28px, 3.2vw, 48px);
+  --sp-5: clamp(40px, 5vw, 72px);
+  --sp-6: clamp(56px, 7vw, 96px);
+  --sp-7: clamp(72px, 9vw, 120px);
+  --sp-8: clamp(88px, 11vw, 152px);
+  --page-top: calc(var(--nav-h) + clamp(32px, 6vh, 72px));
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-io: cubic-bezier(0.76, 0, 0.24, 1);
 
@@ -133,7 +147,13 @@ button {
   column-gap: var(--u);
 }
 .section {
-  padding-block: clamp(96px, 14vw, 208px);
+  padding-block: var(--sp-8);
+}
+/* Een paginakop laat zelf al veel lucht achter. De eerste sectie erna zet daar
+   geen volle sectiemarge nog eens bovenop. */
+.case-head + .section,
+.section--tight {
+  padding-top: var(--sp-5);
 }
 .rule {
   border-top: 1px solid var(--line-strong);
@@ -602,67 +622,74 @@ button {
   }
 }
 
-/* ---------- Services ---------- */
-.services__head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--u);
-  padding-bottom: clamp(40px, 6vw, 96px);
+/* ==========================================================================
+   Diensten
+   Vijf diensten in twee families. Geen accordeon meer: alles staat open. Wie
+   diensten vergelijkt wil ze naast elkaar zien, niet één voor één openklikken,
+   en het oude scherm verborg net de twee diensten die uitleg nodig hebben.
+   Elke dienst krijgt nu exact dezelfde drie kolommen — naam, wat het is,
+   bewijs — zodat geen van de twee families zwaarder weegt dan de andere.
+   ========================================================================== */
+.svc-jump {
+  padding-block: var(--sp-5) 0;
 }
-.svc-group {
+a.services-tabs__btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Elke dienst is een openklikker: de naam staat er groot, de rest komt pas op
+   een klik. De eerste dienst staat open, de andere dicht. Ze delen een
+   name-attribuut, dus er staat er altijd maar een open. */
+.svc-item {
   border-top: 1px solid var(--line-strong);
-  padding-top: 20px;
-  row-gap: 8px;
-}
-.svc-group + .svc-group {
-  margin-top: clamp(48px, 6vw, 96px);
-}
-.svc-group__label {
-  grid-column: 1 / span 3;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-top: 12px;
-}
-.svc-group__items {
-  grid-column: 4 / -1;
-}
-.svc {
-  border-bottom: 1px solid var(--line);
   interpolate-size: allow-keywords;
+  scroll-margin-top: calc(var(--nav-h) + var(--sp-3));
 }
-.svc summary {
+.svc-item:last-child {
+  border-bottom: 1px solid var(--line-strong);
+}
+.svc-item__summary {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--u);
-  padding-block: 8px 14px;
+  padding-block: var(--sp-4);
   cursor: pointer;
 }
-.svc summary::-webkit-details-marker {
+.svc-item__summary::-webkit-details-marker {
   display: none;
 }
-.svc__name {
+.svc-item__idx {
+  display: block;
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+.svc-item__name {
   font-weight: 800;
-  font-size: clamp(2.5rem, 7vw, 8rem);
+  font-size: clamp(2.25rem, 6vw, 7rem);
   letter-spacing: -0.055em;
   line-height: 1;
-  transition:
-    transform 0.7s var(--ease),
-    color 0.3s;
+  /* Een lange dienstnaam breekt af in plaats van de kolom uit te lopen. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+  transition: transform 0.7s var(--ease);
 }
-.svc summary:hover .svc__name {
+.svc-item__summary:hover .svc-item__name {
   transform: translateX(clamp(8px, 1.5vw, 24px));
 }
-.svc__toggle {
+.svc-item__summary:hover .svc-item__idx {
+  color: var(--orange);
+}
+.svc-item__toggle {
   position: relative;
   width: clamp(28px, 3vw, 44px);
   aspect-ratio: 1;
 }
-.svc__toggle::before,
-.svc__toggle::after {
+.svc-item__toggle::before,
+.svc-item__toggle::after {
   content: '';
   position: absolute;
   inset: 50% 0 auto 0;
@@ -673,39 +700,147 @@ button {
     transform 0.6s var(--ease),
     background-color 0.3s;
 }
-.svc__toggle::after {
+.svc-item__toggle::after {
   transform: rotate(90deg);
 }
-.svc summary:hover .svc__toggle::before,
-.svc summary:hover .svc__toggle::after,
-.svc[open] .svc__toggle::before,
-.svc[open] .svc__toggle::after {
+.svc-item__summary:hover .svc-item__toggle::before,
+.svc-item__summary:hover .svc-item__toggle::after,
+.svc-item[open] .svc-item__toggle::before,
+.svc-item[open] .svc-item__toggle::after {
   background: var(--orange);
 }
-.svc[open] .svc__toggle::after {
+.svc-item[open] .svc-item__toggle::after {
   transform: rotate(0deg);
 }
-.svc::details-content {
+.svc-item::details-content {
   block-size: 0;
   overflow: clip;
   transition:
     block-size 0.7s var(--ease),
     content-visibility 0.7s allow-discrete;
 }
-.svc[open]::details-content {
+.svc-item[open]::details-content {
   block-size: auto;
 }
-.svc__body {
+.svc-item__panel {
+  row-gap: var(--sp-5);
+  padding-bottom: var(--sp-5);
+}
+.svc-item__body {
+  grid-column: 4 / -1;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 24px 48px;
-  padding-block: 8px 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
 }
-.svc__desc {
-  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
-  line-height: 1.5;
+.svc-item__proof {
+  grid-column: 4 / -1;
+}
+.svc-item__desc {
+  font-size: clamp(1.15rem, 1.6vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  max-width: 24ch;
+}
+.svc-points {
+  display: grid;
+  row-gap: 10px;
   max-width: 44ch;
+  color: var(--muted);
 }
+.svc-points li {
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.5;
+}
+.svc-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.svc-item__tags {
+  margin-top: var(--sp-4);
+}
+
+/* Bewijs: de cases waarin deze dienst al geleverd is. */
+.svc-proof__label {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+.svc-proof__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+.svc-proof {
+  display: block;
+  flex: 1 1 200px;
+  max-width: 340px;
+}
+.svc-proof__media {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #1a1918;
+}
+.svc-proof__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  scale: 1;
+  filter: grayscale(1) contrast(1.05);
+  transition:
+    scale 1.1s var(--ease),
+    filter 0.8s var(--ease);
+}
+.svc-proof:hover .svc-proof__media img,
+.svc-proof:focus-visible .svc-proof__media img {
+  scale: 1.04;
+  filter: grayscale(0) contrast(1);
+}
+.svc-proof__name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.svc-proof__name::after {
+  content: '\2192';
+  color: var(--muted);
+  transition:
+    translate 0.5s var(--ease),
+    color 0.3s;
+}
+.svc-proof:hover .svc-proof__name::after,
+.svc-proof:focus-visible .svc-proof__name::after {
+  translate: 6px 0;
+  color: var(--orange);
+}
+
+/* Diensten zonder case krijgen voorbeelden in plaats van bewijs: eerlijker dan
+   een lege plek, en het maakt meteen concreet waar zo'n opdracht over gaat. */
+.svc-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0 var(--sp-4);
+  color: var(--muted);
+}
+.svc-examples li {
+  padding-block: var(--sp-3);
+  border-top: 1px solid var(--line);
+  line-height: 1.45;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -719,112 +854,20 @@ button {
   border: 1px solid var(--line-strong);
   text-transform: uppercase;
 }
-/* Websites / Web apps: proof is shown immediately, no click required */
-.svc-showcase {
-  border-bottom: 1px solid var(--line);
-  padding-block: clamp(28px, 3vw, 40px);
-}
-.svc-showcase__head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: end;
-  gap: 24px 48px;
-}
-.svc-showcase__name {
-  font-weight: 800;
-  font-size: clamp(2.25rem, 5.2vw, 5.5rem);
-  letter-spacing: -0.045em;
-  line-height: 1;
-  overflow-wrap: break-word;
-}
-.svc-showcase__desc {
-  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
-  line-height: 1.5;
-  max-width: 44ch;
-}
-.svc-showcase__cases {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(20px, 2.6vw, 40px);
-  padding-top: clamp(28px, 3vw, 44px);
-}
-.svc-showcase__case {
-  display: block;
-  flex: 1 1 240px;
-  max-width: 420px;
-}
-.svc-showcase__media {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: #1a1918;
-}
-.svc-showcase__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  scale: 1;
-  filter: grayscale(1) contrast(1.05);
-  transition:
-    scale 1.1s var(--ease),
-    filter 0.8s var(--ease);
-}
-.svc-showcase__case:hover .svc-showcase__media img,
-.svc-showcase__case:focus-visible .svc-showcase__media img {
-  scale: 1.03;
-  filter: grayscale(0) contrast(1);
-}
-.svc-showcase__meta {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: baseline;
-  gap: 16px;
-  padding-top: 16px;
-}
-.svc-showcase__idx {
-  transition: color 0.3s;
-}
-.svc-showcase__case:hover .svc-showcase__idx {
-  color: var(--orange);
-}
-.svc-showcase__case-name {
-  font-weight: 700;
-  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-.svc-showcase__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: clamp(24px, 2.6vw, 32px);
-}
-@media (max-width: 767px) {
-  .services__head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .svc-group__label,
-  .svc-group__items {
+
+@media (max-width: 899px) {
+  .svc-item__body,
+  .svc-item__proof {
     grid-column: 1 / -1;
   }
-  .svc__body {
+  .svc-item__body {
     grid-template-columns: 1fr;
-  }
-  .svc-showcase__head {
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
-  .svc-showcase__case {
-    flex: 1 1 100%;
-    max-width: 420px;
   }
 }
 
 /* ---------- Cases: oversized head pairing, plain confident project grid ---------- */
 .cases__head {
-  padding-block: clamp(96px, 14vw, 160px) clamp(32px, 5vw, 56px);
+  padding-block: var(--sp-8) var(--sp-4);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -942,7 +985,7 @@ button {
   max-width: 28ch;
 }
 .cases__foot {
-  padding-block: clamp(40px, 6vw, 64px);
+  padding-block: var(--sp-5);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -970,7 +1013,7 @@ button {
    gebeurt. Het verbergen zelf gebeurt met het hidden-attribuut in JS: zo blijft
    een gefilterde case ook voor een schermlezer weg, niet enkel visueel. */
 .work-filter {
-  padding-block: clamp(24px, 4vw, 40px);
+  padding-block: var(--sp-5) var(--sp-4);
 }
 .spotlight[hidden] {
   display: none;
@@ -981,7 +1024,7 @@ button {
   border-top: 1px solid var(--line-strong);
 }
 .spotlight {
-  padding-block: clamp(64px, 9vw, 140px);
+  padding-block: var(--sp-7);
   border-bottom: 1px solid var(--line);
 }
 .spotlight__grid {
@@ -1082,7 +1125,7 @@ button {
   border: 0;
 }
 .lab {
-  padding-block: clamp(72px, 10vw, 128px);
+  padding-block: var(--sp-7);
   border-bottom: 1px solid var(--line-strong);
 }
 .lab__head {
@@ -1092,7 +1135,7 @@ button {
   text-align: center;
   gap: clamp(24px, 4vw, 56px);
   flex-wrap: wrap;
-  margin-bottom: clamp(32px, 5vw, 56px);
+  margin-bottom: var(--sp-4);
 }
 .lab__lede {
   max-width: 34ch;
@@ -1324,7 +1367,7 @@ button {
 /* ---------- Marquee ---------- */
 .marquee {
   overflow: hidden;
-  padding-block: clamp(40px, 6vw, 96px);
+  padding-block: var(--sp-5);
   background: var(--ink);
   color: var(--paper);
   border-bottom: 1px solid var(--ink);
@@ -1434,7 +1477,7 @@ button {
   max-width: 16ch;
 }
 .studio__grid {
-  margin-top: clamp(32px, 5vw, 64px);
+  margin-top: var(--sp-4);
   row-gap: 24px;
 }
 .studio__body {
@@ -1442,16 +1485,10 @@ button {
   font-size: clamp(1.05rem, 1.3vw, 1.3rem);
   max-width: 46ch;
 }
-.studio__fact {
-  grid-column: 8 / -1;
-  justify-self: end;
-  text-align: right;
-  max-width: 26ch;
-}
 .founders {
   position: relative;
-  margin-top: clamp(48px, 7vw, 112px);
-  row-gap: clamp(40px, 6vw, 64px);
+  margin-top: var(--sp-6);
+  row-gap: var(--sp-5);
 }
 .founders-x {
   position: absolute;
@@ -1604,11 +1641,8 @@ button {
   margin-top: 22px;
 }
 @media (max-width: 899px) {
-  .studio__body,
-  .studio__fact {
+  .studio__body {
     grid-column: 1 / -1;
-    justify-self: start;
-    text-align: left;
   }
   .founder {
     grid-column: 1 / -1;
@@ -1626,20 +1660,20 @@ button {
 
 /* ---------- Contact / footer ---------- */
 .contact {
-  padding-top: clamp(96px, 14vw, 208px);
+  padding-top: var(--sp-8);
 }
 .contact--page {
-  padding-top: calc(var(--nav-h) + clamp(56px, 10vh, 112px));
+  padding-top: var(--page-top);
 }
 .contact--page {
-  padding-bottom: clamp(64px, 9vw, 128px);
+  padding-bottom: var(--sp-7);
 }
 .contact--page .case-head__top {
   color: var(--muted);
 }
 .contact__alt {
-  margin-top: clamp(40px, 6vw, 72px);
-  padding-top: clamp(24px, 3vw, 40px);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-4);
   border-top: 1px solid var(--line);
   display: flex;
   align-items: baseline;
@@ -1655,7 +1689,7 @@ button {
   font-size: clamp(3.25rem, 12vw, 15rem);
 }
 .contact__row {
-  margin-top: clamp(40px, 6vw, 96px);
+  margin-top: var(--sp-5);
   row-gap: 32px;
   align-items: end;
 }
@@ -1748,7 +1782,7 @@ button {
 
 /* ---------- Services: one tabbed panel, not two stacked statements ---------- */
 .services__intro {
-  padding-block: clamp(96px, 14vw, 160px) clamp(32px, 4vw, 48px);
+  padding-block: var(--sp-8) var(--sp-4);
 }
 .services-tabs {
   display: flex;
@@ -1848,10 +1882,10 @@ button {
   font-size: clamp(1.05rem, 1.4vw, 1.35rem);
 }
 .service .tags {
-  margin-top: clamp(20px, 3vw, 32px);
+  margin-top: var(--sp-3);
 }
 .service__stats {
-  margin-top: clamp(32px, 5vw, 56px);
+  margin-top: var(--sp-4);
   display: flex;
   gap: clamp(32px, 6vw, 72px);
   flex-wrap: wrap;
@@ -1870,13 +1904,13 @@ button {
   color: var(--orange);
 }
 .services__foot {
-  padding-block: clamp(32px, 5vw, 48px);
+  padding-block: var(--sp-4);
   border-top: 1px solid var(--line);
 }
 
 /* ---------- Studio: bigger offset portraits, the 2x8 equation counts up ---------- */
 .studio-layout {
-  margin-top: clamp(32px, 5vw, 56px);
+  margin-top: var(--sp-4);
   display: flex;
   align-items: flex-start;
   gap: clamp(32px, 5vw, 72px);
@@ -1999,12 +2033,12 @@ button {
   color: var(--fg);
 }
 .studio-side__text {
-  margin-top: clamp(20px, 3vw, 32px);
+  margin-top: var(--sp-3);
   color: var(--muted);
   max-width: 40ch;
 }
 .studio-side .link {
-  margin-top: clamp(20px, 3vw, 32px);
+  margin-top: var(--sp-3);
 }
 @media (max-width: 480px) {
   .studio-portrait {
@@ -2020,13 +2054,13 @@ button {
 
 /* ---------- Case page ---------- */
 .case-head {
-  padding-top: calc(var(--nav-h) + clamp(40px, 8vh, 96px));
+  padding-top: var(--page-top);
 }
 .case-head__top {
   display: flex;
   justify-content: space-between;
   gap: var(--u);
-  margin-bottom: clamp(24px, 4vw, 48px);
+  margin-bottom: var(--sp-4);
 }
 .case-head__title {
   font-size: clamp(3.25rem, 11vw, 14rem);
@@ -2040,7 +2074,7 @@ button {
   max-width: 28ch;
 }
 .case-meta {
-  margin-top: clamp(40px, 6vw, 80px);
+  margin-top: var(--sp-5);
   padding-top: 16px;
   border-top: 1px solid var(--line-strong);
   row-gap: 24px;
@@ -2092,7 +2126,7 @@ button {
   }
 }
 .case-cover {
-  margin-top: clamp(40px, 6vw, 80px);
+  margin-top: var(--sp-5);
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background: #e9e8e6;
@@ -2114,10 +2148,10 @@ button {
   background: #0a0a0a;
 }
 .case-body {
-  padding-top: clamp(40px, 8vw, 120px);
+  padding-top: var(--sp-6);
 }
 .case-block {
-  padding-block: clamp(40px, 6vw, 80px);
+  padding-block: var(--sp-5);
   border-top: 1px solid var(--line);
   row-gap: 16px;
 }
@@ -2137,7 +2171,7 @@ button {
 }
 .case-gallery {
   row-gap: var(--u);
-  padding-bottom: clamp(96px, 12vw, 176px);
+  padding-bottom: var(--sp-8);
 }
 .case-gallery figure {
   overflow: hidden;
@@ -2164,7 +2198,7 @@ button {
 }
 .next-case {
   display: block;
-  padding-block: clamp(64px, 10vw, 160px);
+  padding-block: var(--sp-7);
 }
 .next-case__name {
   display: flex;
@@ -2219,14 +2253,14 @@ button {
    want .case-block p is displaytekst en te groot voor lopende tekst.
    ========================================================================== */
 .sw-head {
-  padding-top: calc(var(--nav-h) + clamp(40px, 8vh, 96px));
+  padding-top: var(--page-top);
 }
 .sw-head__top {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: var(--u);
-  margin-bottom: clamp(24px, 4vw, 48px);
+  margin-bottom: var(--sp-4);
 }
 .sw-head__kicker {
   display: block;
@@ -2244,20 +2278,20 @@ button {
   max-width: 34ch;
 }
 .sw-head__tags {
-  margin-top: clamp(32px, 5vw, 56px);
+  margin-top: var(--sp-4);
   padding-top: 16px;
   border-top: 1px solid var(--line-strong);
 }
 
 /* ---------- Tekstblokken ---------- */
 .sw-body {
-  padding-top: clamp(40px, 7vw, 96px);
+  padding-top: var(--sp-6);
 }
 .sw-block {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
-  padding-block: clamp(32px, 5vw, 64px);
+  padding-block: var(--sp-5);
   border-top: 1px solid var(--line);
   row-gap: 16px;
 }
@@ -2329,10 +2363,10 @@ button {
 
 /* ---------- FAQ ---------- */
 .sw-faq-sec {
-  padding-block: clamp(64px, 10vw, 144px);
+  padding-block: var(--sp-7);
 }
 .sw-faq {
-  margin-top: clamp(32px, 5vw, 56px);
+  margin-top: var(--sp-4);
   border-top: 1px solid var(--line-strong);
 }
 .sw-faq__item {
@@ -2345,7 +2379,7 @@ button {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--u);
-  padding-block: clamp(18px, 2.4vw, 28px);
+  padding-block: var(--sp-3);
   cursor: pointer;
 }
 .sw-faq__item summary::-webkit-details-marker {
@@ -2403,7 +2437,7 @@ button {
   block-size: auto;
 }
 .sw-faq__a {
-  padding-bottom: clamp(24px, 3vw, 40px);
+  padding-bottom: var(--sp-4);
   max-width: 68ch;
 }
 .sw-faq__a > * + * {
@@ -2420,20 +2454,20 @@ button {
 }
 
 /* ---------- Afsluiter ---------- */
-.sw-cta {
-  padding-block: clamp(48px, 7vw, 96px);
+.cta-band {
+  padding-block: var(--sp-6);
   display: flex;
   flex-wrap: wrap;
   align-items: end;
   justify-content: space-between;
   gap: var(--u);
 }
-.sw-cta__title {
+.cta-band__title {
   font-size: clamp(1.8rem, 4vw, 3.6rem);
   max-width: 24ch;
 }
 .sw-related {
-  padding-bottom: clamp(48px, 7vw, 96px);
+  padding-bottom: var(--sp-6);
 }
 .sw-related__label {
   color: var(--muted);
@@ -2462,7 +2496,7 @@ button {
 
 /* ---------- Contactformulier ---------- */
 .cform {
-  margin-top: clamp(32px, 5vw, 64px);
+  margin-top: var(--sp-5);
 }
 .contact--page .cform {
   max-width: 50%;
@@ -2477,7 +2511,7 @@ button {
   max-width: 46ch;
 }
 .cform__form {
-  margin-top: clamp(32px, 4vw, 56px);
+  margin-top: var(--sp-4);
 }
 /* Buiten beeld in plaats van display:none — een bot die CSS negeert vult hem
    alsnog in, en dat is precies de bedoeling. */
@@ -2549,7 +2583,7 @@ button {
   color: var(--orange);
 }
 .cform__foot {
-  margin-top: clamp(24px, 3vw, 40px);
+  margin-top: var(--sp-4);
   display: flex;
   align-items: center;
   gap: clamp(16px, 3vw, 32px);

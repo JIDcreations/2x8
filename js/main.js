@@ -427,6 +427,23 @@
   /* ---------------------------------------------------------------- */
   /* Work filter: Alles / Websites / Apps / Platforms                   */
   /* ---------------------------------------------------------------- */
+  /* ---------------------------------------------------------------- */
+  /* Dienstenpagina: sprongknop opent de dienst waar ze naar wijst      */
+  /* ---------------------------------------------------------------- */
+  /* Zonder dit scrol je naar een dichtgeklapte <details> en zie je enkel de
+     titel staan. De details delen een name-attribuut, dus het openzetten van
+     de ene sluit de andere vanzelf. */
+  function serviceJumps() {
+    var root = $('[data-svc-jump]');
+    if (!root) return;
+    $$('a[href^="#"]', root).forEach(function (link) {
+      link.addEventListener('click', function () {
+        var target = $(link.getAttribute('href'));
+        if (target && target.tagName === 'DETAILS') target.open = true;
+      });
+    });
+  }
+
   function workFilter() {
     var root = $('[data-work-filter]');
     if (!root) return;
@@ -777,6 +794,7 @@
     hoverReels();
     fakeFinder();
     serviceTabs();
+    serviceJumps();
     workFilter();
     counters();
     contactForm();

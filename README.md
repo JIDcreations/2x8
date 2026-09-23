@@ -13,7 +13,7 @@ Plain HTML, CSS and JS. Double-click `index.html` to open it, or drag this folde
 - `i18n/`: `routes.json` (URLs per language) and `fr.json` / `en.json` (the translations)
 - `fr/`, `en/`: generated — never edit these by hand, `node build.js` overwrites them
 - `mail.php`: the contact form endpoint (see "Contact form")
-- `css/styles.css`: all styling (colors, type, layout)
+- `css/styles.css`: all styling (colors, type, layout, and the spacing scale — see "Spacing")
 - `js/main.js`: all animation (preloader, text reveals, proof panels, spotlight reveals, marquee, nav, mobile menu)
 - `assets/`: real project cover images and screen-recording videos, one folder per project; `assets/Studio/`
   holds founder portraits
@@ -28,6 +28,33 @@ The work grid on the homepage widens the tile you hover and narrows its row neig
 left alone on its row — 5 of 5, 7 of 7 — is pinned to full width and opted out of that effect
 (`.case-tile:last-child:nth-child(odd)`): it has no neighbour to trade space with, and a flex-grow
 below 1 would otherwise shrink it the moment you hovered a tile above it.
+
+## Services page
+Five services in one list, no categories: websites, web shops, apps, AI workflows, software.
+Every service is a `<details>` with the same three parts inside — what it is (one line +
+three points + tags) and proof. They all start collapsed and share `name="diensten"`, so
+only one is ever open at a time.
+
+The jump buttons under the page title are links to those `<details>`. `serviceJumps()` in
+`js/main.js` opens the one a button points at — without it you land on a collapsed block and
+see nothing but its title. The service description deliberately has no `data-reveal`: text
+that sits behind a click and a scroll trigger at the same time can end up staying invisible.
+
+Proof is a row of case thumbnails at the full width of the content column, not small
+thumbnails next to the text. Most of these covers are screenshots of dark sites; below
+roughly 200px wide and in greyscale they turn into a black rectangle. The two services with
+no case yet show concrete examples instead of an empty slot.
+
+A service name is kept short on purpose (Websites, Webshops, Apps, AI-workflows, Software).
+At the display size it is set in, "Softwarepakketten" ran 100px past its column. The name
+also has `overflow-wrap: break-word` as a backstop.
+
+## Spacing
+One vertical scale for the whole site, `--sp-1` to `--sp-8` in `:root`, plus `--page-top`
+for the space above every page header. Any gap between blocks is one of those steps —
+don't write a fresh `clamp()`. A page header already leaves plenty of air, so the first
+section after one (`.case-head + .section`, or `.section--tight` when something sits in
+between) uses `--sp-5` instead of the full `--sp-8`.
 
 ## Languages
 The Dutch pages in the root are the source: they hold both the markup and the Dutch copy.
@@ -48,7 +75,7 @@ node build.js --check  # which keys are still missing or have gone stale
 ```
 
 `i18n/routes.json` holds the URL per page per language, plus `done`: the languages that page is
-finished in. Only those get generated. **Every page is now done in nl, fr and en** — 202 keys, 22
+finished in. Only those get generated. **Every page is now done in nl, fr and en** — 287 keys, 22
 generated pages. A page that isn't translated yet keeps its links pointing at the Dutch version (so
 nothing dead-ends), gets no false `hreflang` claims, and the language switcher falls back to that
 language's home page with a tooltip saying so.
