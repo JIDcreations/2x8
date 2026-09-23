@@ -74,6 +74,23 @@ Forget the build and the site simply keeps yesterday's French and English — th
 new, the other two stale. `node build.js --check` tells you whether every key is translated before
 you push.
 
+### Working with two people
+Everyone gets their own GitHub account with Write access on this repository and their own SSH key —
+never a shared key, so `git log` keeps saying who did what. Pull before you start, push when you are
+done; whoever deploys last is no longer whoever wins.
+
+One thing does collide. `/fr` and `/en` are generated but committed, so if two people both touch
+Dutch copy, git will report conflicts in pages nobody wrote by hand. **Never resolve those by hand.**
+Take either side to get git moving again, then regenerate and commit the result:
+
+```
+git checkout --ours fr en && git add fr en   # or --theirs, it doesn't matter
+node build.js                                 # this is the real resolution
+git add fr en && git commit
+```
+
+The Dutch sources and `i18n/*.json` are the only files where a conflict is worth reading.
+
 `.htaccess` blocks the parts of this repo that are source, not site: `build.js`, `i18n/`,
 `README.md`, `mail-config.example.php` and the dot-folders. The Brevo key is never in here; it sits
 in `~/2x8-mail-config.php`, outside the docroot.
