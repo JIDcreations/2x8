@@ -2472,122 +2472,123 @@ a.services-tabs__btn {
   }
 }
 
-/* ---------- Contactformulier ---------- */
-/* Links het overzicht (mail, antwoordtijd, met wie je spreekt), rechts het
-   formulier. Het onderwerp kies je uit grote regels; wie erover beweegt ziet
-   een project van ons in die categorie met de cursor meelopen. */
-.cform {
-  position: relative;
-}
-.cform__layout {
-  margin-top: var(--sp-5);
-  padding-top: var(--sp-3);
-  border-top: 1px solid var(--line-strong);
+/* ---------- Contactpagina ---------- */
+/* Links een inkt-paneel dat blijft staan: het logo uit bits (zie bitmark() in
+   js/main.js) en eronder hoe je ons bereikt. Rechts een sober formulier. */
+.csplit {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--u);
-  row-gap: var(--sp-5);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: start;
 }
-/* Buiten beeld in plaats van display:none: een bot die CSS negeert vult hem
-   alsnog in, en dat is precies de bedoeling. */
-.cform__trap {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-/* ---------- Overzicht ---------- */
-.reach {
-  grid-column: 1 / span 4;
+.beacon {
   position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: calc(var(--nav-h) + var(--sp-3)) var(--gx) var(--gx);
+  overflow: hidden;
+  isolation: isolate;
+}
+.beacon__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+  cursor: crosshair;
+}
+.beacon__hint {
+  position: absolute;
   top: calc(var(--nav-h) + var(--sp-3));
-}
-.reach__list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-4);
-}
-.reach__item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.reach__term {
+  right: var(--gx);
   color: var(--muted);
+  pointer-events: none;
+  transition: opacity 0.8s var(--ease);
 }
-.reach__mail-row {
+.beacon__hint.is-gone {
+  opacity: 0;
+}
+/* De info laat klikken door naar het canvas, behalve op wat echt klikbaar is. */
+.beacon__info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, auto));
+  justify-content: start;
+  gap: var(--sp-3) var(--sp-5);
+  pointer-events: none;
+}
+.beacon__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.beacon__item--mail {
+  grid-column: 1 / -1;
+}
+.beacon__mail-row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px 16px;
+  gap: 12px 20px;
 }
-.reach__mail {
+.beacon__mail,
+.beacon .copy {
+  pointer-events: auto;
+}
+.beacon__mail {
   position: relative;
-  font-weight: 700;
-  font-size: clamp(1.5rem, 2.3vw, 2.25rem);
-  letter-spacing: -0.045em;
-  line-height: 1.1;
-  padding-bottom: 6px;
+  display: inline-block;
+  font-weight: 800;
+  font-size: clamp(2rem, 4.6vw, 5rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  padding-bottom: 0.12em;
 }
-.reach__mail::after {
+.beacon__mail .char {
+  display: inline-block;
+}
+.beacon__mail::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 3px;
+  height: clamp(3px, 0.35vw, 5px);
   background: var(--orange);
-  transform: scaleX(0.16);
+  transform: scaleX(0.12);
   transform-origin: left;
   transition: transform 0.9s var(--ease);
 }
-.reach__mail:hover::after,
-.reach__mail:focus-visible::after {
+.beacon__mail:hover::after,
+.beacon__mail:focus-visible::after {
   transform: scaleX(1);
 }
-.reach__value {
+.beacon__value {
   font-weight: 600;
-  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
-  letter-spacing: -0.03em;
-}
-.reach__people {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--u);
-  max-width: 360px;
-}
-.person {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.person__media {
-  display: block;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  background: #1a1918;
-}
-.person__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(1) contrast(1.05);
-}
-.person figcaption {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.person__name {
-  font-weight: 700;
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
   letter-spacing: -0.02em;
 }
-.person__role {
-  font-size: 13px;
-  color: var(--muted);
+.beacon__people {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.beacon__faces {
+  display: flex;
+}
+.beacon__faces img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  border: 2px solid var(--ink);
+}
+.beacon__faces img + img {
+  margin-left: -10px;
 }
 .copy {
   height: 36px;
@@ -2610,150 +2611,33 @@ a.services-tabs__btn {
 }
 
 /* ---------- Formulier ---------- */
-.cform__form {
-  grid-column: 6 / -1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-5);
-}
-.cform__form fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+.csplit__main {
+  padding: var(--page-top) var(--gx) var(--sp-7) var(--sp-6);
   min-width: 0;
 }
-.cform__q {
-  padding: 0;
-  margin-bottom: var(--sp-3);
-  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-}
-
-/* ---------- Onderwerpen ---------- */
-.topics__list {
-  border-top: 1px solid var(--line-strong);
-}
-.topic {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 1.6vw, 24px);
-  padding: clamp(12px, 1.3vw, 20px) 4px;
-  border-bottom: 1px solid var(--line-strong);
-  cursor: pointer;
-  isolation: isolate;
-  overflow: hidden;
-  transition: color 0.45s var(--ease);
-}
-/* Zelfde oranje vulling van onderen als de knoppen. */
-.topic::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--orange);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.5s var(--ease);
-}
-.topic:hover::before {
-  transform: scaleY(1);
-}
-.topic:hover {
-  color: var(--ink);
-}
-.topic__input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-/* Het vinkje is een bit: leeg, of oranje als het onderwerp gekozen is. */
-.topic__box {
-  flex: none;
-  width: clamp(18px, 1.6vw, 24px);
-  aspect-ratio: 1;
-  border: 1px solid currentColor;
-  transition:
-    background-color 0.3s var(--ease),
-    border-color 0.3s var(--ease);
-}
-.topic__name {
-  display: block;
-  font-weight: 700;
-  font-size: clamp(1.75rem, 3.6vw, 3.5rem);
-  letter-spacing: -0.045em;
-  line-height: 1.05;
-  /* translate, niet transform: GSAP zet transform bij het binnenkomen, en een
-     CSS-transition op dezelfde eigenschap zou elke frame daarvan vertragen. */
-  transition: translate 0.6s var(--ease);
-}
-.topic:hover .topic__name {
-  translate: 8px 0;
-}
-.topic__case {
-  margin-left: auto;
-  font-size: 14px;
+.csplit__main .case-head__top {
   color: var(--muted);
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateX(-8px);
-  transition:
-    opacity 0.4s var(--ease),
-    transform 0.4s var(--ease),
-    color 0.4s var(--ease);
 }
-.topic:hover .topic__case {
-  opacity: 1;
-  transform: none;
-  color: var(--ink);
+.cform {
+  position: relative;
+  max-width: 720px;
 }
-.topic:has(:checked) {
-  background: var(--ink);
-  color: var(--paper);
+.cform__form {
+  margin-top: var(--sp-5);
 }
-.topic:has(:checked)::before {
-  transform: scaleY(0);
-}
-.topic:has(:checked) .topic__box {
-  background: var(--orange);
-  border-color: var(--orange);
-}
-.topic:has(:checked) .topic__case {
-  opacity: 1;
-  transform: none;
-  color: var(--ash-2);
-}
-.topic:has(:focus-visible) {
-  outline: 2px solid var(--orange);
-  outline-offset: -2px;
-}
-
-/* De meelopende projectpreview. Alleen met een muis: zie contactForm(). */
-.topic-peek {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: var(--z-nav);
-  width: clamp(220px, 22vw, 360px);
-  aspect-ratio: 16 / 9;
+/* Buiten beeld in plaats van display:none: een bot die CSS negeert vult hem
+   alsnog in, en dat is precies de bedoeling. */
+.cform__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
-  background: var(--ink);
-  pointer-events: none;
-  visibility: hidden;
-  box-shadow: 0 24px 60px rgb(10 10 10 / 0.25);
 }
-.topic-peek img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ---------- Velden ---------- */
 .cform__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--sp-3) clamp(16px, 2.4vw, 32px);
+  gap: var(--sp-4) clamp(16px, 2.4vw, 32px);
 }
 .field {
   display: flex;
@@ -2771,7 +2655,7 @@ a.services-tabs__btn {
   font: inherit;
   font-size: 18px;
   color: var(--fg);
-  background: transparent;
+  background-color: transparent;
   border: 0;
   border-bottom: 1px solid var(--line-strong);
   border-radius: 0;
@@ -2792,16 +2676,38 @@ a.services-tabs__btn {
   outline: none;
   background-size: 100% 2px;
 }
+.field__input[aria-invalid='true'] {
+  background-size: 100% 2px;
+}
+.field__input--select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 32px;
+  /* Eigen pijl in oranje; de systeempijl breekt de vlakke, radiusloze look.
+     De onderlijn blijft de eerste achtergrond. */
+  background-image:
+    linear-gradient(var(--orange), var(--orange)),
+    linear-gradient(45deg, transparent 50%, var(--orange) 50%),
+    linear-gradient(135deg, var(--orange) 50%, transparent 50%);
+  background-position:
+    0 100%,
+    calc(100% - 14px) 50%,
+    calc(100% - 8px) 50%;
+  background-size:
+    0% 2px,
+    6px 6px,
+    6px 6px;
+}
+.field__input--select:focus {
+  background-size:
+    100% 2px,
+    6px 6px,
+    6px 6px;
+}
 .field__input--area {
   resize: vertical;
   min-height: 9em;
   line-height: 1.5;
-  border-top: 1px solid var(--line-strong);
-  padding-top: 14px;
-  margin-top: 4px;
-}
-.field__input[aria-invalid='true'] {
-  background-size: 100% 2px;
 }
 .field__error {
   font-family: var(--mono);
@@ -2810,11 +2716,11 @@ a.services-tabs__btn {
   color: var(--orange-text);
 }
 .cform__foot {
+  margin-top: var(--sp-5);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 16px clamp(16px, 3vw, 32px);
-  margin-top: calc(-1 * var(--sp-3));
 }
 .btn--send {
   height: 64px;
@@ -2826,6 +2732,7 @@ a.services-tabs__btn {
   max-width: 30ch;
 }
 .cform__status {
+  margin-top: 24px;
   padding: 16px 20px;
   border: 1px solid var(--orange);
   font-size: 15px;
@@ -2838,12 +2745,12 @@ a.services-tabs__btn {
 /* ---------- Verzonden ---------- */
 .sent {
   position: absolute;
-  inset: calc(-1 * var(--sp-3)) calc(-1 * var(--gx)) 0;
+  inset: calc(-1 * var(--sp-3)) calc(-1 * var(--gx)) 0 calc(-1 * var(--sp-6));
   z-index: 2;
   display: flex;
   flex-direction: column;
   gap: var(--sp-5);
-  padding: var(--sp-5) var(--gx) var(--gx);
+  padding: var(--sp-5) var(--gx) var(--gx) var(--sp-6);
   overflow: hidden;
 }
 .sent[hidden] {
@@ -2852,7 +2759,7 @@ a.services-tabs__btn {
 .sent__bits {
   font-family: var(--mono);
   font-weight: 500;
-  font-size: clamp(2.5rem, 12vw, 12rem);
+  font-size: clamp(2.5rem, 7vw, 7rem);
   letter-spacing: -0.04em;
   line-height: 0.9;
   white-space: nowrap;
@@ -2888,75 +2795,44 @@ a.services-tabs__btn {
 }
 
 @media (max-width: 960px) {
-  .reach,
-  .cform__form {
-    grid-column: 1 / -1;
+  .csplit {
+    grid-template-columns: minmax(0, 1fr);
   }
-  .reach {
-    position: static;
+  .beacon {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding-top: calc(var(--nav-h) + 38vw);
   }
-  .reach__list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--sp-4) var(--u);
+  .csplit__main {
+    padding: var(--sp-5) var(--gx) var(--sp-7);
   }
-  .reach__item:last-child {
-    grid-column: 1 / -1;
+  .sent {
+    inset: calc(-1 * var(--sp-3)) calc(-1 * var(--gx)) 0;
+    padding: var(--sp-5) var(--gx) var(--gx);
   }
 }
 @media (max-width: 600px) {
-  .reach__list {
+  .beacon {
+    padding-top: calc(var(--nav-h) + 44vw);
+  }
+  .beacon__info {
     grid-template-columns: minmax(0, 1fr);
-  }
-  /* Op een telefoon komt het formulier voor de portretten: kleine duimnagels. */
-  .reach__people {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-  }
-  .person {
-    flex-direction: row;
-    align-items: center;
-    gap: 14px;
-  }
-  .person__media {
-    flex: none;
-    width: 56px;
   }
   .cform__grid {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .topic__case {
-    display: none;
-  }
-  .topic:has(:checked) .topic__case {
-    display: inline;
   }
   .btn--send {
     width: 100%;
     justify-content: center;
   }
-}
-/* Aanraakschermen: geen hover-vulling die blijft hangen na een tik. */
-@media (hover: none) {
-  .topic:hover::before {
-    transform: scaleY(0);
-  }
-  .topic:hover {
-    color: inherit;
-  }
-  .topic:hover .topic__name {
-    translate: none;
-  }
-  .topic:hover .topic__case {
-    opacity: 0;
+  .beacon__hint {
+    display: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .topic,
-  .topic::before,
-  .topic__name,
-  .topic__case,
-  .field__input {
+  .field__input,
+  .beacon__hint {
     transition: none;
   }
 }

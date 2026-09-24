@@ -890,7 +890,10 @@
       })
         .then(function (r) { return r.json().catch(function () { return { ok: false, message: '' }; }); })
         .then(function (data) {
-          if (data.ok) return showSent();
+          if (data.ok) {
+            document.dispatchEvent(new CustomEvent('cform:sent'));
+            return showSent();
+          }
           showErrors(data.errors);
           setStatus(data.message || msg('fail', 'Er ging iets mis. Probeer het nog eens.'));
         })
@@ -913,93 +916,327 @@
   }
 
   /* ---------------------------------------------------------------- */
-  /* Onderwerpen: een project uit die categorie loopt mee met de muis  */
+  /* Contactpagina: het logo opgebouwd uit bits, op een canvas.        */
+  /* Het veld is een raster van nullen; waar het logo staat worden het */
+  /* enen. De bits vliegen bij het laden op hun plaats, wijken voor de */
+  /* cursor en kleuren oranje, en een klik stuurt er een golf door.    */
+  /* Alleen beleving: het formulier ernaast merkt er niets van.        */
   /* ---------------------------------------------------------------- */
-  function topicPeek() {
-    var list = $('[data-topics]');
-    var peek = $('[data-topic-peek]');
-    if (!list || !peek) return;
-    var topics = $$('.topic', list);
+  function bitmark() {
+    var panel = $('[data-beacon]');
+    var canvas = panel && $('[data-bitmark]', panel);
+    if (!canvas || !canvas.getContext) return null;
 
-    // Binnenkomen: de regels schuiven één voor één omhoog uit hun lijn.
+    var ctx = canvas.getContext('2d');
+    var info = $('.beacon__info', panel);
+    var hint = $('[data-bitmark-hint]', panel);
+    // Dezelfde paden als het logo in de navigatie: één bron voor het merk.
+    var paths = $$('[data-nav] .logo-glyph path').map(function (p) { return new Path2D(p.getAttribute('d')); });
+    var VB = { x: 159, y: 334, w: 1602, h: 412 };
+    var PAPER = '#fafbfc';
+    var ORANGE = '#f05522';
+
+    var dpr = 1, W = 0, H = 0, cell = 12;
+    var bg = null;           // alle nullen, één keer getekend
+    var zeros = [];          // de achtergrondcellen, voor de gloed rond de cursor
+    var bits = [];           // de enen van het logo
+    var sprite = {};
+    var pointer = { x: -1e4, y: -1e4, on: false };
+    var waves = [];
+    var sweepAt = -1;
+    var introAt = -1;
+    var introStarted = false;
+    var lastFlicker = 0;
+    var running = false;
+    var inView = true;
+    var R = 130;             // bereik van de cursor in px
+
+    function makeSprite(ch, color) {
+      var s = Math.ceil(cell * dpr);
+      var c = document.createElement('canvas');
+      c.width = c.height = s;
+      var g = c.getContext('2d');
+      g.fillStyle = color;
+      g.font = '500 ' + Math.round(s * 0.8) + 'px "JetBrains Mono", ui-monospace, monospace';
+      g.textAlign = 'center';
+      g.textBaseline = 'middle';
+      g.fillText(ch, s / 2, s / 2 + s * 0.05);
+      return c;
+    }
+
+    function build() {
+      var rect = panel.getBoundingClientRect();
+      W = rect.width;
+      H = rect.height;
+      if (!W || !H) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      cell = Math.round(gsap.utils.clamp(8, 13, W / 76));
+
+      // Waar het logo mag staan: onder de navigatie, boven de contactinfo.
+      var cs = getComputedStyle(panel);
+      var padX = parseFloat(cs.paddingLeft);
+      var top = $('[data-nav]').offsetHeight + cell * 2;
+      var bottom = info.offsetTop - cell * 2;
+      var areaW = W - padX * 2;
+      var areaH = Math.max(bottom - top, cell * 6);
+      var scale = Math.min(areaW / VB.w, areaH / VB.h);
+      var ox = padX;
+      var oy = top + (areaH - VB.h * scale) / 2;
+
+      var mask = document.createElement('canvas');
+      mask.width = Math.ceil(W);
+      mask.height = Math.ceil(H);
+      var mg = mask.getContext('2d');
+      mg.setTransform(scale, 0, 0, scale, ox - VB.x * scale, oy - VB.y * scale);
+      paths.forEach(function (p) { mg.fill(p); });
+      var alpha = mg.getImageData(0, 0, mask.width, mask.height).data;
+
+      sprite = {
+        zero: makeSprite('0', 'rgba(250, 251, 252, 0.14)'),
+        zeroHot: makeSprite('0', ORANGE),
+        one: makeSprite('1', PAPER),
+        oneHot: makeSprite('1', ORANGE),
+      };
+
+      bg = document.createElement('canvas');
+      bg.width = canvas.width;
+      bg.height = canvas.height;
+      var bgc = bg.getContext('2d');
+      zeros = [];
+      bits = [];
+      var cols = Math.ceil(W / cell);
+      var rows = Math.ceil(H / cell);
+      for (var r = 0; r < rows; r++) {
+        for (var c = 0; c < cols; c++) {
+          var x = c * cell + cell / 2;
+          var y = r * cell + cell / 2;
+          var inside = alpha[((y | 0) * mask.width + (x | 0)) * 4 + 3] > 127;
+          if (inside) {
+            bits.push({
+              hx: x, hy: y, dx: 0, dy: 0, vx: 0, vy: 0, heat: 0,
+              // Startpunt van de intro: ergens in het paneel, vertrek van links naar rechts.
+              sx: Math.random() * W - x, sy: Math.random() * H - y,
+              delay: (x / W) * 0.55 + Math.random() * 0.35,
+            });
+          } else {
+            zeros.push({ x: x, y: y, heat: 0 });
+            bgc.drawImage(sprite.zero, (x - cell / 2) * dpr, (y - cell / 2) * dpr);
+          }
+        }
+      }
+      if (reduce) draw(performance.now());
+    }
+
+    function easeOutExpo(t) { return t >= 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+
+    function step(now) {
+      var px = pointer.x, py = pointer.y, near = pointer.on;
+      var s = cell;
+
+      // Af en toe licht er uit zichzelf een bit op.
+      if (introStarted && now - lastFlicker > 110 && bits.length) {
+        lastFlicker = now;
+        bits[(Math.random() * bits.length) | 0].heat = 1;
+      }
+
+      // Golven van een klik: een ring die naar buiten loopt.
+      for (var w = waves.length - 1; w >= 0; w--) {
+        waves[w].r = (now - waves[w].t) * 1.1;
+        if (waves[w].r > Math.hypot(W, H)) waves.splice(w, 1);
+      }
+      var sweepX = sweepAt > 0 ? (now - sweepAt) * 1.4 - 80 : -1e4;
+      if (sweepX > W + 200) sweepAt = -1;
+
+      for (var i = 0; i < bits.length; i++) {
+        var b = bits[i];
+        var x = b.hx + b.dx;
+        var y = b.hy + b.dy;
+        if (near) {
+          var ddx = x - px, ddy = y - py;
+          var d2 = ddx * ddx + ddy * ddy;
+          if (d2 < R * R) {
+            var d = Math.sqrt(d2) || 1;
+            var f = (1 - d / R);
+            b.vx += (ddx / d) * f * f * 7;
+            b.vy += (ddy / d) * f * f * 7;
+            if (f > b.heat) b.heat = f;
+          }
+        }
+        for (w = 0; w < waves.length; w++) {
+          var wx = b.hx - waves[w].x, wy = b.hy - waves[w].y;
+          var wd = Math.sqrt(wx * wx + wy * wy) || 1;
+          var band = Math.abs(wd - waves[w].r);
+          if (band < s * 2.2) {
+            var k = (1 - band / (s * 2.2)) * 3.2;
+            b.vx += (wx / wd) * k;
+            b.vy += (wy / wd) * k;
+            b.heat = 1;
+          }
+        }
+        if (Math.abs(b.hx - sweepX) < 70) b.heat = 1;
+
+        // Veer terug naar huis.
+        b.vx = (b.vx - b.dx * 0.07) * 0.84;
+        b.vy = (b.vy - b.dy * 0.07) * 0.84;
+        b.dx += b.vx;
+        b.dy += b.vy;
+        b.heat *= 0.955;
+      }
+
+      // De nullen rond de cursor gloeien mee.
+      for (var z = 0; z < zeros.length; z++) {
+        var o = zeros[z];
+        if (near) {
+          var zx = o.x - px, zy = o.y - py;
+          var zd2 = zx * zx + zy * zy;
+          if (zd2 < R * R * 0.64) {
+            var zf = 1 - Math.sqrt(zd2) / (R * 0.8);
+            if (zf > o.heat) o.heat = zf;
+          }
+        }
+        for (w = 0; w < waves.length; w++) {
+          if (Math.abs(Math.hypot(o.x - waves[w].x, o.y - waves[w].y) - waves[w].r) < s * 1.2) o.heat = 0.8;
+        }
+        o.heat *= 0.93;
+      }
+    }
+
+    function draw(now) {
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (bg) ctx.drawImage(bg, 0, 0);
+      var half = cell / 2;
+
+      for (var z = 0; z < zeros.length; z++) {
+        var o = zeros[z];
+        if (o.heat < 0.03) continue;
+        ctx.globalAlpha = o.heat;
+        ctx.drawImage(sprite.zeroHot, (o.x - half) * dpr, (o.y - half) * dpr);
+      }
+
+      var t = introStarted ? (now - introAt) / 1000 : (reduce ? 99 : -1);
+      for (var i = 0; i < bits.length; i++) {
+        var b = bits[i];
+        var p = t < 0 ? 0 : easeOutExpo(Math.max(0, (t - b.delay) / 1.2));
+        if (p <= 0) continue;
+        var x = b.hx + b.dx + b.sx * (1 - p);
+        var y = b.hy + b.dy + b.sy * (1 - p);
+        var heat = Math.max(b.heat, 1 - p);
+        ctx.globalAlpha = p;
+        ctx.drawImage(sprite.one, (x - half) * dpr, (y - half) * dpr);
+        if (heat > 0.03) {
+          ctx.globalAlpha = heat * p;
+          ctx.drawImage(sprite.oneHot, (x - half) * dpr, (y - half) * dpr);
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function tick() {
+      var now = performance.now();
+      step(now);
+      draw(now);
+    }
+
+    function start() {
+      if (running || reduce || !inView || document.hidden) return;
+      running = true;
+      gsap.ticker.add(tick);
+    }
+    function stop() {
+      if (!running) return;
+      running = false;
+      gsap.ticker.remove(tick);
+    }
+
+    build();
+    if (reduce && hint) hint.remove();
+
     if (!reduce) {
-      gsap.from($$('.topic__name', list), {
-        yPercent: 110,
-        duration: 1.1,
-        ease: 'expo.out',
-        stagger: 0.06,
-        scrollTrigger: { trigger: list, start: 'top 85%', once: true },
-      });
-    }
-
-    if (reduce || !finePointer) return peek.remove();
-
-    var img = $('img', peek);
-    var loaded = false;
-    var current = null;
-    var xTo = gsap.quickTo(peek, 'x', { duration: 0.55, ease: 'power3' });
-    var yTo = gsap.quickTo(peek, 'y', { duration: 0.55, ease: 'power3' });
-    var lastX = 0;
-
-    // De covers zijn groot; pas laden als iemand de lijst echt nadert.
-    function preload() {
-      if (loaded) return;
-      loaded = true;
-      topics.forEach(function (t) {
-        var src = t.getAttribute('data-topic-img');
-        if (src) new Image().src = src;
-      });
-    }
-    list.addEventListener('pointerenter', preload);
-    list.addEventListener('focusin', preload);
-
-    function place(e, instant) {
-      var w = peek.offsetWidth;
-      var h = peek.offsetHeight;
-      // Rechts van de cursor, tenzij daar geen plaats is.
-      var x = e.clientX + 32 + w > window.innerWidth ? e.clientX - w - 32 : e.clientX + 32;
-      var y = Math.min(Math.max(e.clientY - h / 2, 16), window.innerHeight - h - 16);
-      if (instant) {
-        gsap.set(peek, { x: x, y: y });
-      } else {
-        xTo(x);
-        yTo(y);
+      var hintTimer = 0;
+      function toLocal(e) {
+        var r = panel.getBoundingClientRect();
+        pointer.x = e.clientX - r.left;
+        pointer.y = e.clientY - r.top;
       }
-    }
+      panel.addEventListener('pointermove', function (e) {
+        toLocal(e);
+        pointer.on = true;
+        if (hint && !hintTimer) hintTimer = setTimeout(function () { hint.classList.add('is-gone'); }, 1400);
+      });
+      panel.addEventListener('pointerleave', function () { pointer.on = false; });
+      panel.addEventListener('pointerdown', function (e) {
+        if (e.target.closest('a, button')) return;
+        toLocal(e);
+        waves.push({ x: pointer.x, y: pointer.y, t: performance.now(), r: 0 });
+        if (hint) hint.classList.add('is-gone');
+      });
 
-    function show(topic, e) {
-      var src = topic.getAttribute('data-topic-img');
-      if (!src) return hide();
-      var tilt = gsap.utils.clamp(-6, 6, (e.clientX - lastX) * 0.4);
-      if (current === null) {
-        place(e, true);
-        img.src = src;
-        gsap.fromTo(peek,
-          { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', rotate: tilt },
-          { clipPath: 'inset(0% 0 0 0)', rotate: 0, duration: 0.6, ease: 'expo.out', overwrite: 'auto' });
-      } else if (current !== src) {
-        // Van regel naar regel: het nieuwe beeld schuift over het oude.
-        gsap.fromTo(img, { yPercent: 12, scale: 1.15 }, { yPercent: 0, scale: 1, duration: 0.6, ease: 'expo.out' });
-        img.src = src;
+      // Enkel rekenen als het paneel in beeld is en het tabblad zichtbaar.
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          inView = entries[0].isIntersecting;
+          inView ? start() : stop();
+        }).observe(panel);
       }
-      current = src;
+      document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+      document.addEventListener('cform:sent', function () { sweepAt = performance.now(); });
     }
 
-    function hide() {
-      if (current === null) return;
-      current = null;
-      gsap.to(peek, { clipPath: 'inset(0 0 100% 0)', duration: 0.45, ease: 'expo.inOut', overwrite: 'auto',
-        onComplete: function () { gsap.set(peek, { autoAlpha: 0 }); } });
+    var resizeTimer = 0;
+    if ('ResizeObserver' in window) {
+      var lastW = 0, lastH = 0;
+      new ResizeObserver(function (entries) {
+        var cr = entries[0].contentRect;
+        // Mobiele adresbalk die in- en uitschuift: alleen herbouwen bij echte verandering.
+        if (Math.abs(cr.width - lastW) < 2 && Math.abs(cr.height - lastH) < 60) return;
+        lastW = cr.width;
+        lastH = cr.height;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          build();
+          if (introStarted) introAt = performance.now() - 5000; // na een resize meteen op hun plaats
+        }, 150);
+      }).observe(panel);
     }
 
-    topics.forEach(function (topic) {
-      topic.addEventListener('pointerenter', function (e) { show(topic, e); });
+    return {
+      // Start de intro pas als de preloader weg is, anders mis je ze.
+      intro: function () {
+        if (reduce) return;
+        introAt = performance.now();
+        introStarted = true;
+        start();
+      },
+    };
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Letters die opspringen als je erover beweegt (het mailadres)      */
+  /* ---------------------------------------------------------------- */
+  function bounceText() {
+    if (reduce || !finePointer) return;
+    $$('[data-bounce]').forEach(function (el) {
+      var split = SplitText.create(el, { type: 'chars', charsClass: 'char' });
+      var base = getComputedStyle(el).color;
+      var orange = getComputedStyle(document.documentElement).getPropertyValue('--orange').trim();
+      split.chars.forEach(function (ch, i) {
+        ch.addEventListener('pointerenter', function () {
+          [-2, -1, 0, 1, 2].forEach(function (off) {
+            var n = split.chars[i + off];
+            if (!n) return;
+            var lift = off === 0 ? 34 : Math.abs(off) === 1 ? 18 : 7;
+            gsap.timeline({ overwrite: true })
+              .to(n, { yPercent: -lift, duration: 0.22, ease: 'power2.out' })
+              .to(n, { yPercent: 0, duration: 0.8, ease: 'expo.out' });
+          });
+          // Echte kleurwaarden: GSAP kan niet tweenen naar een CSS-variabele.
+          gsap.fromTo(ch, { color: orange }, { color: base, duration: 1.2, delay: 0.3, ease: 'power1.out', overwrite: 'auto', clearProps: 'color' });
+        });
+      });
     });
-    list.addEventListener('pointermove', function (e) {
-      place(e);
-      lastX = e.clientX;
-    });
-    list.addEventListener('pointerleave', hide);
   }
 
   /* ---------------------------------------------------------------- */
@@ -1049,7 +1286,8 @@
     workFilter();
     counters();
     contactForm();
-    topicPeek();
+    var mark = bitmark();
+    bounceText();
     copyButtons();
 
     // Arriving from a case page on "index.html#work": jump to the section
@@ -1060,6 +1298,7 @@
 
     return preloader().then(function () {
       heroIntro();
+      if (mark) mark.intro();
       ScrollTrigger.refresh();
     });
   });
