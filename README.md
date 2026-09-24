@@ -165,15 +165,15 @@ The generated pages use root-absolute asset paths (`/css/…`, `/assets/…`); t
 `/fr/` sits a directory deeper than the Dutch pages. The build rewrites those paths itself.
 
 ## Contact form
-`/contact` has two columns. Left, sticky, the overview: the mail address (with a copy button), the
-reply time, and who you talk to. Right, the form. The subject is picked from big display-type rows
-(radio buttons named `type`, like before): hovering a row fills it orange, and with a mouse a cover
-of one of our projects in that category follows the cursor (`topicPeek()` in `js/main.js`; the
-covers only load once the pointer nears the list). Which project goes with which row is the
-`data-topic-img` on each row in `contact.html`; rows without a case show no image. On success an ink
-panel wipes over the form and counts the byte full, like the preloader; `?verzonden=1` (the no-JS
-return) shows that same panel. The JS messages live as `data-msg-*` attributes on the form so the
-build translates them. `/contact` posts to `mail.php`, which sends two mails: the request to
+`/contact` is split in two. Left, a sticky ink panel: the 2X8 mark rebuilt from bits on a canvas
+(`bitmark()` in `js/main.js`, using the nav logo's own SVG paths), with the mail address, reply time
+and who you talk to underneath. The field is a grid of 0s; where the mark is they are 1s. On load
+the bits fly into place, they scatter from the cursor and glow orange, a click sends a shockwave,
+and a sent form sweeps the whole mark orange (`cform:sent` event). The loop only runs while the
+panel is on screen; with reduced motion the mark is drawn once, still. The mail address letters
+jump on hover (`bounceText()`). Right, a plain form. On success an ink panel wipes over the form
+and counts the byte full; `?verzonden=1` (the no-JS return) shows that same panel. The JS messages
+live as `data-msg-*` attributes on the form so the build translates them. `/contact` posts to `mail.php`, which sends two mails: the request to
 `hello@2x8.be` (with the
 visitor as `Reply-To`) and a styled confirmation to the visitor.
 

@@ -138,8 +138,43 @@
     </div>
 
     <main id="main">
-      <section class="contact--page" id="contact">
-        <div class="wrap">
+      <section class="csplit" id="contact">
+        <!-- Links het inkt-paneel: het 2X8-logo opgebouwd uit bits die op de cursor
+             reageren, met eronder hoe je ons bereikt. Puur beleving, het formulier
+             rechts staat er los van. -->
+        <aside class="beacon theme-ink" aria-label="Coordonnées" data-i18n-attr="aria-label:contact.reach.label" data-beacon>
+          <canvas class="beacon__canvas" data-bitmark aria-hidden="true"></canvas>
+          <p class="beacon__hint mono" aria-hidden="true" data-bitmark-hint data-i18n="contact.beacon.hint">Bougez ou cliquez</p>
+
+          <dl class="beacon__info">
+            <div class="beacon__item beacon__item--mail">
+              <dt class="mono muted" data-i18n="contact.reach.mail">E-mail</dt>
+              <dd class="beacon__mail-row">
+                <a class="beacon__mail" href="mailto:hello@2x8.be?subject=Nieuw%20project" data-bounce>hello@2x8.be</a>
+                <button class="copy" type="button" data-copy="hello@2x8.be"
+                  data-done="Copié" data-i18n-attr="data-done:contact.copied">
+                  <span data-copy-label data-i18n="contact.copy">Copier</span>
+                </button>
+              </dd>
+            </div>
+            <div class="beacon__item">
+              <dt class="mono muted" data-i18n="contact.reach.reply">Réponse</dt>
+              <dd class="beacon__value" data-i18n="contact.reach.replyValue">Sous deux jours ouvrables</dd>
+            </div>
+            <div class="beacon__item">
+              <dt class="mono muted" data-i18n="contact.reach.who">Vous parlez avec</dt>
+              <dd class="beacon__people">
+                <span class="beacon__faces" aria-hidden="true">
+                  <img src="/assets/Studio/jasper.jpeg" alt="" loading="lazy" decoding="async" width="1122" height="1402" />
+                  <img src="/assets/Studio/florian.jpeg?v=2" alt="" loading="lazy" decoding="async" width="1122" height="1402" />
+                </span>
+                <span class="beacon__value">Jasper &amp; Florian</span>
+              </dd>
+            </div>
+          </dl>
+        </aside>
+
+        <div class="csplit__main">
           <div class="case-head__top">
             <a class="link" href="/fr/"><span class="btn__arrow" aria-hidden="true">&larr;</span><span data-i18n="nav.home">Accueil</span></a>
             <span class="byte" data-i18n="nav.contact">Contact</span>
@@ -148,138 +183,65 @@
           <section class="cform" id="formulier" aria-labelledby="cform-title" data-cform-root>
             <h1 class="display h-lg cform__title" id="cform-title" data-split data-i18n="contact.form.title">Dites-nous tout.</h1>
 
-            <div class="cform__layout">
-              <!-- Het overzicht: waar je ons bereikt, hoe snel, en met wie. Staat op
-                   desktop naast het formulier en blijft staan tijdens het invullen. -->
-              <aside class="reach" aria-label="Coordonnées" data-i18n-attr="aria-label:contact.reach.label">
-                <dl class="reach__list">
-                  <div class="reach__item">
-                    <dt class="reach__term mono" data-i18n="contact.reach.mail">E-mail</dt>
-                    <dd class="reach__mail-row">
-                      <a class="reach__mail" href="mailto:hello@2x8.be?subject=Nieuw%20project">hello@2x8.be</a>
-                      <button class="copy" type="button" data-copy="hello@2x8.be"
-                        data-done="Copié" data-i18n-attr="data-done:contact.copied">
-                        <span data-copy-label data-i18n="contact.copy">Copier</span>
-                      </button>
-                    </dd>
-                  </div>
-                  <div class="reach__item">
-                    <dt class="reach__term mono" data-i18n="contact.reach.reply">Réponse</dt>
-                    <dd class="reach__value" data-i18n="contact.reach.replyValue">Sous deux jours ouvrables</dd>
-                  </div>
-                  <div class="reach__item">
-                    <dt class="reach__term mono" data-i18n="contact.reach.who">Vous parlez avec</dt>
-                    <dd class="reach__people">
-                      <figure class="person">
-                        <span class="person__media"><img src="/assets/Studio/jasper.jpeg" alt="" loading="lazy" decoding="async" width="1122" height="1402" /></span>
-                        <figcaption><span class="person__name">Jasper</span><span class="person__role" data-i18n-html="studio.role.jasper">Design &amp; front-end</span></figcaption>
-                      </figure>
-                      <figure class="person">
-                        <span class="person__media"><img src="/assets/Studio/florian.jpeg?v=2" alt="" loading="lazy" decoding="async" width="1122" height="1402" /></span>
-                        <figcaption><span class="person__name">Florian</span><span class="person__role" data-i18n-html="studio.role.florian">Développement &amp; conseil</span></figcaption>
-                      </figure>
-                    </dd>
-                  </div>
-                </dl>
-              </aside>
+            <form class="cform__form" action="/mail.php" method="post" novalidate data-cform
+              data-msg-sending="Envoi…" data-i18n-attr="data-msg-sending:contact.js.sending,data-msg-name:contact.js.name,data-msg-email:contact.js.email,data-msg-message:contact.js.message,data-msg-fail:contact.js.fail,data-msg-offline:contact.js.offline"
+              data-msg-name="Indiquez votre nom."
+              data-msg-email="Indiquez une adresse e-mail valide."
+              data-msg-message="Écrivez un peu plus, pour que nous puissions bien vous répondre."
+              data-msg-fail="L’envoi n’a pas abouti. Réessayez, ou écrivez-nous à hello@2x8.be."
+              data-msg-offline="Problème de connexion. Écrivez-nous à hello@2x8.be.">
+              <!-- Spamval: onzichtbaar voor mensen, ingevuld door bots. Leeg = echt bericht. -->
+              <div class="cform__trap" aria-hidden="true">
+                <label for="cf-website">Website</label>
+                <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+              <input type="hidden" name="duur" value="" data-cform-elapsed />
 
-              <form class="cform__form" action="/mail.php" method="post" novalidate data-cform
-                data-msg-sending="Envoi…" data-i18n-attr="data-msg-sending:contact.js.sending,data-msg-name:contact.js.name,data-msg-email:contact.js.email,data-msg-message:contact.js.message,data-msg-fail:contact.js.fail,data-msg-offline:contact.js.offline"
-                data-msg-name="Indiquez votre nom."
-                data-msg-email="Indiquez une adresse e-mail valide."
-                data-msg-message="Écrivez un peu plus, pour que nous puissions bien vous répondre."
-                data-msg-fail="L’envoi n’a pas abouti. Réessayez, ou écrivez-nous à hello@2x8.be."
-                data-msg-offline="Problème de connexion. Écrivez-nous à hello@2x8.be.">
-                <!-- Spamval: onzichtbaar voor mensen, ingevuld door bots. Leeg = echt bericht. -->
-                <div class="cform__trap" aria-hidden="true">
-                  <label for="cf-website">Website</label>
-                  <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off" />
-                </div>
-                <input type="hidden" name="duur" value="" data-cform-elapsed />
+              <div class="cform__grid">
+                <p class="field">
+                  <label class="field__label mono" for="cf-naam" data-i18n="contact.form.name">Nom *</label>
+                  <input class="field__input" type="text" id="cf-naam" name="naam" required autocomplete="name" aria-describedby="err-naam" />
+                  <span class="field__error" id="err-naam" data-error-for="naam" hidden></span>
+                </p>
+                <p class="field">
+                  <label class="field__label mono" for="cf-email" data-i18n="contact.form.email">E-mail *</label>
+                  <input class="field__input" type="email" id="cf-email" name="email" required autocomplete="email" spellcheck="false" aria-describedby="err-email" />
+                  <span class="field__error" id="err-email" data-error-for="email" hidden></span>
+                </p>
+                <p class="field">
+                  <label class="field__label mono" for="cf-bedrijf" data-i18n="contact.form.company">Entreprise</label>
+                  <input class="field__input" type="text" id="cf-bedrijf" name="bedrijf" autocomplete="organization" />
+                </p>
+                <p class="field">
+                  <label class="field__label mono" for="cf-type" data-i18n="contact.form.kind">Sujet</label>
+                  <select class="field__input field__input--select" id="cf-type" name="type">
+                    <option value="Website" data-i18n="contact.kind.site">Site web</option>
+                    <option value="Webshop" data-i18n="contact.kind.shop">Boutique en ligne</option>
+                    <option value="App" data-i18n="contact.kind.app">App</option>
+                    <option value="AI-workflow" data-i18n="contact.kind.ai">Workflow IA</option>
+                    <option value="Software &amp; advies" data-i18n="contact.kind.software">Logiciel &amp; conseil</option>
+                    <option value="Iets anders" data-i18n="contact.kind.other">Autre chose</option>
+                  </select>
+                </p>
+                <p class="field field--wide">
+                  <label class="field__label mono" for="cf-bericht" data-i18n="contact.form.message">Message *</label>
+                  <textarea class="field__input field__input--area" id="cf-bericht" name="bericht" rows="6" required
+                    aria-describedby="err-bericht"
+                    placeholder="Ce que vous voulez construire, pour qui, et pour quand. Quelques phrases suffisent."
+                    data-i18n-attr="placeholder:contact.form.messagePh"></textarea>
+                  <span class="field__error" id="err-bericht" data-error-for="bericht" hidden></span>
+                </p>
+              </div>
 
-                <!-- Onderwerp als grote keuzeregels. Wie over een regel beweegt, ziet
-                     een project van ons in die categorie meelopen met de cursor. -->
-                <fieldset class="topics">
-                  <legend class="cform__q" data-i18n="contact.q.kind">Comment pouvons-nous aider ?</legend>
-                  <div class="topics__list" data-topics>
-                    <label class="topic" data-topic-img="assets/Elevator-Antwerp/Cover-elevator.png">
-                      <input class="topic__input" type="radio" name="type" value="Website" />
-                      <span class="topic__box" aria-hidden="true"></span>
-                      <span class="topic__name" data-i18n="contact.kind.site">Site web</span>
-                      <span class="topic__case"><span data-i18n="contact.kind.like">comme</span> Elevator Antwerp</span>
-                    </label>
-                    <label class="topic" data-topic-img="assets/Specter/Cover-specter.png">
-                      <input class="topic__input" type="radio" name="type" value="Webshop" />
-                      <span class="topic__box" aria-hidden="true"></span>
-                      <span class="topic__name" data-i18n="contact.kind.shop">Boutique en ligne</span>
-                      <span class="topic__case"><span data-i18n="contact.kind.like">comme</span> Specter</span>
-                    </label>
-                    <label class="topic" data-topic-img="assets/EQTY/COVER1.png">
-                      <input class="topic__input" type="radio" name="type" value="App" />
-                      <span class="topic__box" aria-hidden="true"></span>
-                      <span class="topic__name" data-i18n="contact.kind.app">App</span>
-                      <span class="topic__case"><span data-i18n="contact.kind.like">comme</span> EQTY</span>
-                    </label>
-                    <label class="topic">
-                      <input class="topic__input" type="radio" name="type" value="AI-workflow" />
-                      <span class="topic__box" aria-hidden="true"></span>
-                      <span class="topic__name" data-i18n="contact.kind.ai">Workflow IA</span>
-                    </label>
-                    <label class="topic" data-topic-img="assets/Nadir/Nadir_Cover.png">
-                      <input class="topic__input" type="radio" name="type" value="Software &amp; advies" />
-                      <span class="topic__box" aria-hidden="true"></span>
-                      <span class="topic__name" data-i18n="contact.kind.software">Logiciel &amp; conseil</span>
-                      <span class="topic__case"><span data-i18n="contact.kind.like">comme</span> NADIR</span>
-                    </label>
-                    <label class="topic">
-                      <input class="topic__input" type="radio" name="type" value="Iets anders" />
-                      <span class="topic__box" aria-hidden="true"></span>
-                      <span class="topic__name" data-i18n="contact.kind.other">Autre chose</span>
-                    </label>
-                  </div>
-                </fieldset>
+              <div class="cform__foot">
+                <button class="btn btn--send" type="submit" data-magnetic data-cform-submit>
+                  <span data-i18n="contact.form.send">Envoyer</span><span class="btn__arrow" aria-hidden="true">&rarr;</span>
+                </button>
+                <p class="cform__note muted" data-i18n="contact.form.note">Nous utilisons vos données uniquement pour vous répondre.</p>
+              </div>
 
-                <fieldset class="cform__about">
-                  <legend class="cform__q" data-i18n="contact.q.about">À propos de vous</legend>
-                  <div class="cform__grid">
-                    <p class="field">
-                      <label class="field__label mono" for="cf-naam" data-i18n="contact.form.name">Nom *</label>
-                      <input class="field__input" type="text" id="cf-naam" name="naam" required autocomplete="name" aria-describedby="err-naam" />
-                      <span class="field__error" id="err-naam" data-error-for="naam" hidden></span>
-                    </p>
-                    <p class="field">
-                      <label class="field__label mono" for="cf-email" data-i18n="contact.form.email">E-mail *</label>
-                      <input class="field__input" type="email" id="cf-email" name="email" required autocomplete="email" spellcheck="false" aria-describedby="err-email" />
-                      <span class="field__error" id="err-email" data-error-for="email" hidden></span>
-                    </p>
-                    <p class="field field--wide">
-                      <label class="field__label mono" for="cf-bedrijf" data-i18n="contact.form.company">Entreprise</label>
-                      <input class="field__input" type="text" id="cf-bedrijf" name="bedrijf" autocomplete="organization" />
-                    </p>
-                    <p class="field field--wide">
-                      <label class="field__label mono" for="cf-bericht" data-i18n="contact.form.message">Message *</label>
-                      <textarea class="field__input field__input--area" id="cf-bericht" name="bericht" rows="6" required
-                        aria-describedby="err-bericht"
-                        placeholder="Ce que vous voulez construire, pour qui, et pour quand. Quelques phrases suffisent."
-                        data-i18n-attr="placeholder:contact.form.messagePh"></textarea>
-                      <span class="field__error" id="err-bericht" data-error-for="bericht" hidden></span>
-                    </p>
-                  </div>
-                </fieldset>
-
-                <div class="cform__foot">
-                  <button class="btn btn--send" type="submit" data-magnetic data-cform-submit>
-                    <span data-i18n="contact.form.send">Envoyer</span><span class="btn__arrow" aria-hidden="true">&rarr;</span>
-                  </button>
-                  <p class="cform__note muted" data-i18n="contact.form.note">Nous utilisons vos données uniquement pour vous répondre.</p>
-                </div>
-
-                <p class="cform__status" role="status" aria-live="polite" data-cform-status hidden></p>
-              </form>
-            </div>
-
-            <!-- De projectbeelden die met de cursor meelopen over de onderwerpen. -->
-            <div class="topic-peek" aria-hidden="true" data-topic-peek><img alt="" decoding="async" /></div>
+              <p class="cform__status" role="status" aria-live="polite" data-cform-status hidden></p>
+            </form>
 
             <!-- Verzonden: een inkt-paneel schuift over het formulier en telt de byte vol. -->
             <div class="sent theme-ink" data-cform-sent hidden>
