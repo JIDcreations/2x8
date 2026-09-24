@@ -3,6 +3,21 @@
    Needs (loaded before this file): gsap, ScrollTrigger, SplitText, Lenis
    ========================================================================== */
 
+/* Double-clicked from disk (file://): the clean site links (/werk, /work/specter)
+   point at the root of the drive. Point them at the real .html files instead, so the
+   site can be clicked through locally. Does nothing on the server. */
+(function () {
+  if (location.protocol !== 'file:') return;
+  var root = document.currentScript.src.replace(/js\/main\.js.*$/, '');
+  document.querySelectorAll('a[href^="/"]').forEach(function (a) {
+    var m = a.getAttribute('href').match(/^\/([^?#]*)(.*)$/);
+    var path = m[1];
+    if (path === '' || path.slice(-1) === '/') path += 'index.html';
+    else if (!/\.[a-z0-9]+$/i.test(path)) path += '.html';
+    a.href = root + path + m[2];
+  });
+})();
+
 (function () {
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
