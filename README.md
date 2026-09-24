@@ -137,8 +137,15 @@ The generated pages use root-absolute asset paths (`/css/…`, `/assets/…`); t
 `/fr/` sits a directory deeper than the Dutch pages. The build rewrites those paths itself.
 
 ## Contact form
-The form sits at the top of `/contact` on a white page — that page deliberately carries almost no
-copy beyond the form itself. `/contact` posts to `mail.php`, which sends two mails: the request to
+`/contact` has two columns. Left, sticky, the overview: the mail address (with a copy button), the
+reply time, and who you talk to. Right, the form. The subject is picked from big display-type rows
+(radio buttons named `type`, like before): hovering a row fills it orange, and with a mouse a cover
+of one of our projects in that category follows the cursor (`topicPeek()` in `js/main.js`; the
+covers only load once the pointer nears the list). Which project goes with which row is the
+`data-topic-img` on each row in `contact.html`; rows without a case show no image. On success an ink
+panel wipes over the form and counts the byte full, like the preloader; `?verzonden=1` (the no-JS
+return) shows that same panel. The JS messages live as `data-msg-*` attributes on the form so the
+build translates them. `/contact` posts to `mail.php`, which sends two mails: the request to
 `hello@2x8.be` (with the
 visitor as `Reply-To`) and a styled confirmation to the visitor.
 

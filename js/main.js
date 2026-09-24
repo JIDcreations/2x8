@@ -744,31 +744,45 @@
   }
 
   /* ---------------------------------------------------------------- */
-  /* Contactformulier: verstuurt via fetch, valt terug op een gewone   */
-  /* POST als JS niet draait.                                          */
+  /* Contactformulier: verstuurt via fetch en schuift dan een inkt-    */
+  /* paneel over het formulier. Valt terug op een gewone POST als JS   */
+  /* niet draait.                                                      */
   /* ---------------------------------------------------------------- */
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
   function contactForm() {
     var form = $('[data-cform]');
     if (!form) return;
 
+    var root = form.closest('[data-cform-root]') || form.parentNode;
     var status = $('[data-cform-status]', form);
     var submit = $('[data-cform-submit]', form);
     var elapsed = $('[data-cform-elapsed]', form);
+    var sent = $('[data-cform-sent]', root);
     var started = 0;
+    var msg = function (key, fallback) { return form.getAttribute('data-msg-' + key) || fallback; };
 
-    // Duur sinds de eerste echte interactie; de server gebruikt ze om bots te
-    // herkennen die het formulier in een oogwenk invullen.
-    form.addEventListener('input', function () {
+    form.addEventListener('input', function (e) {
+      // Duur sinds de eerste echte interactie; de server gebruikt ze om bots te
+      // herkennen die het formulier in een oogwenk invullen.
       if (!started) started = Date.now();
       if (elapsed) elapsed.value = String(Date.now() - started);
+      if (e.target.getAttribute('aria-invalid')) clearError(e.target.name);
     });
 
+    /* -- Fouten ----------------------------------------------------- */
+    function clearError(name) {
+      var slot = $('[data-error-for="' + name + '"]', form);
+      if (slot) {
+        slot.hidden = true;
+        slot.textContent = '';
+      }
+      if (form.elements[name]) form.elements[name].removeAttribute('aria-invalid');
+    }
+
     function clearErrors() {
-      $$('[data-error-for]', form).forEach(function (el) {
-        el.hidden = true;
-        el.textContent = '';
-      });
-      $$('.field__input', form).forEach(function (el) { el.removeAttribute('aria-invalid'); });
+      ['naam', 'email', 'bericht'].forEach(clearError);
+      if (status) status.hidden = true;
     }
 
     function showErrors(errors) {
@@ -786,24 +800,88 @@
         }
       });
       if (first) first.focus();
+      return !!first;
     }
 
-    function setStatus(message, ok) {
+    // Dezelfde regels als mail.php, zodat je niet op de server hoeft te wachten
+    // voor een vergeten veld. De server blijft de echte controle.
+    function validate() {
+      var errors = {};
+      if (!form.elements.naam.value.trim()) errors.naam = msg('name', 'Vul je naam in.');
+      if (!EMAIL_RE.test(form.elements.email.value.trim())) errors.email = msg('email', 'Vul een geldig e-mailadres in.');
+      if (form.elements.bericht.value.trim().length < 10) errors.bericht = msg('message', 'Schrijf iets meer.');
+      return errors;
+    }
+
+    function setStatus(text) {
       if (!status) return;
-      status.textContent = message;
-      status.className = 'cform__status ' + (ok ? 'cform__status--ok' : 'cform__status--fail');
+      status.textContent = text;
+      status.className = 'cform__status';
       status.hidden = false;
     }
 
+    /* -- Verzonden -------------------------------------------------- */
+    function paint(n) {
+      return n.toString(2).padStart(8, '0').split('')
+        .map(function (b) { return b === '1' ? '<b>1</b>' : '0'; }).join('');
+    }
+
+    function showSent(instant) {
+      if (!sent) return;
+      var bitsEl = $('[data-sent-bits]', sent);
+      var title = $('[data-sent-title]', sent);
+      sent.hidden = false;
+      form.inert = true;
+      if (lenis && !instant) lenis.scrollTo(sent, { offset: -$('[data-nav]').offsetHeight, duration: 1.2 });
+
+      if (reduce || instant) {
+        bitsEl.innerHTML = paint(255);
+        title.focus({ preventScroll: !!instant });
+        return;
+      }
+      var counter = { v: 0 };
+      bitsEl.innerHTML = paint(0);
+      gsap.timeline()
+        .fromTo(sent, { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 0.9, ease: 'expo.inOut' })
+        .to(counter, {
+          v: 255,
+          duration: 1.2,
+          ease: 'power2.inOut',
+          onUpdate: function () { bitsEl.innerHTML = paint(Math.round(counter.v)); },
+        }, 0.35)
+        .from($$('.sent__body > *', sent), { autoAlpha: 0, y: 30, stagger: 0.08, duration: 1, ease: 'expo.out' }, 0.9)
+        // Pas focussen als de titel zichtbaar is; een verborgen element pakt geen focus.
+        .add(function () { title.focus({ preventScroll: true }); }, 1.05);
+    }
+
+    function hideSent() {
+      function done() {
+        sent.hidden = true;
+        gsap.set(sent, { clearProps: 'clipPath' });
+        form.inert = false;
+        form.elements.naam.focus();
+      }
+      form.reset();
+      started = 0;
+      if (elapsed) elapsed.value = '';
+      if (reduce) return done();
+      gsap.to(sent, { clipPath: 'inset(0 0 100% 0)', duration: 0.8, ease: 'expo.inOut', onComplete: done });
+    }
+
+    var again = $('[data-cform-again]', root);
+    if (again) again.addEventListener('click', hideSent);
+
+    /* -- Versturen -------------------------------------------------- */
     form.addEventListener('submit', function (e) {
       if (!window.fetch || !window.FormData) return; // laat de browser het gewoon posten
       e.preventDefault();
       clearErrors();
+      if (showErrors(validate())) return;
 
       submit.disabled = true;
-      var label = submit.querySelector('span');
-      var original = label ? label.textContent : '';
-      if (label) label.textContent = 'Versturen…';
+      var btnLabel = submit.querySelector('span');
+      var original = btnLabel ? btnLabel.textContent : '';
+      if (btnLabel) btnLabel.textContent = msg('sending', 'Versturen…');
 
       fetch(form.action, {
         method: 'POST',
@@ -812,32 +890,139 @@
       })
         .then(function (r) { return r.json().catch(function () { return { ok: false, message: '' }; }); })
         .then(function (data) {
-          if (data.ok) {
-            form.reset();
-            started = 0;
-            if (elapsed) elapsed.value = '';
-            setStatus(data.message || 'Bedankt, je bericht is verstuurd.', true);
-            return;
-          }
+          if (data.ok) return showSent();
           showErrors(data.errors);
-          setStatus(data.message || 'Er ging iets mis. Probeer het nog eens.', false);
+          setStatus(data.message || msg('fail', 'Er ging iets mis. Probeer het nog eens.'));
         })
         .catch(function () {
-          setStatus('Er ging iets mis met de verbinding. Mail ons gerust op hello@2x8.be.', false);
+          setStatus(msg('offline', 'Er ging iets mis met de verbinding. Mail ons gerust op hello@2x8.be.'));
         })
         .then(function () {
           submit.disabled = false;
-          if (label) label.textContent = original;
+          if (btnLabel) btnLabel.textContent = original;
         });
     });
 
-    // Terugkomen van de no-JS redirect: toon dezelfde melding.
+    // Terugkomen van de no-JS redirect: toon hetzelfde paneel of dezelfde melding.
     var params = new URLSearchParams(location.search);
     if (params.has('verzonden')) {
-      setStatus('Bedankt! Je bericht is verstuurd, je bevestiging staat in je mailbox.', true);
+      showSent(true);
     } else if (params.has('fout')) {
-      setStatus('Het versturen lukte niet. Mail ons gerust op hello@2x8.be.', false);
+      setStatus(msg('fail', 'Het versturen lukte niet. Mail ons gerust op hello@2x8.be.'));
     }
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Onderwerpen: een project uit die categorie loopt mee met de muis  */
+  /* ---------------------------------------------------------------- */
+  function topicPeek() {
+    var list = $('[data-topics]');
+    var peek = $('[data-topic-peek]');
+    if (!list || !peek) return;
+    var topics = $$('.topic', list);
+
+    // Binnenkomen: de regels schuiven één voor één omhoog uit hun lijn.
+    if (!reduce) {
+      gsap.from($$('.topic__name', list), {
+        yPercent: 110,
+        duration: 1.1,
+        ease: 'expo.out',
+        stagger: 0.06,
+        scrollTrigger: { trigger: list, start: 'top 85%', once: true },
+      });
+    }
+
+    if (reduce || !finePointer) return peek.remove();
+
+    var img = $('img', peek);
+    var loaded = false;
+    var current = null;
+    var xTo = gsap.quickTo(peek, 'x', { duration: 0.55, ease: 'power3' });
+    var yTo = gsap.quickTo(peek, 'y', { duration: 0.55, ease: 'power3' });
+    var lastX = 0;
+
+    // De covers zijn groot; pas laden als iemand de lijst echt nadert.
+    function preload() {
+      if (loaded) return;
+      loaded = true;
+      topics.forEach(function (t) {
+        var src = t.getAttribute('data-topic-img');
+        if (src) new Image().src = src;
+      });
+    }
+    list.addEventListener('pointerenter', preload);
+    list.addEventListener('focusin', preload);
+
+    function place(e, instant) {
+      var w = peek.offsetWidth;
+      var h = peek.offsetHeight;
+      // Rechts van de cursor, tenzij daar geen plaats is.
+      var x = e.clientX + 32 + w > window.innerWidth ? e.clientX - w - 32 : e.clientX + 32;
+      var y = Math.min(Math.max(e.clientY - h / 2, 16), window.innerHeight - h - 16);
+      if (instant) {
+        gsap.set(peek, { x: x, y: y });
+      } else {
+        xTo(x);
+        yTo(y);
+      }
+    }
+
+    function show(topic, e) {
+      var src = topic.getAttribute('data-topic-img');
+      if (!src) return hide();
+      var tilt = gsap.utils.clamp(-6, 6, (e.clientX - lastX) * 0.4);
+      if (current === null) {
+        place(e, true);
+        img.src = src;
+        gsap.fromTo(peek,
+          { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', rotate: tilt },
+          { clipPath: 'inset(0% 0 0 0)', rotate: 0, duration: 0.6, ease: 'expo.out', overwrite: 'auto' });
+      } else if (current !== src) {
+        // Van regel naar regel: het nieuwe beeld schuift over het oude.
+        gsap.fromTo(img, { yPercent: 12, scale: 1.15 }, { yPercent: 0, scale: 1, duration: 0.6, ease: 'expo.out' });
+        img.src = src;
+      }
+      current = src;
+    }
+
+    function hide() {
+      if (current === null) return;
+      current = null;
+      gsap.to(peek, { clipPath: 'inset(0 0 100% 0)', duration: 0.45, ease: 'expo.inOut', overwrite: 'auto',
+        onComplete: function () { gsap.set(peek, { autoAlpha: 0 }); } });
+    }
+
+    topics.forEach(function (topic) {
+      topic.addEventListener('pointerenter', function (e) { show(topic, e); });
+    });
+    list.addEventListener('pointermove', function (e) {
+      place(e);
+      lastX = e.clientX;
+    });
+    list.addEventListener('pointerleave', hide);
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Kopieer het mailadres                                             */
+  /* ---------------------------------------------------------------- */
+  function copyButtons() {
+    $$('[data-copy]').forEach(function (btn) {
+      if (!navigator.clipboard) return btn.remove();
+      var labelEl = $('[data-copy-label]', btn) || btn;
+      var original = labelEl.textContent;
+      var timer = 0;
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(function () {
+          labelEl.textContent = btn.getAttribute('data-done') || original;
+          btn.classList.add('is-done');
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            labelEl.textContent = original;
+            btn.classList.remove('is-done');
+          }, 1800);
+        });
+      });
+    });
   }
 
   /* ---------------------------------------------------------------- */
@@ -864,6 +1049,8 @@
     workFilter();
     counters();
     contactForm();
+    topicPeek();
+    copyButtons();
 
     // Arriving from a case page on "index.html#work": jump to the section
     if (location.hash && lenis) {
