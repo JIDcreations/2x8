@@ -51,6 +51,17 @@ tablet, a vertical track on a phone.
 The Platformen copy, the tile tags and the two tile feet for Software and AI-workflows are new and
 still need a read from Florian.
 
+## CMS page
+`/cms` sits behind the word "CMS" in the first bullet under Websites and nowhere else: no nav
+entry, no footer link. It is what to send someone who asks "but which one should I take?" —
+three cards, then the same seven questions (managing, growing, web shop, cost, findability,
+ownership, moving) in one table. The table keeps a `min-width` and scrolls horizontally inside
+`.cms-table__scroll` rather than squeezing seven rows into a phone.
+
+The link is written as `href="/cms"` in the Dutch source. `build.js` translates before it
+rewrites links, so the `<a>` inside the `diensten.sites.p1` translation comes out as `/fr/cms`
+and `/en/cms` by itself — don't hard-code those in `i18n/*.json`.
+
 ## Spacing
 One vertical scale for the whole site, `--sp-1` to `--sp-8` in `:root`, plus `--page-top`
 for the space above every page header. Any gap between blocks is one of those steps —
@@ -119,7 +130,7 @@ node build.js --check  # which keys are still missing or have gone stale
 ```
 
 `i18n/routes.json` holds the URL per page per language, plus `done`: the languages that page is
-finished in. Only those get generated. **Every page is now done in nl, fr and en** — 391 keys, 24
+finished in. Only those get generated. **Every page is now done in nl, fr and en** — 390 keys, 24
 generated pages. A page that isn't translated yet keeps its links pointing at the Dutch version (so
 nothing dead-ends), gets no false `hreflang` claims, and the language switcher falls back to that
 language's home page with a tooltip saying so.
