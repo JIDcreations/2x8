@@ -51,7 +51,11 @@ yet and shows concrete examples instead of an empty slot; AI workflows shows a d
 ### The workflow diagram
 AI workflows has one worked example instead of a list: a quote that walks from the
 calculator on a client's site all the way to sales picking up the phone (`.flow` in
-`diensten.html`). Every line, arrowhead and branch bar is a pseudo-element, so the reading
+`diensten.html`). It sits behind its own `<details class="flow-toggle">` inside the service
+panel and starts closed: it is an illustration, not part of what the service is. That nested
+`<details>` deliberately has no `name`, so it is not part of the accordion around it, and it
+carries the same `max-width` as the diagram so the rule above lines up with the cards below.
+Every line, arrowhead and branch bar is a pseudo-element, so the reading
 order in the HTML *is* the order of the steps and a screen reader gets them straight. The
 dashes run with a `background-position` animation on a 12px tile — not `repeating-linear-gradient`,
 which has nothing to shift. Below 700px the two-column `.flow__split` collapses to one column
@@ -141,7 +145,7 @@ node build.js --check  # which keys are still missing or have gone stale
 ```
 
 `i18n/routes.json` holds the URL per page per language, plus `done`: the languages that page is
-finished in. Only those get generated. **Every page is now done in nl, fr and en** — 391 keys, 24
+finished in. Only those get generated. **Every page is now done in nl, fr and en** — 390 keys, 24
 generated pages. A page that isn't translated yet keeps its links pointing at the Dutch version (so
 nothing dead-ends), gets no false `hreflang` claims, and the language switcher falls back to that
 language's home page with a tooltip saying so.

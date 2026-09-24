@@ -29,7 +29,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=19" />
+    <link rel="stylesheet" href="/css/styles.css?v=20" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
     <script>
@@ -293,80 +293,83 @@
               </div>
             </div>
             <div class="svc-item__proof">
-              <span class="mono muted svc-proof__label" data-i18n="diensten.flow.label">Here’s what that can look like</span>
-
               <!-- Een echte workflow van begin tot eind: van de calculator op de site tot
                    de sales die belt. De lijnen en pijlpunten zijn pseudo-elementen, dus
-                   een schermlezer krijgt gewoon de stappen in leesvolgorde te horen. -->
-              <div class="flow">
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">01</span><span data-i18n="diensten.flow.s1.tag">Your website</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s1.text">A client prices up their project in the calculator on your site.</p>
-                </div>
+                   een schermlezer krijgt gewoon de stappen in leesvolgorde te horen. Het
+                   schema staat dicht: het is een voorbeeld, geen onderdeel van de dienst. -->
+              <details class="flow-toggle">
+                <summary class="flow-toggle__summary">
+                  <span class="mono flow-toggle__label" data-i18n="diensten.flow.label">Here’s what that can look like</span>
+                  <span class="flow-toggle__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="flow">
+                  <div class="flow__node">
+                    <span class="mono flow__tag"><span class="flow__num">01</span><span data-i18n="diensten.flow.s1.tag">Your website</span></span>
+                    <p class="flow__text" data-i18n="diensten.flow.s1.text">A client prices up their project in the calculator on your site.</p>
+                  </div>
 
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true"></span></div>
+                  <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true"></span></div>
 
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">02</span><span data-i18n="diensten.flow.s2.tag">Automation</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s2.text">The quote is drawn up right away, with the right prices and terms.</p>
-                </div>
+                  <div class="flow__node">
+                    <span class="mono flow__tag"><span class="flow__num">02</span><span data-i18n="diensten.flow.s2.tag">Automation</span></span>
+                    <p class="flow__text" data-i18n="diensten.flow.s2.text">The quote is drawn up right away, with the right prices and terms.</p>
+                  </div>
 
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.4s"></span></div>
+                  <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.4s"></span></div>
 
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">03</span><span data-i18n="diensten.flow.s3.tag">Notion</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s3.text">It lands on your salesperson’s board, with everything the client filled in.</p>
-                </div>
+                  <div class="flow__node">
+                    <span class="mono flow__tag"><span class="flow__num">03</span><span data-i18n="diensten.flow.s3.tag">Notion</span></span>
+                    <p class="flow__text" data-i18n="diensten.flow.s3.text">It lands on your salesperson’s board, with everything the client filled in.</p>
+                  </div>
 
-                <div class="flow__arrow flow__arrow--fork">
-                  <span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.8s"></span>
-                  <span class="mono flow__gate" data-i18n="diensten.flow.g1">Is the price right?</span>
-                </div>
+                  <div class="flow__arrow flow__arrow--fork">
+                    <span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.8s"></span>
+                    <span class="mono flow__gate" data-i18n="diensten.flow.g1">Is the price right?</span>
+                  </div>
 
-                <div class="flow__split flow__split--merge">
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b1.cond">Yes</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b1.text">Sales approves, or nudges the price a little.</p>
+                  <div class="flow__split flow__split--merge">
+                    <div class="flow__branch">
+                      <span class="mono flow__cond" data-i18n="diensten.flow.b1.cond">Yes</span>
+                      <div class="flow__node">
+                        <p class="flow__text" data-i18n="diensten.flow.b1.text">Sales approves, or nudges the price a little.</p>
+                      </div>
+                    </div>
+                    <div class="flow__branch">
+                      <span class="mono flow__cond" data-i18n="diensten.flow.b2.cond">Not sure</span>
+                      <div class="flow__node">
+                        <p class="flow__text" data-i18n="diensten.flow.b2.text">The quote first goes past the colleague who knows the technical side best, who checks the calculation.</p>
+                      </div>
                     </div>
                   </div>
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b2.cond">Not sure</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b2.text">The quote first goes past the colleague who knows the technical side best, who checks the calculation.</p>
+
+                  <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.2s"></span></div>
+
+                  <div class="flow__node">
+                    <span class="mono flow__tag"><span class="flow__num">04</span><span data-i18n="diensten.flow.s4.tag">Email</span></span>
+                    <p class="flow__text" data-i18n="diensten.flow.s4.text">The quote goes out to the client, in your house style, and we track whether it gets opened.</p>
+                  </div>
+
+                  <div class="flow__arrow flow__arrow--fork">
+                    <span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.6s"></span>
+                    <span class="mono flow__gate" data-i18n="diensten.flow.g2">Three days later</span>
+                  </div>
+
+                  <div class="flow__split">
+                    <div class="flow__branch">
+                      <span class="mono flow__cond" data-i18n="diensten.flow.b3.cond">Not opened yet</span>
+                      <div class="flow__node">
+                        <p class="flow__text" data-i18n="diensten.flow.b3.text">A short reminder goes out by itself: did it arrive?</p>
+                      </div>
+                    </div>
+                    <div class="flow__branch">
+                      <span class="mono flow__cond" data-i18n="diensten.flow.b4.cond">Read, no reply</span>
+                      <div class="flow__node">
+                        <p class="flow__text" data-i18n="diensten.flow.b4.text">Sales gets a nudge to call, with the quote already at hand.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.2s"></span></div>
-
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">04</span><span data-i18n="diensten.flow.s4.tag">Email</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s4.text">The quote goes out to the client, in your house style, and we track whether it gets opened.</p>
-                </div>
-
-                <div class="flow__arrow flow__arrow--fork">
-                  <span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.6s"></span>
-                  <span class="mono flow__gate" data-i18n="diensten.flow.g2">Three days later</span>
-                </div>
-
-                <div class="flow__split">
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b3.cond">Not opened yet</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b3.text">A short reminder goes out by itself: did it arrive?</p>
-                    </div>
-                  </div>
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b4.cond">Read, no reply</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b4.text">Sales gets a nudge to call, with the quote already at hand.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="flow__foot mono muted" data-i18n="diensten.flow.foot">And as far as you like: every step can grow another branch.</p>
-              </div>
+              </details>
             </div>
           </div>
         </details>
@@ -519,6 +522,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="/js/main.js?v=19"></script>
+    <script src="/js/main.js?v=20"></script>
   </body>
 </html>

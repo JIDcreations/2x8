@@ -29,7 +29,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=19" />
+    <link rel="stylesheet" href="/css/styles.css?v=20" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
     <script>
@@ -293,80 +293,83 @@
               </div>
             </div>
             <div class="svc-item__proof">
-              <span class="mono muted svc-proof__label" data-i18n="diensten.flow.label">Voilà à quoi ça peut ressembler</span>
-
               <!-- Een echte workflow van begin tot eind: van de calculator op de site tot
                    de sales die belt. De lijnen en pijlpunten zijn pseudo-elementen, dus
-                   een schermlezer krijgt gewoon de stappen in leesvolgorde te horen. -->
-              <div class="flow">
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">01</span><span data-i18n="diensten.flow.s1.tag">Votre site</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s1.text">Un client chiffre son projet dans le calculateur de votre site.</p>
-                </div>
+                   een schermlezer krijgt gewoon de stappen in leesvolgorde te horen. Het
+                   schema staat dicht: het is een voorbeeld, geen onderdeel van de dienst. -->
+              <details class="flow-toggle">
+                <summary class="flow-toggle__summary">
+                  <span class="mono flow-toggle__label" data-i18n="diensten.flow.label">Voilà à quoi ça peut ressembler</span>
+                  <span class="flow-toggle__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="flow">
+                  <div class="flow__node">
+                    <span class="mono flow__tag"><span class="flow__num">01</span><span data-i18n="diensten.flow.s1.tag">Votre site</span></span>
+                    <p class="flow__text" data-i18n="diensten.flow.s1.text">Un client chiffre son projet dans le calculateur de votre site.</p>
+                  </div>
 
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true"></span></div>
+                  <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true"></span></div>
 
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">02</span><span data-i18n="diensten.flow.s2.tag">Automatisation</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s2.text">Le devis est établi dans la foulée, avec les bons prix et les bonnes conditions.</p>
-                </div>
+                  <div class="flow__node">
+                    <span class="mono flow__tag"><span class="flow__num">02</span><span data-i18n="diensten.flow.s2.tag">Automatisation</span></span>
+                    <p class="flow__text" data-i18n="diensten.flow.s2.text">Le devis est établi dans la foulée, avec les bons prix et les bonnes conditions.</p>
+                  </div>
 
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.4s"></span></div>
+                  <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.4s"></span></div>
 
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">03</span><span data-i18n="diensten.flow.s3.tag">Notion</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s3.text">Il apparaît sur le tableau de votre responsable commercial, avec tout ce que le client a rempli.</p>
-                </div>
+                  <div class="flow__node">
+                    <span class="mono flow__tag"><span class="flow__num">03</span><span data-i18n="diensten.flow.s3.tag">Notion</span></span>
+                    <p class="flow__text" data-i18n="diensten.flow.s3.text">Il apparaît sur le tableau de votre responsable commercial, avec tout ce que le client a rempli.</p>
+                  </div>
 
-                <div class="flow__arrow flow__arrow--fork">
-                  <span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.8s"></span>
-                  <span class="mono flow__gate" data-i18n="diensten.flow.g1">Le prix est-il correct ?</span>
-                </div>
+                  <div class="flow__arrow flow__arrow--fork">
+                    <span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.8s"></span>
+                    <span class="mono flow__gate" data-i18n="diensten.flow.g1">Le prix est-il correct ?</span>
+                  </div>
 
-                <div class="flow__split flow__split--merge">
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b1.cond">Oui</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b1.text">Le commercial approuve, ou ajuste lui-même le prix.</p>
+                  <div class="flow__split flow__split--merge">
+                    <div class="flow__branch">
+                      <span class="mono flow__cond" data-i18n="diensten.flow.b1.cond">Oui</span>
+                      <div class="flow__node">
+                        <p class="flow__text" data-i18n="diensten.flow.b1.text">Le commercial approuve, ou ajuste lui-même le prix.</p>
+                      </div>
+                    </div>
+                    <div class="flow__branch">
+                      <span class="mono flow__cond" data-i18n="diensten.flow.b2.cond">Doute</span>
+                      <div class="flow__node">
+                        <p class="flow__text" data-i18n="diensten.flow.b2.text">Le devis passe d’abord par le collègue qui maîtrise le mieux la technique, qui vérifie le calcul.</p>
+                      </div>
                     </div>
                   </div>
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b2.cond">Doute</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b2.text">Le devis passe d’abord par le collègue qui maîtrise le mieux la technique, qui vérifie le calcul.</p>
+
+                  <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.2s"></span></div>
+
+                  <div class="flow__node">
+                    <span class="mono flow__tag"><span class="flow__num">04</span><span data-i18n="diensten.flow.s4.tag">E-mail</span></span>
+                    <p class="flow__text" data-i18n="diensten.flow.s4.text">Le devis part chez le client, à votre image, et nous suivons s’il est ouvert.</p>
+                  </div>
+
+                  <div class="flow__arrow flow__arrow--fork">
+                    <span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.6s"></span>
+                    <span class="mono flow__gate" data-i18n="diensten.flow.g2">Trois jours plus tard</span>
+                  </div>
+
+                  <div class="flow__split">
+                    <div class="flow__branch">
+                      <span class="mono flow__cond" data-i18n="diensten.flow.b3.cond">Pas encore ouvert</span>
+                      <div class="flow__node">
+                        <p class="flow__text" data-i18n="diensten.flow.b3.text">Un bref rappel part tout seul : bien reçu ?</p>
+                      </div>
+                    </div>
+                    <div class="flow__branch">
+                      <span class="mono flow__cond" data-i18n="diensten.flow.b4.cond">Lu, sans réponse</span>
+                      <div class="flow__node">
+                        <p class="flow__text" data-i18n="diensten.flow.b4.text">Le commercial reçoit un signal pour appeler, le devis déjà sous les yeux.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.2s"></span></div>
-
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">04</span><span data-i18n="diensten.flow.s4.tag">E-mail</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s4.text">Le devis part chez le client, à votre image, et nous suivons s’il est ouvert.</p>
-                </div>
-
-                <div class="flow__arrow flow__arrow--fork">
-                  <span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.6s"></span>
-                  <span class="mono flow__gate" data-i18n="diensten.flow.g2">Trois jours plus tard</span>
-                </div>
-
-                <div class="flow__split">
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b3.cond">Pas encore ouvert</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b3.text">Un bref rappel part tout seul : bien reçu ?</p>
-                    </div>
-                  </div>
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b4.cond">Lu, sans réponse</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b4.text">Le commercial reçoit un signal pour appeler, le devis déjà sous les yeux.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="flow__foot mono muted" data-i18n="diensten.flow.foot">Et aussi loin que vous voulez : chaque étape peut recevoir une branche de plus.</p>
-              </div>
+              </details>
             </div>
           </div>
         </details>
@@ -519,6 +522,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="/js/main.js?v=19"></script>
+    <script src="/js/main.js?v=20"></script>
   </body>
 </html>
