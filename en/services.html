@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="diensten.meta.title">Services | 2X8</title>
-    <meta name="description" data-i18n-attr="content:diensten.meta.description" content="Websites, online shops and apps built, and AI workflows and software packages made to run better. Five services, two families, by 2X8." />
+    <meta name="description" data-i18n-attr="content:diensten.meta.description" content="Websites, online shops, platforms and apps built, and software and AI workflows made to run better. Six services by 2X8." />
     <link rel="canonical" href="https://2x8.be/en/services" />
     <link rel="alternate" hreflang="nl" href="https://2x8.be/diensten" />
     <link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services" />
@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#0A0A0A" />
     <meta property="og:type" content="website" />
     <meta property="og:title" data-i18n-attr="content:diensten.meta.title" content="Services | 2X8" />
-    <meta property="og:description" data-i18n-attr="content:diensten.meta.description" content="Websites, online shops and apps built, and AI workflows and software packages made to run better. Five services, two families, by 2X8." />
+    <meta property="og:description" data-i18n-attr="content:diensten.meta.description" content="Websites, online shops, platforms and apps built, and software and AI workflows made to run better. Six services by 2X8." />
     <meta property="og:url" content="https://2x8.be/en/services" />
     <meta property="og:locale" content="en_GB" />
     <script>
@@ -29,7 +29,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20" />
+    <link rel="stylesheet" href="/css/styles.css?v=23" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
     <script>
@@ -147,255 +147,214 @@
         <p class="case-head__summary" data-reveal data-i18n="diensten.summary">We build digital interfaces, and we get more out of the ones you already have.</p>
       </header>
 
-      <!-- Sprongnavigatie: vijf diensten, meteen zichtbaar en meteen bereikbaar.
-           Dezelfde knoppen als het werkfilter op /werk, maar het zijn links. -->
-      <nav class="wrap services-tabs svc-jump" data-svc-jump data-i18n-attr="aria-label:diensten.jump.label" aria-label="Jump to a service">
-        <a class="services-tabs__btn" href="#websites" data-i18n="diensten.sites.name">Websites</a>
-        <a class="services-tabs__btn" href="#webshops" data-i18n="diensten.shops.name">Online shops</a>
-        <a class="services-tabs__btn" href="#apps" data-i18n="diensten.apps.name">Apps</a>
-        <a class="services-tabs__btn" href="#ai-workflows" data-i18n="diensten.ai.name">AI workflows</a>
-        <a class="services-tabs__btn" href="#software" data-i18n="diensten.software.name">Software</a>
-      </nav>
-
-      <!-- Vijf diensten onder elkaar, elk een openklikker. Ze delen een
-           name-attribuut, dus er staat er hoogstens een open. -->
-      <section class="section section--tight wrap">
-        <details class="svc-item" id="websites" name="diensten">
-          <summary class="svc-item__summary">
-            <h3 class="svc-item__name" data-i18n="diensten.sites.name">Websites</h3>
-            <span class="svc-item__toggle" aria-hidden="true"></span>
-          </summary>
-          <div class="svc-item__panel grid">
-            <div class="svc-item__body">
-              <p class="svc-item__desc" data-i18n="diensten.sites.desc">A modern site that looks the part, is easy to manage and is shaped around what you need.</p>
-              <div class="svc-item__what">
-                <ul class="svc-points">
-                  <li data-i18n-html="diensten.sites.p1">A <a class="ilink" href="/en/cms">CMS</a> of your choosing, and we think along with you</li>
-                  <li data-i18n="diensten.sites.p2">Fast and findable, because we build for return</li>
-                  <li data-i18n="diensten.sites.p3">Mail, domain name and hosting: arranged and configured for you</li>
-                  <li data-i18n="diensten.sites.p4">Can be wired into your own workflow: quotes that write themselves, calculations, bookings that run through automatically</li>
-                </ul>
-              </div>
+      <!-- De zes diensten als tegels, in dezelfde taal als de projecten op de
+           homepage: balk met nummer en naam, een donker beeld (hier een vorm uit bits,
+           js/diensten-glyphs.js), en een voet. Alles staat meteen open. -->
+      <section class="section section--tight" aria-label="Services" data-i18n-attr="aria-label:nav.services">
+        <div class="wrap cases__grid svc-tiles">
+          <article class="case-tile svc-tile" id="websites" aria-labelledby="tile-websites">
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">01 / 06</span>
+              <h2 class="case-tile__name" id="tile-websites" data-i18n="diensten.sites.name">Websites</h2>
+              <span class="tag">3 <span data-i18n="diensten.tag.cases">cases</span></span>
             </div>
-            <div class="svc-item__proof">
-              <div class="svc-proof__list">
-                <a class="svc-proof" href="/en/work/keikoku">
-                  <span class="svc-proof__media">
-                    <img src="/assets/Keikuko/Cover_Keukuko1.png" alt="" loading="lazy" decoding="async" width="1672" height="941" />
-                  </span>
-                  <span class="svc-proof__name">Keikoku Atelier</span>
-                </a>
-                <a class="svc-proof" href="/en/work/elevator-antwerp">
-                  <span class="svc-proof__media">
-                    <img src="/assets/Elevator-Antwerp/Cover-elevator.png" alt="" loading="lazy" decoding="async" width="1671" height="941" />
-                  </span>
-                  <span class="svc-proof__name">Elevator Antwerp</span>
-                </a>
-                <a class="svc-proof" href="/en/work/jasper-impens">
-                  <span class="svc-proof__media">
-                    <img src="/assets/Jasper-site/Cover_Jasper1.png" alt="" loading="lazy" decoding="async" width="1672" height="941" />
-                  </span>
-                  <span class="svc-proof__name">Jasper Impens</span>
-                </a>
-              </div>
+            <div class="svc-tile__media" data-glyph="1" aria-hidden="true"></div>
+            <div class="svc-tile__body">
+              <p class="svc-tile__desc" data-i18n="diensten.sites.desc">A modern site that looks the part, is easy to manage and is shaped around what you need.</p>
+              <ul class="svc-tile__points">
+                <li data-i18n-html="diensten.sites.p1">A <a class="ilink" href="/en/cms">CMS</a> of your choosing, and we think along with you</li>
+                <li data-i18n="diensten.sites.p2">Fast and findable, because we build for return</li>
+                <li data-i18n="diensten.sites.p3">Mail, domain name and hosting: arranged and configured for you</li>
+                <li data-i18n="diensten.sites.p4">Can be wired into your own workflow: quotes that write themselves, calculations, bookings that run through automatically</li>
+              </ul>
+              <ul class="svc-tile__cases">
+                <li><a class="svc-tile__case" href="/en/work/keikoku"><span class="svc-tile__thumb"><img src="/assets/Keikuko/Cover_Keukuko1.png" alt="" loading="lazy" decoding="async" width="1672" height="941" /></span><span>Keikoku Atelier</span></a></li>
+                <li><a class="svc-tile__case" href="/en/work/elevator-antwerp"><span class="svc-tile__thumb"><img src="/assets/Elevator-Antwerp/Cover-elevator.png" alt="" loading="lazy" decoding="async" width="1672" height="941" /></span><span>Elevator Antwerp</span></a></li>
+                <li><a class="svc-tile__case" href="/en/work/jasper-impens"><span class="svc-tile__thumb"><img src="/assets/Jasper-site/Cover_Jasper1.png" alt="" loading="lazy" decoding="async" width="1672" height="941" /></span><span>Jasper Impens</span></a></li>
+              </ul>
             </div>
-          </div>
-        </details>
-        <details class="svc-item" id="webshops" name="diensten">
-          <summary class="svc-item__summary">
-            <h3 class="svc-item__name" data-i18n="diensten.shops.name">Online shops</h3>
-            <span class="svc-item__toggle" aria-hidden="true"></span>
-          </summary>
-          <div class="svc-item__panel grid">
-            <div class="svc-item__body">
-              <p class="svc-item__desc" data-i18n="diensten.shops.desc">Selling has never been this easy.</p>
-              <div class="svc-item__what">
-                <ul class="svc-points">
-                  <li data-i18n="diensten.shops.p1">Original shops that make you stand out</li>
-                  <li data-i18n="diensten.shops.p2">From payment methods and shipping to gift cards, loyalty points and a till that runs on the same stock as your shop — everything you need to sell</li>
-                  <li data-i18n="diensten.shops.p3">WooCommerce or Shopify, depending on what you need</li>
-                  <li data-i18n="diensten.shops.p4">Sales and visitor figures, so you can adjust where it matters</li>
-                </ul>
-              </div>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n="diensten.proof.label">Built</p>
+              <a class="link" href="/en/work/keikoku"><span>Keikoku Atelier</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             </div>
-            <div class="svc-item__proof">
-              <div class="svc-proof__list">
-                <a class="svc-proof" href="/en/work/specter">
-                  <span class="svc-proof__media">
-                    <img src="/assets/Specter/Cover-specter.png" alt="" loading="lazy" decoding="async" width="1672" height="941" />
-                  </span>
-                  <span class="svc-proof__name">Specter</span>
-                </a>
-                <a class="svc-proof" href="/en/work/studio-klei">
-                  <span class="svc-proof__media">
-                    <img src="/assets/StudioKlei/COVER-KLEI1.png" alt="" loading="lazy" decoding="async" width="1672" height="941" />
-                  </span>
-                  <span class="svc-proof__name">Studio Klei</span>
-                </a>
-              </div>
+          </article>
+          <article class="case-tile svc-tile" id="webshops" aria-labelledby="tile-webshops">
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">02 / 06</span>
+              <h2 class="case-tile__name" id="tile-webshops" data-i18n="diensten.shops.name">Online shops</h2>
+              <span class="tag">2 <span data-i18n="diensten.tag.cases">cases</span></span>
             </div>
-          </div>
-        </details>
-        <details class="svc-item" id="apps" name="diensten">
-          <summary class="svc-item__summary">
-            <h3 class="svc-item__name" data-i18n="diensten.apps.name">Apps</h3>
-            <span class="svc-item__toggle" aria-hidden="true"></span>
-          </summary>
-          <div class="svc-item__panel grid">
-            <div class="svc-item__body">
-              <p class="svc-item__desc" data-i18n="diensten.apps.desc">A quality tool, built to do what it has to do at speed.</p>
-              <div class="svc-item__what">
-                <ul class="svc-points">
-                  <li data-i18n="diensten.apps.p1">Web apps and mobile apps in React Native</li>
-                  <li data-i18n="diensten.apps.p2">Dashboards that make live data readable</li>
-                  <li data-i18n="diensten.apps.p3">From working prototype to daily use</li>
-                </ul>
-              </div>
+            <div class="svc-tile__media" data-glyph="2" aria-hidden="true"></div>
+            <div class="svc-tile__body">
+              <p class="svc-tile__desc" data-i18n="diensten.shops.desc">Selling has never been this easy.</p>
+              <ul class="svc-tile__points">
+                <li data-i18n="diensten.shops.p1">Original shops that make you stand out</li>
+                <li data-i18n="diensten.shops.p2">From payment methods and shipping to gift cards, loyalty points and a till that runs on the same stock as your shop — everything you need to sell</li>
+                <li data-i18n="diensten.shops.p3">WooCommerce or Shopify, depending on what you need</li>
+                <li data-i18n="diensten.shops.p4">Sales and visitor figures, so you can adjust where it matters</li>
+              </ul>
+              <ul class="svc-tile__cases">
+                <li><a class="svc-tile__case" href="/en/work/specter"><span class="svc-tile__thumb"><img src="/assets/Specter/Cover-specter.png" alt="" loading="lazy" decoding="async" width="1672" height="941" /></span><span>Specter</span></a></li>
+                <li><a class="svc-tile__case" href="/en/work/studio-klei"><span class="svc-tile__thumb"><img src="/assets/StudioKlei/COVER-KLEI1.png" alt="" loading="lazy" decoding="async" width="1672" height="941" /></span><span>Studio Klei</span></a></li>
+              </ul>
             </div>
-            <div class="svc-item__proof">
-              <div class="svc-proof__list">
-                <a class="svc-proof" href="/en/work/eqty">
-                  <span class="svc-proof__media">
-                    <img src="/assets/EQTY/COVER1.png" alt="" loading="lazy" decoding="async" width="1672" height="941" />
-                  </span>
-                  <span class="svc-proof__name">EQTY</span>
-                </a>
-                <a class="svc-proof" href="/en/work/nadir">
-                  <span class="svc-proof__media">
-                    <img src="/assets/Nadir/Nadir_Cover.png" alt="" loading="lazy" decoding="async" width="1672" height="941" />
-                  </span>
-                  <span class="svc-proof__name">NADIR</span>
-                </a>
-                <a class="svc-proof" href="/en/work/delta">
-                  <span class="svc-proof__media">
-                    <img src="/assets/DLTA/DLTA-Cover.png" alt="" loading="lazy" decoding="async" width="1672" height="941" />
-                  </span>
-                  <span class="svc-proof__name">DLTA</span>
-                </a>
-              </div>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n="diensten.proof.label">Built</p>
+              <a class="link" href="/en/work/specter"><span>Specter</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             </div>
-          </div>
-        </details>
-        <details class="svc-item" id="ai-workflows" name="diensten">
-          <summary class="svc-item__summary">
-            <h3 class="svc-item__name" data-i18n="diensten.ai.name">AI workflows</h3>
-            <span class="svc-item__toggle" aria-hidden="true"></span>
-          </summary>
-          <div class="svc-item__panel grid">
-            <div class="svc-item__body">
-              <p class="svc-item__desc" data-i18n="diensten.ai.desc">Repetitive work that does itself, with you at the switch.</p>
-              <div class="svc-item__what">
-                <ul class="svc-points">
-                  <li data-i18n="diensten.ai.p1">First we map where the time actually goes</li>
-                  <li data-i18n="diensten.ai.p2">Automation on top of the tools you already use, or a suggestion for tools that smooth out your flow</li>
-                  <li data-i18n="diensten.ai.p3">You get the time to test it all, so we can fine-tune it together and get the most out of it</li>
-                </ul>
-              </div>
+          </article>
+          <article class="case-tile svc-tile" id="platformen" aria-labelledby="tile-platformen">
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">03 / 06</span>
+              <h2 class="case-tile__name" id="tile-platformen" data-i18n="diensten.platforms.name">Platforms</h2>
+              <span class="tag">2 <span data-i18n="diensten.tag.cases">cases</span></span>
             </div>
-            <div class="svc-item__proof">
-              <span class="mono muted svc-proof__label" data-i18n="diensten.flow.label">Here’s what that can look like</span>
-
-              <!-- Een echte workflow van begin tot eind: van de calculator op de site tot
-                   de sales die belt. De lijnen en pijlpunten zijn pseudo-elementen, dus
-                   een schermlezer krijgt gewoon de stappen in leesvolgorde te horen. -->
-              <div class="flow">
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">01</span><span data-i18n="diensten.flow.s1.tag">Your website</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s1.text">A client prices up their project in the calculator on your site.</p>
-                </div>
-
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true"></span></div>
-
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">02</span><span data-i18n="diensten.flow.s2.tag">Automation</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s2.text">The quote is drawn up right away, with the right prices and terms.</p>
-                </div>
-
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.4s"></span></div>
-
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">03</span><span data-i18n="diensten.flow.s3.tag">Notion</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s3.text">It lands on your salesperson’s board, with everything the client filled in.</p>
-                </div>
-
-                <div class="flow__arrow flow__arrow--fork">
-                  <span class="flow__pulse" aria-hidden="true" style="animation-delay: 0.8s"></span>
-                  <span class="mono flow__gate" data-i18n="diensten.flow.g1">Is the price right?</span>
-                </div>
-
-                <div class="flow__split flow__split--merge">
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b1.cond">Yes</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b1.text">Sales approves, or nudges the price a little.</p>
-                    </div>
-                  </div>
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b2.cond">Not sure</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b2.text">The quote first goes past the colleague who knows the technical side best, who checks the calculation.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="flow__arrow"><span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.2s"></span></div>
-
-                <div class="flow__node">
-                  <span class="mono flow__tag"><span class="flow__num">04</span><span data-i18n="diensten.flow.s4.tag">Email</span></span>
-                  <p class="flow__text" data-i18n="diensten.flow.s4.text">The quote goes out to the client, in your house style, and we track whether it gets opened.</p>
-                </div>
-
-                <div class="flow__arrow flow__arrow--fork">
-                  <span class="flow__pulse" aria-hidden="true" style="animation-delay: 1.6s"></span>
-                  <span class="mono flow__gate" data-i18n="diensten.flow.g2">Three days later</span>
-                </div>
-
-                <div class="flow__split">
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b3.cond">Not opened yet</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b3.text">A short reminder goes out by itself: did it arrive?</p>
-                    </div>
-                  </div>
-                  <div class="flow__branch">
-                    <span class="mono flow__cond" data-i18n="diensten.flow.b4.cond">Read, no reply</span>
-                    <div class="flow__node">
-                      <p class="flow__text" data-i18n="diensten.flow.b4.text">Sales gets a nudge to call, with the quote already at hand.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="flow__foot mono muted" data-i18n="diensten.flow.foot">And as far as you like: every step can grow another branch.</p>
-              </div>
+            <div class="svc-tile__media" data-glyph="3" aria-hidden="true"></div>
+            <div class="svc-tile__body">
+              <p class="svc-tile__desc" data-i18n="diensten.platforms.desc">One place where your clients, partners or team come together, with their own logins and data that adds up.</p>
+              <ul class="svc-tile__points">
+                <li data-i18n="diensten.platforms.p1">Client portals, member areas and B2B platforms, with accounts and permissions per role</li>
+                <li data-i18n="diensten.platforms.p2">Connected to what you already use: your CRM, your accounting, your stock</li>
+                <li data-i18n="diensten.platforms.p3">Built to grow, so more users or a new feature don’t mean starting over</li>
+              </ul>
+              <ul class="svc-tile__cases">
+                <li><a class="svc-tile__case" href="/en/work/nadir"><span class="svc-tile__thumb"><img src="/assets/Nadir/Nadir_Cover.png" alt="" loading="lazy" decoding="async" width="1672" height="941" /></span><span>NADIR</span></a></li>
+                <li><a class="svc-tile__case" href="/en/work/delta"><span class="svc-tile__thumb"><img src="/assets/DLTA/DLTA-Cover.png" alt="" loading="lazy" decoding="async" width="1672" height="941" /></span><span>DLTA</span></a></li>
+              </ul>
             </div>
-          </div>
-        </details>
-        <details class="svc-item" id="software" name="diensten">
-          <summary class="svc-item__summary">
-            <h3 class="svc-item__name" data-i18n="diensten.software.name">Software</h3>
-            <span class="svc-item__toggle" aria-hidden="true"></span>
-          </summary>
-          <div class="svc-item__panel grid">
-            <div class="svc-item__body">
-              <p class="svc-item__desc" data-i18n="diensten.software.desc">The right package, properly set up, and nothing more than you need.</p>
-              <div class="svc-item__what">
-                <ul class="svc-points">
-                  <li data-i18n="diensten.software.p1">We bring you expertise across a wide range of software solutions</li>
-                  <li data-i18n="diensten.software.p2">We help you integrate and configure them</li>
-                  <li data-i18n="diensten.software.p3">Ideal if you don’t need custom software, but do need help choosing</li>
-                </ul>
-              </div>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n="diensten.proof.label">Built</p>
+              <a class="link" href="/en/work/nadir"><span>NADIR</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             </div>
-            <div class="svc-item__proof">
-              <span class="mono muted svc-proof__label" data-i18n="diensten.examples.label">What that looks like</span>
-              <ul class="svc-examples">
+          </article>
+          <article class="case-tile svc-tile" id="apps" aria-labelledby="tile-apps">
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">04 / 06</span>
+              <h2 class="case-tile__name" id="tile-apps" data-i18n="diensten.apps.name">Apps</h2>
+              <span class="tag">1 <span data-i18n="diensten.tag.case">case</span></span>
+            </div>
+            <div class="svc-tile__media" data-glyph="4" aria-hidden="true"></div>
+            <div class="svc-tile__body">
+              <p class="svc-tile__desc" data-i18n="diensten.apps.desc">A quality tool, built to do what it has to do at speed.</p>
+              <ul class="svc-tile__points">
+                <li data-i18n="diensten.apps.p1">Web apps and mobile apps in React Native</li>
+                <li data-i18n="diensten.apps.p2">Dashboards that make live data readable</li>
+                <li data-i18n="diensten.apps.p3">From working prototype to daily use</li>
+              </ul>
+              <ul class="svc-tile__cases">
+                <li><a class="svc-tile__case" href="/en/work/eqty"><span class="svc-tile__thumb"><img src="/assets/EQTY/COVER1.png" alt="" loading="lazy" decoding="async" width="1672" height="941" /></span><span>EQTY</span></a></li>
+              </ul>
+            </div>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n="diensten.proof.label">Built</p>
+              <a class="link" href="/en/work/eqty"><span>EQTY</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+          <article class="case-tile svc-tile" id="software" aria-labelledby="tile-software">
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">05 / 06</span>
+              <h2 class="case-tile__name" id="tile-software" data-i18n="diensten.software.name">Software</h2>
+              <span class="tag" data-i18n="diensten.tag.advice">Advice</span>
+            </div>
+            <div class="svc-tile__media" data-glyph="5" aria-hidden="true"></div>
+            <div class="svc-tile__body">
+              <p class="svc-tile__desc" data-i18n="diensten.software.desc">The right package, properly set up, and nothing more than you need.</p>
+              <ul class="svc-tile__points">
+                <li data-i18n="diensten.software.p1">We bring you expertise across a wide range of software solutions</li>
+                <li data-i18n="diensten.software.p2">We help you integrate and configure them</li>
+                <li data-i18n="diensten.software.p3">Ideal if you don’t need custom software, but do need help choosing</li>
+              </ul>
+              <ul class="svc-tile__examples">
                 <li data-i18n="diensten.software.ex1">A till and an online shop selling from the same stock</li>
                 <li data-i18n="diensten.software.ex2">Quotes, invoices and customers in one system instead of four</li>
                 <li data-i18n="diensten.software.ex3">A migration where not a single old customer is left behind</li>
               </ul>
             </div>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n="diensten.software.foot">No custom build needed, just help choosing.</p>
+              <a class="link" href="/en/contact"><span data-i18n="diensten.cta.btn">Start a conversation</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+          <article class="case-tile svc-tile" id="ai-workflows" aria-labelledby="tile-ai-workflows">
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">06 / 06</span>
+              <h2 class="case-tile__name" id="tile-ai-workflows" data-i18n="diensten.ai.name">AI workflows</h2>
+              <span class="tag" data-i18n="diensten.tag.custom">Custom</span>
+            </div>
+            <div class="svc-tile__media" data-glyph="6" aria-hidden="true"></div>
+            <div class="svc-tile__body">
+              <p class="svc-tile__desc" data-i18n="diensten.ai.desc">Repetitive work that does itself, with you at the switch.</p>
+              <ul class="svc-tile__points">
+                <li data-i18n="diensten.ai.p1">First we map where the time actually goes</li>
+                <li data-i18n="diensten.ai.p2">Automation on top of the tools you already use, or a suggestion for tools that smooth out your flow</li>
+                <li data-i18n="diensten.ai.p3">You get the time to test it all, so we can fine-tune it together and get the most out of it</li>
+              </ul>
+
+            </div>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n="diensten.ai.foot">An example from start to finish.</p>
+              <a class="link" href="#workflow"><span data-i18n="diensten.ai.more">See an example</span><span class="btn__arrow" aria-hidden="true">&darr;</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Een echte AI-workflow van begin tot eind, als één brede tegel: vier stappen
+           van links naar rechts op een oranje spoor, met de beslissing onder de stap
+           waar ze valt. Leest in gewone volgorde voor een schermlezer. -->
+      <section class="section wrap svc-flow" id="workflow" aria-labelledby="flow-title">
+        <h2 class="display h-lg svc-flow__title" id="flow-title" data-split data-i18n="diensten.flow.title">Here’s what an AI workflow can look like.</h2>
+        <article class="case-tile pipe">
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">06 / 06</span>
+            <span class="case-tile__name" data-i18n="diensten.ai.name">AI workflows</span>
+            <span class="tag" data-i18n="diensten.tag.example">Example</span>
           </div>
-        </details>
+          <ol class="pipe__steps" data-pipe>
+              <li class="pipe__step">
+                <span class="pipe__node" aria-hidden="true"></span>
+                <span class="mono pipe__num">01</span>
+                <h3 class="pipe__tag" data-i18n="diensten.flow.s1.tag">Your website</h3>
+                <p class="pipe__text" data-i18n="diensten.flow.s1.text">A client prices up their project in the calculator on your site.</p>
+              </li>
+              <li class="pipe__step">
+                <span class="pipe__node" aria-hidden="true"></span>
+                <span class="mono pipe__num">02</span>
+                <h3 class="pipe__tag" data-i18n="diensten.flow.s2.tag">Automation</h3>
+                <p class="pipe__text" data-i18n="diensten.flow.s2.text">The quote is drawn up right away, with the right prices and terms.</p>
+              </li>
+              <li class="pipe__step">
+                <span class="pipe__node" aria-hidden="true"></span>
+                <span class="mono pipe__num">03</span>
+                <h3 class="pipe__tag" data-i18n="diensten.flow.s3.tag">Notion</h3>
+                <p class="pipe__text" data-i18n="diensten.flow.s3.text">It lands on your salesperson’s board, with everything the client filled in.</p>
+                <div class="pipe__gate">
+                  <p class="mono pipe__q" data-i18n="diensten.flow.g1">Is the price right?</p>
+                  <dl class="pipe__branches">
+                    <div><dt class="mono" data-i18n="diensten.flow.b1.cond">Yes</dt><dd data-i18n="diensten.flow.b1.text">Sales approves, or nudges the price a little.</dd></div>
+                    <div><dt class="mono" data-i18n="diensten.flow.b2.cond">Not sure</dt><dd data-i18n="diensten.flow.b2.text">The quote first goes past the colleague who knows the technical side best, who checks the calculation.</dd></div>
+                  </dl>
+                </div>
+              </li>
+              <li class="pipe__step">
+                <span class="pipe__node" aria-hidden="true"></span>
+                <span class="mono pipe__num">04</span>
+                <h3 class="pipe__tag" data-i18n="diensten.flow.s4.tag">Email</h3>
+                <p class="pipe__text" data-i18n="diensten.flow.s4.text">The quote goes out to the client, in your house style, and we track whether it gets opened.</p>
+                <div class="pipe__gate">
+                  <p class="mono pipe__q" data-i18n="diensten.flow.g2">Three days later</p>
+                  <dl class="pipe__branches">
+                    <div><dt class="mono" data-i18n="diensten.flow.b3.cond">Not opened yet</dt><dd data-i18n="diensten.flow.b3.text">A short reminder goes out by itself: did it arrive?</dd></div>
+                    <div><dt class="mono" data-i18n="diensten.flow.b4.cond">Read, no reply</dt><dd data-i18n="diensten.flow.b4.text">Sales gets a nudge to call, with the quote already at hand.</dd></div>
+                  </dl>
+                </div>
+              </li>
+          </ol>
+          <div class="case-tile__foot">
+            <p class="case-tile__quote" data-i18n="diensten.flow.foot">And as far as you like: every step can grow another branch.</p>
+            <a class="link" href="/en/contact"><span data-i18n="diensten.cta.btn">Start a conversation</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
       </section>
 
       <section class="marquee" aria-label="Tools we work with" data-i18n-attr="aria-label:marquee.label" data-marquee>
@@ -519,6 +478,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="/js/main.js?v=20"></script>
+    <script src="/js/main.js?v=21"></script>
+    <script src="/js/diensten-glyphs.js?v=23"></script>
   </body>
 </html>

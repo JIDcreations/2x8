@@ -32,46 +32,24 @@ left alone on its row — 5 of 5, 7 of 7 — is pinned to full width and opted o
 below 1 would otherwise shrink it the moment you hovered a tile above it.
 
 ## Services page
-Five services in one list, no categories: websites, web shops, apps, AI workflows, software.
-Every service is a `<details>` with the same two parts inside — what it is (one line plus
-three or four points) and proof. They all start collapsed and share `name="diensten"`, so
-only one is ever open at a time. There used to be a row of tags under the points and a
-"Gebouwd" label over the proof; both are gone, and so is the `.svc-item__tags` rule.
+Six services as tiles in the same language as the project tiles on the homepage (`.case-tile` in a
+`.cases__grid`): a bar with `01 / 06`, the name and a tag, a dark media panel, the content, and a
+foot. Everything is open at once, nothing behind a click. The homepage's widen-on-hover is switched
+off here (`.svc-tiles`), because these tiles hold text that would reflow while you read it.
 
-The jump buttons under the page title are links to those `<details>`. `serviceJumps()` in
-`js/main.js` opens the one a button points at — without it you land on a collapsed block and
-see nothing but its title. The service description deliberately has no `data-reveal`: text
-that sits behind a click and a scroll trigger at the same time can end up staying invisible.
+The media panel shows a shape made of bits for that service (`js/diensten-glyphs.js`, Three.js via a
+dynamic import from jsDelivr, so it also works when the page is opened from disk). As a tile scrolls
+in, its bits fly together into the shape, tied to the scroll position; hovering the tile turns the
+shape toward the cursor, pushes bits aside and warms some to orange. Shapes are built in code from
+lines, boxes and arcs (`builders` in that file). Without WebGL the panel is hidden and the tiles are
+plain text; with reduced motion the shapes are drawn once, formed.
 
-Proof is a row of case thumbnails at the full width of the content column, not small
-thumbnails next to the text. Most of these covers are screenshots of dark sites; below
-roughly 200px wide and in greyscale they turn into a black rectangle. Software has no case
-yet and shows concrete examples instead of an empty slot; AI workflows shows a diagram.
+Below the tiles, `#workflow` is one wide tile with the AI-workflow as a pipeline: four steps left to
+right on an orange track (`.pipe`), each decision under the step where it happens. Two per row on a
+tablet, a vertical track on a phone.
 
-### The workflow diagram
-AI workflows has one worked example instead of a list: a quote that walks from the
-calculator on a client's site all the way to sales picking up the phone (`.flow` in
-`diensten.html`). Every line, arrowhead and branch bar is a pseudo-element, so the reading
-order in the HTML *is* the order of the steps and a screen reader gets them straight. The
-dashes run with a `background-position` animation on a 12px tile — not `repeating-linear-gradient`,
-which has nothing to shift. Below 700px the two-column `.flow__split` collapses to one column
-and the horizontal fork and merge bars are switched off; `prefers-reduced-motion` stops the
-dashes and drops the travelling dot.
-
-## CMS page
-`/cms` sits behind the word "CMS" in the first bullet under Websites and nowhere else: no nav
-entry, no footer link. It is what to send someone who asks "but which one should I take?" —
-three cards, then the same seven questions (managing, growing, web shop, cost, findability,
-ownership, moving) in one table. The table keeps a `min-width` and scrolls horizontally inside
-`.cms-table__scroll` rather than squeezing seven rows into a phone.
-
-The link is written as `href="/cms"` in the Dutch source. `build.js` translates before it
-rewrites links, so the `<a>` inside the `diensten.sites.p1` translation comes out as `/fr/cms`
-and `/en/cms` by itself — don't hard-code those in `i18n/*.json`.
-
-A service name is kept short on purpose (Websites, Webshops, Apps, AI-workflows, Software).
-At the display size it is set in, "Softwarepakketten" ran 100px past its column. The name
-also has `overflow-wrap: break-word` as a backstop.
+The Platformen copy, the tile tags and the two tile feet for Software and AI-workflows are new and
+still need a read from Florian.
 
 ## Spacing
 One vertical scale for the whole site, `--sp-1` to `--sp-8` in `:root`, plus `--page-top`
