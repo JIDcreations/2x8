@@ -3,3 +3,13 @@
 # Raw screen recordings — huge (100MB+), some exceed GitHub's hard limit.
 # The site only references the compressed *-web.mp4 derivatives in assets/.
 *.mov
+
+# Mailconfiguratie met de Brevo-sleutel. De echte hoort buiten de docroot
+# (~/2x8-mail-config.php op de server), nooit hier.
+2x8-mail-config.php
+2x8-mail.log
+
+# /fr en /en staan bewust WEL in deze repo, ook al maakt build.js ze.
+# Hostinger pullt deze repo rechtstreeks in de docroot en draait geen Node,
+# dus de vertaalde pagina's moeten hier als gewone bestanden staan.
+# Na het aanpassen van Nederlandse copy: `node build.js` en beide mee committen.

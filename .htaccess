@@ -1,0 +1,30 @@
+# 2X8 — schone URLs: /werk in plaats van /werk.html
+Options -MultiViews
+RewriteEngine On
+
+# 0. Deze repo wordt rechtstreeks in de docroot gepulld, dus staat er ook
+#    bronmateriaal in dat niemand hoort te kunnen opvragen.
+RewriteRule (^|/)\.(git|github|claude)(/|$)           - [F,L]
+RewriteRule ^(build\.js|README\.md|mail-config\.example\.php)$ - [F,L]
+RewriteRule ^i18n/                                     - [F,L]
+RewriteRule (^|/)\.gitignore$                          - [F,L]
+
+# 1. /index.html (of /map/index.html) -> /
+RewriteCond %{REQUEST_URI} !^/backup/
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 2. /werk.html -> /werk  (alleen wat de bezoeker intikt of aanklikt, niet interne rewrites)
+RewriteCond %{REQUEST_URI} !^/backup/
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 3. /werk/ -> /werk (trailing slash weg, anders breken de relatieve paden)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# 4. /werk wordt intern /werk.html geserveerd
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]

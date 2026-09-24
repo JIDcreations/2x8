@@ -14,8 +14,9 @@
   --bg: var(--paper);
   --fg: var(--ink);
   --muted: var(--ash);
-  --line: rgb(10 10 10 / 0.14);
+  --line: var(--ink);
   --line-strong: var(--ink);
+  --wash: rgb(10 10 10 / 0.08);
 
   --font: 'Sora', system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
@@ -23,6 +24,20 @@
   --u: 16px;
   --gx: clamp(16px, 2.4vw, 40px);
   --nav-h: 64px;
+
+  /* Verticaal ritme. Eén schaal voor de hele site: elke witruimte tussen
+     blokken is een van deze acht stappen, niets ertussenin. sp-1 en sp-2 zijn
+     de vaste halve en hele 16px-eenheid, sp-3 en hoger schalen mee met het
+     scherm. --page-top is de enige maat boven een paginakop. */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: clamp(20px, 2.4vw, 32px);
+  --sp-4: clamp(28px, 3.2vw, 48px);
+  --sp-5: clamp(40px, 5vw, 72px);
+  --sp-6: clamp(56px, 7vw, 96px);
+  --sp-7: clamp(72px, 9vw, 120px);
+  --sp-8: clamp(88px, 11vw, 152px);
+  --page-top: calc(var(--nav-h) + clamp(32px, 6vh, 72px));
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-io: cubic-bezier(0.76, 0, 0.24, 1);
 
@@ -37,8 +52,9 @@
   --bg: var(--ink);
   --fg: var(--paper);
   --muted: var(--ash-2);
-  --line: rgb(250 251 252 / 0.16);
+  --line: var(--paper);
   --line-strong: var(--paper);
+  --wash: rgb(250 251 252 / 0.1);
   background: var(--bg);
   color: var(--fg);
   color-scheme: dark;
@@ -131,7 +147,13 @@ button {
   column-gap: var(--u);
 }
 .section {
-  padding-block: clamp(96px, 14vw, 208px);
+  padding-block: var(--sp-8);
+}
+/* Een paginakop laat zelf al veel lucht achter. De eerste sectie erna zet daar
+   geen volle sectiemarge nog eens bovenop. */
+.case-head + .section,
+.section--tight {
+  padding-top: var(--sp-5);
 }
 .rule {
   border-top: 1px solid var(--line-strong);
@@ -347,7 +369,7 @@ button {
   inset: 0;
   z-index: -1;
   background: var(--paper);
-  border-bottom: 1px solid rgb(10 10 10 / 0.1);
+  border-bottom: 1px solid var(--ink);
   transition: background-color 0.3s linear;
 }
 .nav--ink {
@@ -355,7 +377,7 @@ button {
 }
 .nav--ink::before {
   background: var(--ink);
-  border-bottom-color: rgb(250 251 252 / 0.12);
+  border-bottom-color: var(--paper);
 }
 .nav--hidden {
   transform: translateY(-100%);
@@ -477,8 +499,7 @@ button {
     grid-template-columns: 1fr auto;
   }
   .nav > nav,
-  .nav__right .btn,
-  .nav__right .lang {
+  .nav__right .btn {
     display: none;
   }
   .nav__burger {
@@ -572,136 +593,6 @@ button {
   }
 }
 
-/* ---------- Proof strip: the 3 top projects, right under the hero ---------- */
-/* Browser-chrome panels that expand on hover, one live site at a time */
-.proof-strip__label {
-  margin-bottom: clamp(24px, 3vw, 40px);
-}
-.proof-panels {
-  display: flex;
-  align-items: stretch;
-  gap: clamp(12px, 1.6vw, 20px);
-  height: clamp(300px, 34vw, 440px);
-}
-.proof-panel {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 0%;
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid var(--line-strong);
-  background: #111;
-  transition: flex-grow 0.6s var(--ease);
-}
-.proof-panel--feature {
-  flex-grow: 1.25;
-}
-.proof-panels:has(.proof-panel:hover) .proof-panel,
-.proof-panels:has(.proof-panel:focus-within) .proof-panel {
-  flex-grow: 0.55;
-}
-.proof-panel:hover,
-.proof-panel:focus-within {
-  flex-grow: 2.6 !important;
-}
-.proof-panel__bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: none;
-  padding: 10px 12px;
-  background: #1a1a1a;
-  border-bottom: 1px solid rgb(250 251 252 / 0.1);
-}
-.proof-panel__dots {
-  display: flex;
-  gap: 5px;
-  flex: none;
-}
-.proof-panel__dots span {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgb(250 251 252 / 0.25);
-}
-.proof-panel__url {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ash-2);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.proof-panel__frame {
-  position: relative;
-  flex: 1;
-  overflow: hidden;
-}
-.proof-panel__frame img {
-  position: absolute;
-  inset: -4%;
-  width: 108%;
-  height: 108%;
-  object-fit: cover;
-  object-position: top;
-  will-change: transform;
-}
-.proof-panel__caption {
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
-  z-index: 1;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 6px 9px;
-  opacity: 0;
-  transform: translateY(6px);
-  transition:
-    opacity 0.4s var(--ease),
-    transform 0.4s var(--ease);
-}
-.proof-panel:hover .proof-panel__caption,
-.proof-panel:focus-within .proof-panel__caption {
-  opacity: 1;
-  transform: translateY(0);
-}
-@media (max-width: 767px) {
-  .proof-panels {
-    flex-direction: column;
-    height: auto;
-  }
-  .proof-panel,
-  .proof-panel--feature {
-    flex: none;
-    height: 220px;
-  }
-  .proof-panels:has(.proof-panel:hover) .proof-panel,
-  .proof-panel:hover,
-  .proof-panel:focus-within {
-    flex-grow: 0 !important;
-  }
-  .proof-panel__caption {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .proof-panel {
-    transition: none;
-  }
-  .proof-panel__caption {
-    transition: none;
-  }
-}
-
 /* ---------- Intro ---------- */
 .intro {
   row-gap: 40px;
@@ -731,67 +622,74 @@ button {
   }
 }
 
-/* ---------- Services ---------- */
-.services__head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--u);
-  padding-bottom: clamp(40px, 6vw, 96px);
+/* ==========================================================================
+   Diensten
+   Vijf diensten in twee families. Geen accordeon meer: alles staat open. Wie
+   diensten vergelijkt wil ze naast elkaar zien, niet één voor één openklikken,
+   en het oude scherm verborg net de twee diensten die uitleg nodig hebben.
+   Elke dienst krijgt nu exact dezelfde drie kolommen — naam, wat het is,
+   bewijs — zodat geen van de twee families zwaarder weegt dan de andere.
+   ========================================================================== */
+.svc-jump {
+  padding-block: var(--sp-5) 0;
 }
-.svc-group {
+a.services-tabs__btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Elke dienst is een openklikker: de naam staat er groot, de rest komt pas op
+   een klik. De eerste dienst staat open, de andere dicht. Ze delen een
+   name-attribuut, dus er staat er altijd maar een open. */
+.svc-item {
   border-top: 1px solid var(--line-strong);
-  padding-top: 20px;
-  row-gap: 8px;
-}
-.svc-group + .svc-group {
-  margin-top: clamp(48px, 6vw, 96px);
-}
-.svc-group__label {
-  grid-column: 1 / span 3;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-top: 12px;
-}
-.svc-group__items {
-  grid-column: 4 / -1;
-}
-.svc {
-  border-bottom: 1px solid var(--line);
   interpolate-size: allow-keywords;
+  scroll-margin-top: calc(var(--nav-h) + var(--sp-3));
 }
-.svc summary {
+.svc-item:last-child {
+  border-bottom: 1px solid var(--line-strong);
+}
+.svc-item__summary {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--u);
-  padding-block: 8px 14px;
+  padding-block: var(--sp-4);
   cursor: pointer;
 }
-.svc summary::-webkit-details-marker {
+.svc-item__summary::-webkit-details-marker {
   display: none;
 }
-.svc__name {
+.svc-item__idx {
+  display: block;
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+.svc-item__name {
   font-weight: 800;
-  font-size: clamp(2.5rem, 7vw, 8rem);
+  font-size: clamp(2.25rem, 6vw, 7rem);
   letter-spacing: -0.055em;
   line-height: 1;
-  transition:
-    transform 0.7s var(--ease),
-    color 0.3s;
+  /* Een lange dienstnaam breekt af in plaats van de kolom uit te lopen. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+  transition: transform 0.7s var(--ease);
 }
-.svc summary:hover .svc__name {
+.svc-item__summary:hover .svc-item__name {
   transform: translateX(clamp(8px, 1.5vw, 24px));
 }
-.svc__toggle {
+.svc-item__summary:hover .svc-item__idx {
+  color: var(--orange);
+}
+.svc-item__toggle {
   position: relative;
   width: clamp(28px, 3vw, 44px);
   aspect-ratio: 1;
 }
-.svc__toggle::before,
-.svc__toggle::after {
+.svc-item__toggle::before,
+.svc-item__toggle::after {
   content: '';
   position: absolute;
   inset: 50% 0 auto 0;
@@ -802,39 +700,143 @@ button {
     transform 0.6s var(--ease),
     background-color 0.3s;
 }
-.svc__toggle::after {
+.svc-item__toggle::after {
   transform: rotate(90deg);
 }
-.svc summary:hover .svc__toggle::before,
-.svc summary:hover .svc__toggle::after,
-.svc[open] .svc__toggle::before,
-.svc[open] .svc__toggle::after {
+.svc-item__summary:hover .svc-item__toggle::before,
+.svc-item__summary:hover .svc-item__toggle::after,
+.svc-item[open] .svc-item__toggle::before,
+.svc-item[open] .svc-item__toggle::after {
   background: var(--orange);
 }
-.svc[open] .svc__toggle::after {
+.svc-item[open] .svc-item__toggle::after {
   transform: rotate(0deg);
 }
-.svc::details-content {
+.svc-item::details-content {
   block-size: 0;
   overflow: clip;
   transition:
     block-size 0.7s var(--ease),
     content-visibility 0.7s allow-discrete;
 }
-.svc[open]::details-content {
+.svc-item[open]::details-content {
   block-size: auto;
 }
-.svc__body {
+.svc-item__panel {
+  row-gap: var(--sp-5);
+  padding-bottom: var(--sp-5);
+}
+.svc-item__body {
+  grid-column: 4 / -1;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 24px 48px;
-  padding-block: 8px 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
 }
-.svc__desc {
-  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
-  line-height: 1.5;
+.svc-item__proof {
+  grid-column: 4 / -1;
+}
+.svc-item__desc {
+  font-size: clamp(1.15rem, 1.6vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  max-width: 24ch;
+}
+.svc-points {
+  display: grid;
+  row-gap: 10px;
   max-width: 44ch;
+  color: var(--muted);
 }
+.svc-points li {
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.5;
+}
+.svc-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.svc-item__tags {
+  margin-top: var(--sp-4);
+}
+
+/* Bewijs: de cases waarin deze dienst al geleverd is. */
+.svc-proof__label {
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+.svc-proof__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+.svc-proof {
+  display: block;
+  flex: 1 1 200px;
+  max-width: 340px;
+}
+.svc-proof__media {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #1a1918;
+}
+.svc-proof__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  scale: 1;
+  transition: scale 1.1s var(--ease);
+}
+.svc-proof:hover .svc-proof__media img,
+.svc-proof:focus-visible .svc-proof__media img {
+  scale: 1.04;
+}
+.svc-proof__name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.svc-proof__name::after {
+  content: '\2192';
+  color: var(--muted);
+  transition:
+    translate 0.5s var(--ease),
+    color 0.3s;
+}
+.svc-proof:hover .svc-proof__name::after,
+.svc-proof:focus-visible .svc-proof__name::after {
+  translate: 6px 0;
+  color: var(--orange);
+}
+
+/* Diensten zonder case krijgen voorbeelden in plaats van bewijs: eerlijker dan
+   een lege plek, en het maakt meteen concreet waar zo'n opdracht over gaat. */
+.svc-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0 var(--sp-4);
+  color: var(--muted);
+}
+.svc-examples li {
+  padding-block: var(--sp-3);
+  border-top: 1px solid var(--line);
+  line-height: 1.45;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -848,108 +850,20 @@ button {
   border: 1px solid var(--line-strong);
   text-transform: uppercase;
 }
-/* Websites / Web apps: proof is shown immediately, no click required */
-.svc-showcase {
-  border-bottom: 1px solid var(--line);
-  padding-block: clamp(28px, 3vw, 40px);
-}
-.svc-showcase__head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: end;
-  gap: 24px 48px;
-}
-.svc-showcase__name {
-  font-weight: 800;
-  font-size: clamp(2.25rem, 5.2vw, 5.5rem);
-  letter-spacing: -0.045em;
-  line-height: 1;
-  overflow-wrap: break-word;
-}
-.svc-showcase__desc {
-  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
-  line-height: 1.5;
-  max-width: 44ch;
-}
-.svc-showcase__cases {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(20px, 2.6vw, 40px);
-  padding-top: clamp(28px, 3vw, 44px);
-}
-.svc-showcase__case {
-  display: block;
-  flex: 1 1 240px;
-  max-width: 420px;
-}
-.svc-showcase__media {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: #1a1918;
-}
-.svc-showcase__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  scale: 1;
-  transition: scale 1.1s var(--ease);
-}
-.svc-showcase__case:hover .svc-showcase__media img,
-.svc-showcase__case:focus-visible .svc-showcase__media img {
-  scale: 1.03;
-}
-.svc-showcase__meta {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: baseline;
-  gap: 16px;
-  padding-top: 16px;
-}
-.svc-showcase__idx {
-  transition: color 0.3s;
-}
-.svc-showcase__case:hover .svc-showcase__idx {
-  color: var(--orange);
-}
-.svc-showcase__case-name {
-  font-weight: 700;
-  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-.svc-showcase__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: clamp(24px, 2.6vw, 32px);
-}
-@media (max-width: 767px) {
-  .services__head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .svc-group__label,
-  .svc-group__items {
+
+@media (max-width: 899px) {
+  .svc-item__body,
+  .svc-item__proof {
     grid-column: 1 / -1;
   }
-  .svc__body {
+  .svc-item__body {
     grid-template-columns: 1fr;
-  }
-  .svc-showcase__head {
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
-  .svc-showcase__case {
-    flex: 1 1 100%;
-    max-width: 420px;
   }
 }
 
 /* ---------- Cases: oversized head pairing, plain confident project grid ---------- */
 .cases__head {
-  padding-block: clamp(96px, 14vw, 160px) clamp(32px, 5vw, 56px);
+  padding-block: var(--sp-8) var(--sp-4);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -962,20 +876,45 @@ button {
 .cases__head-lede {
   max-width: 34ch;
 }
+/* Two per row, but as a wrapping flex row so a hovered tile can widen and its
+   row neighbour give way — the same move the old proof strip made. */
 .cases__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: clamp(20px, 2.4vw, 32px);
 }
 .case-tile {
   display: flex;
   flex-direction: column;
+  flex: 1 1 36%;
+  min-width: 0;
   border: 1px solid var(--line-strong);
   background: var(--paper);
   color: var(--ink);
+  transition: flex-grow 0.6s var(--ease);
 }
-.case-tile[hidden] {
-  display: none;
+.cases__grid:has(.case-tile:hover) .case-tile,
+.cases__grid:has(.case-tile:focus-within) .case-tile {
+  flex-grow: 0.45;
+}
+.case-tile:hover,
+.case-tile:focus-within {
+  flex-grow: 3 !important;
+}
+
+/* Een laatste tegel die als enige op haar rij overblijft (5 van 5, 7 van 7 ...)
+   staat altijd over de volle breedte. Er is niemand naast haar om ruimte mee
+   te delen, dus het hover-spel hoort haar met rust te laten: zonder dit zou ze
+   juist krimpen zodra je een tegel hierboven aanwijst, want een flex-grow
+   onder 1 verdeelt maar een deel van de vrije ruimte. */
+.case-tile:last-child:nth-child(odd) {
+  flex-basis: 100%;
+}
+.cases__grid:has(.case-tile:hover) .case-tile:last-child:nth-child(odd),
+.cases__grid:has(.case-tile:focus-within) .case-tile:last-child:nth-child(odd),
+.case-tile:last-child:nth-child(odd):hover,
+.case-tile:last-child:nth-child(odd):focus-within {
+  flex-grow: 1 !important;
 }
 .case-tile__bar {
   display: flex;
@@ -1042,7 +981,7 @@ button {
   max-width: 28ch;
 }
 .cases__foot {
-  padding-block: clamp(40px, 6vw, 64px);
+  padding-block: var(--sp-5);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1051,16 +990,26 @@ button {
   border-top: 1px solid var(--line);
 }
 @media (max-width: 767px) {
-  .cases__grid {
-    grid-template-columns: 1fr;
+  .case-tile,
+  .cases__grid:has(.case-tile:hover) .case-tile,
+  .case-tile:hover,
+  .case-tile:focus-within {
+    flex: none;
+    width: 100%;
+    flex-grow: 0 !important;
   }
   .case-tile__bar {
     flex-wrap: wrap;
   }
 }
 
+/* ---------- Werkfilter: Alles / Websites / Apps / Platforms ---------- */
+/* De knoppen zijn dezelfde tabs als op de dienstenpagina (.services-tabs), dus
+   hier staat enkel de ruimte eromheen en wat er met een verborgen spotlight
+   gebeurt. Het verbergen zelf gebeurt met het hidden-attribuut in JS: zo blijft
+   een gefilterde case ook voor een schermlezer weg, niet enkel visueel. */
 .work-filter {
-  padding-block: clamp(24px, 4vw, 40px);
+  padding-block: var(--sp-5) var(--sp-4);
 }
 .spotlight[hidden] {
   display: none;
@@ -1071,7 +1020,7 @@ button {
   border-top: 1px solid var(--line-strong);
 }
 .spotlight {
-  padding-block: clamp(64px, 9vw, 140px);
+  padding-block: var(--sp-7);
   border-bottom: 1px solid var(--line);
 }
 .spotlight__grid {
@@ -1168,16 +1117,17 @@ button {
   border: 0;
 }
 .lab {
-  padding-block: clamp(72px, 10vw, 128px);
+  padding-block: var(--sp-7);
   border-bottom: 1px solid var(--line-strong);
 }
 .lab__head {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   gap: clamp(24px, 4vw, 56px);
   flex-wrap: wrap;
-  margin-bottom: clamp(32px, 5vw, 56px);
+  margin-bottom: var(--sp-4);
 }
 .lab__lede {
   max-width: 34ch;
@@ -1207,7 +1157,7 @@ button {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 1px solid rgb(250 251 252 / 0.5);
+  border: 1px solid var(--paper);
 }
 .finder__path {
   flex: 1;
@@ -1224,7 +1174,7 @@ button {
   height: 26px;
   padding-inline: 10px;
   background: rgb(250 251 252 / 0.1);
-  border: 1px solid rgb(250 251 252 / 0.3);
+  border: 1px solid var(--paper);
   color: var(--paper);
   font-family: var(--mono);
   font-size: 12px;
@@ -1269,7 +1219,7 @@ button {
   cursor: pointer;
 }
 .finder__sidebar-item:hover {
-  background: var(--line);
+  background: var(--wash);
 }
 .finder__sidebar-item.is-active {
   background: var(--ink);
@@ -1303,12 +1253,12 @@ button {
 .finder__file:hover,
 .finder__file:focus-visible {
   border-color: var(--line-strong);
-  background: var(--line);
+  background: var(--wash);
 }
 .finder__file-icon {
   width: 36px;
   height: 44px;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--ink);
   clip-path: polygon(0 0, 65% 0, 100% 30%, 100% 100%, 0 100%);
   position: relative;
 }
@@ -1319,8 +1269,8 @@ button {
   right: 0;
   width: 35%;
   height: 30%;
-  border-left: 1.5px solid var(--ink);
-  border-bottom: 1.5px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
 }
 .finder__file-icon--link {
   clip-path: none;
@@ -1333,8 +1283,8 @@ button {
   margin: auto;
   width: 10px;
   height: 10px;
-  border-top: 1.5px solid var(--ink);
-  border-right: 1.5px solid var(--ink);
+  border-top: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
   transform: translate(-2px, 2px) rotate(45deg);
   border-left: none;
   border-bottom: none;
@@ -1409,8 +1359,10 @@ button {
 /* ---------- Marquee ---------- */
 .marquee {
   overflow: hidden;
-  padding-block: clamp(40px, 6vw, 96px);
-  border-bottom: 1px solid var(--line-strong);
+  padding-block: var(--sp-5);
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 1px solid var(--ink);
 }
 .marquee__track {
   display: flex;
@@ -1431,7 +1383,24 @@ button {
 }
 .marquee__item:nth-child(even) {
   color: transparent;
-  -webkit-text-stroke: 2px var(--ink);
+  -webkit-text-stroke: 2px var(--paper);
+  /* Outline-letters verdragen de krappe tracking van de gevulde woorden niet:
+     daar tekent de stroke elke botsing tussen twee letters uit. */
+  letter-spacing: -0.01em;
+}
+/* Sora heeft op gewicht 800 overlappende contouren binnen een letter (de twee
+   V's van de W, de staart van de e). Gevuld zie je dat niet, met alleen een
+   stroke wel: je krijgt streepjes dwars door de letter. Eerst de stroke tekenen
+   en er daarna de vulling in papierkleur overheen leggen dekt die binnenlijnen
+   af, zodat enkel het silhouet overblijft. */
+@supports (paint-order: stroke) {
+  .marquee__item:nth-child(even) {
+    color: var(--ink);
+    paint-order: stroke fill;
+    /* De vulling dekt de binnenste helft van de stroke af, dus dubbel zo dik
+       tekenen om op dezelfde optische lijndikte uit te komen. */
+    -webkit-text-stroke-width: 4px;
+  }
 }
 .marquee__item::after {
   content: '';
@@ -1500,7 +1469,7 @@ button {
   max-width: 16ch;
 }
 .studio__grid {
-  margin-top: clamp(32px, 5vw, 64px);
+  margin-top: var(--sp-4);
   row-gap: 24px;
 }
 .studio__body {
@@ -1508,16 +1477,10 @@ button {
   font-size: clamp(1.05rem, 1.3vw, 1.3rem);
   max-width: 46ch;
 }
-.studio__fact {
-  grid-column: 8 / -1;
-  justify-self: end;
-  text-align: right;
-  max-width: 26ch;
-}
 .founders {
   position: relative;
-  margin-top: clamp(48px, 7vw, 112px);
-  row-gap: clamp(40px, 6vw, 64px);
+  margin-top: var(--sp-6);
+  row-gap: var(--sp-5);
 }
 .founders-x {
   position: absolute;
@@ -1525,14 +1488,16 @@ button {
   left: 50%;
   translate: -50% -50%;
   z-index: 2;
-  font-family: var(--mono);
-  font-weight: 800;
-  font-size: clamp(1.75rem, 3vw, 3rem);
-  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  width: clamp(26px, 3vw, 42px);
+  height: auto;
+  /* De padding moet buiten de opgegeven breedte vallen, anders krimpt de X
+     mee en blijft het witte blokje leeg. */
+  box-sizing: content-box;
   color: var(--orange);
   background: var(--bg);
-  padding: 0 12px;
-  pointer-events: none;
+  padding: 14px;
 }
 .founder {
   grid-column: span 6;
@@ -1668,11 +1633,8 @@ button {
   margin-top: 22px;
 }
 @media (max-width: 899px) {
-  .studio__body,
-  .studio__fact {
+  .studio__body {
     grid-column: 1 / -1;
-    justify-self: start;
-    text-align: left;
   }
   .founder {
     grid-column: 1 / -1;
@@ -1690,19 +1652,36 @@ button {
 
 /* ---------- Contact / footer ---------- */
 .contact {
-  padding-top: clamp(96px, 14vw, 208px);
+  padding-top: var(--sp-8);
 }
 .contact--page {
-  padding-top: calc(var(--nav-h) + clamp(56px, 10vh, 112px));
+  padding-top: var(--page-top);
+}
+.contact--page {
+  padding-bottom: var(--sp-7);
 }
 .contact--page .case-head__top {
   color: var(--muted);
+}
+.contact__alt {
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.contact--page .contact__mail {
+  grid-column: auto;
+  justify-self: auto;
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
 }
 .contact__title {
   font-size: clamp(3.25rem, 12vw, 15rem);
 }
 .contact__row {
-  margin-top: clamp(40px, 6vw, 96px);
+  margin-top: var(--sp-5);
   row-gap: 32px;
   align-items: end;
 }
@@ -1735,10 +1714,11 @@ button {
 .contact__mail:hover::after {
   transform: scaleX(1);
 }
-.footer {
-  margin-top: clamp(96px, 12vw, 176px);
+.footer__top {
+  display: flex;
+  padding-block: 20px 40px;
 }
-.footer__bar {
+.footer__bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1750,13 +1730,24 @@ button {
 .footer__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 40px;
+  width: 100%;
 }
 .footer__links a {
   transition: color 0.2s;
 }
 .footer__links a:hover {
   color: var(--orange);
+}
+@media (max-width: 767px) {
+  .footer__links {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }
 .footer__mark {
   padding: 0 var(--gx) var(--gx);
@@ -1783,7 +1774,7 @@ button {
 
 /* ---------- Services: one tabbed panel, not two stacked statements ---------- */
 .services__intro {
-  padding-block: clamp(96px, 14vw, 160px) clamp(32px, 4vw, 48px);
+  padding-block: var(--sp-8) var(--sp-4);
 }
 .services-tabs {
   display: flex;
@@ -1883,10 +1874,10 @@ button {
   font-size: clamp(1.05rem, 1.4vw, 1.35rem);
 }
 .service .tags {
-  margin-top: clamp(20px, 3vw, 32px);
+  margin-top: var(--sp-3);
 }
 .service__stats {
-  margin-top: clamp(32px, 5vw, 56px);
+  margin-top: var(--sp-4);
   display: flex;
   gap: clamp(32px, 6vw, 72px);
   flex-wrap: wrap;
@@ -1905,13 +1896,13 @@ button {
   color: var(--orange);
 }
 .services__foot {
-  padding-block: clamp(32px, 5vw, 48px);
+  padding-block: var(--sp-4);
   border-top: 1px solid var(--line);
 }
 
 /* ---------- Studio: bigger offset portraits, the 2x8 equation counts up ---------- */
 .studio-layout {
-  margin-top: clamp(32px, 5vw, 56px);
+  margin-top: var(--sp-4);
   display: flex;
   align-items: flex-start;
   gap: clamp(32px, 5vw, 72px);
@@ -1934,13 +1925,16 @@ button {
 .studio-portraits--equal {
   align-items: center;
 }
+/* De X tussen de twee portretten is de x uit het logo, niet het teken &times;:
+   een deco-X op deze site is altijd die glyph. De SVG schaalt op breedte, dus
+   die sturen we in plaats van font-size. */
 .studio-x {
   flex: none;
-  font-family: var(--mono);
-  font-weight: 800;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  pointer-events: none;
+  user-select: none;
+  width: clamp(24px, 3vw, 40px);
+  height: auto;
   color: var(--orange);
-  line-height: 1;
 }
 .studio-portrait {
   width: clamp(180px, 20vw, 300px);
@@ -2013,7 +2007,7 @@ button {
 }
 .studio-stat {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: clamp(12px, 2vw, 20px);
   padding-block: clamp(10px, 1.6vw, 16px);
   border-top: 1px solid var(--line);
@@ -2031,12 +2025,12 @@ button {
   color: var(--fg);
 }
 .studio-side__text {
-  margin-top: clamp(20px, 3vw, 32px);
+  margin-top: var(--sp-3);
   color: var(--muted);
   max-width: 40ch;
 }
 .studio-side .link {
-  margin-top: clamp(20px, 3vw, 32px);
+  margin-top: var(--sp-3);
 }
 @media (max-width: 480px) {
   .studio-portrait {
@@ -2052,13 +2046,13 @@ button {
 
 /* ---------- Case page ---------- */
 .case-head {
-  padding-top: calc(var(--nav-h) + clamp(40px, 8vh, 96px));
+  padding-top: var(--page-top);
 }
 .case-head__top {
   display: flex;
   justify-content: space-between;
   gap: var(--u);
-  margin-bottom: clamp(24px, 4vw, 48px);
+  margin-bottom: var(--sp-4);
 }
 .case-head__title {
   font-size: clamp(3.25rem, 11vw, 14rem);
@@ -2072,7 +2066,7 @@ button {
   max-width: 28ch;
 }
 .case-meta {
-  margin-top: clamp(40px, 6vw, 80px);
+  margin-top: var(--sp-5);
   padding-top: 16px;
   border-top: 1px solid var(--line-strong);
   row-gap: 24px;
@@ -2086,6 +2080,11 @@ button {
 .case-meta dd {
   font-weight: 600;
 }
+
+/* Zwevende "Bezoek de site" op een casepagina: verschijnt zodra de cover voorbij
+   is en verdwijnt weer bij het contactblok, waar dezelfde vraag al staat. Zo is
+   de link naar het echte werk altijd binnen bereik zonder de case te overlappen
+   waar het net niet hoort. */
 .case-float-cta {
   position: fixed;
   right: var(--gx);
@@ -2095,7 +2094,9 @@ button {
   transform: translateY(20px) scale(0.96);
   pointer-events: none;
   box-shadow: 0 16px 40px rgb(10 10 10 / 0.22);
-  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  transition:
+    opacity 0.4s var(--ease),
+    transform 0.4s var(--ease);
 }
 .case-float-cta.is-visible {
   opacity: 1;
@@ -2111,8 +2112,13 @@ button {
     font-size: 13px;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .case-float-cta {
+    transition: none;
+  }
+}
 .case-cover {
-  margin-top: clamp(40px, 6vw, 80px);
+  margin-top: var(--sp-5);
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background: #e9e8e6;
@@ -2131,10 +2137,10 @@ button {
   background: #0a0a0a;
 }
 .case-body {
-  padding-top: clamp(40px, 8vw, 120px);
+  padding-top: var(--sp-6);
 }
 .case-block {
-  padding-block: clamp(40px, 6vw, 80px);
+  padding-block: var(--sp-5);
   border-top: 1px solid var(--line);
   row-gap: 16px;
 }
@@ -2154,7 +2160,7 @@ button {
 }
 .case-gallery {
   row-gap: var(--u);
-  padding-bottom: clamp(96px, 12vw, 176px);
+  padding-bottom: var(--sp-8);
 }
 .case-gallery figure {
   overflow: hidden;
@@ -2182,7 +2188,7 @@ button {
 }
 .next-case {
   display: block;
-  padding-block: clamp(64px, 10vw, 160px);
+  padding-block: var(--sp-7);
 }
 .next-case__name {
   display: flex;
@@ -2229,4 +2235,412 @@ button {
   .js .hero__title {
     visibility: visible;
   }
+}
+
+/* ==========================================================================
+   Software-pagina's (/software/*) — tekstpagina's per pakket
+   Hergebruikt .wrap / .grid / .tag / .byte. Eigen prose- en FAQ-schaal,
+   want .case-block p is displaytekst en te groot voor lopende tekst.
+   ========================================================================== */
+.sw-head {
+  padding-top: var(--page-top);
+}
+.sw-head__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--u);
+  margin-bottom: var(--sp-4);
+}
+.sw-head__kicker {
+  display: block;
+  margin-bottom: 12px;
+}
+.sw-head__title {
+  font-size: clamp(3rem, 9vw, 11rem);
+}
+.sw-head__summary {
+  margin-top: 24px;
+  font-size: clamp(1.2rem, 1.9vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
+  max-width: 34ch;
+}
+.sw-head__tags {
+  margin-top: var(--sp-4);
+  padding-top: 16px;
+  border-top: 1px solid var(--line-strong);
+}
+
+/* ---------- Tekstblokken ---------- */
+.sw-body {
+  padding-top: var(--sp-6);
+}
+.sw-block {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  padding-block: var(--sp-5);
+  border-top: 1px solid var(--line);
+  row-gap: 16px;
+}
+.sw-block:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.sw-block__label {
+  grid-column: 1 / span 3;
+  padding-top: 0.5em;
+  color: var(--muted);
+  align-self: start;
+}
+.sw-prose {
+  grid-column: 5 / -1;
+  max-width: 62ch;
+}
+.sw-prose > * + * {
+  margin-top: 1em;
+}
+.sw-prose h3 {
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 1.8em;
+}
+.sw-prose p,
+.sw-prose li {
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.6;
+}
+.sw-prose strong {
+  font-weight: 700;
+}
+.sw-prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.sw-prose a:hover {
+  color: var(--orange);
+}
+
+/* ---------- Opsomming met tellers ---------- */
+.sw-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.4em;
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  counter-reset: sw-i;
+}
+.sw-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--u);
+  padding: 16px 0;
+  background: var(--bg);
+}
+.sw-list li::before {
+  content: counter(sw-i, decimal-leading-zero);
+  counter-increment: sw-i;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 0.45em;
+}
+
+/* ---------- FAQ ---------- */
+.sw-faq-sec {
+  padding-block: var(--sp-7);
+}
+.sw-faq {
+  margin-top: var(--sp-4);
+  border-top: 1px solid var(--line-strong);
+}
+.sw-faq__item {
+  border-bottom: 1px solid var(--line);
+  interpolate-size: allow-keywords;
+}
+.sw-faq__item summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--u);
+  padding-block: var(--sp-3);
+  cursor: pointer;
+}
+.sw-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+.sw-faq__q {
+  font-size: clamp(1.1rem, 1.8vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
+  max-width: 46ch;
+  transition: transform 0.6s var(--ease);
+}
+.sw-faq__item summary:hover .sw-faq__q {
+  transform: translateX(clamp(4px, 0.8vw, 12px));
+}
+.sw-faq__toggle {
+  position: relative;
+  width: clamp(20px, 2vw, 28px);
+  aspect-ratio: 1;
+  flex: none;
+}
+.sw-faq__toggle::before,
+.sw-faq__toggle::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 2px;
+  margin-top: -1px;
+  background: currentColor;
+  transition:
+    transform 0.6s var(--ease),
+    background-color 0.3s;
+}
+.sw-faq__toggle::after {
+  transform: rotate(90deg);
+}
+.sw-faq__item summary:hover .sw-faq__toggle::before,
+.sw-faq__item summary:hover .sw-faq__toggle::after,
+.sw-faq__item[open] .sw-faq__toggle::before,
+.sw-faq__item[open] .sw-faq__toggle::after {
+  background: var(--orange);
+}
+.sw-faq__item[open] .sw-faq__toggle::after {
+  transform: rotate(0deg);
+}
+.sw-faq__item::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition:
+    block-size 0.7s var(--ease),
+    content-visibility 0.7s allow-discrete;
+}
+.sw-faq__item[open]::details-content {
+  block-size: auto;
+}
+.sw-faq__a {
+  padding-bottom: var(--sp-4);
+  max-width: 68ch;
+}
+.sw-faq__a > * + * {
+  margin-top: 0.9em;
+}
+.sw-faq__a p,
+.sw-faq__a li {
+  font-size: clamp(0.98rem, 1.15vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--fg);
+}
+.sw-faq__a ul {
+  padding-left: 1.2em;
+}
+
+/* ---------- Afsluiter ---------- */
+.cta-band {
+  padding-block: var(--sp-6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--u);
+}
+.cta-band__title {
+  font-size: clamp(1.8rem, 4vw, 3.6rem);
+  max-width: 24ch;
+}
+.sw-related {
+  padding-bottom: var(--sp-6);
+}
+.sw-related__label {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.sw-related__links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+@media (max-width: 860px) {
+  .sw-block {
+    display: block;
+  }
+  .sw-block__label {
+    margin-bottom: 12px;
+    padding-top: 0;
+  }
+  .sw-prose {
+    max-width: none;
+  }
+}
+
+/* ---------- Contactformulier ---------- */
+.cform {
+  margin-top: var(--sp-5);
+}
+.contact--page .cform {
+  max-width: 50%;
+}
+@media (max-width: 900px) {
+  .contact--page .cform {
+    max-width: none;
+  }
+}
+.cform__lede {
+  margin-top: 16px;
+  max-width: 46ch;
+}
+.cform__form {
+  margin-top: var(--sp-4);
+}
+/* Buiten beeld in plaats van display:none — een bot die CSS negeert vult hem
+   alsnog in, en dat is precies de bedoeling. */
+.cform__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.cform__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--u) clamp(16px, 2.4vw, 32px);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.field--wide {
+  grid-column: 1 / -1;
+}
+.field__label {
+  color: var(--muted);
+}
+.field__input {
+  font: inherit;
+  font-size: 16px;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 14px 16px;
+  width: 100%;
+  transition:
+    border-color 0.3s var(--ease),
+    background-color 0.3s var(--ease);
+}
+.field__input:hover {
+  background: var(--wash);
+}
+.field__input:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+.field__input--area {
+  resize: vertical;
+  min-height: 160px;
+}
+.field__input--select {
+  appearance: none;
+  /* Eigen pijl: de systeempijl breekt de vlakke, radiusloze look. */
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% + 2px), calc(100% - 14px) calc(50% + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 44px;
+}
+.field__input[aria-invalid='true'] {
+  border-color: var(--orange);
+}
+.field__error {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--orange);
+}
+.cform__foot {
+  margin-top: var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 32px);
+  flex-wrap: wrap;
+}
+.cform__note {
+  max-width: 34ch;
+}
+.cform__status {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  font-size: 15px;
+}
+.cform__status--ok {
+  border-color: var(--line);
+  background: var(--wash);
+}
+.cform__status--fail {
+  border-color: var(--orange);
+}
+[data-cform-submit][disabled] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+@media (max-width: 760px) {
+  .cform__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Taalwisselaar ---------- */
+/* Staat in de bovenbalk en blijft ook op mobiel staan. De build zet de links
+   per pagina vast, dus wisselen houdt je op dezelfde pagina. */
+.langs__list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.langs__link {
+  position: relative;
+  display: block;
+  padding: 4px 7px;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+}
+.langs__link:hover {
+  color: currentColor;
+}
+.langs__link.is-current {
+  color: inherit;
+}
+.langs__link.is-current::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: 2px;
+  height: 1px;
+  background: currentColor;
+}
+/* Nog niet vertaald: de link gaat naar de homepage van die taal, en dat mag je
+   zien voor je klikt. */
+.langs__link[title] {
+  opacity: 0.55;
 }

@@ -427,6 +427,59 @@
     });
   }
 
+
+  /* ---------------------------------------------------------------- */
+  /* Work filter: Alles / Websites / Apps / Platforms                   */
+  /* ---------------------------------------------------------------- */
+  /* ---------------------------------------------------------------- */
+  /* Dienstenpagina: sprongknop opent de dienst waar ze naar wijst      */
+  /* ---------------------------------------------------------------- */
+  /* Zonder dit scrol je naar een dichtgeklapte <details> en zie je enkel de
+     titel staan. De details delen een name-attribuut, dus het openzetten van
+     de ene sluit de andere vanzelf. */
+  function serviceJumps() {
+    var root = $('[data-svc-jump]');
+    if (!root) return;
+    $$('a[href^="#"]', root).forEach(function (link) {
+      link.addEventListener('click', function () {
+        var target = $(link.getAttribute('href'));
+        if (target && target.tagName === 'DETAILS') target.open = true;
+      });
+    });
+  }
+
+  function workFilter() {
+    var root = $('[data-work-filter]');
+    if (!root) return;
+    var btns = $$('[data-work-filter-btn]', root);
+    var items = $$('[data-work-category]');
+
+    function activate(btn, focusBtn) {
+      var val = btn.getAttribute('data-work-filter-btn');
+      btns.forEach(function (b) {
+        var active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-selected', String(active));
+        b.tabIndex = active ? 0 : -1;
+      });
+      items.forEach(function (item) {
+        item.hidden = val !== 'all' && item.getAttribute('data-work-category') !== val;
+      });
+      // Hiding a spotlight changes every scroll position below it.
+      if (!reduce) ScrollTrigger.refresh();
+      if (focusBtn) btn.focus();
+    }
+
+    btns.forEach(function (btn, i) {
+      btn.addEventListener('click', function () { activate(btn); });
+      btn.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        activate(btns[(i + (e.key === 'ArrowRight' ? 1 : -1) + btns.length) % btns.length], true);
+      });
+    });
+  }
+
   /* ---------------------------------------------------------------- */
   /* Counters: numbers count up as their group scrolls into view       */
   /* ---------------------------------------------------------------- */
@@ -462,9 +515,12 @@
     if (reduce) return;
     $$('[data-marquee]').forEach(function (el) {
       var track = $('[data-marquee-track]', el);
-      var duration = Number(el.getAttribute('data-marquee-duration')) || 40;
+      // Rustig, vast tempo. De band liep vroeger mee met de scrollsnelheid van
+      // Lenis; nu schuift ze gewoon door, wat je ook doet.
+      var duration = Number(el.getAttribute('data-marquee-duration')) || 80;
       var loop = gsap.to(track, { xPercent: -50, ease: 'none', duration: duration, repeat: -1 });
 
+      // Buiten beeld stilzetten scheelt werk en ziet niemand.
       ScrollTrigger.create({
         trigger: el,
         start: 'top bottom',
@@ -472,11 +528,33 @@
         onToggle: function (self) { self.isActive ? loop.play() : loop.pause(); },
       });
 
-      gsap.ticker.add(function () {
-        var v = lenis ? Math.abs(lenis.velocity) : 0;
-        var target = 1 + Math.min(v * 0.35, 6);
-        loop.timeScale(gsap.utils.interpolate(loop.timeScale(), target, 0.08));
+      // Hover houdt de band tegen, zodat je de namen kunt lezen. Uitlopen in
+      // plaats van blokkeren, anders schokt ze.
+      //
+      // De tijdschaal loopt via een los object: `gsap.to(loop, {timeScale: 0})`
+      // zet op een tween een gelijknamige property náást de methode, en de
+      // animatie trekt zich daar niets van aan. Via onUpdate de setter
+      // aanroepen doet wel wat het zegt.
+      var speed = { v: 1 };
+      var glide = function (to) {
+        gsap.to(speed, {
+          v: to,
+          duration: to === 0 ? 0.6 : 0.9,
+          ease: 'power2.out',
+          overwrite: true,
+          onUpdate: function () { loop.timeScale(speed.v); },
+        });
+      };
+
+      el.addEventListener('pointerenter', function (e) {
+        // De media query hier uitlezen in plaats van bij het laden: of er een
+        // muis is, weet de browser soms pas na de eerste beweging. Een vinger
+        // mag de band niet stilzetten.
+        if (e.pointerType === 'touch' || !window.matchMedia('(hover: hover)').matches) return;
+        glide(0);
       });
+      el.addEventListener('pointerleave', function () { glide(1); });
+      el.addEventListener('pointercancel', function () { glide(1); });
     });
   }
 
@@ -608,27 +686,25 @@
     });
   }
 
+
   /* ---------------------------------------------------------------- */
-  /* Proof panels: the live site looks back at your cursor             */
+  /* Case pages: floating "visit site" button while reading the case    */
   /* ---------------------------------------------------------------- */
-  function proofPanels() {
-    if (reduce || !finePointer) return;
-    $$('.proof-panel').forEach(function (panel) {
-      var img = $('.proof-panel__frame img', panel);
-      if (!img) return;
-      var xTo = gsap.quickTo(img, 'xPercent', { duration: 0.7, ease: 'power3' });
-      var yTo = gsap.quickTo(img, 'yPercent', { duration: 0.7, ease: 'power3' });
-      panel.addEventListener('pointermove', function (e) {
-        var r = panel.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        xTo(px * -4);
-        yTo(py * -4);
-      });
-      panel.addEventListener('pointerleave', function () {
-        xTo(0);
-        yTo(0);
-      });
+  function caseFloatCta() {
+    var cta = $('[data-case-float-cta]');
+    var cover = $('[data-cover]');
+    if (!cta || !cover) return;
+    var contact = $('#contact');
+
+    // From the moment the cover has scrolled away until the contact block:
+    // before that the button sits on top of the header that already has it,
+    // after that the page asks the same thing in full size.
+    ScrollTrigger.create({
+      trigger: cover,
+      start: 'bottom top',
+      endTrigger: contact || undefined,
+      end: contact ? 'top center' : 'max',
+      onToggle: function (self) { cta.classList.toggle('is-visible', self.isActive); },
     });
   }
 
@@ -653,6 +729,103 @@
   }
 
   /* ---------------------------------------------------------------- */
+  /* Contactformulier: verstuurt via fetch, valt terug op een gewone   */
+  /* POST als JS niet draait.                                          */
+  /* ---------------------------------------------------------------- */
+  function contactForm() {
+    var form = $('[data-cform]');
+    if (!form) return;
+
+    var status = $('[data-cform-status]', form);
+    var submit = $('[data-cform-submit]', form);
+    var elapsed = $('[data-cform-elapsed]', form);
+    var started = 0;
+
+    // Duur sinds de eerste echte interactie; de server gebruikt ze om bots te
+    // herkennen die het formulier in een oogwenk invullen.
+    form.addEventListener('input', function () {
+      if (!started) started = Date.now();
+      if (elapsed) elapsed.value = String(Date.now() - started);
+    });
+
+    function clearErrors() {
+      $$('[data-error-for]', form).forEach(function (el) {
+        el.hidden = true;
+        el.textContent = '';
+      });
+      $$('.field__input', form).forEach(function (el) { el.removeAttribute('aria-invalid'); });
+    }
+
+    function showErrors(errors) {
+      var first = null;
+      Object.keys(errors || {}).forEach(function (name) {
+        var slot = $('[data-error-for="' + name + '"]', form);
+        var input = form.elements[name];
+        if (slot) {
+          slot.textContent = errors[name];
+          slot.hidden = false;
+        }
+        if (input) {
+          input.setAttribute('aria-invalid', 'true');
+          if (!first) first = input;
+        }
+      });
+      if (first) first.focus();
+    }
+
+    function setStatus(message, ok) {
+      if (!status) return;
+      status.textContent = message;
+      status.className = 'cform__status ' + (ok ? 'cform__status--ok' : 'cform__status--fail');
+      status.hidden = false;
+    }
+
+    form.addEventListener('submit', function (e) {
+      if (!window.fetch || !window.FormData) return; // laat de browser het gewoon posten
+      e.preventDefault();
+      clearErrors();
+
+      submit.disabled = true;
+      var label = submit.querySelector('span');
+      var original = label ? label.textContent : '';
+      if (label) label.textContent = 'Versturen…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json', 'X-Requested-With': 'fetch' }
+      })
+        .then(function (r) { return r.json().catch(function () { return { ok: false, message: '' }; }); })
+        .then(function (data) {
+          if (data.ok) {
+            form.reset();
+            started = 0;
+            if (elapsed) elapsed.value = '';
+            setStatus(data.message || 'Bedankt, je bericht is verstuurd.', true);
+            return;
+          }
+          showErrors(data.errors);
+          setStatus(data.message || 'Er ging iets mis. Probeer het nog eens.', false);
+        })
+        .catch(function () {
+          setStatus('Er ging iets mis met de verbinding. Mail ons gerust op hello@2x8.be.', false);
+        })
+        .then(function () {
+          submit.disabled = false;
+          if (label) label.textContent = original;
+        });
+    });
+
+    // Terugkomen van de no-JS redirect: toon dezelfde melding.
+    var params = new URLSearchParams(location.search);
+    if (params.has('verzonden')) {
+      setStatus('Bedankt! Je bericht is verstuurd, je bevestiging staat in je mailbox.', true);
+    } else if (params.has('fout')) {
+      setStatus('Het versturen lukte niet. Mail ons gerust op hello@2x8.be.', false);
+    }
+  }
+
+  /* ---------------------------------------------------------------- */
   /* Boot                                                              */
   /* ---------------------------------------------------------------- */
   initScroll();
@@ -660,8 +833,8 @@
   document.fonts.ready.then(function () {
     textReveals();
     marquee();
-    proofPanels();
     caseReels();
+    caseFloatCta();
     nav();
     menu();
     caseFloatCta();
@@ -672,7 +845,10 @@
     hoverReels();
     fakeFinder();
     serviceTabs();
+    serviceJumps();
+    workFilter();
     counters();
+    contactForm();
 
     // Arriving from a case page on "index.html#work": jump to the section
     if (location.hash && lenis) {
