@@ -11,6 +11,8 @@ built on the server, so whatever you push is exactly what visitors get (see "Dep
   never repeats a case's cover image more than once.
 - `werk.html`, `diensten.html`, `studio.html`, `contact.html`: the full version of each of those
   sections. Same nav on every page, with the current page highlighted (`aria-current="page"`).
+- `cms.html`: WordPress, Shopify and Wix side by side. It hangs off the first bullet under
+  Websites on the services page and is not in the nav — see "CMS page".
 - `work/*.html`: case pages (Specter, Studio Klei, Keikoku Atelier, Jasper Impens)
 - `build.js`: generates the French and English pages from the Dutch sources (see "Languages")
 - `i18n/`: `routes.json` (URLs per language) and `fr.json` / `en.json` (the translations)
@@ -31,9 +33,10 @@ below 1 would otherwise shrink it the moment you hovered a tile above it.
 
 ## Services page
 Five services in one list, no categories: websites, web shops, apps, AI workflows, software.
-Every service is a `<details>` with the same three parts inside — what it is (one line +
-three points + tags) and proof. They all start collapsed and share `name="diensten"`, so
-only one is ever open at a time.
+Every service is a `<details>` with the same two parts inside — what it is (one line plus
+three or four points) and proof. They all start collapsed and share `name="diensten"`, so
+only one is ever open at a time. There used to be a row of tags under the points and a
+"Gebouwd" label over the proof; both are gone, and so is the `.svc-item__tags` rule.
 
 The jump buttons under the page title are links to those `<details>`. `serviceJumps()` in
 `js/main.js` opens the one a button points at — without it you land on a collapsed block and
@@ -42,8 +45,29 @@ that sits behind a click and a scroll trigger at the same time can end up stayin
 
 Proof is a row of case thumbnails at the full width of the content column, not small
 thumbnails next to the text. Most of these covers are screenshots of dark sites; below
-roughly 200px wide and in greyscale they turn into a black rectangle. The two services with
-no case yet show concrete examples instead of an empty slot.
+roughly 200px wide and in greyscale they turn into a black rectangle. Software has no case
+yet and shows concrete examples instead of an empty slot; AI workflows shows a diagram.
+
+### The workflow diagram
+AI workflows has one worked example instead of a list: a quote that walks from the
+calculator on a client's site all the way to sales picking up the phone (`.flow` in
+`diensten.html`). Every line, arrowhead and branch bar is a pseudo-element, so the reading
+order in the HTML *is* the order of the steps and a screen reader gets them straight. The
+dashes run with a `background-position` animation on a 12px tile — not `repeating-linear-gradient`,
+which has nothing to shift. Below 700px the two-column `.flow__split` collapses to one column
+and the horizontal fork and merge bars are switched off; `prefers-reduced-motion` stops the
+dashes and drops the travelling dot.
+
+## CMS page
+`/cms` sits behind the word "CMS" in the first bullet under Websites and nowhere else: no nav
+entry, no footer link. It is what to send someone who asks "but which one should I take?" —
+three cards, then the same seven questions (managing, growing, web shop, cost, findability,
+ownership, moving) in one table. The table keeps a `min-width` and scrolls horizontally inside
+`.cms-table__scroll` rather than squeezing seven rows into a phone.
+
+The link is written as `href="/cms"` in the Dutch source. `build.js` translates before it
+rewrites links, so the `<a>` inside the `diensten.sites.p1` translation comes out as `/fr/cms`
+and `/en/cms` by itself — don't hard-code those in `i18n/*.json`.
 
 A service name is kept short on purpose (Websites, Webshops, Apps, AI-workflows, Software).
 At the display size it is set in, "Softwarepakketten" ran 100px past its column. The name
@@ -117,7 +141,7 @@ node build.js --check  # which keys are still missing or have gone stale
 ```
 
 `i18n/routes.json` holds the URL per page per language, plus `done`: the languages that page is
-finished in. Only those get generated. **Every page is now done in nl, fr and en** — 287 keys, 22
+finished in. Only those get generated. **Every page is now done in nl, fr and en** — 355 keys, 24
 generated pages. A page that isn't translated yet keeps its links pointing at the Dutch version (so
 nothing dead-ends), gets no false `hreflang` claims, and the language switcher falls back to that
 language's home page with a tooltip saying so.

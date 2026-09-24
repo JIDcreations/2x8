@@ -287,6 +287,18 @@ button {
   color: var(--orange);
 }
 
+/* Een link midden in een zin. .link is inline-flex en breekt niet af, dus die
+   kan hier niet: deze onderlijnt gewoon mee met de tekst. */
+.ilink {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.3s;
+}
+.ilink:hover {
+  color: var(--orange);
+}
+
 .skip {
   position: fixed;
   top: 8px;
@@ -763,10 +775,6 @@ a.services-tabs__btn {
   height: 2px;
   background: currentColor;
 }
-.svc-item__tags {
-  margin-top: var(--sp-4);
-}
-
 /* Bewijs: de cases waarin deze dienst al geleverd is. */
 .svc-proof__label {
   display: block;
@@ -839,6 +847,353 @@ a.services-tabs__btn {
   padding-block: var(--sp-3);
   border-top: 1px solid var(--line);
   line-height: 1.45;
+}
+
+/* ---------- CMS-vergelijking (/cms) ----------
+   Een losse pagina achter het eerste punt bij Websites: wat een CMS is, drie
+   platformen als kaarten, en dezelfde zeven vragen in een tabel. De tabel
+   schuift horizontaal op een smal scherm in plaats van zichzelf te wringen. */
+.cms-intro {
+  row-gap: var(--sp-2);
+}
+.cms-intro__label {
+  grid-column: 1 / span 3;
+  margin: 0;
+  padding-top: 0.5em;
+  font-weight: 500;
+}
+.cms-intro__body {
+  grid-column: 5 / -1;
+  margin: 0;
+  font-size: clamp(1.15rem, 1.7vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  max-width: 54ch;
+}
+.cms-h {
+  margin: 0 0 var(--sp-5);
+}
+.cms-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: var(--sp-3);
+}
+.cms-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  padding: var(--sp-3);
+  transition: border-color 0.4s;
+}
+.cms-card:hover {
+  border-color: var(--orange);
+}
+.cms-card__name {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.cms-card__lede {
+  margin: 12px 0 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+.cms-card__label {
+  display: block;
+  margin: var(--sp-3) 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cms-card .svc-points {
+  max-width: none;
+}
+.cms-card__pick {
+  margin: var(--sp-3) 0 0;
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--line);
+  font-weight: 700;
+  line-height: 1.35;
+  /* Onderaan gelijk, hoeveel punten een kaart er ook boven heeft staan. */
+  margin-top: auto;
+}
+.cms-table__scroll {
+  overflow-x: auto;
+}
+.cms-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.cms-table th,
+.cms-table td {
+  padding: var(--sp-2) var(--u) var(--sp-2) 0;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.4;
+}
+.cms-table thead th {
+  border-top: 0;
+  padding-bottom: var(--sp-2);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem);
+  letter-spacing: -0.03em;
+}
+.cms-table tbody th {
+  width: 22%;
+  font-weight: 700;
+}
+.cms-table td {
+  width: 26%;
+  color: var(--muted);
+}
+.cms-table tbody tr:hover td,
+.cms-table tbody tr:hover th {
+  color: var(--fg);
+}
+
+@media (max-width: 899px) {
+  .cms-intro__label,
+  .cms-intro__body {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Workflowschema ----------
+   Een voorbeeldworkflow als kaarten onder elkaar, met lopende stippellijnen
+   ertussen. Alle lijnen, pijlpunten en aftakkingen zijn pseudo-elementen: de
+   leesvolgorde in de HTML is al de volgorde van de stappen, dus er staat niets
+   in de weg van een schermlezer. Onder 700px valt de splitsing terug op een
+   enkele kolom en verdwijnen de horizontale balken. */
+.flow {
+  display: grid;
+  justify-items: stretch;
+  max-width: 880px;
+}
+.flow__node {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  padding: var(--sp-3);
+  transition:
+    border-color 0.4s,
+    translate 0.5s var(--ease);
+}
+.flow__node:hover {
+  border-color: var(--orange);
+  translate: 0 -2px;
+}
+.flow__tag {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.flow__num {
+  color: var(--orange);
+}
+.flow__text {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+.flow__foot {
+  margin: var(--sp-3) 0 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* De verbinding tussen twee stappen: lopende stippellijn plus pijlpunt. */
+.flow__arrow {
+  position: relative;
+  height: 56px;
+  display: grid;
+  place-items: center;
+}
+.flow__arrow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background-image: linear-gradient(to bottom, currentColor 50%, transparent 50%);
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  animation: flow-run 0.9s linear infinite;
+}
+.flow__arrow::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateX(-50%) rotate(45deg);
+}
+/* Een pijl die op een verdeelbalk uitkomt heeft geen punt nodig. */
+.flow__arrow--fork::after {
+  content: none;
+}
+.flow__pulse {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: flow-pulse 2.4s var(--ease-io) infinite;
+}
+.flow__gate {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@keyframes flow-run {
+  to {
+    background-position: 0 12px;
+  }
+}
+@keyframes flow-pulse {
+  0% {
+    top: -4px;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 3px);
+    opacity: 0;
+  }
+}
+
+/* Aftakking: twee wegen naast elkaar. De balk bovenaan verdeelt, de balk
+   onderaan brengt ze weer samen — die laatste alleen waar het verhaal ook echt
+   weer samenkomt (--merge). */
+.flow__split {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+.flow__split::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: currentColor;
+}
+.flow__split--merge {
+  margin-bottom: 28px;
+}
+.flow__split--merge::after {
+  content: '';
+  position: absolute;
+  bottom: -28px;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: currentColor;
+}
+.flow__branch {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  gap: 14px;
+  padding-top: 42px;
+}
+.flow__branch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 28px;
+  margin-left: -1px;
+  background-image: linear-gradient(to bottom, currentColor 50%, transparent 50%);
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  animation: flow-run 0.9s linear infinite;
+}
+.flow__split--merge .flow__branch::after {
+  content: '';
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  width: 2px;
+  height: 28px;
+  margin-left: -1px;
+  background-image: linear-gradient(to bottom, currentColor 50%, transparent 50%);
+  background-size: 2px 12px;
+  background-repeat: repeat-y;
+  animation: flow-run 0.9s linear infinite;
+}
+.flow__branch .flow__node {
+  width: 100%;
+}
+.flow__cond {
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  padding: 5px 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media (max-width: 699px) {
+  .flow__split {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .flow__split::before,
+  .flow__split--merge::after,
+  .flow__split--merge .flow__branch::after {
+    content: none;
+  }
+  .flow__branch + .flow__branch {
+    margin-top: var(--sp-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow__arrow::before,
+  .flow__branch::before,
+  .flow__split--merge .flow__branch::after {
+    animation: none;
+  }
+  .flow__pulse {
+    display: none;
+  }
 }
 
 .tags {

@@ -37,6 +37,10 @@
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/privacy", "fr": "/fr/confidentialite", "en": "/en/privacy" }
     },
+    "cms.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/cms", "fr": "/fr/cms", "en": "/en/cms" }
+    },
     "work/specter.html": {
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/work/specter", "fr": "/fr/projets/specter", "en": "/en/work/specter" }
