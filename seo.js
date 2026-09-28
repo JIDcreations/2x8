@@ -110,15 +110,17 @@ function caseImage(html) {
   return src ? src.replace(/^\.\.\//, '').replace(/^\.\//, '') : null;
 }
 
-/** De vijf diensten van /diensten: naam plus de ene zin die eronder staat. */
+/**
+ * De diensten van /diensten: de naam op de tegel plus de ene zin eronder. De
+ * naam staat bewust als <h2> in de match: het schema onder de tegels herhaalt
+ * dezelfde naam in een <span>, en die mag niet als tweede dienst meetellen.
+ */
 function services(html) {
   const out = [];
-  const re = /<h3 class="svc-item__name"[^>]*>([\s\S]*?)<\/h3>[\s\S]*?<p class="svc-item__desc"[^>]*>([\s\S]*?)<\/p>/gi;
+  const re = /<h2 class="case-tile__name"[^>]*>([\s\S]*?)<\/h2>[\s\S]*?<p class="svc-tile__desc"[^>]*>([\s\S]*?)<\/p>/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
-    // De <span class="byte"> voor de naam is een volgnummer, geen woord.
-    const name = text(m[1].replace(/<span class="byte[^>]*>[\s\S]*?<\/span>/i, ''));
-    out.push({ name, description: text(m[2]) });
+    out.push({ name: text(m[1]), description: text(m[2]) });
   }
   return out;
 }

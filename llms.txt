@@ -12,16 +12,17 @@
 
 - **Websites**: Een moderne site die kwaliteit uitstraalt, vlot te beheren is en afgestemd is op jouw noden.
 - **Webshops**: Verkopen is nog nooit zo gemakkelijk geweest.
+- **Platformen**: Eén plek waar je klanten, partners of team samenkomen, met eigen logins en data die klopt.
 - **Apps**: Een kwalitatieve tool, gebouwd om razendsnel te doen wat ze moet doen.
-- **AI-workflows**: Repetitief werk dat zichzelf doet, met jou aan de k(n)op.
 - **Software**: Het juiste pakket, correct ingericht, en niet meer dan nodig is.
+- **AI-workflows**: Repetitief werk dat zichzelf doet, met jou aan de k(n)op.
 - **AI SEO**: Gevonden worden in ChatGPT, Claude en Google’s AI-antwoorden, niet alleen in de blauwe links.
 
 ## Pagina’s
 
 - [2X8 | Digitale interfaces, creatie en implementatie](https://2x8.be/): 2X8 is de studio van Florian en Jasper. We bouwen websites en webshops en adviseren over software zoals Odoo en Softtouch en AI-workflows.
 - [Werk | 2X8](https://2x8.be/werk): Acht projecten van 2X8: Specter, EQTY, Studio Klei, NADIR, Keikoku Atelier, DLTA, Elevator Antwerp en het portfolio van Jasper Impens.
-- [Diensten | 2X8](https://2x8.be/diensten): Websites, webshops en apps bouwen, en AI-workflows, AI SEO en softwarepakketten beter laten draaien. Zes diensten, door 2X8.
+- [Diensten | 2X8](https://2x8.be/diensten): Websites, webshops, platformen en apps bouwen, en AI-workflows, AI SEO en softwarepakketten beter laten draaien. Zeven diensten, door 2X8.
 - [Studio | 2X8](https://2x8.be/studio): 2X8 is het samenwerkingsverband van Florian en Jasper. 2 makers, 8 bits per byte, altijd rechtstreeks contact.
 - [Welk CMS? WordPress, Shopify of Wix | 2X8](https://2x8.be/cms): WordPress, Shopify en Wix eerlijk naast elkaar: beheer, kosten, uitbreiden en eigendom. Zo kies je het systeem waarmee je je site zelf bijhoudt.
 - [Contact | 2X8](https://2x8.be/contact): Vertel ons waar je mee zit. 2X8 antwoordt binnen twee werkdagen, altijd rechtstreeks met Florian en Jasper.
