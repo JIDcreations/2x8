@@ -56,31 +56,220 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://2x8.be/diensten</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten" />
+    <loc>https://2x8.be/diensten/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/" />
     <lastmod>2026-09-28</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://2x8.be/fr/services</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten" />
+    <loc>https://2x8.be/fr/services/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/" />
     <lastmod>2026-09-28</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://2x8.be/en/services</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten" />
+    <loc>https://2x8.be/en/services/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/" />
     <lastmod>2026-09-28</lastmod>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/diensten/websites</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/websites" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/sites-web" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/websites" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/websites" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/fr/services/sites-web</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/websites" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/sites-web" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/websites" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/websites" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/en/services/websites</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/websites" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/sites-web" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/websites" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/websites" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/diensten/webshops</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/webshops" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/boutiques" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/online-shops" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/webshops" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/fr/services/boutiques</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/webshops" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/boutiques" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/online-shops" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/webshops" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/en/services/online-shops</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/webshops" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/boutiques" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/online-shops" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/webshops" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/diensten/platformen</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/platformen" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/plateformes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/platforms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/platformen" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/fr/services/plateformes</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/platformen" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/plateformes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/platforms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/platformen" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/en/services/platforms</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/platformen" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/plateformes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/platforms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/platformen" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/diensten/apps</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/apps" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/applications" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/apps" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/fr/services/applications</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/apps" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/applications" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/apps" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/en/services/apps</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/apps" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/applications" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/apps" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/diensten/software</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/software" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/logiciels" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/software" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/software" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/fr/services/logiciels</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/software" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/logiciels" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/software" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/software" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/en/services/software</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/software" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/logiciels" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/software" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/software" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/diensten/ai-workflows</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/ai-workflows" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/flux-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/ai-workflows" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/ai-workflows" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/fr/services/flux-ia</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/ai-workflows" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/flux-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/ai-workflows" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/ai-workflows" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/en/services/ai-workflows</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/ai-workflows" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/flux-ia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/ai-workflows" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/ai-workflows" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/diensten/ai-seo</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/ai-seo" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/fr/services/ai-seo</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/ai-seo" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/en/services/ai-seo</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/diensten/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/services/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/services/ai-seo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/diensten/ai-seo" />
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://2x8.be/studio</loc>

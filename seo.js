@@ -34,13 +34,24 @@ const LOGO = IMAGES.logo;
 /* Kleine HTML-helpers                                                  */
 /* ------------------------------------------------------------------ */
 
+// De named entities die in deze drie talen voorkomen. Mist er een, dan belandt
+// hij letterlijk in de JSON-LD en leest een zoekmachine "co&ucirc;te".
 const NAMED = {
-  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', shy: '',
   rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”',
-  eacute: 'é', egrave: 'è', agrave: 'à', ccedil: 'ç',
-  uuml: 'ü', ouml: 'ö', auml: 'ä', iuml: 'ï', euml: 'ë',
-  euro: '€', hellip: '…', mdash: '—', ndash: '–',
-  laquo: '«', raquo: '»', deg: '°', times: '×'
+  hellip: '…', mdash: '—', ndash: '–', euro: '€',
+  laquo: '«', raquo: '»', deg: '°', times: '×',
+  aacute: 'á', agrave: 'à', acirc: 'â', auml: 'ä', aring: 'å', atilde: 'ã',
+  ccedil: 'ç',
+  eacute: 'é', egrave: 'è', ecirc: 'ê', euml: 'ë',
+  iacute: 'í', igrave: 'ì', icirc: 'î', iuml: 'ï',
+  ntilde: 'ñ',
+  oacute: 'ó', ograve: 'ò', ocirc: 'ô', ouml: 'ö', otilde: 'õ', oslash: 'ø',
+  uacute: 'ú', ugrave: 'ù', ucirc: 'û', uuml: 'ü',
+  yuml: 'ÿ', szlig: 'ß', aelig: 'æ', ae: 'æ',
+  Aacute: 'Á', Agrave: 'À', Acirc: 'Â', Auml: 'Ä',
+  Ccedil: 'Ç', Eacute: 'É', Egrave: 'È', Ecirc: 'Ê', Euml: 'Ë',
+  Iuml: 'Ï', Ocirc: 'Ô', Ouml: 'Ö', Uuml: 'Ü'
 };
 
 /** Entiteiten terug naar tekens: JSON-LD wil leesbare tekst, geen HTML. */
@@ -48,7 +59,8 @@ function decode(s) {
   return String(s)
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
     .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
-    .replace(/&([a-z]+);/gi, (m, n) => (n.toLowerCase() in NAMED ? NAMED[n.toLowerCase()] : m));
+    .replace(/&([a-zA-Z]+);/g, (m, n) =>
+      (n in NAMED ? NAMED[n] : n.toLowerCase() in NAMED ? NAMED[n.toLowerCase()] : m));
 }
 
 /** Tags eruit, witruimte plat. Bedoeld voor korte stukken lopende tekst. */
@@ -142,6 +154,12 @@ function caseFiles(routes) {
   return Object.keys(routes.pages).filter((f) => f.startsWith('work/'));
 }
 
+/** De aparte dienstpagina's, zonder het overzicht. */
+function serviceFiles(routes) {
+  return Object.keys(routes.pages)
+    .filter((f) => f.startsWith('diensten/') && f !== 'diensten/index.html');
+}
+
 function abs(routes, pathOrSlug) {
   if (/^https?:/i.test(pathOrSlug)) return pathOrSlug;
   return routes.site + (pathOrSlug.startsWith('/') ? pathOrSlug : '/' + pathOrSlug);
@@ -212,7 +230,13 @@ function breadcrumb(routes, lang, file, ctx, url, name) {
     const werk = slugFor(routes, 'werk.html', lang);
     if (werk) items.push({ name: ctx.labels.work, item: abs(routes, werk) });
   }
-  if (file !== 'index.html') items.push({ name, item: url });
+  if (file.startsWith('diensten/') && file !== 'diensten/index.html') {
+    const overview = slugFor(routes, 'diensten/index.html', lang);
+    if (overview) items.push({ name: ctx.labels.services, item: abs(routes, overview) });
+  }
+  // De <h1> is een displaykop met een punt erachter ("Diensten."); in een
+  // kruimelpad leest die punt als het einde van een zin.
+  if (file !== 'index.html') items.push({ name: name.replace(/\.$/, ''), item: url });
   if (items.length < 2) return null;
   return {
     '@type': 'BreadcrumbList',
@@ -235,8 +259,10 @@ function graphFor(html, routes, lang, file, ctx) {
   const heading = pageHeading(html) || title;
   const inLanguage = routes.languages[lang].htmlLang;
 
+  const isService = file.startsWith('diensten/') && file !== 'diensten/index.html';
+
   let pageType = 'WebPage';
-  if (file === 'werk.html' || file === 'diensten.html') pageType = 'CollectionPage';
+  if (file === 'werk.html' || file === 'diensten/index.html') pageType = 'CollectionPage';
   else if (file === 'studio.html') pageType = 'AboutPage';
   else if (file === 'contact.html') pageType = 'ContactPage';
   else if (file.startsWith('work/')) pageType = 'ItemPage';
@@ -261,7 +287,7 @@ function graphFor(html, routes, lang, file, ctx) {
 
   /* --- per paginatype iets concreets erbij ------------------------- */
 
-  if (file === 'diensten.html') {
+  if (file === 'diensten/index.html') {
     const list = services(html);
     if (list.length) {
       graph.push({
@@ -330,6 +356,49 @@ function graphFor(html, routes, lang, file, ctx) {
         item: { '@type': 'SoftwareApplication', name: n, applicationCategory: 'Content management system' }
       }))
     });
+  }
+
+  if (isService) {
+    const lead = first(html, /<p class="case-head__summary"[^>]*>([\s\S]*?)<\/p>/i) || description;
+    // De <h1> is een displaykop met een punt erachter ("Websites."); als naam
+    // van een dienst hoort die punt er niet bij.
+    const name = heading.replace(/\.$/, '');
+    const service = {
+      '@type': 'Service',
+      '@id': url + '#service',
+      name,
+      serviceType: name,
+      description: lead,
+      provider: { '@id': routes.site + '/#org' },
+      areaServed: { '@type': 'Country', name: 'BE' },
+      inLanguage,
+      url
+    };
+    graph.push(service);
+    page.mainEntity = { '@id': service['@id'] };
+
+    // De vragen staan al als <details> in de pagina: precies wat de bezoeker
+    // leest komt ook in het schema, zonder dat het ergens dubbel staat.
+    const qa = [];
+    const re = /<summary class="svc-faq__q">([\s\S]*?)<\/summary>\s*<div class="svc-faq__a">([\s\S]*?)<\/div>/gi;
+    let q;
+    while ((q = re.exec(html)) !== null) {
+      const question = text(q[1].replace(/<span class="svc-faq__sign"[\s\S]*?<\/span>/i, ''));
+      const answer = text(q[2]);
+      if (question && answer) qa.push({ question, answer });
+    }
+    if (qa.length) {
+      graph.push({
+        '@type': 'FAQPage',
+        '@id': url + '#faq',
+        inLanguage,
+        mainEntity: qa.map((x) => ({
+          '@type': 'Question',
+          name: x.question,
+          acceptedAnswer: { '@type': 'Answer', text: x.answer }
+        }))
+      });
+    }
   }
 
   if (file.startsWith('work/')) {
@@ -453,7 +522,10 @@ function sitemapXml(routes, today) {
       if (slug) alts.push([routes.languages[code].htmlLang, abs(routes, slug)]);
     }
     const priority = file === 'index.html' ? '1.0'
-      : /^(werk|diensten|contact|studio)\.html$/.test(file) ? '0.9'
+      : file === 'diensten/index.html' ? '0.9'
+      : /^(werk|contact|studio)\.html$/.test(file) ? '0.9'
+      // Een dienstpagina is waar iemand op zoekt en waar hij binnenkomt.
+      : file.startsWith('diensten/') ? '0.8'
       : file.startsWith('work/') ? '0.7'
       : '0.4';
 
@@ -511,13 +583,22 @@ function llmsTxt(routes, pages, ctx) {
   if (ctx.services && ctx.services.length) {
     L.push('## Diensten');
     L.push('');
-    for (const s of ctx.services) L.push('- **' + s.name + '**: ' + s.description);
+    for (const s of ctx.services) {
+      // De eigen pagina erbij als die er is: dat is waar het volledige
+      // antwoord staat, inclusief de vragen die klanten echt stellen.
+      const own = serviceFiles(routes).find((f) => {
+        const p = pages[f];
+        return p && p.heading && p.heading.replace(/\.$/, '').toLowerCase() === s.name.toLowerCase();
+      });
+      const link = own && pages[own] ? ' (' + pages[own].url + ')' : '';
+      L.push('- **' + s.name + '**' + link + ': ' + s.description);
+    }
     L.push('');
   }
 
   L.push('## Pagina' + '’' + 's');
   L.push('');
-  const order = ['index.html', 'werk.html', 'diensten.html', 'studio.html',
+  const order = ['index.html', 'werk.html', 'diensten/index.html', 'studio.html',
     'cms.html', 'contact.html', 'privacy.html'];
   for (const file of order) {
     const p = pages[file];
@@ -552,7 +633,7 @@ function llmsTxt(routes, pages, ctx) {
 }
 
 module.exports = {
-  augment, strip, sitemapXml, llmsTxt,
+  augment, strip, sitemapXml, llmsTxt, serviceFiles,
   pageTitle, pageDescription, pageHeading, caseMeta, caseImage, services,
   text, caseFiles, abs, slugFor
 };

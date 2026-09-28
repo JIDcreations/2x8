@@ -744,6 +744,85 @@
   }
 
   /* ---------------------------------------------------------------- */
+  /* Cases doorbladeren                                                 */
+  /*                                                                    */
+  /* Op een dienstentegel passen er drie cases naast elkaar. Komt er een */
+  /* vierde bij, of is het scherm smal, dan schuift de rij door en zetten */
+  /* we er twee pijlen onder. Die worden hier gemaakt en niet in de HTML: */
+  /* zonder JS heeft een knop die niets doet geen nut, en de rij blijft   */
+  /* met de vinger of het scrollwiel gewoon werken.                      */
+  /* ---------------------------------------------------------------- */
+  function caseScroll() {
+    $$('.svc-tile__cases').forEach(function (list) {
+      if (list.dataset.scrollReady) return;
+      list.dataset.scrollReady = '1';
+
+      var nav = null;
+      var prev = null;
+      var next = null;
+
+      function step() {
+        var first = list.firstElementChild;
+        if (!first) return list.clientWidth;
+        var gap = parseFloat(getComputedStyle(list).columnGap) || 0;
+        return first.getBoundingClientRect().width + gap;
+      }
+
+      function overflowing() {
+        return list.scrollWidth - list.clientWidth > 2;
+      }
+
+      function build() {
+        var wrap = document.createElement('div');
+        wrap.className = 'svc-cases';
+        list.parentNode.insertBefore(wrap, list);
+        wrap.appendChild(list);
+
+        nav = document.createElement('div');
+        nav.className = 'svc-cases__nav';
+
+        prev = button('←', 'Vorige cases', -1);
+        next = button('→', 'Volgende cases', 1);
+        nav.appendChild(prev);
+        nav.appendChild(next);
+        wrap.appendChild(nav);
+
+        function button(glyph, label, dir) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'svc-cases__btn';
+          b.textContent = glyph;
+          b.setAttribute('aria-label', label);
+          b.setAttribute('aria-controls', list.id || '');
+          b.addEventListener('click', function () {
+            list.scrollBy({ left: step() * dir, behavior: reduce ? 'auto' : 'smooth' });
+            // De aan/uit-stand van de knoppen volgt uit het scroll-event.
+          });
+          return b;
+        }
+      }
+
+      function sync() {
+        var over = overflowing();
+        if (over && !nav) build();
+        if (!nav) return;
+        nav.hidden = !over;
+        // Een halve pixel speling: browsers ronden scrollLeft niet gelijk af.
+        prev.disabled = list.scrollLeft <= 1;
+        next.disabled = list.scrollLeft >= list.scrollWidth - list.clientWidth - 1;
+      }
+
+      list.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      // De beelden zijn lazy: pas als ze er zijn klopt scrollWidth.
+      $$('img', list).forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', sync, { once: true });
+      });
+      sync();
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
   /* Eigen keuzelijst                                                   */
   /*                                                                    */
   /* Een <select> laat zich aan de buitenkant stijlen, maar de lijst    */
@@ -1434,6 +1513,7 @@
     serviceJumps();
     workFilter();
     counters();
+    caseScroll();
     cselect();
     contactForm();
     var mark = bitmark();

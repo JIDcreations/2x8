@@ -9,8 +9,10 @@ built on the server, so whatever you push is exactly what visitors get (see "Dep
 - `index.html`: homepage (NL) — hero, a one-line-per-project work index, condensed
   service/studio teasers, and a contact CTA. Full depth lives on its own page (see below); the homepage
   never repeats a case's cover image more than once.
-- `werk.html`, `diensten.html`, `studio.html`, `contact.html`: the full version of each of those
+- `werk.html`, `diensten/index.html`, `studio.html`, `contact.html`: the full version of each of those
   sections. Same nav on every page, with the current page highlighted (`aria-current="page"`).
+- `diensten/`: the services overview (`index.html`) plus one page per service —
+  `/diensten/websites`, `/diensten/webshops`, and so on (see "Service pages")
 - `cms.html`: WordPress, Shopify and Wix side by side. It hangs off the first bullet under
   Websites on the services page and is not in the nav — see "CMS page".
 - `work/*.html`: case pages (Specter, Studio Klei, Keikoku Atelier, Jasper Impens)
@@ -49,12 +51,45 @@ shape toward the cursor, pushes bits aside and warms some to orange. Shapes are 
 lines, boxes and arcs (`builders` in that file). Without WebGL the panel is hidden and the tiles are
 plain text; with reduced motion the shapes are drawn once, formed.
 
+The cases (or the examples, where a service has no case yet) and the button to that service's own
+page sit in `.svc-tile__end`, pushed down with `margin-top: auto`. Tiles in one row are the same
+height, so that lands the cases on the same line on every tile however many bullets sit above them.
+
+Three cases fit side by side. From the fourth — and on a narrow screen sooner — the row scrolls and
+`caseScroll()` in `js/main.js` puts two arrows under it. Those are built in JavaScript, not written
+in the HTML: a button that does nothing is worse than no button, and the row still scrolls with a
+finger or a trackpad without them. The track width is a plain `calc()`, not `minmax(0, …)` — with a
+zero minimum the browser squeezes a fourth case in instead of overflowing, and then there is nothing
+to scroll.
+
 Below the tiles, `#workflow` is one wide tile with the AI-workflow as a pipeline: four steps left to
 right on an orange track (`.pipe`), each decision under the step where it happens. Two per row on a
 tablet, a vertical track on a phone.
 
 The Platformen copy, the tile tags and the two tile feet for Software and AI-workflows are new and
 still need a read from Florian.
+
+## Service pages
+Each service also has its own page: `/diensten/websites`, `/diensten/webshops`, `/diensten/platformen`,
+`/diensten/apps`, `/diensten/software`, `/diensten/ai-workflows`, `/diensten/ai-seo`. The tile on the
+overview is the summary; the page is where someone searching for "webshop laten maken" lands.
+
+They share one shape: the service name as `<h1>`, a lead paragraph, "what you get" (the same bullets
+as the tile, through the same translation keys — so a rewritten bullet changes in both places), the
+cases or the examples, and four questions in `<details>`. The answers are real text in the HTML, not
+loaded on click, so a search engine and a language model both read them; `seo.js` lifts them straight
+out of that markup into `FAQPage`, which is the single strongest thing on these pages for being
+quoted by an AI answer.
+
+**The overview moved into the folder.** `/diensten/` now has a trailing slash, because `diensten/`
+exists as a directory and the rewrite that serves extensionless URLs skips any path that is a real
+directory — the same trap the "Languages" section describes for `/fr/projets/`. `.htaccess` rule 3b
+redirects `/diensten` to `/diensten/` so the old URL keeps working. Note that the page itself sits a
+directory deeper than the other Dutch sources, so its asset paths are `../css/`, `../assets/`.
+
+The copy on these pages is a first draft written from what the tiles already said. **It needs a read
+from Florian and Jasper before it counts as theirs** — especially the answers, which deliberately
+avoid promising prices or timelines.
 
 ## CMS page
 `/cms` sits behind the word "CMS" in the first bullet under Websites and nowhere else: no nav

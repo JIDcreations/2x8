@@ -21,9 +21,37 @@
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/werk", "fr": "/fr/projets/", "en": "/en/work/" }
     },
-    "diensten.html": {
+    "diensten/index.html": {
       "done": ["nl", "fr", "en"],
-      "slug": { "nl": "/diensten", "fr": "/fr/services", "en": "/en/services" }
+      "slug": { "nl": "/diensten/", "fr": "/fr/services/", "en": "/en/services/" }
+    },
+    "diensten/websites.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/websites", "fr": "/fr/services/sites-web", "en": "/en/services/websites" }
+    },
+    "diensten/webshops.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/webshops", "fr": "/fr/services/boutiques", "en": "/en/services/online-shops" }
+    },
+    "diensten/platformen.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/platformen", "fr": "/fr/services/plateformes", "en": "/en/services/platforms" }
+    },
+    "diensten/apps.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/apps", "fr": "/fr/services/applications", "en": "/en/services/apps" }
+    },
+    "diensten/software.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/software", "fr": "/fr/services/logiciels", "en": "/en/services/software" }
+    },
+    "diensten/ai-workflows.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/ai-workflows", "fr": "/fr/services/flux-ia", "en": "/en/services/ai-workflows" }
+    },
+    "diensten/ai-seo.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/ai-seo", "fr": "/fr/services/ai-seo", "en": "/en/services/ai-seo" }
     },
     "studio.html": {
       "done": ["nl", "fr", "en"],

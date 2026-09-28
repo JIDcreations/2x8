@@ -415,7 +415,7 @@ function seoContext(lang, dict) {
   };
 
   const studio = read('studio.html');
-  const diensten = read('diensten.html');
+  const diensten = read('diensten/index.html');
 
   // <h2 class="founder__name">Jasper</h2> ... <span class="founder__role">…</span>
   const roles = { florian: 'Development & consultancy', jasper: 'Design & front-end' };
@@ -442,7 +442,8 @@ function seoContext(lang, dict) {
 
   const labels = {
     home: (dict && dict['nav.home']) || 'Home',
-    work: (dict && dict['nav.work']) || 'Werk'
+    work: (dict && dict['nav.work']) || 'Werk',
+    services: (dict && dict['nav.services']) || 'Diensten'
   };
 
   const cases = seo.caseFiles(routes).map((file) => {
