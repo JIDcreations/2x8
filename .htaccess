@@ -5,7 +5,7 @@ RewriteEngine On
 # 0. Deze repo wordt rechtstreeks in de docroot gepulld, dus staat er ook
 #    bronmateriaal in dat niemand hoort te kunnen opvragen.
 RewriteRule (^|/)\.(git|github|claude)(/|$)           - [F,L]
-RewriteRule ^(build\.js|README\.md|mail-config\.example\.php)$ - [F,L]
+RewriteRule ^(build\.js|seo\.js|README\.md|mail-config\.example\.php)$ - [F,L]
 RewriteRule ^i18n/                                     - [F,L]
 RewriteRule (^|/)\.gitignore$                          - [F,L]
 

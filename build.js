@@ -22,6 +22,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const seo = require('./seo.js');
 
 const ROOT = __dirname;
 const routes = readJson(path.join(ROOT, 'i18n', 'routes.json'));
@@ -395,11 +396,90 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
+/* ------------------------------------------------------------------ */
+/* Machineleesbaar: structured data, sitemap, llms.txt                  */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Wat seo.js nodig heeft maar niet uit één pagina kan lezen: de rollen van de
+ * twee makers, waar we verstand van hebben, de kruimelpad-labels en de lijst
+ * met cases. Alles komt uit de bronpagina's zelf, vertaald naar `lang`, zodat
+ * een herschreven rol of een nieuwe dienst hier vanzelf in meekomt.
+ */
+function seoContext(lang, dict) {
+  const read = (file) => {
+    const p = path.join(ROOT, file);
+    if (!fs.existsSync(p)) return '';
+    const html = fs.readFileSync(p, 'utf8');
+    return dict ? translate(html, dict, new Set()) : html;
+  };
+
+  const studio = read('studio.html');
+  const diensten = read('diensten.html');
+
+  // <h2 class="founder__name">Jasper</h2> ... <span class="founder__role">…</span>
+  const roles = { florian: 'Development & consultancy', jasper: 'Design & front-end' };
+  const reRole = /founder__name"[^>]*>([\s\S]*?)<\/h2>[\s\S]*?founder__role"[^>]*>([\s\S]*?)<\/span>/gi;
+  let m;
+  while ((m = reRole.exec(studio)) !== null) {
+    const who = seo.text(m[1]).toLowerCase();
+    if (who in roles) roles[who] = seo.text(m[2]);
+  }
+
+  // De bits onder elke maker zijn precies de vakgebieden, al opgesomd.
+  const skills = [];
+  const reBit = /<span class="tooltip"[^>]*>([\s\S]*?)<\/span>/gi;
+  while ((m = reBit.exec(studio)) !== null) {
+    const s = seo.text(m[1]);
+    if (s && !skills.includes(s)) skills.push(s);
+  }
+
+  // De dienstnamen eerst: dat is waar we op gevonden willen worden, de bits
+  // eronder zijn de onderbouwing.
+  const services = seo.services(diensten);
+  const knowsAbout = services.map((s) => s.name)
+    .concat(skills.filter((s) => !services.some((v) => v.name === s)));
+
+  const labels = {
+    home: (dict && dict['nav.home']) || 'Home',
+    work: (dict && dict['nav.work']) || 'Werk'
+  };
+
+  const cases = seo.caseFiles(routes).map((file) => {
+    const p = path.join(ROOT, file);
+    const name = fs.existsSync(p) ? seo.pageHeading(fs.readFileSync(p, 'utf8')) : '';
+    return { file, name, slug: routes.pages[file].slug };
+  });
+
+  return { roles, knowsAbout, labels, cases, services };
+}
+
+/** Wat llms.txt per pagina wil weten, uit de al gebouwde Nederlandse HTML. */
+function llmsEntry(html, file) {
+  const meta = file.startsWith('work/') ? seo.caseMeta(html) : {};
+  return {
+    url: seo.abs(routes, routes.pages[file].slug[BASE]),
+    title: seo.pageTitle(html),
+    description: seo.pageDescription(html),
+    heading: seo.pageHeading(html),
+    summary: file.startsWith('work/')
+      ? seo.text((html.match(/<p class="case-head__summary"[^>]*>([\s\S]*?)<\/p>/i) || [, ''])[1])
+      : '',
+    client: meta.client ? meta.client.value : '',
+    year: meta.year ? meta.year.value : '',
+    services: meta.services ? meta.services.value : ''
+  };
+}
+
 function build() {
   const langs = Object.keys(routes.languages).filter((l) => l !== BASE);
   const report = [];
+  const llmsPages = {};
 
-  // De brontaal krijgt alleen een verse wisselaar en hreflang-regels.
+  // De brontaal krijgt alleen een verse wisselaar, hreflang-regels en haar
+  // structured data. seoContext leest de bronpagina's, dus dat moet gebeuren
+  // vóór we er iets in schrijven.
+  const baseCtx = seoContext(BASE, null);
   for (const file of Object.keys(routes.pages)) {
     const src = path.join(ROOT, file);
     if (!fs.existsSync(src)) continue;
@@ -407,9 +487,11 @@ function build() {
     const before = html;
     html = injectSwitcher(html, file, BASE);
     html = rewriteHead(html, BASE, file);
+    html = seo.augment(html, routes, BASE, file, baseCtx);
+    llmsPages[file] = llmsEntry(html, file);
     if (html !== before) {
       fs.writeFileSync(src, html);
-      report.push(['  ~', file, '(wisselaar + hreflang)'].join(' '));
+      report.push(['  ~', file, '(wisselaar + hreflang + schema)'].join(' '));
     }
   }
 
@@ -421,6 +503,7 @@ function build() {
     }
     const dict = readJson(dictPath);
     const missing = new Set();
+    const ctx = seoContext(lang, dict);
 
     for (const [file, page] of Object.entries(routes.pages)) {
       if (!page.done.includes(lang)) continue;
@@ -432,10 +515,14 @@ function build() {
 
       let html = fs.readFileSync(src, 'utf8');
       html = stripSwitcher(html);
+      // De Nederlandse JSON-LD hoort niet mee de vertaling in: seo.augment
+      // bouwt ze zo dadelijk opnieuw, met de vertaalde tekst en de juiste URL.
+      html = seo.strip(html);
       html = translate(html, dict, missing);
       html = rewriteLinks(html, lang, file);
       html = rewriteHead(html, lang, file);
       html = injectSwitcher(html, file, lang);
+      html = seo.augment(html, routes, lang, file, ctx);
 
       const out = outputPath(page.slug[lang]);
       fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -449,6 +536,14 @@ function build() {
       for (const key of [...missing].sort()) console.error('    ' + key);
     }
   }
+
+  // sitemap.xml en llms.txt horen bij de pagina's die we net geschreven hebben,
+  // dus ze worden in dezelfde beweging ververst in plaats van met de hand.
+  const today = new Date().toISOString().slice(0, 10);
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), seo.sitemapXml(routes, today));
+  report.push('  + sitemap.xml');
+  fs.writeFileSync(path.join(ROOT, 'llms.txt'), seo.llmsTxt(routes, llmsPages, baseCtx));
+  report.push('  + llms.txt');
 
   console.log(report.join('\n'));
   console.log('\nKlaar. Vergeet de cachebuster niet als je css/styles.css of js/main.js aanraakte.');
