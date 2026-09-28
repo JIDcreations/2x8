@@ -1,6 +1,6 @@
 # 2X8
 
-> 2X8 is de studio van Florian en Jasper. We bouwen websites en webshops en adviseren over software zoals Odoo en Softtouch en AI-workflows.
+> 2X8 is de studio van Florian en Jasper. We bouwen websites, webshops, platformen en apps, en we adviseren over software zoals Odoo en Notion, AI-workflows en AI SEO.
 
 2X8 is een tweekoppige digitale studio uit België: Florian Bracke (development & consultancy) en Jasper Impens (design & front-end). We ontwerpen en bouwen websites, webshops en apps, en we adviseren over softwarepakketten en AI-workflows. Je werkt rechtstreeks met ons, zonder account-manager ertussen.
 
@@ -20,7 +20,7 @@
 
 ## Pagina’s
 
-- [2X8 | Digitale interfaces, creatie en implementatie](https://2x8.be/): 2X8 is de studio van Florian en Jasper. We bouwen websites en webshops en adviseren over software zoals Odoo en Softtouch en AI-workflows.
+- [2X8 | Digitale interfaces, creatie en implementatie](https://2x8.be/): 2X8 is de studio van Florian en Jasper. We bouwen websites, webshops, platformen en apps, en we adviseren over software zoals Odoo en Notion, AI-workflows en AI SEO.
 - [Werk | 2X8](https://2x8.be/werk): Acht projecten van 2X8: Specter, EQTY, Studio Klei, NADIR, Keikoku Atelier, DLTA, Elevator Antwerp en het portfolio van Jasper Impens.
 - [Diensten | 2X8](https://2x8.be/diensten): Websites, webshops, platformen en apps bouwen, en AI-workflows, AI SEO en softwarepakketten beter laten draaien. Zeven diensten, door 2X8.
 - [Studio | 2X8](https://2x8.be/studio): 2X8 is het samenwerkingsverband van Florian en Jasper. 2 makers, 8 bits per byte, altijd rechtstreeks contact.

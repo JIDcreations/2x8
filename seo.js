@@ -22,6 +22,12 @@
 const MARK_START = '<!-- seo:start -->';
 const MARK_END = '<!-- seo:end -->';
 
+// De merkafbeelding voor sociale kaarten en het logo voor de structured data.
+// Allebei PNG: Facebook, LinkedIn en Google doen niets met een SVG. Ze worden
+// gemaakt met `node og.js` — zie dat bestand.
+const OG_IMAGE = { src: 'assets/og/2x8-og.png', width: 1200, height: 630 };
+const LOGO = { src: 'assets/og/2x8-logo.png', width: 512, height: 512 };
+
 /* ------------------------------------------------------------------ */
 /* Kleine HTML-helpers                                                  */
 /* ------------------------------------------------------------------ */
@@ -158,8 +164,13 @@ function orgNode(routes, lang, ctx) {
     name: '2X8',
     url: routes.site + '/',
     email: 'hello@2x8.be',
-    logo: routes.site + '/assets/2X8_Black.svg',
-    image: routes.site + '/assets/2X8_Black.svg',
+    logo: {
+      '@type': 'ImageObject',
+      url: abs(routes, LOGO.src),
+      width: LOGO.width,
+      height: LOGO.height
+    },
+    image: abs(routes, OG_IMAGE.src),
     founder: [
       { '@type': 'Person', name: 'Florian Bracke', jobTitle: ctx.roles.florian },
       { '@type': 'Person', name: 'Jasper Impens', jobTitle: ctx.roles.jasper }
@@ -385,13 +396,21 @@ function augment(html, routes, lang, file, ctx) {
     lines.push('<meta property="og:url" content="' + url + '" />');
   }
 
-  const img = file.startsWith('work/') ? caseImage(html) : null;
-  if (img && !/property="og:image"/i.test(html)) {
+  // Een case toont haar eigen cover; elke andere pagina de merkafbeelding. Van
+  // die laatste kennen we de maten, van een cover niet, dus die geven we ook
+  // niet op: een verkeerde maat is erger dan geen maat.
+  const cover = file.startsWith('work/') ? caseImage(html) : null;
+  const img = cover || OG_IMAGE.src;
+  if (!/property="og:image"/i.test(html)) {
     lines.push('<meta property="og:image" content="' + abs(routes, img) + '" />');
+    if (!cover) {
+      lines.push('<meta property="og:image:width" content="' + OG_IMAGE.width + '" />');
+      lines.push('<meta property="og:image:height" content="' + OG_IMAGE.height + '" />');
+    }
+  }
+  if (!/name="twitter:card"/i.test(html)) {
     lines.push('<meta name="twitter:card" content="summary_large_image" />');
     lines.push('<meta name="twitter:image" content="' + abs(routes, img) + '" />');
-  } else if (!/name="twitter:card"/i.test(html)) {
-    lines.push('<meta name="twitter:card" content="summary" />');
   }
 
   const graph = graphFor(html, routes, lang, file, ctx);

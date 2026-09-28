@@ -17,6 +17,7 @@ built on the server, so whatever you push is exactly what visitors get (see "Dep
 - `build.js`: generates the French and English pages from the Dutch sources (see "Languages")
 - `seo.js`: the structured data, `sitemap.xml` and `llms.txt`, all written by `build.js` (see
   "Machine-readable")
+- `og.js`: renders `assets/og/*.png` — the share card and the logo (see "Machine-readable")
 - `robots.txt`, `sitemap.xml`, `llms.txt`: `robots.txt` is kept by hand, the other two are
   generated; all three are served as-is from the docroot
 - `i18n/`: `routes.json` (URLs per language) and `fr.json` / `en.json` (the translations)
@@ -77,8 +78,10 @@ add a case and the schema, the sitemap and `llms.txt` follow on the next build.
   concrete per type — the services as `Service` on `/diensten`, the case list on `/werk`, the two
   of us as `Person` on `/studio`, and each case as a `CreativeWork` with its client, year, stack
   and cover.
-- **`og:url`, `og:image` and the Twitter cards** on the case pages, which had none. The image is
-  the cover already at the top of the case, so there is nothing extra to keep in sync.
+- **`og:image` and the Twitter cards** on every page. A case shows the cover already at the top of
+  that case, so there is nothing extra to keep in sync; every other page shows the brand card.
+  Only the brand card declares `og:image:width`/`height`, because a cover's size isn't known here
+  and a wrong size is worse than none.
 - **`sitemap.xml`**: one `<url>` per page per language, each carrying the `hreflang` alternates,
   so a crawler knows there are three languages before fetching anything.
 - **`llms.txt`**: the whole site as plain text — who we are, the services, every page and every
@@ -95,10 +98,19 @@ page. `robots.txt` names the sitemap and lists the AI crawlers explicitly, becau
 named user-agent replaces the `*` group entirely rather than adding to it — so those groups have
 to repeat the two exclusions themselves.
 
-Still missing: a brand `og:image` for the pages that aren't cases (1200x630, PNG or JPG) and a
-raster logo — `Organization.logo` points at the SVG, which Google may ignore for rich results.
-Real LinkedIn and Instagram URLs would let `sameAs` be filled in, which is what ties the studio to
-one identity across search engines.
+`node og.js` renders the two raster images the site itself can't supply: `2x8-og.png` (1200x630,
+the card Facebook, LinkedIn, Slack and WhatsApp show) and `2x8-logo.png` (512x512,
+`Organization.logo`). Both are PNG on purpose — none of those read an SVG. They are drawn from
+the same logo paths as the pages (lifted out of `index.html`, so there is one source) and
+screenshotted with the local Chrome, headless, which is the only way to get the real Sora and
+JetBrains Mono without installing them: the page fetches them from Google Fonts. So it needs a
+network connection, and `CHROME=` points it at a different browser. The PNGs are committed —
+only re-run it when the brand changes.
+
+Still missing: real LinkedIn and Instagram URLs. They're commented out in the footer of every
+page until the profiles exist (a link to `linkedin.com` with no profile behind it is a dead end),
+and they would let `sameAs` be filled in — which is what ties the studio to one identity across
+search engines.
 
 ## Spacing
 One vertical scale for the whole site, `--sp-1` to `--sp-8` in `:root`, plus `--page-top`
@@ -256,7 +268,7 @@ the top of its case page (swap the `<img>` for a `<video autoplay muted loop pla
 
 ## Still open
 - A real photo for Florian (see "Studio page" above)
-- LinkedIn / Instagram links (still placeholders) — they also feed `sameAs` in the structured data
-- A brand `og:image` and a raster logo (see "Machine-readable")
+- LinkedIn / Instagram: no profiles yet, so the footer links are commented out on every page.
+  Filling them in also fills `sameAs` in the structured data
 - Studio Klei doesn't have a screen-recording video yet
 - The skill labels in each founder's "byte" on the Studio page are placeholder copy, not confirmed facts
