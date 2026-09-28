@@ -23,10 +23,12 @@ const MARK_START = '<!-- seo:start -->';
 const MARK_END = '<!-- seo:end -->';
 
 // De merkafbeelding voor sociale kaarten en het logo voor de structured data.
-// Allebei PNG: Facebook, LinkedIn en Google doen niets met een SVG. Ze worden
-// gemaakt met `node og.js` — zie dat bestand.
-const OG_IMAGE = { src: 'assets/og/2x8-og.png', width: 1200, height: 630 };
-const LOGO = { src: 'assets/og/2x8-logo.png', width: 512, height: 512 };
+// Allebei PNG: Facebook, LinkedIn en Google doen niets met een SVG. Namen en
+// maten komen uit og.js, dat ze ook maakt, zodat een nieuwe versie hier niet
+// vergeten kan worden.
+const { IMAGES } = require('./og.js');
+const OG_IMAGE = IMAGES.card;
+const LOGO = IMAGES.logo;
 
 /* ------------------------------------------------------------------ */
 /* Kleine HTML-helpers                                                  */

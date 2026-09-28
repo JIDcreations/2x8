@@ -17,7 +17,7 @@ built on the server, so whatever you push is exactly what visitors get (see "Dep
 - `build.js`: generates the French and English pages from the Dutch sources (see "Languages")
 - `seo.js`: the structured data, `sitemap.xml` and `llms.txt`, all written by `build.js` (see
   "Machine-readable")
-- `og.js`: renders `assets/og/*.png` — the share card and the logo (see "Machine-readable")
+- `og.js`: renders `assets/og/*-v1.png` — the share card and the logo (see "Machine-readable")
 - `robots.txt`, `sitemap.xml`, `llms.txt`: `robots.txt` is kept by hand, the other two are
   generated; all three are served as-is from the docroot
 - `i18n/`: `routes.json` (URLs per language) and `fr.json` / `en.json` (the translations)
@@ -98,9 +98,12 @@ page. `robots.txt` names the sitemap and lists the AI crawlers explicitly, becau
 named user-agent replaces the `*` group entirely rather than adding to it — so those groups have
 to repeat the two exclusions themselves.
 
-`node og.js` renders the two raster images the site itself can't supply: `2x8-og.png` (1200x630,
-the card Facebook, LinkedIn, Slack and WhatsApp show) and `2x8-logo.png` (512x512,
-`Organization.logo`). Both are PNG on purpose — none of those read an SVG. They are drawn from
+`node og.js` renders the two raster images the site itself can't supply: `2x8-og-v1.png`
+(1200x630, the card Facebook, LinkedIn, Slack and WhatsApp show) and `2x8-logo-v1.png` (512x512,
+`Organization.logo`). The version in the filename is deliberate: Facebook and LinkedIn cache a
+share card per URL and never re-fetch it, and Hostinger's CDN holds an asset for a week — so a
+new card under the same name is a card nobody sees. Change the image, raise `VERSION` in `og.js`;
+`seo.js` reads the name from there, so the meta and the schema follow. Both are PNG on purpose — none of those read an SVG. They are drawn from
 the same logo paths as the pages (lifted out of `index.html`, so there is one source) and
 screenshotted with the local Chrome, headless, which is the only way to get the real Sora and
 JetBrains Mono without installing them: the page fetches them from Google Fonts. So it needs a

@@ -5,9 +5,15 @@
  *   node og.js
  *
  * Schrijft:
- *   assets/og/2x8-og.png    1200x630, de kaart die Facebook, LinkedIn, Slack en
- *                           WhatsApp tonen bij een gedeelde link
- *   assets/og/2x8-logo.png  512x512, `Organization.logo` in de structured data
+ *   assets/og/2x8-og-v1.png    1200x630, de kaart die Facebook, LinkedIn, Slack
+ *                              en WhatsApp tonen bij een gedeelde link
+ *   assets/og/2x8-logo-v1.png  512x512, `Organization.logo` in de structured data
+ *
+ * Het versienummer in de naam hoort erbij. Facebook en LinkedIn cachen een
+ * deelkaart per URL en halen hem daarna niet opnieuw op; een nieuwe kaart onder
+ * dezelfde naam zien ze dus nooit. Ook de CDN van Hostinger houdt een asset
+ * zeven dagen vast. Verander je de kaart, verhoog dan VERSION hieronder: seo.js
+ * leest die naam hier uit, dus de meta en het schema volgen vanzelf.
  *
  * Waarom een generator en geen bestand dat er gewoon staat: allebei komen ze uit
  * hetzelfde logo als de site (`assets/2X8_Black.svg` staat in index.html als
@@ -29,7 +35,13 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 
 const ROOT = __dirname;
-const OUT = path.join(ROOT, 'assets', 'og');
+// Verhoog dit zodra de kaart of het logo verandert; zie de kop van dit bestand.
+const VERSION = 1;
+
+const IMAGES = {
+  card: { src: 'assets/og/2x8-og-v' + VERSION + '.png', width: 1200, height: 630 },
+  logo: { src: 'assets/og/2x8-logo-v' + VERSION + '.png', width: 512, height: 512 },
+};
 
 const INK = '#0A0A0A';
 const PAPER = '#FAFBFC';
@@ -171,9 +183,12 @@ ${svg}
 
 function main() {
   const paths = logoPaths();
-  shoot(ogCard(paths), path.join(OUT, '2x8-og.png'), 1200, 630);
-  shoot(logoSquare(paths), path.join(OUT, '2x8-logo.png'), 512, 512);
+  shoot(ogCard(paths), path.join(ROOT, IMAGES.card.src), IMAGES.card.width, IMAGES.card.height);
+  shoot(logoSquare(paths), path.join(ROOT, IMAGES.logo.src), IMAGES.logo.width, IMAGES.logo.height);
   console.log('\nKlaar. seo.js zet ze in og:image en Organization.logo.');
 }
 
-main();
+// seo.js heeft alleen de namen en maten nodig; renderen doet het niet.
+module.exports = { IMAGES, VERSION };
+
+if (require.main === module) main();
