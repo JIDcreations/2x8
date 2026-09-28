@@ -51,9 +51,15 @@ shape toward the cursor, pushes bits aside and warms some to orange. Shapes are 
 lines, boxes and arcs (`builders` in that file). Without WebGL the panel is hidden and the tiles are
 plain text; with reduced motion the shapes are drawn once, formed.
 
-The cases (or the examples, where a service has no case yet) and the button to that service's own
-page sit in `.svc-tile__end`, pushed down with `margin-top: auto`. Tiles in one row are the same
-height, so that lands the cases on the same line on every tile however many bullets sit above them.
+The button to that service's own page sits in the tile's top bar, where a tag ("3 cases", "Advies")
+used to be: right next to the name you have just read. Below 768px it no longer fits beside the name
+and drops onto its own line, left-aligned under it. The tag markup and its four translation keys are
+gone; the one remaining `.tag` on the page belongs to the workflow tile, which has no service page
+behind it.
+
+The cases (or the examples, where a service has no case yet) sit in `.svc-tile__end`, pushed down
+with `margin-top: auto`. Tiles in one row are the same height, so that lands the cases on the same
+line on every tile however many bullets sit above them.
 
 Three cases fit side by side. From the fourth — and on a narrow screen sooner — the row scrolls and
 `caseScroll()` in `js/main.js` puts two arrows under it. Those are built in JavaScript, not written

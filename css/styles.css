@@ -3478,8 +3478,25 @@ a.services-tabs__btn {
   gap: var(--sp-3);
   align-items: flex-start;
 }
+/* De knop staat in de balk, op de plek waar eerst het label stond: naast de
+   dienstnaam, waar je hem verwacht als je die naam net gelezen hebt. */
 .svc-tile__cta {
-  align-self: flex-start;
+  margin-left: auto;
+  flex: none;
+  height: 34px;
+  padding-inline: 14px;
+  font-size: 13px;
+}
+/* Op een telefoon past de knop niet meer naast de naam en valt hij op een
+   eigen regel. Rechts uitgelijnd zweeft hij daar; links staat hij onder de
+   naam waar hij bij hoort. */
+@media (max-width: 767px) {
+  .case-tile__bar:has(.svc-tile__cta) {
+    flex-wrap: wrap;
+  }
+  .svc-tile__cta {
+    margin-left: 0;
+  }
 }
 
 /* Drie cases passen naast elkaar; vanaf de vierde — en op een smal scherm al
