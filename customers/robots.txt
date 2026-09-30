@@ -1,0 +1,3 @@
+# customers.2x8.be — niets hier is bedoeld voor zoekmachines.
+User-agent: *
+Disallow: /

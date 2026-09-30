@@ -1,0 +1,27 @@
+# customers.2x8.be — klantpagina's achter een link met wachtwoord.
+# Deze map is de docroot van het subdomein (ingesteld in hPanel) en zit
+# tegelijk in de docroot van 2x8.be; daarom worden requests via 2x8.be/customers
+# hieronder naar het subdomein gestuurd. Eigen RewriteEngine, dus de regels
+# van public_html/.htaccess gelden hier niet.
+Options -Indexes -MultiViews
+RewriteEngine On
+
+# Nooit indexeren, wat er ook gebeurt.
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>
+
+# Altijd via het subdomein (query string gaat automatisch mee).
+RewriteCond %{HTTP_HOST} !^customers\.2x8\.be$ [NC]
+RewriteRule ^(.*)$ https://customers.2x8.be/$1 [R=301,L]
+
+# Bronmateriaal en data zijn niet opvraagbaar.
+RewriteRule ^data(/|$)                 - [F,L]
+RewriteRule ^(maak\.js|README\.md)$    - [F,L]
+
+# /elevator-antwerp&pass=... (typfout voor ?pass=) werkt ook.
+RewriteRule ^([a-z0-9-]+)&pass=([A-Za-z0-9]+)$ index.php?klant=$1&pass=$2 [L]
+
+# /elevator-antwerp?pass=... -> index.php?klant=elevator-antwerp&pass=...
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-z0-9-]+)/?$ index.php?klant=$1 [QSA,L]

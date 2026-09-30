@@ -10,6 +10,7 @@
 User-agent: *
 Disallow: /backup/
 Disallow: /software/
+Disallow: /customers/
 Allow: /
 
 # Zoek- en antwoordmachines met een taalmodel erachter. Uitdrukkelijk welkom:
