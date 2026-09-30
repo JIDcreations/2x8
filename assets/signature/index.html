@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2X8 — e-mailhandtekening</title>
+<style>
+  :root { --ink:#0a0a0a; --paper:#fafbfc; --ash:#6e6a66; --orange:#f05522; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#ecebe9; color:var(--ink); font:15px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif; padding:40px 16px 80px; }
+  main { max-width:760px; margin:0 auto; }
+  h1 { font-size:22px; margin:0 0 6px; }
+  p.lead { color:var(--ash); margin:0 0 32px; }
+  section { background:#fff; border-radius:8px; padding:24px; margin-bottom:24px; }
+  h2 { font-size:15px; margin:0 0 4px; }
+  .hint { color:var(--ash); font-size:13px; margin:0 0 16px; }
+  .preview { padding:24px; background:#f4f3f1; border-radius:6px; overflow:auto; }
+  .row { display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; align-items:center; }
+  button { font:inherit; font-size:14px; padding:9px 16px; border:0; border-radius:6px; background:var(--ink); color:var(--paper); cursor:pointer; }
+  button.ghost { background:transparent; color:var(--ink); border:1px solid #cfcdca; }
+  .ok { color:#1f7a3a; font-size:13px; }
+  textarea { width:100%; height:180px; margin-top:12px; font:12px/1.4 ui-monospace,Consolas,monospace; border:1px solid #cfcdca; border-radius:6px; padding:10px; display:none; }
+  ol { padding-left:20px; } li { margin-bottom:6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>E-mailhandtekening 2X8</h1>
+  <p class="lead">Klik op <strong>Kopieer handtekening</strong> en plak ze in de handtekening-instellingen van je mailprogramma. Het logo wordt geladen van 2x8.be, dus het werkt overal zonder bijlage.</p>
+
+  <div id="sigs"></div>
+
+  <section>
+    <h2>Plakken in je mailprogramma</h2>
+    <ol>
+      <li><strong>Gmail</strong>: Instellingen → Alle instellingen → Handtekening → Nieuwe maken → plakken (Ctrl/Cmd+V). Kies ze daarna bij «Standaardinstellingen handtekening».</li>
+      <li><strong>Outlook (web / nieuwe Outlook)</strong>: Instellingen → Account → Handtekeningen → plakken.</li>
+      <li><strong>Outlook (klassiek, Windows)</strong>: Bestand → Opties → E-mail → Handtekeningen → plakken. Klassiek Outlook speelt geen GIF af; het toont het eerste beeld, en dat is bewust het volledige logo.</li>
+      <li><strong>Apple Mail</strong>: Mail → Instellingen → Handtekeningen → plakken. Zet «Standaardlettertype van bericht gebruiken» uit.</li>
+    </ol>
+    <p class="hint" style="margin:12px 0 0">Over de animatie: e-mail kent geen CSS-animatie, enkel een GIF. Gmail, Apple Mail, iOS en Outlook op het web spelen ze één keer af en blijven dan op het logo staan. Klassiek Outlook toont enkel het stilstaande logo. Wil je liever helemaal geen beweging, kies dan hieronder de statische versie.</p>
+    <div class="row"><label><input type="checkbox" id="static"> Statisch logo (PNG) in plaats van GIF</label></div>
+  </section>
+</main>
+
+<script>
+const BASE = 'https://2x8.be/assets/signature/';
+const FONT = "Arial,Helvetica,sans-serif";
+const INK = '#0a0a0a', PAPER = '#fafbfc', MUTED = '#a19d98', ORANGE = '#f05522';
+
+function sig({ names, role, phones, useStatic }) {
+  const img = BASE + (useStatic ? '2x8-sig-logo-v1.png' : '2x8-sig-logo-v1.gif');
+  const td = (extra = '') => `style="font-family:${FONT};mso-line-height-rule:exactly;${extra}"`;
+  const link = (href, text) => `<a href="${href}" style="color:${PAPER};text-decoration:none;">${text}</a>`;
+  const phoneRows = phones.map(([label, tel]) => {
+    const digits = tel.replace(/\s/g, '');
+    return '<tr>' +
+      (label ? `<td ${td(`font-size:13px;line-height:22px;color:${MUTED};padding-right:12px;white-space:nowrap;`)}>${label}</td>` : '') +
+      `<td ${td(`font-size:13px;line-height:22px;color:${PAPER};`)}>${link('tel:' + digits, tel)}</td></tr>`;
+  }).join('');
+  return `<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+<tr><td bgcolor="${INK}" style="background-color:${INK};padding:24px 28px 26px;border-radius:4px;">
+<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+<tr><td ${td(`font-size:15px;line-height:20px;font-weight:bold;color:${PAPER};`)}>${names}</td></tr>
+<tr><td ${td(`font-size:11px;line-height:16px;letter-spacing:1.5px;text-transform:uppercase;color:${MUTED};padding-top:3px;`)}>${role}</td></tr>
+<tr><td style="padding:14px 0;"><table cellpadding="0" cellspacing="0" border="0" role="presentation"><tr><td width="28" height="2" bgcolor="${ORANGE}" style="font-size:2px;line-height:2px;">&nbsp;</td></tr></table></td></tr>
+<tr><td ${td(`font-size:13px;line-height:22px;color:${PAPER};`)}>${link('mailto:hello@2x8.be', 'hello@2x8.be')}</td></tr>
+<tr><td><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">${phoneRows}</table></td></tr>
+<tr><td ${td(`font-size:13px;line-height:22px;color:${PAPER};`)}>${link('https://2x8.be', '2x8.be')}</td></tr>
+<tr><td style="padding-top:20px;"><a href="https://2x8.be" style="text-decoration:none;"><img src="${img}" width="160" height="41" alt="2X8" style="display:block;border:0;outline:none;width:160px;height:41px;"></a></td></tr>
+</table>
+</td></tr>
+</table>`;
+}
+
+const VARIANTS = [
+  { id: 'duo', title: 'Samen (Florian & Jasper)', hint: 'Voor hello@2x8.be en gedeelde mailboxen.',
+    names: 'Florian Bracke &amp; Jasper Impens', role: 'Co-founders / 2X8',
+    phones: [['Florian', '+32 498 19 00 84'], ['Jasper', '+32 491 95 31 73']] },
+  { id: 'florian', title: 'Florian', hint: 'Persoonlijke mailbox.',
+    names: 'Florian Bracke', role: 'Co-founder / 2X8', phones: [['', '+32 498 19 00 84']] },
+  { id: 'jasper', title: 'Jasper', hint: 'Persoonlijke mailbox.',
+    names: 'Jasper Impens', role: 'Co-founder / 2X8', phones: [['', '+32 491 95 31 73']] },
+];
+
+function render() {
+  const useStatic = document.getElementById('static').checked;
+  const host = document.getElementById('sigs');
+  host.innerHTML = '';
+  for (const v of VARIANTS) {
+    const html = sig({ ...v, useStatic });
+    const s = document.createElement('section');
+    s.innerHTML = `<h2>${v.title}</h2><p class="hint">${v.hint}</p>
+      <div class="preview">${html}</div>
+      <div class="row"><button data-copy>Kopieer handtekening</button><button class="ghost" data-html>Toon HTML</button><span class="ok"></span></div>
+      <textarea readonly spellcheck="false">${html.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</textarea>`;
+    const ok = s.querySelector('.ok'), ta = s.querySelector('textarea');
+    s.querySelector('[data-copy]').onclick = async () => {
+      try {
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([s.querySelector('.preview').innerText], { type: 'text/plain' }),
+        })]);
+        ok.textContent = 'Gekopieerd. Plak ze nu in je mailprogramma.';
+      } catch (e) {
+        const range = document.createRange(); range.selectNodeContents(s.querySelector('.preview'));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        ok.textContent = document.execCommand('copy') ? 'Gekopieerd.' : 'Selecteer de handtekening en kopieer ze manueel.';
+        sel.removeAllRanges();
+      }
+      setTimeout(() => ok.textContent = '', 4000);
+    };
+    s.querySelector('[data-html]').onclick = () => { ta.style.display = ta.style.display === 'block' ? 'none' : 'block'; };
+    host.appendChild(s);
+  }
+}
+document.getElementById('static').addEventListener('change', render);
+render();
+</script>
+</body>
+</html>
