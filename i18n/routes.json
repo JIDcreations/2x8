@@ -69,6 +69,10 @@
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/cms", "fr": "/fr/cms", "en": "/en/cms" }
     },
+    "work/elevator-antwerp.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/elevator-antwerp", "fr": "/fr/projets/elevator-antwerp", "en": "/en/work/elevator-antwerp" }
+    },
     "work/jasper-impens.html": {
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/work/jasper-impens", "fr": "/fr/projets/jasper-impens", "en": "/en/work/jasper-impens" }
@@ -100,10 +104,6 @@
     "work/delta.html": {
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/work/delta", "fr": "/fr/projets/delta", "en": "/en/work/delta" }
-    },
-    "work/elevator-antwerp.html": {
-      "done": ["nl", "fr", "en"],
-      "slug": { "nl": "/work/elevator-antwerp", "fr": "/fr/projets/elevator-antwerp", "en": "/en/work/elevator-antwerp" }
     }
   }
 }

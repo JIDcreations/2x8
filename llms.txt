@@ -30,6 +30,7 @@
 
 ## Werk
 
+- [Elevator Antwerp](https://2x8.be/work/elevator-antwerp) — Elevator Antwerp · 2026 · Design, Development: Een strakke, beeldgedreven website voor een galerie zonder vaste locatie: hedendaagse kunst, tijdelijke tentoonstellingen en werken die te koop zijn.
 - [Impens Jasper COMMV](https://2x8.be/work/jasper-impens) — Persoonlijk project (Jasper Impens) · 2026 · Design, Development: Geen klantproject, maar het eigen portfolio van mede-oprichter Jasper, getoond als extra bewijs van het niveau waarop we werken.
 - [WEB.WORK](https://2x8.be/work/web-work) — Eigen zaak (Florian Bracke) · 2026 · Design, Development: Geen klantproject, maar de eigen site van medeoprichter Florian: webdevelopment uit Gent, met een vaste prijs en één aanspreekpunt.
 - [Specter](https://2x8.be/work/specter) — Specter Atelier · 2026 · Design, Development, WordPress / WooCommerce: Een brutalistische webshop voor een maatkleding-atelier in Antwerpen: negen stuks, geen rek, alles op afspraak.
@@ -38,7 +39,6 @@
 - [NADIR](https://2x8.be/work/nadir) — Eigen project (platform) · 2026 · Design, Development: Een realtime dashboard dat aandelen opspoort die het diepst gevallen zijn tegenover hun 52-wekenhoogtepunt. “The art of buying fallen giants.”
 - [Keikoku Atelier](https://2x8.be/work/keikoku) — Keikoku Atelier · 2026 · Design, Development: Een rustige, beeldgedreven site voor een architectenbureau dat huizen ontwerpt die honderd jaar moeten meegaan.
 - [DLTA](https://2x8.be/work/delta) — Eigen project (platform) · 2026 · Design, Development, Next.js: Een cryptoportefeuilletracker die meerdere aankooplots per munt bijhoudt en live winst en verlies berekent, volledig client-side.
-- [Elevator Antwerp](https://2x8.be/work/elevator-antwerp) — Elevator Antwerp · 2026 · Design, Development: Een strakke, beeldgedreven website voor een galerie zonder vaste locatie: hedendaagse kunst, tijdelijke tentoonstellingen en werken die te koop zijn.
 
 ## Ook in het Frans en het Engels
 

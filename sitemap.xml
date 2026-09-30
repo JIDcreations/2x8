@@ -380,6 +380,33 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://2x8.be/work/elevator-antwerp</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/work/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/work/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/work/elevator-antwerp" />
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/fr/projets/elevator-antwerp</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/work/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/work/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/work/elevator-antwerp" />
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://2x8.be/en/work/elevator-antwerp</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/work/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/work/elevator-antwerp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/work/elevator-antwerp" />
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://2x8.be/work/jasper-impens</loc>
     <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/work/jasper-impens" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/jasper-impens" />
@@ -592,33 +619,6 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/delta" />
     <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/work/delta" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/work/delta" />
-    <lastmod>2026-09-30</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://2x8.be/work/elevator-antwerp</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/work/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/work/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/work/elevator-antwerp" />
-    <lastmod>2026-09-30</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://2x8.be/fr/projets/elevator-antwerp</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/work/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/work/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/work/elevator-antwerp" />
-    <lastmod>2026-09-30</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://2x8.be/en/work/elevator-antwerp</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://2x8.be/work/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://2x8.be/fr/projets/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://2x8.be/en/work/elevator-antwerp" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://2x8.be/work/elevator-antwerp" />
     <lastmod>2026-09-30</lastmod>
     <priority>0.7</priority>
   </url>
