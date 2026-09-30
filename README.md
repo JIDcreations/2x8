@@ -15,7 +15,11 @@ built on the server, so whatever you push is exactly what visitors get (see "Dep
   `/diensten/websites`, `/diensten/webshops`, and so on (see "Service pages")
 - `cms.html`: WordPress, Shopify and Wix side by side. It hangs off the first bullet under
   Websites on the services page and is not in the nav — see "CMS page".
-- `work/*.html`: case pages (Specter, Studio Klei, Keikoku Atelier, Jasper Impens)
+- `work/*.html`: case pages (Specter, EQTY, Studio Klei, NADIR, Keikoku Atelier, DLTA, Elevator
+  Antwerp, Jasper Impens, WEB.WORK). The two founders' own sites, Jasper Impens and WEB.WORK, sit
+  first on purpose, on the homepage and on `/werk`. The `work/` entries in `routes.json` are in that
+  same order, and that order is what the schema on `/werk` and `llms.txt` follow, so keep the three
+  in step when a case is added or moved
 - `build.js`: generates the French and English pages from the Dutch sources (see "Languages")
 - `seo.js`: the structured data, `sitemap.xml` and `llms.txt`, all written by `build.js` (see
   "Machine-readable")
@@ -305,6 +309,11 @@ Each case under `assets/<Project>/` has a `Cover_*.png` (used as the poster/thum
 project appears) and, where recorded, a `*-web.mp4`: a compressed, silent, web-ready version of the raw
 screen recording. Raw `.mov` originals stay in the folder for reference but are git-ignored (several are
 well over 100MB, past GitHub's hard limit) and aren't referenced by any page.
+
+The WEB.WORK images were shot from web-work.be with the local Chrome, headless, at the sizes the
+other cases use (1672x941 cover, 1600x900 / 1400x1050 / 1000x1250 gallery), with
+`--force-prefers-reduced-motion` — without it headless Chrome sits on that site's preloader and
+screenshots the counter. The gallery PNGs were then saved as JPG with Pillow.
 
 Where a project has a video, it plays directly in the `<figure class="case-cover" data-cover">` slot at
 the top of its case page (swap the `<img>` for a `<video autoplay muted loop playsinline>`, and add the
