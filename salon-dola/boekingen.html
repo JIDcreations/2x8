@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <title>Online afspraak · Salon Dola</title>
-  <meta name="description" content="Voorbeeld van de boekingsmodule voor Salon Dola: aanvraag, mails, opvolging en dashboard.">
+  <meta name="description" content="Voorstel online afspraak voor Salon Dola.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="/salon-dola/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/salon-dola/assets/outfit-latin-wght-normal-Bc-8i84L.woff2" as="font" type="font/woff2" crossorigin>
@@ -339,6 +339,16 @@
     .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,140%);z-index:80;display:flex;align-items:center;gap:.8rem;max-width:calc(100% - 32px);padding:.85rem 1.2rem;border-radius:999px;background:var(--paper);color:var(--ink);font-size:.88rem;box-shadow:0 20px 50px -20px #000;transition:transform .6s var(--ease-out)}
     .toast.is-on{transform:translate(-50%,0)}
     .toast a{text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+  
+    .pair--even{grid-template-columns:minmax(0,1fr)}
+    @media (min-width:1100px){.pair--even{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+    .list--static{min-height:0;max-height:none;overflow:visible}
+    .list--static .list__day{position:static}
+    .list--static .row{cursor:default}
+    .row__end{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:flex-end}
+    .row__acts{display:flex;flex-wrap:wrap;gap:.4rem}
+    @media (max-width:700px){.list--static .row{grid-template-columns:3.4rem minmax(0,1fr)}.row__end{grid-column:2;justify-content:flex-start}}
+    .card .pill-check,.card .slot,.card .pill,.mail .em__btn,.app .pill,.app .tab{pointer-events:none}
   </style>
 </head>
 <body>
@@ -348,236 +358,147 @@
 <path d="M185.0 276.5V212.0H194.68V276.5ZM191.60 276.5V267.66H225.77V276.5Z"/>
 <path d="M229.0 276.5 255.50 212.0H262.32L288.64 276.5H278.19L257.03 223.09H260.61L239.27 276.5ZM241.82 262.98V254.55H275.90V262.98Z"/>
 <path d="M294.37 277.42Q291.58 277.42 289.79 275.53Q288.0 273.65 288.0 270.95Q288.0 268.17 289.79 266.33Q291.58 264.50 294.37 264.50Q297.16 264.50 298.95 266.33Q300.74 268.17 300.74 270.95Q300.74 273.65 298.95 275.53Q297.16 277.42 294.37 277.42Z"/></g></svg></a>
-    <nav class="nav__steps" aria-label="Stappen">
-      <a href="#hoe"><b>00</b>Hoe het werkt</a>
-      <a href="#aanvraag"><b>01</b>Aanvraag</a>
-      <a href="#mail-tim"><b>02</b>Mail aan Tim</a>
-      <a href="#mail-klant"><b>03</b>Mail aan klant</a>
-      <a href="#opvolging"><b>04</b>Opvolging</a>
-      <a href="#dashboard"><b>05</b>Dashboard</a>
-      <a href="#afspraken"><b>06</b>Afspraken</a>
+    <nav class="nav__steps" aria-label="Onderdelen">
+      <a href="#aanvraag">Aanvraag</a>
+      <a href="#mails">Mails</a>
+      <a href="#dashboard">Overzicht</a>
     </nav>
     <a class="nav__back" href="/salon-dola/">Naar de site</a>
   </header>
 
   <main>
-    <!-- 00 Hoe het werkt -->
-    <section class="wrap hero" id="hoe" aria-labelledby="hoe-title">
-      <p class="label">Voorbeeld · Boekingsmodule</p>
-      <h1 class="h-display" id="hoe-title">Online<br>afspraak.</h1>
+    <section class="wrap hero">
+      <p class="label">Voorstel · Online afspraak</p>
+      <h1 class="h-display">Online<br>afspraak.</h1>
       <div class="hero__sub">
-        <p class="h-sub">Klanten vragen zelf een moment aan. Jij beslist, vanop je gsm, met &eacute;&eacute;n tik.</p>
-        <p class="body">Geen agenda die zichzelf volboekt: elke afspraak gaat eerst langs jou. Je klant weet altijd waar ze staat, en jij ziet alles op &eacute;&eacute;n plek. Hieronder zie je elke stap zoals ze er echt zal uitzien, van het formulier tot je overzicht.</p>
-      </div>
-
-      <div class="flow">
-        <a href="#aanvraag">
-          <span class="flow__n">01</span>
-          <h3>Klant vraagt aan</h3>
-          <p>Kiest behandeling, dag en uur op de website. Enkel momenten die vrij zijn en binnen je uren vallen.</p>
-        </a>
-        <a href="#mail-tim">
-          <span class="flow__n">02</span>
-          <h3>Jij krijgt een mail</h3>
-          <p>Met alle info en drie knoppen: bevestigen, ander moment voorstellen of weigeren.</p>
-        </a>
-        <a href="#mail-klant">
-          <span class="flow__n">03</span>
-          <h3>Klant krijgt een mail</h3>
-          <p>Een ontvangstbevestiging die duidelijk zegt: dit is nog geen afspraak. Plus een link om te wijzigen of te annuleren.</p>
-        </a>
-        <a href="#dashboard">
-          <span class="flow__n">04</span>
-          <h3>Jij houdt overzicht</h3>
-          <p>Een dashboard met elke afspraak en haar status. Ook daar kan je bevestigen, verleggen of annuleren.</p>
-        </a>
-      </div>
-
-      <div class="demo-bar" role="note">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Dit voorbeeld werkt echt: vul het formulier in en volg je aanvraag door alle stappen. Er wordt niets verstuurd.</span>
-        <button class="pill pill--sm pill--ghost" type="button" data-reset>Begin opnieuw</button>
+        <p class="h-sub">Klanten vragen een moment aan via de site. Jij bevestigt.</p>
+        <p class="body">Je klant kiest een behandeling, een dag en een uur. Jij krijgt een mail en beslist of het past. Pas als jij bevestigt, staat de afspraak vast. Alles staat samen in een overzicht.</p>
       </div>
     </section>
 
-    <!-- 01 Aanvraag -->
-    <section class="wrap sec" id="aanvraag" aria-labelledby="aanvraag-title">
+    <section class="wrap sec" id="aanvraag">
       <div class="sec__head">
-        <p class="who"><span class="dot"></span>01 · Wat je klant ziet op salondola.be</p>
-        <div class="sec__lead">
-          <h2 class="h-display" id="aanvraag-title">Aanvraag.</h2>
-          <p class="body">In de plaats van het huidige formulier. De klant kiest wat ze wil laten doen, de site rekent uit hoe lang dat duurt en toont enkel de momenten waarop dat nog past.</p>
-        </div>
+        <p class="who"><span class="dot"></span>Op de website</p>
+        <h2 class="h-display">Aanvraag.</h2>
       </div>
-
       <div class="book">
-        <form class="card" data-book novalidate>
-          <div data-book-form>
-            <div class="step">
-              <h3 class="step__t"><b>1</b>Wat mag het zijn?</h3>
-              <div class="pills" data-services></div>
-              <div class="field__err" data-err="dienst"></div>
-              <div data-ext-confirm hidden>
-                <label class="check">
-                  <input type="checkbox" name="geen_extensions_elders">
-                  <span class="check__box" aria-hidden="true"></span>
-                  <span>Ik heb geen extensions die elders geplaatst zijn.</span>
-                </label>
-                <div class="field__err" data-err="ext"></div>
-              </div>
-            </div>
-
-            <div class="step">
-              <h3 class="step__t"><b>2</b>Wanneer past het?</h3>
-              <div class="cal">
-                <div>
-                  <div class="cal__head">
-                    <p class="cal__month" data-cal-month></p>
-                    <div class="cal__nav">
-                      <button class="icon-btn" type="button" data-cal-prev aria-label="Vorige maand"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 2 4 7l5 5"/></svg></button>
-                      <button class="icon-btn" type="button" data-cal-next aria-label="Volgende maand"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m5 2 5 5-5 5"/></svg></button>
-                    </div>
-                  </div>
-                  <div class="cal__grid" data-cal role="grid" aria-label="Kies een dag"></div>
-                </div>
-                <div>
-                  <p class="slots__t" data-slots-title>Kies eerst een dag.</p>
-                  <div class="slots" data-slots role="group" aria-label="Kies een uur"></div>
-                </div>
-              </div>
-              <div class="field__err" data-err="moment"></div>
-            </div>
-
-            <div class="step">
-              <h3 class="step__t"><b>3</b>Wie ben je?</h3>
-              <div class="fields">
-                <div class="field">
-                  <label for="b-naam">Naam</label>
-                  <input id="b-naam" name="naam" autocomplete="name" required>
-                  <div class="field__err" data-err="naam"></div>
-                </div>
-                <div class="field">
-                  <label for="b-tel">Telefoon</label>
-                  <input id="b-tel" name="telefoon" type="tel" inputmode="tel" autocomplete="tel" required>
-                  <div class="field__err" data-err="telefoon"></div>
-                </div>
-                <div class="field full">
-                  <label for="b-mail">E-mail</label>
-                  <input id="b-mail" name="email" type="email" autocomplete="email" required>
-                  <div class="field__err" data-err="email"></div>
-                </div>
-                <div class="field full">
-                  <label for="b-msg">Bericht <span class="field__opt">optioneel</span></label>
-                  <textarea id="b-msg" name="bericht" rows="3" placeholder="Bijvoorbeeld: ik wil graag wat lichter voor de zomer"></textarea>
-                </div>
-                <div class="full">
-                  <label class="check">
-                    <input type="checkbox" name="nieuw">
-                    <span class="check__box" aria-hidden="true"></span>
-                    <span>Ik kom voor het eerst naar Salon Dola</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="step">
-              <button class="pill pill--solid pill--lg" type="submit">Verstuur aanvraag</button>
-            </div>
-          </div>
-
-          <div class="form-done" data-book-done hidden tabindex="-1">
-            <span class="dot" aria-hidden="true"></span>
-            <p class="h-sub">Bedankt, <span data-f="voornaam"></span>. Je aanvraag is bij Tim.</p>
-            <p class="body">Je krijgt zo meteen een mail met alles op een rij. Let op: dit is nog geen afspraak. Tim bevestigt persoonlijk, meestal dezelfde dag nog.</p>
+        <div class="card">
+          <div class="step">
+            <h3 class="step__t"><b>1</b>Wat mag het zijn?</h3>
             <div class="pills">
-              <a class="pill pill--solid" href="#mail-tim">Bekijk de mail aan Tim</a>
-              <button class="pill" type="button" data-book-again>Nog een aanvraag</button>
+              <label class="pill-check"><input type="checkbox" tabindex="-1"><span>Knippen</span></label>
+              <label class="pill-check"><input type="checkbox" checked tabindex="-1"><span>Kleuren</span></label>
+              <label class="pill-check"><input type="checkbox" checked tabindex="-1"><span>Brushing</span></label>
+              <label class="pill-check"><input type="checkbox" tabindex="-1"><span>Extensions</span></label>
             </div>
           </div>
-        </form>
-
+          <div class="step">
+            <h3 class="step__t"><b>2</b>Wanneer past het?</h3>
+            <div class="cal">
+              <div>
+                <div class="cal__head"><p class="cal__month">oktober 2026</p></div>
+                <div class="cal__grid"><span class="cal__dow">ma</span><span class="cal__dow">di</span><span class="cal__dow">wo</span><span class="cal__dow">do</span><span class="cal__dow">vr</span><span class="cal__dow">za</span><span class="cal__dow">zo</span><span class="cal__day is-empty"></span><span class="cal__day is-empty"></span><span class="cal__day is-empty"></span><button type="button" class="cal__day" disabled>1</button><button type="button" class="cal__day" disabled>2</button><button type="button" class="cal__day" disabled>3</button><button type="button" class="cal__day" disabled>4</button><button type="button" class="cal__day" disabled>5</button><button type="button" class="cal__day" disabled>6</button><button type="button" class="cal__day">7</button><button type="button" class="cal__day">8</button><button type="button" class="cal__day">9</button><button type="button" class="cal__day">10</button><button type="button" class="cal__day" disabled>11</button><button type="button" class="cal__day" disabled>12</button><button type="button" class="cal__day">13</button><button type="button" class="cal__day">14</button><button type="button" class="cal__day">15</button><button type="button" class="cal__day">16</button><button type="button" class="cal__day is-sel">17</button><button type="button" class="cal__day" disabled>18</button><button type="button" class="cal__day" disabled>19</button><button type="button" class="cal__day">20</button><button type="button" class="cal__day">21</button><button type="button" class="cal__day">22</button><button type="button" class="cal__day">23</button><button type="button" class="cal__day">24</button><button type="button" class="cal__day" disabled>25</button><button type="button" class="cal__day" disabled>26</button><button type="button" class="cal__day">27</button><button type="button" class="cal__day">28</button><button type="button" class="cal__day">29</button><button type="button" class="cal__day">30</button><button type="button" class="cal__day">31</button></div>
+              </div>
+              <div>
+                <p class="slots__t">zaterdag 17 oktober</p>
+                <div class="slots">
+                  <button class="slot" type="button" disabled>8.30</button>
+                  <button class="slot" type="button" disabled>9.00</button>
+                  <button class="slot" type="button">9.30</button>
+                  <button class="slot" type="button" aria-pressed="true">10.00</button>
+                  <button class="slot" type="button">10.30</button>
+                  <button class="slot" type="button">11.00</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <h3 class="step__t"><b>3</b>Wie ben je?</h3>
+            <div class="fields">
+              <div class="field"><label>Naam</label><input value="Lotte Van Damme" readonly></div>
+              <div class="field"><label>Telefoon</label><input value="0478 12 34 56" readonly></div>
+              <div class="field full"><label>E-mail</label><input value="lotte.vandamme@gmail.com" readonly></div>
+              <div class="field full"><label>Bericht <span class="field__opt">optioneel</span></label><textarea rows="2" readonly>Graag wat warmer van kleur.</textarea></div>
+            </div>
+          </div>
+          <div class="step"><button class="pill pill--solid pill--lg" type="button">Verstuur aanvraag</button></div>
+        </div>
         <aside class="book__aside">
           <div class="card sum">
             <p class="label">Jouw aanvraag</p>
             <dl>
-              <dt>Behandeling</dt><dd data-sum="dienst"></dd>
-              <dt>Duur</dt><dd data-sum="duur"></dd>
-              <dt>Dag</dt><dd data-sum="dag"></dd>
-              <dt>Uur</dt><dd data-sum="uur"></dd>
+              <dt>Behandeling</dt><dd>Kleuren + Brushing</dd>
+              <dt>Dag</dt><dd>zaterdag 17 oktober</dd>
+              <dt>Uur</dt><dd>10.00</dd>
             </dl>
-            <div class="notice"><span class="dot" aria-hidden="true"></span><span>Dit is een aanvraag, nog geen afspraak. Je afspraak staat pas vast als Tim ze bevestigt. Je krijgt daarover altijd een mail.</span></div>
+            <div class="notice"><span class="dot" aria-hidden="true"></span><span>Dit is een aanvraag, nog geen afspraak. Tim laat je weten of het past.</span></div>
           </div>
-          <p class="small" style="padding:0 .4rem">Opening, duur per behandeling en de vrije momenten zijn voorbeeldwaarden. Die stel je zelf in.</p>
         </aside>
       </div>
     </section>
 
-    <!-- 02 Mail aan Tim -->
-    <section class="wrap sec" id="mail-tim" aria-labelledby="mt-title">
+    <section class="wrap sec" id="mails">
       <div class="sec__head">
-        <p class="who"><span class="dot"></span>02 · Wat jij krijgt, binnen enkele seconden</p>
-        <div class="sec__lead">
-          <h2 class="h-display" id="mt-title">Mail aan Tim.</h2>
-          <p class="body">Alles wat je nodig hebt om te beslissen, zonder in te loggen. Tik op een knop in de mail en je ziet ernaast wat er gebeurt.</p>
-        </div>
+        <p class="who"><span class="dot"></span>Meteen na het versturen</p>
+        <h2 class="h-display">Mails.</h2>
       </div>
-      <div class="pair">
-        <div class="mail" data-mail="tim-nieuw"></div>
-        <div class="note">
-          <div class="phone-tabs" role="tablist" aria-label="Wat er gebeurt na je klik">
-            <button class="tab" type="button" role="tab" data-act-tab="bevestig" aria-selected="true">Bevestigen</button>
-            <button class="tab" type="button" role="tab" data-act-tab="voorstel" aria-selected="false">Ander moment</button>
-            <button class="tab" type="button" role="tab" data-act-tab="weiger" aria-selected="false">Weigeren</button>
+      <div class="pair pair--even">
+        <div>
+          <p class="label" style="margin-bottom:1rem">Naar de klant</p>
+          <div class="mail">
+            <div class="mail__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="mail__meta"><p class="mail__subj">We hebben je aanvraag goed ontvangen</p><p><b>Van</b> <span>Salon Dola</span></p><p><b>Aan</b> <span>Lotte Van Damme</span></p></div>
+            <div class="mail__canvas"><div class="em"><div class="em__top"><svg viewBox="55 210 247 69" aria-hidden="true"><g fill="currentColor"><path d="M62.52 276.5V267.65H79.97Q86.85 267.65 92.06 264.67Q97.28 261.70 100.20 256.40Q103.12 251.10 103.12 244.15Q103.12 237.29 100.16 232.04Q97.20 226.78 91.98 223.81Q86.76 220.84 79.97 220.84H62.57V212.0H80.22Q87.24 212.0 93.22 214.43Q99.20 216.86 103.66 221.23Q108.12 225.60 110.59 231.46Q113.07 237.32 113.07 244.25Q113.07 251.08 110.59 256.98Q108.12 262.88 103.70 267.25Q99.29 271.63 93.31 274.06Q87.33 276.5 80.40 276.5ZM56.0 276.5V212.0H65.68V276.5Z"/>
+<path d="M146.82 277.42Q139.93 277.42 133.97 274.85Q128.00 272.27 123.51 267.71Q119.03 263.15 116.51 257.11Q114.0 251.07 114.0 244.15Q114.0 237.22 116.51 231.23Q119.02 225.24 123.46 220.69Q127.91 216.14 133.83 213.60Q139.74 211.07 146.64 211.07Q153.53 211.07 159.46 213.60Q165.38 216.14 169.86 220.69Q174.34 225.24 176.86 231.28Q179.37 237.32 179.37 244.25Q179.37 251.16 176.86 257.20Q174.35 263.24 169.91 267.76Q165.46 272.27 159.55 274.85Q153.64 277.42 146.82 277.42ZM146.64 268.15Q153.37 268.15 158.48 265.08Q163.58 262.00 166.51 256.59Q169.43 251.19 169.43 244.15Q169.43 238.92 167.75 234.57Q166.07 230.23 163.02 227.02Q159.96 223.81 155.82 222.07Q151.67 220.34 146.64 220.34Q139.99 220.34 134.88 223.37Q129.77 226.40 126.86 231.76Q123.94 237.12 123.94 244.15Q123.94 249.38 125.62 253.82Q127.30 258.25 130.31 261.43Q133.32 264.60 137.51 266.38Q141.70 268.15 146.64 268.15Z"/>
+<path d="M185.0 276.5V212.0H194.68V276.5ZM191.60 276.5V267.66H225.77V276.5Z"/>
+<path d="M229.0 276.5 255.50 212.0H262.32L288.64 276.5H278.19L257.03 223.09H260.61L239.27 276.5ZM241.82 262.98V254.55H275.90V262.98Z"/>
+<path d="M294.37 277.42Q291.58 277.42 289.79 275.53Q288.0 273.65 288.0 270.95Q288.0 268.17 289.79 266.33Q291.58 264.50 294.37 264.50Q297.16 264.50 298.95 266.33Q300.74 268.17 300.74 270.95Q300.74 273.65 298.95 275.53Q297.16 277.42 294.37 277.42Z"/></g></svg><span>Salon Dola</span></div><div class="em__in">
+              <h4>Dag Lotte,</h4>
+              <p>Bedankt voor je aanvraag. Hieronder vind je alles nog eens op een rij.</p>
+              <div class="em__box"><table>
+                <tr><th>Behandeling</th><td>Kleuren + Brushing</td></tr>
+                <tr><th>Wanneer</th><td>zaterdag 17 oktober, 10.00</td></tr>
+              </table></div>
+              <div class="em__alert"><b style="font-weight:500">Let op: dit is nog geen afspraak.</b><br>Je afspraak staat pas vast als ik ze bevestig. Je krijgt daarover nog een mail.</div>
+              <div class="em__btns"><span class="em__btn">Afspraak wijzigen of annuleren</span></div>
+              <p style="margin-top:22px">Tot binnenkort,<br>Tim</p>
+            </div><div class="em__foot">Salon Dola · Spelonckvaart 12, 9180 Moerbeke · 09 223 25 65</div></div></div>
           </div>
-          <div class="phone"><div class="phone__screen" data-phone-tim></div></div>
+        </div>
+        <div>
+          <p class="label" style="margin-bottom:1rem">Naar jou</p>
+          <div class="mail">
+            <div class="mail__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="mail__meta"><p class="mail__subj">Nieuwe aanvraag: Lotte, za 17 okt om 10.00</p><p><b>Van</b> <span>Salon Dola</span></p><p><b>Aan</b> <span>Tim</span></p></div>
+            <div class="mail__canvas"><div class="em"><div class="em__top"><svg viewBox="55 210 247 69" aria-hidden="true"><g fill="currentColor"><path d="M62.52 276.5V267.65H79.97Q86.85 267.65 92.06 264.67Q97.28 261.70 100.20 256.40Q103.12 251.10 103.12 244.15Q103.12 237.29 100.16 232.04Q97.20 226.78 91.98 223.81Q86.76 220.84 79.97 220.84H62.57V212.0H80.22Q87.24 212.0 93.22 214.43Q99.20 216.86 103.66 221.23Q108.12 225.60 110.59 231.46Q113.07 237.32 113.07 244.25Q113.07 251.08 110.59 256.98Q108.12 262.88 103.70 267.25Q99.29 271.63 93.31 274.06Q87.33 276.5 80.40 276.5ZM56.0 276.5V212.0H65.68V276.5Z"/>
+<path d="M146.82 277.42Q139.93 277.42 133.97 274.85Q128.00 272.27 123.51 267.71Q119.03 263.15 116.51 257.11Q114.0 251.07 114.0 244.15Q114.0 237.22 116.51 231.23Q119.02 225.24 123.46 220.69Q127.91 216.14 133.83 213.60Q139.74 211.07 146.64 211.07Q153.53 211.07 159.46 213.60Q165.38 216.14 169.86 220.69Q174.34 225.24 176.86 231.28Q179.37 237.32 179.37 244.25Q179.37 251.16 176.86 257.20Q174.35 263.24 169.91 267.76Q165.46 272.27 159.55 274.85Q153.64 277.42 146.82 277.42ZM146.64 268.15Q153.37 268.15 158.48 265.08Q163.58 262.00 166.51 256.59Q169.43 251.19 169.43 244.15Q169.43 238.92 167.75 234.57Q166.07 230.23 163.02 227.02Q159.96 223.81 155.82 222.07Q151.67 220.34 146.64 220.34Q139.99 220.34 134.88 223.37Q129.77 226.40 126.86 231.76Q123.94 237.12 123.94 244.15Q123.94 249.38 125.62 253.82Q127.30 258.25 130.31 261.43Q133.32 264.60 137.51 266.38Q141.70 268.15 146.64 268.15Z"/>
+<path d="M185.0 276.5V212.0H194.68V276.5ZM191.60 276.5V267.66H225.77V276.5Z"/>
+<path d="M229.0 276.5 255.50 212.0H262.32L288.64 276.5H278.19L257.03 223.09H260.61L239.27 276.5ZM241.82 262.98V254.55H275.90V262.98Z"/>
+<path d="M294.37 277.42Q291.58 277.42 289.79 275.53Q288.0 273.65 288.0 270.95Q288.0 268.17 289.79 266.33Q291.58 264.50 294.37 264.50Q297.16 264.50 298.95 266.33Q300.74 268.17 300.74 270.95Q300.74 273.65 298.95 275.53Q297.16 277.42 294.37 277.42Z"/></g></svg><span>Salon Dola</span></div><div class="em__in">
+              <h4>Nieuwe aanvraag van Lotte.</h4>
+              <div class="em__box"><table>
+                <tr><th>Behandeling</th><td>Kleuren + Brushing</td></tr>
+                <tr><th>Wanneer</th><td>zaterdag 17 oktober, 10.00</td></tr>
+                <tr><th>Naam</th><td>Lotte Van Damme</td></tr>
+                <tr><th>Telefoon</th><td>0478 12 34 56</td></tr>
+                <tr><th>Bericht</th><td>Graag wat warmer van kleur.</td></tr>
+              </table></div>
+              <div class="em__btns">
+                <span class="em__btn">Bevestigen</span>
+                <span class="em__btn em__btn--line">Ander moment</span>
+                <span class="em__btn em__btn--muted">Annuleren</span>
+              </div>
+            </div><div class="em__foot">Salon Dola · afsprakenoverzicht</div></div></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 03 Mail aan klant -->
-    <section class="wrap sec" id="mail-klant" aria-labelledby="mk-title">
+    <section class="wrap sec" id="dashboard">
       <div class="sec__head">
-        <p class="who"><span class="dot"></span>03 · Wat je klant krijgt, meteen na het versturen</p>
-        <div class="sec__lead">
-          <h2 class="h-display" id="mk-title">Mail aan klant.</h2>
-          <p class="body">Een duidelijke ontvangstbevestiging. Ze weet wat ze gevraagd heeft, en dat het pas vaststaat als jij het bevestigt. Via de knop kan ze zelf wijzigen of annuleren.</p>
-        </div>
+        <p class="who"><span class="dot"></span>Voor jou</p>
+        <h2 class="h-display">Overzicht.</h2>
       </div>
-      <div class="pair">
-        <div class="mail" data-mail="klant-ontvangen"></div>
-        <div class="note">
-          <p class="label" style="text-align:center">Na een tik op de knop</p>
-          <div class="phone"><div class="phone__screen" data-phone-klant></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 Opvolging -->
-    <section class="wrap sec" id="opvolging" aria-labelledby="op-title">
-      <div class="sec__head">
-        <p class="who"><span class="dot"></span>04 · Alle mails die daarna kunnen volgen</p>
-        <div class="sec__lead">
-          <h2 class="h-display" id="op-title">Opvolging.</h2>
-          <p class="body">Elke beslissing, van jou of van je klant, stuurt de juiste mail naar de juiste persoon. De mail die bij jouw laatste actie in dit voorbeeld hoort, krijgt een groen bolletje.</p>
-        </div>
-      </div>
-      <div class="tabs" role="tablist" aria-label="Opvolgmails" data-followup-tabs></div>
-      <div class="pair">
-        <div class="mail" data-mail="followup"></div>
-        <div class="note card" data-followup-note></div>
-      </div>
-    </section>
-
-    <!-- 05 Dashboard -->
-    <section class="wrap sec" id="dashboard" aria-labelledby="db-title">
-      <div class="sec__head">
-        <p class="who"><span class="dot"></span>05 · Jouw overzicht, op computer en gsm</p>
-        <div class="sec__lead">
-          <h2 class="h-display" id="db-title">Dashboard.</h2>
-          <p class="body">Elke afspraak met haar status en geschiedenis. Klik een afspraak aan om ze te bekijken, te bevestigen, te verleggen of te annuleren. Je aanvraag van hierboven staat er ook tussen.</p>
-        </div>
-      </div>
-
       <div class="app">
         <div class="app__top">
           <span class="mark"><svg viewBox="55 210 247 69" aria-hidden="true"><g fill="currentColor"><path d="M62.52 276.5V267.65H79.97Q86.85 267.65 92.06 264.67Q97.28 261.70 100.20 256.40Q103.12 251.10 103.12 244.15Q103.12 237.29 100.16 232.04Q97.20 226.78 91.98 223.81Q86.76 220.84 79.97 220.84H62.57V212.0H80.22Q87.24 212.0 93.22 214.43Q99.20 216.86 103.66 221.23Q108.12 225.60 110.59 231.46Q113.07 237.32 113.07 244.25Q113.07 251.08 110.59 256.98Q108.12 262.88 103.70 267.25Q99.29 271.63 93.31 274.06Q87.33 276.5 80.40 276.5ZM56.0 276.5V212.0H65.68V276.5Z"/>
@@ -587,728 +508,47 @@
 <path d="M294.37 277.42Q291.58 277.42 289.79 275.53Q288.0 273.65 288.0 270.95Q288.0 268.17 289.79 266.33Q291.58 264.50 294.37 264.50Q297.16 264.50 298.95 266.33Q300.74 268.17 300.74 270.95Q300.74 273.65 298.95 275.53Q297.16 277.42 294.37 277.42Z"/></g></svg></span>
           <h3>Afspraken</h3>
           <span class="grow"></span>
-          <span class="app__url">salondola.be/beheer</span>
-          <button class="pill pill--sm pill--ghost" type="button" data-block>Moment blokkeren</button>
         </div>
-        <div class="stats" data-stats></div>
+        <div class="stats">
+          <div class="stat is-hot"><b>2</b><span>Nieuw</span></div>
+          <div class="stat"><b>9</b><span>Bevestigd deze week</span></div>
+          <div class="stat"><b>1</b><span>Geannuleerd door klant</span></div>
+          <div class="stat"><b>1</b><span>Geannuleerd door salon</span></div>
+        </div>
         <div class="toolbar">
-          <div class="tabs" role="tablist" aria-label="Weergave">
-            <button class="tab" type="button" role="tab" data-view="lijst" aria-selected="true">Lijst</button>
-            <button class="tab" type="button" role="tab" data-view="week" aria-selected="false">Week</button>
+          <div class="tabs">
+            <span class="tab" aria-selected="true">Alles</span>
+            <span class="tab">Nieuw</span>
+            <span class="tab">Bevestigd</span>
+            <span class="tab">Geannuleerd</span>
           </div>
-          <div class="tabs" role="tablist" aria-label="Filter op status" data-filters></div>
-          <label class="search"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="6" cy="6" r="4.5"/><path d="m9.5 9.5 3 3"/></svg><input type="search" placeholder="Zoek op naam of telefoon" data-search aria-label="Zoek"></label>
         </div>
-        <div class="dash">
-          <div data-list-wrap>
-            <div class="list" data-list></div>
-            <div data-week-wrap hidden>
-              <div class="week__nav"><button class="icon-btn" type="button" data-week-prev aria-label="Vorige week"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 2 4 7l5 5"/></svg></button><span data-week-label></span><button class="icon-btn" type="button" data-week-next aria-label="Volgende week"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m5 2 5 5-5 5"/></svg></button></div>
-              <div class="week__wrap"><div class="week" data-week></div></div>
-            </div>
-          </div>
-          <aside class="detail" data-detail aria-live="polite"></aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- 06 Afspraken -->
-    <section class="wrap sec" id="afspraken" aria-labelledby="af-title">
-      <div class="sec__head">
-        <p class="who"><span class="dot"></span>06 · Wat het voor jou betekent</p>
-        <div class="sec__lead">
-          <h2 class="h-display" id="af-title">De spelregels.</h2>
-          <p class="body">Zo blijft het eenvoudig, voor jou en voor je klanten.</p>
+        <div class="list list--static">
+          <div class="list__day"><span>Woensdag 14 oktober</span></div>
+          <div class="row"><span class="row__time">9.30</span><span><span class="row__name">Sofie Martens</span><br><span class="row__what">Knippen</span></span><span class="row__end"><span class="chip st-bevestigd">Bevestigd</span><span class="row__acts"><span class="pill pill--sm pill--ghost">Wijzigen</span><span class="pill pill--sm pill--ghost">Annuleren</span></span></span></div>
+          <div class="row"><span class="row__time">11.00</span><span><span class="row__name">Ellen De Smet</span><br><span class="row__what">Kleuren</span></span><span class="row__end"><span class="chip st-bevestigd">Bevestigd</span><span class="row__acts"><span class="pill pill--sm pill--ghost">Wijzigen</span><span class="pill pill--sm pill--ghost">Annuleren</span></span></span></div>
+          <div class="row"><span class="row__time">14.00</span><span><span class="row__name">Nathalie Claeys</span><br><span class="row__what">Brushing</span></span><span class="row__end"><span class="chip st-geannuleerd_klant">Geannuleerd door klant</span></span></div>
+          <div class="list__day"><span>Vrijdag 16 oktober</span></div>
+          <div class="row"><span class="row__time">10.00</span><span><span class="row__name">Ine Verhaeghe</span><br><span class="row__what">Extensions</span></span><span class="row__end"><span class="chip st-bevestigd">Bevestigd</span><span class="row__acts"><span class="pill pill--sm pill--ghost">Wijzigen</span><span class="pill pill--sm pill--ghost">Annuleren</span></span></span></div>
+          <div class="row"><span class="row__time">15.30</span><span><span class="row__name">Charlotte Pieters</span><br><span class="row__what">Knippen</span></span><span class="row__end"><span class="chip st-nieuw">Nieuw</span><span class="row__acts"><span class="pill pill--sm pill--solid">Bevestigen</span><span class="pill pill--sm pill--ghost">Ander moment</span><span class="pill pill--sm pill--ghost">Annuleren</span></span></span></div>
+          <div class="list__day"><span>Zaterdag 17 oktober</span></div>
+          <div class="row"><span class="row__time">10.00</span><span><span class="row__name">Lotte Van Damme</span><br><span class="row__what">Kleuren + Brushing</span></span><span class="row__end"><span class="chip st-nieuw">Nieuw</span><span class="row__acts"><span class="pill pill--sm pill--solid">Bevestigen</span><span class="pill pill--sm pill--ghost">Ander moment</span><span class="pill pill--sm pill--ghost">Annuleren</span></span></span></div>
+          <div class="row"><span class="row__time">12.30</span><span><span class="row__name">Hilde Van Hecke</span><br><span class="row__what">Knippen</span></span><span class="row__end"><span class="chip st-geannuleerd_salon">Geannuleerd door salon</span></span></div>
         </div>
       </div>
-
-      <div class="grid3">
-        <div>
-          <h3>Niets zonder jouw ok.</h3>
-          <p>Een aanvraag is nooit vanzelf een afspraak. Je beslist zelf, per klant. Wie niet bevestigd is, staat niet in je agenda.</p>
-        </div>
-        <div>
-          <h3>Geen dubbele boekingen.</h3>
-          <p>Een moment dat bevestigd is of al aangevraagd, verdwijnt van de site. Vakantie of een vrije namiddag blokkeer je met &eacute;&eacute;n klik.</p>
-        </div>
-        <div>
-          <h3>Minder lege stoelen.</h3>
-          <p>De dag voor de afspraak krijgt je klant een herinnering, met een link om tijdig te annuleren. Zo hoor je het op tijd.</p>
-        </div>
-        <div>
-          <h3>Alles vanuit je mail.</h3>
-          <p>Bevestigen, verleggen of weigeren doe je met een tik in de mail. Het dashboard is er voor het overzicht, niet omdat het moet.</p>
-        </div>
-        <div>
-          <h3>Bellen blijft kunnen.</h3>
-          <p>Wie belt, zet je zelf in het dashboard. Dan staat alles op &eacute;&eacute;n plek en blijft dat moment ook online bezet.</p>
-        </div>
-        <div>
-          <h3>Niets blijft hangen.</h3>
-          <p>Reageer je niet binnen twee dagen, dan krijg je een herinnering. Na drie dagen vervalt de aanvraag en krijgt de klant een nette mail.</p>
-        </div>
-      </div>
-
-      <div class="sec__head" style="margin-top:var(--section-y)">
-        <p class="label">Alle statussen</p>
-      </div>
-      <ul class="states" data-states></ul>
-
-      <div class="sec__head" style="margin-top:var(--section-y)">
-        <p class="label">Nog samen te beslissen</p>
-      </div>
-      <ol class="todo">
-        <li><span>Openingsuren en vaste vrije dagen<small>In dit voorbeeld: dinsdag tot vrijdag 9 tot 18 uur, zaterdag 8.30 tot 14 uur.</small></span></li>
-        <li><span>Duur per behandeling<small>Hier: knippen 45 minuten, kleuren 2 uur, brushing 45 minuten, extensions 3 uur. Combinaties tellen op.</small></span></li>
-        <li><span>Tot wanneer een klant zelf mag annuleren<small>Voorstel: tot 24 uur vooraf. Daarna toont de link enkel je telefoonnummer.</small></span></li>
-        <li><span>Hoe ver vooruit je klanten mogen boeken<small>Voorstel: vanaf morgen tot acht weken vooruit.</small></span></li>
-        <li><span>Op welk adres je de aanvragen wil ontvangen<small>En of er een tweede adres in kopie mag, bijvoorbeeld bij afwezigheid.</small></span></li>
-      </ol>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer__row">
       <a class="pill" href="/salon-dola/">Terug naar de site</a>
-      <p class="small">Voorbeeld door 2X8. Namen, uren en afspraken zijn fictief.</p>
     </div>
     <svg class="footer__mark" viewBox="55 210 247 69" role="img" aria-label="Dola."><g fill="currentColor"><path d="M62.52 276.5V267.65H79.97Q86.85 267.65 92.06 264.67Q97.28 261.70 100.20 256.40Q103.12 251.10 103.12 244.15Q103.12 237.29 100.16 232.04Q97.20 226.78 91.98 223.81Q86.76 220.84 79.97 220.84H62.57V212.0H80.22Q87.24 212.0 93.22 214.43Q99.20 216.86 103.66 221.23Q108.12 225.60 110.59 231.46Q113.07 237.32 113.07 244.25Q113.07 251.08 110.59 256.98Q108.12 262.88 103.70 267.25Q99.29 271.63 93.31 274.06Q87.33 276.5 80.40 276.5ZM56.0 276.5V212.0H65.68V276.5Z"/>
 <path d="M146.82 277.42Q139.93 277.42 133.97 274.85Q128.00 272.27 123.51 267.71Q119.03 263.15 116.51 257.11Q114.0 251.07 114.0 244.15Q114.0 237.22 116.51 231.23Q119.02 225.24 123.46 220.69Q127.91 216.14 133.83 213.60Q139.74 211.07 146.64 211.07Q153.53 211.07 159.46 213.60Q165.38 216.14 169.86 220.69Q174.34 225.24 176.86 231.28Q179.37 237.32 179.37 244.25Q179.37 251.16 176.86 257.20Q174.35 263.24 169.91 267.76Q165.46 272.27 159.55 274.85Q153.64 277.42 146.82 277.42ZM146.64 268.15Q153.37 268.15 158.48 265.08Q163.58 262.00 166.51 256.59Q169.43 251.19 169.43 244.15Q169.43 238.92 167.75 234.57Q166.07 230.23 163.02 227.02Q159.96 223.81 155.82 222.07Q151.67 220.34 146.64 220.34Q139.99 220.34 134.88 223.37Q129.77 226.40 126.86 231.76Q123.94 237.12 123.94 244.15Q123.94 249.38 125.62 253.82Q127.30 258.25 130.31 261.43Q133.32 264.60 137.51 266.38Q141.70 268.15 146.64 268.15Z"/>
 <path d="M185.0 276.5V212.0H194.68V276.5ZM191.60 276.5V267.66H225.77V276.5Z"/>
 <path d="M229.0 276.5 255.50 212.0H262.32L288.64 276.5H278.19L257.03 223.09H260.61L239.27 276.5ZM241.82 262.98V254.55H275.90V262.98Z"/>
 <path d="M294.37 277.42Q291.58 277.42 289.79 275.53Q288.0 273.65 288.0 270.95Q288.0 268.17 289.79 266.33Q291.58 264.50 294.37 264.50Q297.16 264.50 298.95 266.33Q300.74 268.17 300.74 270.95Q300.74 273.65 298.95 275.53Q297.16 277.42 294.37 277.42Z"/></g></svg>
-    <p class="footer__legal">© Salon Dola <span aria-hidden="true">·</span> Boekingsmodule door 2X8</p>
+    <p class="footer__legal">© Salon Dola <span aria-hidden="true">·</span> Website door 2X8</p>
   </footer>
-
-  <div class="toast" role="status" aria-live="polite" data-toast></div>
-
-<script>
-(() => {
-  'use strict';
-
-  /* ---------- Instellingen (in het echte systeem: WordPress-opties) ---------- */
-  const DIENSTEN = [
-    { id: 'knippen', naam: 'Knippen', min: 45 },
-    { id: 'kleuren', naam: 'Kleuren', min: 120 },
-    { id: 'brushing', naam: 'Brushing', min: 45 },
-    { id: 'extensions', naam: 'Extensions', min: 180 },
-  ];
-  // 0 = zondag. [open, sluit] in minuten.
-  const UREN = { 2: [540, 1080], 3: [540, 1080], 4: [540, 1080], 5: [540, 1080], 6: [510, 840] };
-  const STAP = 30;            // elke 30 minuten een startmoment
-  const MAX_DAGEN = 56;       // acht weken vooruit
-  const ANNULEER_UUR = 24;    // klant mag zelf annuleren tot 24 uur vooraf
-
-  const STATUS = {
-    nieuw:              { l: 'Nieuw',                  uit: 'Wacht op jouw beslissing. Het moment is voorlopig vastgehouden, zodat niemand anders het kan aanvragen.' },
-    voorstel:           { l: 'Ander moment voorgesteld', uit: 'Je stelde een ander moment voor. Wacht op het antwoord van de klant.' },
-    bevestigd:          { l: 'Bevestigd',              uit: 'De afspraak staat vast. De klant kreeg een bevestiging met agenda-bestand.' },
-    geweigerd:          { l: 'Geweigerd',              uit: 'Je kon de aanvraag niet inplannen. De klant kreeg een vriendelijke mail.' },
-    geannuleerd_klant:  { l: 'Geannuleerd door klant', uit: 'De klant annuleerde zelf via de link. Jij kreeg daar meteen een mail van.' },
-    geannuleerd_salon:  { l: 'Geannuleerd door salon', uit: 'Jij annuleerde een bevestigde afspraak, bijvoorbeeld bij ziekte.' },
-    verlopen:           { l: 'Verlopen',               uit: 'Niemand reageerde op tijd. Het moment komt weer vrij.' },
-    afgewerkt:          { l: 'Afgewerkt',              uit: 'De afspraak ligt achter je. Blijft bewaard voor je historiek.' },
-  };
-
-  /* ---------- Helpers ---------- */
-  const $ = (s, el = document) => el.querySelector(s);
-  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const DAG = ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'];
-  const DAGL = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'];
-  const MND = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
-  const MNDL = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
-  const pad = n => String(n).padStart(2, '0');
-  const iso = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-  const fromIso = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
-  const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
-  const hm = m => `${Math.floor(m / 60)}.${pad(m % 60)}`;
-  const hmc = m => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
-  const kort = s => { const d = fromIso(s); return `${DAG[d.getDay()]} ${d.getDate()} ${MND[d.getMonth()]}`; };
-  const lang = s => { const d = fromIso(s); return `${DAGL[d.getDay()]} ${d.getDate()} ${MNDL[d.getMonth()]}`; };
-  const duurTxt = m => m < 60 ? `${m} minuten` : (m % 60 ? `${Math.floor(m / 60)} uur ${m % 60}` : `${m / 60} uur`);
-  const totaal = ids => ids.reduce((s, id) => s + (DIENSTEN.find(d => d.id === id)?.min || 60), 0);
-  const dnaam = ids => ids.map(id => DIENSTEN.find(d => d.id === id)?.naam || id).join(' + ');
-  const tok = n => { const c = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789'; let s = ''; for (let i = 0; i < n; i++) s += c[Math.floor(Math.random() * c.length)]; return s; };
-  const ref = id => `D-${String(id).padStart(4, '0')}`;
-  const nu = () => new Date();
-  const stamp = d => `${d.getDate()} ${MND[d.getMonth()]} ${hmc(d.getHours() * 60 + d.getMinutes())}`;
-  const voornaam = n => String(n || '').trim().split(/\s+/)[0] || '';
-
-  const VANDAAG = new Date(); VANDAAG.setHours(0, 0, 0, 0);
-  const VANDAAG_ISO = iso(VANDAAG);
-  const MARK = document.querySelector('.nav__mark').innerHTML;
-
-  /* ---------- Data: voorbeeldafspraken rond vandaag ---------- */
-  const NAMEN = ['Sofie Martens', 'Ellen De Smet', 'Nathalie Claeys', 'Ine Verhaeghe', 'Charlotte Pieters', 'Hilde Van Hecke', 'Lien De Wilde', 'Kelly Goossens', 'Marie Vercruysse', 'An Bogaert', 'Femke Mortier', 'Griet De Paepe', 'Julie Heyerick', 'Katrien Lippens', 'Elise Standaert', 'Joke Van de Velde'];
-  function openDag(d) { return !!UREN[d.getDay()]; }
-  function seed() {
-    const lijst = []; let id = 1040, n = 0;
-    const plan = [
-      // [dag-offset, startmin, diensten, status]
-      [-6, 600, ['kleuren'], 'afgewerkt'], [-4, 570, ['knippen', 'brushing'], 'afgewerkt'], [-3, 840, ['extensions'], 'afgewerkt'],
-      [-2, 660, ['knippen'], 'geannuleerd_klant'], [-1, 540, ['kleuren', 'knippen'], 'afgewerkt'],
-      [0, 600, ['brushing'], 'bevestigd'], [0, 690, ['kleuren'], 'bevestigd'], [0, 900, ['knippen'], 'bevestigd'],
-      [1, 540, ['extensions'], 'bevestigd'], [1, 840, ['knippen'], 'nieuw'],
-      [2, 600, ['kleuren', 'brushing'], 'bevestigd'], [2, 900, ['knippen'], 'voorstel'],
-      [3, 570, ['brushing'], 'nieuw'], [3, 690, ['knippen'], 'geannuleerd_salon'], [3, 780, ['kleuren'], 'bevestigd'],
-      [4, 510, ['knippen', 'brushing'], 'bevestigd'], [4, 630, ['kleuren'], 'bevestigd'],
-      [7, 600, ['extensions'], 'bevestigd'], [8, 660, ['knippen'], 'geweigerd'], [8, 900, ['kleuren'], 'nieuw'],
-      [9, 570, ['knippen'], 'bevestigd'], [10, 600, ['brushing'], 'verlopen'], [11, 540, ['kleuren', 'knippen'], 'bevestigd'],
-      [14, 600, ['knippen'], 'bevestigd'], [16, 780, ['kleuren'], 'bevestigd'],
-    ];
-    // schuif elke offset naar de eerstvolgende open dag, zodat de demo op elke datum klopt
-    for (const [off, start, diensten, status] of plan) {
-      let d = addDays(VANDAAG, off), guard = 0;
-      while (!openDag(d) && guard++ < 7) d = addDays(d, off < 0 ? -1 : 1);
-      const [, sluit] = UREN[d.getDay()];
-      const s = Math.min(start, sluit - totaal(diensten));
-      const naam = NAMEN[n++ % NAMEN.length];
-      const aangevraagd = addDays(d, -(3 + (n % 9)));
-      const b = mk({ id: id++, naam, telefoon: `04${70 + n} ${pad(10 + n * 3)} ${pad(20 + n * 2)} ${pad(30 + n)}`, email: naam.toLowerCase().replace(/ /g, '.').replace(/[^a-z.]/g, '') + '@gmail.com', diensten, datum: iso(d), start: s, status, nieuw: n % 4 === 0, bron: n % 5 === 0 ? 'telefoon' : 'website' });
-      b.log = [{ t: aangevraagd, m: b.bron === 'telefoon' ? 'Ingegeven door Tim (telefonisch)' : 'Aanvraag via de website' }];
-      if (status !== 'nieuw' && status !== 'verlopen') b.log.push({ t: addDays(aangevraagd, 0.2), m: status === 'geweigerd' ? 'Geweigerd door Tim' : status === 'voorstel' ? 'Ander moment voorgesteld door Tim' : 'Bevestigd door Tim' });
-      if (status === 'geannuleerd_klant') b.log.push({ t: addDays(d, -1.3), m: 'Geannuleerd door klant via link' });
-      if (status === 'geannuleerd_salon') b.log.push({ t: addDays(d, -1.5), m: 'Geannuleerd door Tim: ziek' });
-      if (status === 'verlopen') b.log.push({ t: addDays(aangevraagd, 3), m: 'Verlopen: geen reactie binnen 3 dagen' });
-      if (status === 'voorstel') { b.voorstel = { datum: iso(nextOpen(addDays(d, 1))), start: 600 }; }
-      lijst.push(b);
-    }
-    return lijst;
-  }
-  function nextOpen(d) { let x = new Date(d), g = 0; while (!openDag(x) && g++ < 7) x = addDays(x, 1); return x; }
-  function mk(o) { return Object.assign({ bericht: '', klantToken: tok(24), log: [], voorstel: null, demo: false }, o); }
-
-  const BEZET = ['nieuw', 'voorstel', 'bevestigd'];
-  function bezet(datum, zonder) {
-    return state.lijst.filter(b => b !== zonder && b.datum === datum && BEZET.includes(b.status)).map(b => [b.start, b.start + totaal(b.diensten)])
-      .concat(state.blok.filter(x => x.datum === datum).map(x => [x.van, x.tot]));
-  }
-  function slotsVoor(datum, minuten, zonder) {
-    const d = fromIso(datum), u = UREN[d.getDay()]; if (!u) return [];
-    const bz = bezet(datum, zonder), out = [];
-    const nuMin = datum === VANDAAG_ISO ? nu().getHours() * 60 + nu().getMinutes() + 120 : -1;
-    for (let s = u[0]; s + minuten <= u[1]; s += STAP) {
-      const vrij = s > nuMin && !bz.some(([a, b]) => s < b && s + minuten > a);
-      out.push({ s, vrij });
-    }
-    return out;
-  }
-  function eersteVrije(minuten, vanaf, n = 3, zonder) {
-    const out = []; let d = new Date(vanaf);
-    for (let i = 0; i < 40 && out.length < n; i++, d = addDays(d, 1)) {
-      const s = slotsVoor(iso(d), minuten, zonder).filter(x => x.vrij);
-      if (s.length) out.push({ datum: iso(d), start: s[Math.min(s.length - 1, (i * 3) % s.length)].s });
-    }
-    return out;
-  }
-
-  /* ---------- State ---------- */
-  let state;
-  function demoBoeking() {
-    const d = eersteVrije(totaal(['kleuren', 'brushing']), addDays(VANDAAG, 3), 1)[0] || { datum: iso(addDays(VANDAAG, 3)), start: 600 };
-    const b = mk({ id: 1071, naam: 'Lotte Van Damme', telefoon: '0478 12 34 56', email: 'lotte.vandamme@gmail.com', diensten: ['kleuren', 'brushing'], datum: d.datum, start: d.start, status: 'nieuw', nieuw: true, bron: 'website', bericht: 'Graag wat warmer van kleur, ik heb een trouwfeest de week erna.', demo: true });
-    b.log = [{ t: nu(), m: 'Aanvraag via de website' }];
-    return b;
-  }
-  function reset() {
-    state = { lijst: [], blok: [], actie: 'bevestig', followup: 'bevestigd', live: null, sel: null, filter: 'alle', view: 'lijst', zoek: '', weekStart: null, timDone: null, klantDone: null, klantStap: 'start' };
-    state.lijst = seed();
-    state.demo = demoBoeking();
-    state.lijst.push(state.demo);
-    state.sel = state.demo.id;
-  }
-  reset();
-  const D = () => state.demo;
-
-  /* ---------- 01 Formulier ---------- */
-  const form = $('[data-book]');
-  const f = { diensten: [], datum: null, start: null, maand: new Date(VANDAAG.getFullYear(), VANDAAG.getMonth(), 1) };
-
-  $('[data-services]').innerHTML = DIENSTEN.map(d => `<label class="pill-check"><input type="checkbox" name="dienst" value="${d.id}"><span>${d.naam} <small>${duurTxt(d.min).replace(' minuten', ' min')}</small></span></label>`).join('');
-  $('[data-services]').addEventListener('change', () => {
-    f.diensten = $$('[name=dienst]:checked').map(i => i.value);
-    $('[data-ext-confirm]').hidden = !f.diensten.includes('extensions');
-    if (f.start != null && !slotsVoor(f.datum, totaal(f.diensten)).some(x => x.s === f.start && x.vrij)) f.start = null;
-    setErr('dienst', ''); renderCal(); renderSlots(); renderSum();
-  });
-
-  function dagStatus(d) {
-    if (d < addDays(VANDAAG, 1) || d > addDays(VANDAAG, MAX_DAGEN) || !openDag(d)) return 'dicht';
-    const m = f.diensten.length ? totaal(f.diensten) : 45;
-    return slotsVoor(iso(d), m).some(x => x.vrij) ? 'open' : 'vol';
-  }
-  function renderCal() {
-    const m = f.maand, y = m.getFullYear(), mo = m.getMonth();
-    $('[data-cal-month]').textContent = `${MNDL[mo]} ${y}`;
-    const first = (new Date(y, mo, 1).getDay() + 6) % 7, days = new Date(y, mo + 1, 0).getDate();
-    let h = ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo'].map(x => `<span class="cal__dow" aria-hidden="true">${x}</span>`).join('');
-    for (let i = 0; i < first; i++) h += '<span class="cal__day is-empty"></span>';
-    for (let i = 1; i <= days; i++) {
-      const d = new Date(y, mo, i), s = iso(d), st = dagStatus(d);
-      const cls = ['cal__day', s === VANDAAG_ISO && 'is-today', s === f.datum && 'is-sel', st === 'vol' && 'is-full'].filter(Boolean).join(' ');
-      const lbl = `${lang(s)}${st === 'dicht' ? ', niet beschikbaar' : st === 'vol' ? ', volzet' : ''}`;
-      h += `<button type="button" class="${cls}" data-day="${s}" ${st !== 'open' ? 'disabled' : ''} aria-label="${lbl}" aria-pressed="${s === f.datum}">${i}</button>`;
-    }
-    $('[data-cal]').innerHTML = h;
-    $('[data-cal-prev]').disabled = y === VANDAAG.getFullYear() && mo === VANDAAG.getMonth();
-    const max = addDays(VANDAAG, MAX_DAGEN);
-    $('[data-cal-next]').disabled = new Date(y, mo + 1, 1) > max;
-  }
-  $('[data-cal]').addEventListener('click', e => {
-    const b = e.target.closest('[data-day]'); if (!b || b.disabled) return;
-    f.datum = b.dataset.day; f.start = null; setErr('moment', ''); renderCal(); renderSlots(); renderSum();
-  });
-  $('[data-cal-prev]').addEventListener('click', () => { f.maand = new Date(f.maand.getFullYear(), f.maand.getMonth() - 1, 1); renderCal(); });
-  $('[data-cal-next]').addEventListener('click', () => { f.maand = new Date(f.maand.getFullYear(), f.maand.getMonth() + 1, 1); renderCal(); });
-
-  function renderSlots() {
-    const t = $('[data-slots-title]'), el = $('[data-slots]');
-    if (!f.datum) { t.textContent = 'Kies eerst een dag.'; el.innerHTML = ''; return; }
-    if (!f.diensten.length) { t.innerHTML = `<b style="font-weight:400">${esc(lang(f.datum))}</b>`; el.innerHTML = '<p class="slots__empty">Kies eerst wat je wil laten doen, dan tonen we de uren waarop dat past.</p>'; return; }
-    const m = totaal(f.diensten), s = slotsVoor(f.datum, m);
-    t.innerHTML = `<b style="font-weight:400">${esc(lang(f.datum))}</b> <span class="small">· ${duurTxt(m)}</span>`;
-    if (!s.some(x => x.vrij)) { el.innerHTML = '<p class="slots__empty">Deze dag is volzet voor deze behandeling. Kies een andere dag.</p>'; return; }
-    let h = '', part = '';
-    for (const x of s) {
-      const p = x.s < 720 ? 'Voormiddag' : 'Namiddag';
-      if (p !== part) { h += `<span class="slots__part">${p}</span>`; part = p; }
-      h += `<button type="button" class="slot" data-slot="${x.s}" ${x.vrij ? '' : 'disabled'} aria-pressed="${x.s === f.start}" aria-label="${hm(x.s)} uur${x.vrij ? '' : ', bezet'}">${hm(x.s)}</button>`;
-    }
-    el.innerHTML = h;
-  }
-  $('[data-slots]').addEventListener('click', e => {
-    const b = e.target.closest('[data-slot]'); if (!b) return;
-    f.start = +b.dataset.slot; setErr('moment', ''); renderSlots(); renderSum();
-  });
-
-  function renderSum() {
-    const set = (k, v) => { const el = $(`[data-sum=${k}]`); el.textContent = v || 'Nog niet gekozen'; el.classList.toggle('is-missing', !v); };
-    set('dienst', f.diensten.length ? dnaam(f.diensten) : '');
-    set('duur', f.diensten.length ? `ongeveer ${duurTxt(totaal(f.diensten))}` : '');
-    set('dag', f.datum ? lang(f.datum) : '');
-    set('uur', f.start != null ? `${hm(f.start)} tot ${hm(f.start + totaal(f.diensten))}` : '');
-  }
-  function setErr(k, msg) { const el = $(`[data-err=${k}]`); if (el) el.textContent = msg; const i = form.elements[k]; if (i && i.setAttribute) i.setAttribute('aria-invalid', msg ? 'true' : 'false'); }
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const v = k => form.elements[k].value.trim();
-    let first = null; const fail = (k, msg, el) => { setErr(k, msg); first = first || el; };
-    if (!f.diensten.length) fail('dienst', 'Kies minstens een behandeling.', $('[data-services] input'));
-    else setErr('dienst', '');
-    if (f.diensten.includes('extensions') && !form.elements.geen_extensions_elders.checked) fail('ext', 'Bevestig dat je geen extensions van elders hebt.', form.elements.geen_extensions_elders); else setErr('ext', '');
-    if (!f.datum || f.start == null) fail('moment', 'Kies een dag en een uur.', $('[data-cal] button:not([disabled])')); else setErr('moment', '');
-    if (v('naam').length < 2) fail('naam', 'Vul je naam in.', form.elements.naam); else setErr('naam', '');
-    if (v('telefoon').replace(/\D/g, '').length < 9) fail('telefoon', 'Vul een geldig telefoonnummer in.', form.elements.telefoon); else setErr('telefoon', '');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))) fail('email', 'Vul een geldig e-mailadres in. Daar komt je bevestiging naartoe.', form.elements.email); else setErr('email', '');
-    if (first) { first.focus(); return; }
-
-    // vervang de vorige demo-aanvraag door deze
-    state.lijst = state.lijst.filter(b => !b.demo);
-    const b = mk({ id: 1071 + Math.floor(Math.random() * 20), naam: v('naam'), telefoon: v('telefoon'), email: v('email'), diensten: [...f.diensten], datum: f.datum, start: f.start, status: 'nieuw', nieuw: form.elements.nieuw.checked, bron: 'website', bericht: v('bericht'), demo: true });
-    b.log = [{ t: nu(), m: 'Aanvraag via de website' }, { t: nu(), m: 'Mail naar Tim verstuurd' }, { t: nu(), m: 'Ontvangstbevestiging naar klant verstuurd' }];
-    state.lijst.push(b); state.demo = b; state.sel = b.id;
-    state.timDone = null; state.klantDone = null; state.klantStap = 'start'; state.live = null;
-    $('[data-f=voornaam]').textContent = voornaam(b.naam);
-    $('[data-book-form]').hidden = true; $('[data-book-done]').hidden = false; $('[data-book-done]').focus();
-    renderAll();
-    toast('Aanvraag ontvangen. Tim en de klant kregen elk een mail.', '#mail-tim', 'Bekijk');
-  });
-  $('[data-book-again]').addEventListener('click', () => {
-    form.reset(); Object.assign(f, { diensten: [], datum: null, start: null }); $('[data-ext-confirm]').hidden = true;
-    $('[data-book-form]').hidden = false; $('[data-book-done]').hidden = true; renderCal(); renderSlots(); renderSum();
-  });
-
-  /* ---------- Mail-templates ---------- */
-  const URL_BASE = 'https://salondola.be';
-  const timLink = (b, a) => `${URL_BASE}/afspraak/actie/${ref(b.id).toLowerCase()}/${a}?sig=${b.klantToken.slice(0, 16)}`;
-  const klantLink = b => `${URL_BASE}/afspraak/${b.klantToken}`;
-  const moment = b => `${lang(b.datum)}, ${hm(b.start)} tot ${hm(b.start + totaal(b.diensten))}`;
-  function box(b, extra = []) {
-    const rows = [['Behandeling', dnaam(b.diensten)], ['Wanneer', moment(b)], ['Duur', `ongeveer ${duurTxt(totaal(b.diensten))}`], ...extra];
-    return `<div class="em__box"><table>${rows.map(([k, v]) => `<tr><th>${esc(k)}</th><td>${v}</td></tr>`).join('')}</table></div>`;
-  }
-  function mailFrame({ van, aan, onderwerp, tijd = 'zojuist', body, foot }) {
-    return `<div class="mail__bar" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="mail__meta"><p class="mail__subj">${esc(onderwerp)}</p><p><b>Van</b> <span>${esc(van)}</span></p><p><b>Aan</b> <span>${esc(aan)}</span></p><p><span>${esc(tijd)}</span></p></div>
-      <div class="mail__canvas"><div class="em"><div class="em__top">${MARK}<span>Salon Dola</span></div><div class="em__in">${body}</div><div class="em__foot">${foot || 'Salon Dola · Spelonckvaart 12, 9180 Moerbeke · 09 223 25 65<br>Je krijgt deze mail omdat je via salondola.be een afspraak aanvroeg.'}</div></div></div>`;
-  }
-  const VAN = 'Salon Dola <afspraak@salondola.be>';
-  const TIM = 'Tim <tim@salondola.be>';
-  const aanKlant = b => `${b.naam} <${b.email}>`;
-
-  function conflictLijn(b) {
-    const overlap = state.lijst.filter(x => x !== b && x.datum === b.datum && BEZET.includes(x.status) && x.start < b.start + totaal(b.diensten) && x.start + totaal(x.diensten) > b.start);
-    const dag = state.lijst.filter(x => x !== b && x.datum === b.datum && x.status === 'bevestigd').length;
-    if (overlap.length) return `<div class="em__alert em__alert--bad">Let op: dit overlapt met ${esc(overlap[0].naam)} om ${hm(overlap[0].start)}.</div>`;
-    return `<div class="em__alert em__alert--ok">Past in je agenda. Je hebt die dag ${dag ? `al ${dag} bevestigde afspra${dag === 1 ? 'ak' : 'ken'}` : 'nog niets staan'}.</div>`;
-  }
-
-  function mailTimNieuw(b) {
-    const extra = [['Naam', esc(b.naam) + (b.nieuw ? ' <span style="color:#8a8a8a">· nieuwe klant</span>' : '')], ['Telefoon', `<a href="tel:${esc(b.telefoon.replace(/\s/g, ''))}" style="color:#141414">${esc(b.telefoon)}</a>`], ['E-mail', esc(b.email)]];
-    if (b.bericht) extra.push(['Bericht', esc(b.bericht)]);
-    return mailFrame({
-      van: VAN, aan: TIM, onderwerp: `Nieuwe aanvraag: ${voornaam(b.naam)}, ${kort(b.datum)} om ${hm(b.start)}`,
-      body: `<h4>Nieuwe aanvraag van ${esc(voornaam(b.naam))}.</h4>
-        <p>${esc(b.naam)} wil graag langskomen. Het moment blijft voorlopig voor haar vastgehouden tot jij beslist.</p>
-        ${box(b, extra)}${conflictLijn(b)}
-        <div class="em__btns">
-          <button class="em__btn" type="button" data-act="bevestig">Bevestigen</button>
-          <button class="em__btn em__btn--line" type="button" data-act="voorstel">Ander moment voorstellen</button>
-          <button class="em__btn em__btn--muted" type="button" data-act="weiger">Weigeren</button>
-        </div>
-        <p class="em__url">Of open de aanvraag in je overzicht: salondola.be/beheer · ref. ${ref(b.id)}</p>`,
-      foot: 'Je reageert niet op deze mail, maar via de knoppen. Zonder reactie krijg je na 2 dagen een herinnering. Na 3 dagen vervalt de aanvraag.',
-    });
-  }
-
-  function mailKlantOntvangen(b) {
-    return mailFrame({
-      van: VAN, aan: aanKlant(b), onderwerp: 'We hebben je aanvraag goed ontvangen',
-      body: `<h4>Dag ${esc(voornaam(b.naam))},</h4>
-        <p>Bedankt voor je aanvraag. Hieronder vind je alles nog eens op een rij.</p>
-        ${box(b, [['Referentie', ref(b.id)]])}
-        <div class="em__alert"><b style="font-weight:500">Let op: dit is nog geen afspraak.</b><br>Je afspraak staat pas vast als ik ze bevestig. Je krijgt daarover altijd een aparte mail, meestal dezelfde dag nog.</div>
-        <p>Klopt er iets niet, of past het toch niet meer? Dan pas je het hier zelf aan.</p>
-        <div class="em__btns"><button class="em__btn" type="button" data-klant-open>Afspraak wijzigen of annuleren</button></div>
-        <p class="em__url">${esc(klantLink(b))}</p>
-        <p style="margin-top:22px">Tot binnenkort,<br>Tim</p>`,
-    });
-  }
-
-  const FOLLOWUPS = {
-    bevestigd: {
-      tab: 'Bevestigd', voor: 'klant',
-      note: ['Verstuurd zodra je op Bevestigen tikt.', 'Met een agenda-bestand, zodat de afspraak meteen in haar gsm-agenda komt.', `Annuleren via de link kan tot ${ANNULEER_UUR} uur vooraf. Daarna toont de pagina je telefoonnummer.`],
-      mail: (b, x) => mailFrame({ van: VAN, aan: aanKlant(b), onderwerp: `Bevestigd: ${kort(b.datum)} om ${hm(b.start)} bij Salon Dola`, body: `<h4>Dag ${esc(voornaam(b.naam))}, je afspraak staat vast.</h4>
-        <p>Ik kijk ernaar uit om je te zien.</p>${box(b, [['Waar', 'Spelonckvaart 12, 9180 Moerbeke']])}
-        ${x.bericht ? `<p style="padding:12px 16px;border-left:2px solid #141414;background:#f6f6f6">${esc(x.bericht)}</p>` : ''}
-        <span class="em__att"><i>ICS</i>afspraak-salon-dola.ics</span>
-        <p style="margin-top:20px">Kan je toch niet komen? Laat het me dan zeker weten, liefst ten laatste ${ANNULEER_UUR} uur vooraf.</p>
-        <div class="em__btns"><button class="em__btn em__btn--line" type="button" data-klant-open>Afspraak wijzigen of annuleren</button></div>
-        <p class="em__url">${esc(klantLink(b))}</p><p style="margin-top:22px">Tot dan,<br>Tim</p>` }),
-    },
-    voorstel: {
-      tab: 'Ander moment', voor: 'klant',
-      note: ['Verstuurd als je een ander moment voorstelt.', 'De klant accepteert met een tik, of kiest zelf een ander vrij moment.', 'Het voorgestelde moment blijft voor haar vastgehouden. Reageert ze niet binnen 3 dagen, dan vervalt het.'],
-      mail: (b, x) => { const v = b.voorstel || { datum: b.datum, start: b.start + 120 }; const vb = { ...b, datum: v.datum, start: v.start };
-        return mailFrame({ van: VAN, aan: aanKlant(b), onderwerp: 'Past dit moment ook voor jou?', body: `<h4>Dag ${esc(voornaam(b.naam))},</h4>
-        <p>Op het moment dat je vroeg lukt het me jammer genoeg niet. Ik stel je graag dit moment voor:</p>${box(vb)}
-        ${x.bericht ? `<p style="padding:12px 16px;border-left:2px solid #141414;background:#f6f6f6">${esc(x.bericht)}</p>` : ''}
-        <div class="em__btns"><button class="em__btn" type="button" data-klant-open="accepteer">Ja, dat past</button><button class="em__btn em__btn--line" type="button" data-klant-open>Ander moment kiezen</button></div>
-        <p class="em__url">${esc(klantLink(b))}</p><p style="margin-top:22px">Groeten,<br>Tim</p>` }); },
-    },
-    geweigerd: {
-      tab: 'Geweigerd', voor: 'klant',
-      note: ['Verstuurd als je een aanvraag weigert.', 'Je kiest een korte reden, of schrijft er zelf een paar woorden bij.', 'Het moment komt meteen weer vrij op de site.'],
-      mail: (b, x) => mailFrame({ van: VAN, aan: aanKlant(b), onderwerp: 'Over je aanvraag bij Salon Dola', body: `<h4>Dag ${esc(voornaam(b.naam))},</h4>
-        <p>Bedankt voor je aanvraag voor ${esc(lang(b.datum))} om ${hm(b.start)}. Ik kan je op dat moment jammer genoeg niet ontvangen.</p>
-        ${x.bericht ? `<p style="padding:12px 16px;border-left:2px solid #141414;background:#f6f6f6">${esc(x.bericht)}</p>` : ''}
-        <p>Kies gerust een ander moment op de site, of bel me even op 09 223 25 65.</p>
-        <div class="em__btns"><span class="em__btn">Nieuwe aanvraag</span></div><p style="margin-top:22px">Groeten,<br>Tim</p>` }),
-    },
-    herinnering: {
-      tab: 'Herinnering', voor: 'klant',
-      note: ['Gaat automatisch de dag voor de afspraak om 10 uur.', 'Enkel voor bevestigde afspraken.', 'De beste manier om lege plekken te vermijden: wie niet kan, laat het nu nog weten.'],
-      mail: b => mailFrame({ van: VAN, aan: aanKlant(b), onderwerp: `Morgen om ${hm(b.start)} bij Salon Dola`, tijd: 'dag ervoor, 10.00', body: `<h4>Tot morgen, ${esc(voornaam(b.naam))}.</h4>
-        <p>Een kleine herinnering aan je afspraak.</p>${box(b, [['Waar', 'Spelonckvaart 12, 9180 Moerbeke']])}
-        <p>Kan je toch niet? Laat het me dan zo snel mogelijk weten, dan kan iemand anders je plekje krijgen.</p>
-        <div class="em__btns"><button class="em__btn em__btn--line" type="button" data-klant-open>Afspraak annuleren</button></div><p style="margin-top:22px">Tot morgen,<br>Tim</p>` }),
-    },
-    klant_annuleert: {
-      tab: 'Klant annuleert', voor: 'tim',
-      note: ['Gaat naar jou zodra een klant annuleert of een ander moment kiest.', 'Een gewijzigde aanvraag komt terug als Nieuw, met dezelfde drie knoppen.', 'Het vrijgekomen moment staat meteen weer open op de site.'],
-      mail: (b, x) => mailFrame({ van: VAN, aan: TIM, onderwerp: x.gewijzigd ? `Gewijzigd: ${voornaam(b.naam)} kiest ${kort(b.datum)} om ${hm(b.start)}` : `Geannuleerd: ${voornaam(b.naam)}, ${kort(b.datum)} om ${hm(b.start)}`, body: x.gewijzigd
-        ? `<h4>${esc(voornaam(b.naam))} koos een ander moment.</h4><p>Het oude moment (${esc(x.oud || '')}) is weer vrij. De nieuwe aanvraag wacht op jou.</p>${box(b, [['Naam', esc(b.naam)], ['Telefoon', esc(b.telefoon)]])}${conflictLijn(b)}
-          <div class="em__btns"><button class="em__btn" type="button" data-act="bevestig">Bevestigen</button><button class="em__btn em__btn--line" type="button" data-act="voorstel">Ander moment voorstellen</button><button class="em__btn em__btn--muted" type="button" data-act="weiger">Weigeren</button></div>`
-        : `<h4>${esc(voornaam(b.naam))} heeft geannuleerd.</h4><p>Het moment is weer vrij op de site. Je hoeft niets te doen.</p>${box(b, [['Naam', esc(b.naam)], ['Telefoon', esc(b.telefoon)], ['Reden', esc(x.reden || 'Geen reden opgegeven')]])}`,
-        foot: 'Automatische melding van je boekingsmodule.' }),
-    },
-    salon_annuleert: {
-      tab: 'Jij annuleert', voor: 'klant',
-      note: ['Verstuurd als jij een bevestigde afspraak annuleert, vanuit het dashboard.', 'Je kan meteen een nieuw moment voorstellen in plaats van te annuleren.', 'Bij ziekte annuleer je zo een hele dag in een keer.'],
-      mail: (b, x) => mailFrame({ van: VAN, aan: aanKlant(b), onderwerp: `Je afspraak van ${kort(b.datum)} gaat niet door`, body: `<h4>Dag ${esc(voornaam(b.naam))},</h4>
-        <p>Het spijt me, maar ik moet je afspraak van ${esc(lang(b.datum))} om ${hm(b.start)} annuleren.</p>
-        ${x.bericht ? `<p style="padding:12px 16px;border-left:2px solid #141414;background:#f6f6f6">${esc(x.bericht)}</p>` : ''}
-        <p>Kies gerust een nieuw moment, ik geef je graag voorrang. Of bel me even op 09 223 25 65.</p>
-        <div class="em__btns"><span class="em__btn">Nieuw moment kiezen</span></div><p style="margin-top:22px">Sorry voor het ongemak,<br>Tim</p>` }),
-    },
-    verlopen: {
-      tab: 'Verlopen', voor: 'klant',
-      note: ['Gaat automatisch als je 3 dagen niet reageerde op een aanvraag.', 'Je kreeg na 2 dagen al een herinnering.', 'Zo blijft een klant nooit in het ongewisse.'],
-      mail: b => mailFrame({ van: VAN, aan: aanKlant(b), onderwerp: 'Je aanvraag bij Salon Dola', tijd: 'na 3 dagen', body: `<h4>Dag ${esc(voornaam(b.naam))},</h4>
-        <p>Ik heb je aanvraag voor ${esc(lang(b.datum))} niet op tijd kunnen bevestigen. Daarom is ze vervallen, zodat je niet langer moet wachten.</p>
-        <p>Bel me gerust op 09 223 25 65, dan zoeken we samen een moment.</p><p style="margin-top:22px">Groeten,<br>Tim</p>` }),
-    },
-  };
-
-  /* ---------- Acties: de statusmachine ---------- */
-  function log(b, m) { b.log.push({ t: nu(), m }); }
-  function apply(b, actie, x = {}) {
-    const was = b.status;
-    if (actie === 'bevestig') { if (b.voorstel && was === 'voorstel') { b.datum = b.voorstel.datum; b.start = b.voorstel.start; } b.voorstel = null; b.status = 'bevestigd'; log(b, x.door === 'klant' ? 'Voorstel geaccepteerd door klant' : 'Bevestigd door Tim'); log(b, x.door === 'klant' ? 'Mail naar Tim, bevestiging met agenda-bestand naar klant' : 'Bevestiging met agenda-bestand naar klant'); }
-    if (actie === 'voorstel') { b.voorstel = { datum: x.datum, start: x.start }; b.status = 'voorstel'; log(b, `Ander moment voorgesteld: ${kort(x.datum)} ${hm(x.start)}`); log(b, 'Mail met voorstel naar klant'); }
-    if (actie === 'weiger') { b.status = 'geweigerd'; log(b, 'Geweigerd door Tim' + (x.reden ? `: ${x.reden.toLowerCase()}` : '')); log(b, 'Mail naar klant'); }
-    if (actie === 'annuleer_salon') { b.status = 'geannuleerd_salon'; log(b, 'Geannuleerd door Tim' + (x.reden ? `: ${x.reden.toLowerCase()}` : '')); log(b, 'Mail naar klant'); }
-    if (actie === 'annuleer_klant') { b.status = 'geannuleerd_klant'; log(b, 'Geannuleerd door klant via link' + (x.reden ? `: ${x.reden.toLowerCase()}` : '')); log(b, 'Melding naar Tim'); }
-    if (actie === 'wijzig_klant') { b.oud = `${kort(b.datum)} ${hm(b.start)}`; b.datum = x.datum; b.start = x.start; b.voorstel = null; b.status = 'nieuw'; log(b, `Klant koos een ander moment: ${kort(x.datum)} ${hm(x.start)}`); log(b, 'Mail naar Tim, ontvangstbevestiging naar klant'); }
-    const fu = { bevestig: 'bevestigd', voorstel: 'voorstel', weiger: 'geweigerd', annuleer_salon: 'salon_annuleert', annuleer_klant: 'klant_annuleert', wijzig_klant: 'klant_annuleert' }[actie];
-    if (b === D()) { state.followup = fu; state.live = fu; state.fx = { ...x, gewijzigd: actie === 'wijzig_klant', oud: b.oud }; }
-    renderAll();
-  }
-  function kan(b, actie) {
-    const s = b.status, toekomst = b.datum >= VANDAAG_ISO;
-    return {
-      bevestig: (s === 'nieuw') && toekomst,
-      voorstel: ['nieuw', 'bevestigd'].includes(s) && toekomst,
-      weiger: s === 'nieuw',
-      annuleer_salon: ['bevestigd', 'voorstel'].includes(s) && toekomst,
-    }[actie];
-  }
-
-  /* ---------- 02 Tim: telefoon na klik ---------- */
-  const REDENEN_TIM = ['Ik ben die dag afwezig', 'Dat uur is al volzet', 'Deze behandeling doe ik niet', 'Andere reden'];
-  function renderPhoneTim() {
-    const b = D(), a = state.actie, el = $('[data-phone-tim]');
-    $$('[data-act-tab]').forEach(t => t.setAttribute('aria-selected', t.dataset.actTab === a));
-    const head = `<div class="phone__url"><svg viewBox="0 0 10 10" fill="currentColor"><path d="M2 4.5V3a3 3 0 0 1 6 0v1.5h.5v5h-7v-5zM3 4.5h4V3a2 2 0 0 0-4 0z"/></svg>${esc(timLink(b, a).replace('https://', ''))}</div>`;
-    if (state.timDone) {
-      el.innerHTML = head + `<div class="phone__body"><span class="mark">${MARK}</span><div class="phone__done"><span class="dot"></span><h4>${esc(state.timDone)}</h4><p class="small">${esc(voornaam(b.naam))} kreeg net een mail. Je ziet de mail bij stap 04, en de afspraak staat in je dashboard.</p><div class="stack"><a class="pill pill--solid" href="#opvolging">Bekijk de mail aan ${esc(voornaam(b.naam))}</a><a class="pill" href="#dashboard">Naar het dashboard</a></div></div></div>`;
-      return;
-    }
-    if (b.status !== 'nieuw') {
-      el.innerHTML = head + `<div class="phone__body"><span class="mark">${MARK}</span><h4>Deze aanvraag is al behandeld.</h4><p class="small">Status: <span class="chip st-${b.status}">${STATUS[b.status].l}</span></p><p class="small">Een link uit een oude mail doet nooit iets twee keer. Je ziet altijd de huidige stand.</p><div class="stack"><a class="pill" href="#dashboard">Naar het dashboard</a></div></div>`;
-      return;
-    }
-    const mini = `<div class="mini"><div><span>Klant</span>${esc(b.naam)}</div><div><span>Wat</span>${esc(dnaam(b.diensten))}</div><div><span>Gevraagd</span>${esc(kort(b.datum))}, ${hm(b.start)}</div></div>`;
-    let body = '';
-    if (a === 'bevestig') body = `<h4>Afspraak bevestigen?</h4>${mini}
-      <div class="field"><label for="t-msg">Persoonlijk berichtje <span class="field__opt">optioneel</span></label><textarea id="t-msg" rows="2" placeholder="Bijvoorbeeld: neem gerust een foto mee van wat je mooi vindt"></textarea></div>
-      <div class="stack"><button class="pill pill--solid pill--lg" type="button" data-do="bevestig">Bevestig afspraak</button></div>`;
-    if (a === 'voorstel') {
-      const opties = eersteVrije(totaal(b.diensten), addDays(fromIso(b.datum), 0), 4, b).filter(o => !(o.datum === b.datum && o.start === b.start)).slice(0, 3);
-      body = `<h4>Ander moment voorstellen</h4>${mini}<p class="small">Eerstvolgende vrije momenten voor ${duurTxt(totaal(b.diensten))}:</p>
-      <div class="choice">${opties.map((o, i) => `<label><input type="radio" name="t-opt" value="${o.datum}|${o.start}" ${i ? '' : 'checked'}>${esc(kort(o.datum))}, ${hm(o.start)}</label>`).join('')}</div>
-      <div class="field"><label for="t-msg">Berichtje <span class="field__opt">optioneel</span></label><textarea id="t-msg" rows="2" placeholder="Bijvoorbeeld: zaterdag zit al vol, maar vrijdag kan zeker"></textarea></div>
-      <div class="stack"><button class="pill pill--solid pill--lg" type="button" data-do="voorstel">Stuur voorstel</button></div>`;
-    }
-    if (a === 'weiger') body = `<h4>Aanvraag weigeren?</h4>${mini}
-      <div class="choice">${REDENEN_TIM.map((r, i) => `<label><input type="radio" name="t-reden" value="${r}" ${i ? '' : 'checked'}>${r}</label>`).join('')}</div>
-      <div class="field"><label for="t-msg">Berichtje voor ${esc(voornaam(b.naam))} <span class="field__opt">optioneel</span></label><textarea id="t-msg" rows="2"></textarea></div>
-      <div class="stack"><button class="pill pill--lg" type="button" data-do="weiger">Weiger aanvraag</button></div>`;
-    el.innerHTML = head + `<div class="phone__body"><span class="mark">${MARK}</span>${body}<p class="small">Er gebeurt pas iets als je hierop tikt. Zo kan een virusscanner die de link in je mail opent, nooit per ongeluk iets bevestigen.</p></div>`;
-  }
-  $('[data-phone-tim]').addEventListener('click', e => {
-    const btn = e.target.closest('[data-do]'); if (!btn) return;
-    const b = D(), a = btn.dataset.do, bericht = $('#t-msg')?.value.trim() || '';
-    if (a === 'bevestig') { apply(b, 'bevestig', { bericht }); state.timDone = 'Bevestigd.'; }
-    if (a === 'voorstel') { const [datum, start] = ($('[name=t-opt]:checked')?.value || '').split('|'); if (!datum) return; apply(b, 'voorstel', { datum, start: +start, bericht }); state.timDone = 'Voorstel verstuurd.'; }
-    if (a === 'weiger') { apply(b, 'weiger', { reden: $('[name=t-reden]:checked').value, bericht }); state.timDone = 'Geweigerd.'; }
-    renderPhoneTim();
-  });
-  $$('[data-act-tab]').forEach(t => t.addEventListener('click', () => { state.actie = t.dataset.actTab; state.timDone = null; renderPhoneTim(); }));
-  document.addEventListener('click', e => {
-    const a = e.target.closest('[data-act]'); if (!a) return;
-    state.actie = a.dataset.act; state.timDone = null; renderPhoneTim();
-    const ph = $('[data-phone-tim]'); if (!isInView(ph)) $('#mail-tim .note').scrollIntoView({ block: 'center' });
-  });
-
-  /* ---------- 03 Klant: beheerpagina ---------- */
-  const REDENEN_KLANT = ['Ik ben ziek', 'Het past toch niet meer', 'Ik heb al een andere afspraak', 'Andere reden'];
-  function renderPhoneKlant() {
-    const b = D(), el = $('[data-phone-klant]'), st = state.klantStap;
-    const head = `<div class="phone__url"><svg viewBox="0 0 10 10" fill="currentColor"><path d="M2 4.5V3a3 3 0 0 1 6 0v1.5h.5v5h-7v-5zM3 4.5h4V3a2 2 0 0 0-4 0z"/></svg>${esc(klantLink(b).replace('https://', ''))}</div>`;
-    const uurTot = (fromIso(b.datum).getTime() + b.start * 60000 - Date.now()) / 3600000;
-    const mini = `<div class="mini"><div><span>Status</span><span class="chip st-${b.status}" style="font-size:.7rem">${STATUS[b.status].l}</span></div><div><span>Wat</span>${esc(dnaam(b.diensten))}</div><div><span>Wanneer</span>${esc(kort(b.datum))}, ${hm(b.start)}</div><div><span>Ref.</span>${ref(b.id)}</div></div>`;
-    let body = '';
-    if (state.klantDone) body = `<div class="phone__done"><span class="dot"></span><h4>${esc(state.klantDone)}</h4><p class="small">Tim kreeg hier meteen een melding van. Je krijgt ook zelf een mail.</p>${mini}</div>`;
-    else if (['geweigerd', 'geannuleerd_klant', 'geannuleerd_salon', 'verlopen', 'afgewerkt'].includes(b.status)) body = `<h4>Deze afspraak is afgesloten.</h4>${mini}<p class="small">Wil je een nieuw moment? Vraag het gerust opnieuw aan, of bel 09 223 25 65.</p><div class="stack"><a class="pill pill--solid" href="#aanvraag">Nieuwe aanvraag</a></div>`;
-    else if (uurTot < ANNULEER_UUR) body = `<h4>Je afspraak is binnen ${ANNULEER_UUR} uur.</h4>${mini}<p class="small">Wijzigen of annuleren kan nu enkel nog telefonisch.</p><div class="stack"><a class="pill pill--solid" href="tel:+3292232565">Bel 09 223 25 65</a></div>`;
-    else if (st === 'wijzig') {
-      const opties = eersteVrije(totaal(b.diensten), addDays(VANDAAG, 1), 5, b);
-      body = `<h4>Kies een ander moment</h4>${mini}<p class="small">Vrije momenten voor ${esc(dnaam(b.diensten).toLowerCase())}. Op de echte pagina krijg je hier de volledige kalender.</p>
-        <div class="choice">${opties.map((o, i) => `<label><input type="radio" name="k-opt" value="${o.datum}|${o.start}" ${i ? '' : 'checked'}>${esc(kort(o.datum))}, ${hm(o.start)}</label>`).join('')}</div>
-        <div class="stack"><button class="pill pill--solid pill--lg" type="button" data-k="wijzig">Vraag dit moment aan</button><button class="pill" type="button" data-k="terug">Terug</button></div>`;
-    } else if (st === 'annuleer') body = `<h4>Afspraak annuleren?</h4>${mini}<div class="choice">${REDENEN_KLANT.map((r, i) => `<label><input type="radio" name="k-reden" value="${r}" ${i ? '' : 'checked'}>${r}</label>`).join('')}</div>
-        <div class="stack"><button class="pill pill--solid pill--lg" type="button" data-k="annuleer">Ja, annuleer</button><button class="pill" type="button" data-k="terug">Nee, toch niet</button></div>`;
-    else {
-      const intro = b.status === 'nieuw' ? '<div class="notice"><span class="dot"></span><span>Nog geen afspraak. Tim bekijkt je aanvraag en laat het je weten.</span></div>'
-        : b.status === 'voorstel' ? `<div class="notice"><span class="dot"></span><span>Tim stelt ${esc(kort(b.voorstel.datum))} om ${hm(b.voorstel.start)} voor. Past dat?</span></div>` : '';
-      body = `<h4>Dag ${esc(voornaam(b.naam))}.</h4>${mini}${intro}<div class="stack">
-        ${b.status === 'voorstel' ? '<button class="pill pill--solid pill--lg" type="button" data-k="accepteer">Ja, dat past</button>' : ''}
-        <button class="pill ${b.status === 'voorstel' ? '' : 'pill--solid'} pill--lg" type="button" data-k="naar-wijzig">Ander moment kiezen</button>
-        <button class="pill pill--ghost" type="button" data-k="naar-annuleer">${b.status === 'bevestigd' ? 'Afspraak annuleren' : 'Aanvraag annuleren'}</button></div>
-        <p class="small">Annuleren kan tot ${ANNULEER_UUR} uur vooraf. Daarna liefst even bellen.</p>`;
-    }
-    el.innerHTML = head + `<div class="phone__body"><span class="mark">${MARK}</span>${body}</div>`;
-  }
-  $('[data-phone-klant]').addEventListener('click', e => {
-    const k = e.target.closest('[data-k]')?.dataset.k; if (!k) return;
-    const b = D();
-    if (k === 'naar-wijzig') state.klantStap = 'wijzig';
-    if (k === 'naar-annuleer') state.klantStap = 'annuleer';
-    if (k === 'terug') state.klantStap = 'start';
-    if (k === 'accepteer') { apply(b, 'bevestig', { door: 'klant' }); state.klantDone = 'Je afspraak staat vast.'; state.followup = 'bevestigd'; state.live = 'bevestigd'; }
-    if (k === 'wijzig') { const [datum, start] = $('[name=k-opt]:checked').value.split('|'); apply(b, 'wijzig_klant', { datum, start: +start }); state.klantDone = 'Je nieuwe aanvraag is bij Tim.'; state.timDone = null; }
-    if (k === 'annuleer') { apply(b, 'annuleer_klant', { reden: $('[name=k-reden]:checked').value }); state.klantDone = 'Je afspraak is geannuleerd.'; }
-    renderPhoneKlant(); renderFollowup();
-  });
-  document.addEventListener('click', e => {
-    const o = e.target.closest('[data-klant-open]'); if (!o) return;
-    state.klantDone = null; state.klantStap = 'start';
-    if (o.dataset.klantOpen === 'accepteer' && D().status === 'voorstel') { apply(D(), 'bevestig', { door: 'klant' }); state.klantDone = 'Je afspraak staat vast.'; }
-    renderPhoneKlant();
-    $('#mail-klant .note').scrollIntoView({ block: 'center' });
-  });
-
-  /* ---------- 04 Opvolgmails ---------- */
-  function renderFollowup() {
-    const k = state.followup, F = FOLLOWUPS[k], b = D();
-    $('[data-followup-tabs]').innerHTML = Object.entries(FOLLOWUPS).map(([id, x]) => `<button class="tab ${state.live === id ? 'is-live' : ''}" type="button" role="tab" data-fu="${id}" aria-selected="${id === k}"><span class="live" aria-hidden="true"></span>${x.tab} <small style="opacity:.6">${x.voor === 'tim' ? 'aan Tim' : 'aan klant'}</small></button>`).join('');
-    const fx = state.live === k ? (state.fx || {}) : {};
-    $('[data-mail=followup]').innerHTML = F.mail(b, fx);
-    $('[data-followup-note]').innerHTML = `<p class="label">Wanneer</p><ul>${F.note.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`;
-  }
-  $('[data-followup-tabs]').addEventListener('click', e => { const t = e.target.closest('[data-fu]'); if (!t) return; state.followup = t.dataset.fu; renderFollowup(); });
-
-  /* ---------- 05 Dashboard ---------- */
-  const FILTERS = [['alle', 'Alles'], ['nieuw', 'Nieuw'], ['voorstel', 'Voorstel'], ['bevestigd', 'Bevestigd'], ['geannuleerd', 'Geannuleerd'], ['archief', 'Voorbij']];
-  function effStatus(b) { return b.status === 'bevestigd' && b.datum < VANDAAG_ISO ? 'afgewerkt' : b.status; }
-  function filtered() {
-    const z = state.zoek.toLowerCase();
-    return state.lijst.filter(b => {
-      const s = effStatus(b);
-      if (z && !(`${b.naam} ${b.telefoon} ${b.email} ${ref(b.id)}`.toLowerCase().includes(z))) return false;
-      switch (state.filter) {
-        case 'alle': return b.datum >= VANDAAG_ISO;
-        case 'geannuleerd': return ['geannuleerd_klant', 'geannuleerd_salon', 'geweigerd', 'verlopen'].includes(s);
-        case 'archief': return b.datum < VANDAAG_ISO;
-        default: return s === state.filter;
-      }
-    }).sort((a, b) => a.datum.localeCompare(b.datum) || a.start - b.start);
-  }
-  function renderStats() {
-    const fut = state.lijst.filter(b => b.datum >= VANDAAG_ISO);
-    const weekEind = iso(addDays(VANDAAG, 7 - ((VANDAAG.getDay() + 6) % 7)));
-    const n = fut.filter(b => b.status === 'nieuw').length;
-    const items = [
-      ['nieuw', n, 'Nieuw, wacht op jou', n > 0],
-      ['bevestigd', fut.filter(b => b.status === 'bevestigd' && b.datum < weekEind).length, 'Bevestigd deze week'],
-      ['voorstel', fut.filter(b => b.status === 'voorstel').length, 'Wacht op de klant'],
-      ['geannuleerd', state.lijst.filter(b => ['geannuleerd_klant', 'geannuleerd_salon'].includes(b.status) && fromIso(b.datum).getMonth() === VANDAAG.getMonth()).length, 'Geannuleerd deze maand'],
-    ];
-    $('[data-stats]').innerHTML = items.map(([f, v, l, hot]) => `<button class="stat ${hot ? 'is-hot' : ''}" type="button" data-stat="${f}"><b>${v}</b><span>${l}</span></button>`).join('');
-  }
-  function renderFilters() {
-    $('[data-filters]').innerHTML = FILTERS.map(([id, l]) => `<button class="tab" type="button" role="tab" data-filter="${id}" aria-selected="${state.filter === id}">${l}</button>`).join('');
-    $$('[data-view]').forEach(t => t.setAttribute('aria-selected', t.dataset.view === state.view));
-  }
-  function renderList() {
-    const items = filtered(), el = $('[data-list]');
-    if (!items.length) { el.innerHTML = '<p class="list__empty">Geen afspraken in deze selectie.</p>'; return; }
-    let h = '', dag = '';
-    for (const b of items) {
-      if (b.datum !== dag) {
-        dag = b.datum; const cnt = items.filter(x => x.datum === dag && x.status === 'bevestigd').length;
-        h += `<div class="list__day ${dag === VANDAAG_ISO ? 'is-today' : ''}"><span>${dag === VANDAAG_ISO ? 'Vandaag · ' : ''}${esc(lang(dag))}</span><span>${cnt ? cnt + ' bevestigd' : ''}</span></div>`;
-      }
-      const s = effStatus(b);
-      h += `<button type="button" class="row ${b.id === state.sel ? 'is-sel' : ''} ${b.datum < VANDAAG_ISO ? 'is-past' : ''}" data-id="${b.id}">
-        <span class="row__time">${hm(b.start)}<small>${duurTxt(totaal(b.diensten)).replace(' minuten', ' min')}</small></span>
-        <span><span class="row__name">${esc(b.naam)}${b.nieuw ? '<span class="row__new">1e keer</span>' : ''}</span><br><span class="row__what">${esc(dnaam(b.diensten))}${b.bron === 'telefoon' ? ' · telefonisch' : ''}</span></span>
-        <span class="chip st-${s}">${STATUS[s].l}</span></button>`;
-    }
-    el.innerHTML = h;
-  }
-  function renderWeek() {
-    if (!state.weekStart) state.weekStart = addDays(VANDAAG, -((VANDAAG.getDay() + 6) % 7));
-    const ws = state.weekStart, we = addDays(ws, 5);
-    $('[data-week-label]').textContent = `${ws.getDate()} ${MND[ws.getMonth()]} tot ${we.getDate()} ${MND[we.getMonth()]}`;
-    const z = state.zoek.toLowerCase();
-    let h = '';
-    for (let i = 1; i <= 6; i++) {
-      const d = addDays(ws, i), s = iso(d);
-      const items = state.lijst.filter(b => b.datum === s && !['geweigerd', 'verlopen'].includes(b.status) && (!z || b.naam.toLowerCase().includes(z))).sort((a, b) => a.start - b.start);
-      const blok = state.blok.filter(x => x.datum === s);
-      h += `<div class="week__col"><p class="week__h ${s === VANDAAG_ISO ? 'is-today' : ''}">${DAG[d.getDay()]} ${d.getDate()}</p>
-        ${!openDag(d) ? '<p class="small" style="padding:.2rem">Gesloten</p>' : ''}
-        ${blok.map(x => `<div class="week__b st-verlopen"><b>${hm(x.van)} tot ${hm(x.tot)}</b><span>${esc(x.reden)}</span></div>`).join('')}
-        ${items.map(b => { const st = effStatus(b); return `<button type="button" class="week__b st-${st}" data-id="${b.id}" style="${['geannuleerd_klant', 'geannuleerd_salon'].includes(st) ? 'opacity:.55;text-decoration:line-through' : ''}"><b>${hm(b.start)} tot ${hm(b.start + totaal(b.diensten))}</b><span>${esc(b.naam)}</span><span>${esc(dnaam(b.diensten))}</span></button>`; }).join('')}</div>`;
-    }
-    // maandag (gesloten) wordt overgeslagen: kolommen di t.e.m. zo
-    $('[data-week]').innerHTML = h;
-  }
-  function renderDetail() {
-    const b = state.lijst.find(x => x.id === state.sel), el = $('[data-detail]');
-    if (!b) { el.innerHTML = '<p class="small">Kies een afspraak om ze te bekijken.</p>'; return; }
-    const s = effStatus(b);
-    const acts = [
-      kan(b, 'bevestig') && `<button class="pill pill--solid pill--sm" type="button" data-d="bevestig">Bevestigen</button>`,
-      kan(b, 'voorstel') && `<button class="pill pill--sm" type="button" data-d="voorstel">${b.status === 'bevestigd' ? 'Verleggen' : 'Ander moment'}</button>`,
-      kan(b, 'weiger') && `<button class="pill pill--sm pill--ghost" type="button" data-d="weiger">Weigeren</button>`,
-      kan(b, 'annuleer_salon') && `<button class="pill pill--sm pill--ghost" type="button" data-d="annuleer_salon">Annuleren</button>`,
-    ].filter(Boolean).join('');
-    el.innerHTML = `<div style="display:grid;gap:.7rem"><span class="chip st-${s}" style="justify-self:start">${STATUS[s].l}</span><h4>${esc(b.naam)}</h4><p class="small">${esc(STATUS[s].uit)}</p></div>
-      <dl><dt>Wanneer</dt><dd>${esc(lang(b.datum))}<br>${hm(b.start)} tot ${hm(b.start + totaal(b.diensten))}</dd>
-      ${b.voorstel ? `<dt>Voorgesteld</dt><dd>${esc(kort(b.voorstel.datum))}, ${hm(b.voorstel.start)}</dd>` : ''}
-      <dt>Wat</dt><dd>${esc(dnaam(b.diensten))}</dd><dt>Telefoon</dt><dd><a class="link" href="tel:${esc(b.telefoon.replace(/\s/g, ''))}">${esc(b.telefoon)}</a></dd>
-      <dt>E-mail</dt><dd>${esc(b.email)}</dd>${b.bericht ? `<dt>Bericht</dt><dd>${esc(b.bericht)}</dd>` : ''}<dt>Ref.</dt><dd>${ref(b.id)} · ${b.bron === 'telefoon' ? 'telefonisch' : 'website'}${b.nieuw ? ' · nieuwe klant' : ''}</dd></dl>
-      ${acts ? `<div class="acts">${acts}</div>` : ''}
-      <div style="display:grid;gap:.8rem"><p class="label">Geschiedenis</p><ol class="log">${b.log.map(l => `<li><time>${esc(stamp(l.t))}</time>${esc(l.m)}</li>`).join('')}</ol></div>`;
-  }
-  $('[data-detail]').addEventListener('click', e => {
-    const a = e.target.closest('[data-d]')?.dataset.d; if (!a) return;
-    const b = state.lijst.find(x => x.id === state.sel);
-    if (a === 'voorstel') { const o = eersteVrije(totaal(b.diensten), addDays(fromIso(b.datum), 1), 1, b)[0]; apply(b, 'voorstel', o); toast(`Voorstel verstuurd: ${kort(o.datum)} om ${hm(o.start)}.`); }
-    else if (a === 'annuleer_salon') { apply(b, a, { reden: 'Ziek' }); toast(`Geannuleerd. ${voornaam(b.naam)} kreeg een mail.`); }
-    else { apply(b, a); toast(a === 'bevestig' ? `Bevestigd. ${voornaam(b.naam)} kreeg een mail.` : `Geweigerd. ${voornaam(b.naam)} kreeg een mail.`); }
-    if (b === D()) { state.timDone = null; }
-  });
-  document.querySelector('.dash').addEventListener('click', e => { const r = e.target.closest('[data-id]'); if (!r) return; state.sel = +r.dataset.id; renderList(); renderDetail(); if (state.view === 'week') renderWeek(); if (innerWidth < 1100) $('[data-detail]').scrollIntoView({ block: 'start' }); });
-  $('[data-filters]').addEventListener('click', e => { const t = e.target.closest('[data-filter]'); if (!t) return; state.filter = t.dataset.filter; setView('lijst'); });
-  $('[data-stats]').addEventListener('click', e => { const t = e.target.closest('[data-stat]'); if (!t) return; state.filter = t.dataset.stat; setView('lijst'); });
-  $$('[data-view]').forEach(t => t.addEventListener('click', () => setView(t.dataset.view)));
-  function setView(v) { state.view = v; $('[data-list]').hidden = v !== 'lijst'; $('[data-week-wrap]').hidden = v !== 'week'; renderDash(); }
-  $('[data-search]').addEventListener('input', e => { state.zoek = e.target.value; renderList(); if (state.view === 'week') renderWeek(); });
-  $('[data-week-prev]').addEventListener('click', () => { state.weekStart = addDays(state.weekStart, -7); renderWeek(); });
-  $('[data-week-next]').addEventListener('click', () => { state.weekStart = addDays(state.weekStart, 7); renderWeek(); });
-  $('[data-block]').addEventListener('click', () => {
-    const d = nextOpen(addDays(VANDAAG, 5)), s = iso(d), [o, c] = UREN[d.getDay()];
-    if (state.blok.some(x => x.datum === s)) { toast('Die namiddag is al geblokkeerd.'); return; }
-    state.blok.push({ datum: s, van: Math.max(o, 780), tot: c, reden: 'Geblokkeerd: tandarts' });
-    toast(`${lang(s)} vanaf 13 uur geblokkeerd. Online niet meer te kiezen.`);
-    state.weekStart = addDays(d, -((d.getDay() + 6) % 7)); setView('week'); renderCal(); renderSlots();
-  });
-  function renderDash() { renderStats(); renderFilters(); renderList(); renderWeek(); renderDetail(); }
-
-  /* ---------- 06 Statussen ---------- */
-  $('[data-states]').innerHTML = Object.entries(STATUS).map(([k, s]) => `<li><span class="chip st-${k}">${s.l}</span><p>${esc(s.uit)}</p></li>`).join('');
-
-  /* ---------- Algemeen ---------- */
-  function renderAll() {
-    $('[data-mail=tim-nieuw]').innerHTML = mailTimNieuw(D());
-    $('[data-mail=klant-ontvangen]').innerHTML = mailKlantOntvangen(D());
-    renderPhoneTim(); renderPhoneKlant(); renderFollowup(); renderDash(); renderCal(); renderSlots();
-  }
-  function isInView(el) { const r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; }
-  let tt;
-  function toast(msg, href, lbl) {
-    const t = $('[data-toast]'); t.innerHTML = esc(msg) + (href ? ` <a href="${href}">${esc(lbl)}</a>` : '');
-    t.classList.add('is-on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('is-on'), 4200);
-  }
-  $('[data-reset]').addEventListener('click', () => {
-    reset(); form.reset(); Object.assign(f, { diensten: [], datum: null, start: null }); $('[data-ext-confirm]').hidden = true;
-    $('[data-book-form]').hidden = false; $('[data-book-done]').hidden = true; setView('lijst'); renderAll(); renderSum(); toast('Voorbeeld staat terug op de beginstand.');
-  });
-
-  // actieve stap in de nav
-  const links = $$('.nav__steps a');
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => { const on = a.getAttribute('href') === '#' + e.target.id; a.classList.toggle('is-active', on); if (on) { const n = a.parentElement, l = a.offsetLeft - n.offsetLeft; if (l < n.scrollLeft || l + a.offsetWidth > n.scrollLeft + n.clientWidth) n.scrollLeft = l - 12; } }); }), { rootMargin: '-45% 0px -50% 0px' });
-  $$('main > section[id]').forEach(s => io.observe(s));
-
-  renderAll(); renderSum();
-})();
-</script>
 </body>
 </html>
