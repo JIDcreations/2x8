@@ -473,9 +473,11 @@ h2.kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
   .opening-foto img{transform:none}
   .opening-klein{display:none}
   .verhuis{min-height:0;border-radius:20px 20px 0 0}
-  .woorden{height:260vh}
+  .woorden{height:auto}
+  .woorden-podium{position:relative;height:auto;overflow:visible;padding:calc(var(--u)*4) 0}
   .woorden .wrap{padding-left:var(--u);padding-right:var(--u)}
-  .kaart{min-height:min(84vh,620px);padding:calc(var(--u)*5) calc(var(--u)*3);border-radius:16px}
+  .kaart{min-height:0;padding:calc(var(--u)*6) calc(var(--u)*3);border-radius:16px}
+  .rol{transition:transform .7s var(--ease)}
   .verhuis .wrap{padding-top:calc(var(--u)*9);padding-bottom:calc(var(--u)*9)}
   .zijnav{display:none}
   .teller{display:none}
@@ -557,7 +559,7 @@ h2.kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
   .vel.wijs-aan{box-shadow:0 0 0 4px var(--violet)}
 }
 
-.letter-wacht .opening-tekst,.letter-wacht .mast nav{visibility:hidden}
+.letter-wacht .opening-tekst,.letter-wacht .mast nav,.letter-wacht .dock{visibility:hidden}
 @media (max-width:860px){.letter-wacht .opening-foto{visibility:hidden}.opening-foto{animation:intro-in .5s var(--ease) both}.letter-wacht .opening-foto{animation:none}}
 .opening-tekst{animation:intro-in .5s var(--ease) both}
 .letter-wacht .opening-tekst{animation:none}
@@ -923,7 +925,7 @@ h2.kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
   <a href="#aankomst" data-doel="aankomst">Contact</a>
 </nav>
 
-<div class="dock" id="dock"><a class="btn btn-go btn-block" href="#brochure">Gratis brochure aanvragen</a></div>
+<div class="dock zichtbaar" id="dock"><a class="btn btn-go btn-block" href="#brochure">Gratis brochure aanvragen</a></div>
 
 <script>
 (function(){
@@ -1093,15 +1095,29 @@ h2.kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
   var subs = [].slice.call(woorden.querySelectorAll('.woorden-sub span'));
   var balkjes = [].slice.call(woorden.querySelectorAll('.teller i'));
   var n = subs.length;
-  function woordenScene(){
-    var p = voortgang(woorden) * (n - 1);
-    var i = Math.floor(p), f = p - i;
-    var w = i + zacht(deel(f, .55, .95));          // houdt stil, rolt dan door
-    if (p >= n - 1) w = n - 1;
+  function zetWoord(w){
     rol.style.setProperty('--w', w.toFixed(4));
     var actief = Math.round(w);
     subs.forEach(function(s, k){ s.classList.toggle('aan', k === actief); });
     balkjes.forEach(function(b, k){ b.style.setProperty('--v', klem(w - k + 1, 0, 1).toFixed(3)); });
+  }
+  // Op een telefoon draaien de woorden vanzelf, los van het scrollen
+  var mobielWoord = 0;
+  function isMobiel(){ return innerWidth <= 860; }
+  if (!rustig){
+    setInterval(function(){
+      if (!isMobiel() || document.hidden) return;
+      mobielWoord = (mobielWoord + 1) % n;
+      zetWoord(mobielWoord);
+    }, 2600);
+  }
+  function woordenScene(){
+    if (isMobiel()) return;
+    var p = voortgang(woorden) * (n - 1);
+    var i = Math.floor(p), f = p - i;
+    var w = i + zacht(deel(f, .55, .95));          // houdt stil, rolt dan door
+    if (p >= n - 1) w = n - 1;
+    zetWoord(w);
   }
 
   // 4. Draaischijf: de stoel draait van voor naar opzij naar achter
@@ -1166,14 +1182,6 @@ h2.kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
     onthul.forEach(function(el){ io.observe(el); });
   }
 
-  // Mobiele balk: pas na de opening, en weg zolang er een formulier in beeld is
-  var dock = document.getElementById('dock');
-  var vormen = ['brochure', 'prijs', 'aankomst'].map(function(id){ return document.getElementById(id); });
-  function dockStand(){
-    var na = verhuis.getBoundingClientRect().bottom < innerHeight * .5;
-    var form = vormen.some(function(el){ var r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
-    dock.classList.toggle('zichtbaar', na && !form);
-  }
 
   // Zijnavigatie: verschijnt zodra het verhuisblok binnenschuift, en toont waar u bent
   var zijnav = document.getElementById('zijnav');
@@ -1193,7 +1201,6 @@ h2.kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
   function teken(){
     gepland = false;
     if (!rustig){ openingScene(); woordenScene(); draaiScene(); scrubScene(); }
-    dockStand();
     zijnavStand();
   }
   function plan(){ if (!gepland){ gepland = true; requestAnimationFrame(teken); } }
