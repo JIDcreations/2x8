@@ -1,0 +1,1200 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Traplift op maat — TK Home Solutions (voorheen Thyssenkrupp)</title>
+<meta name="description" content="Elke traplift van TK Home Solutions, voorheen Thyssenkrupp, is maatwerk: de rail wordt gemaakt op uw trap. Vraag gratis de brochure of een prijsindicatie aan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://d9hhrg4mnvzow.cloudfront.net">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#21003A;
+  --night-2:#2D064F;
+  --violet:#63009F;
+  --violet-hi:#7A14C4;
+  --orange:#F26C08;
+  --orange-hi:#FF8B2C;
+  --orange-text:#A24304;
+  --chalk:#F6F4F8;
+  --chalk-2:#ECE7F2;
+  --white:#FFFFFF;
+  --ink:#17121D;
+  --ink-2:#4A4153;
+  --on-night:#FFFFFF;
+  --on-night-2:#D3C8E0;
+  --line-night:rgba(255,255,255,.34);
+
+  --fs-xl:clamp(1.25rem,1.05rem + .6vw,1.5rem);
+  --fs-body:1.125rem;
+  --fs-fine:.9375rem;
+  --h1:clamp(3rem,1.6rem + 6.2vw,6rem);
+  --h2:clamp(2.1rem,1.4rem + 3vw,3.75rem);
+  --h3:1.375rem;
+
+  --u:8px;
+  --gutter:clamp(20px,4vw,72px);   /* afstand van de schermrand tot de rail */
+  --lane:clamp(56px,9vw,150px);    /* ruimte die de rail voor zich houdt */
+  --wrap:1320px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--u)*3)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;position:relative;overflow-x:hidden;
+  background:var(--chalk);color:var(--ink);
+  font-family:"Archivo",system-ui,sans-serif;font-size:var(--fs-body);line-height:1.6;
+  font-variation-settings:"wdth" 100;
+  font-variant-numeric:tabular-nums lining-nums;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--orange);color:var(--ink)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:2px}
+.light :focus-visible{outline-color:var(--violet)}
+h1,h2,h3{margin:0;font-weight:800;line-height:.98;letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:var(--h1);font-variation-settings:"wdth" 70}
+h2{font-size:var(--h2);font-variation-settings:"wdth" 74}
+h3{font-size:var(--h3);line-height:1.2;letter-spacing:-.005em;font-variation-settings:"wdth" 90}
+p{margin:0}
+.fine{font-size:var(--fs-fine);line-height:1.55}
+.lead{font-size:var(--fs-xl);line-height:1.5}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--u);top:-80px;z-index:50;background:var(--orange);color:var(--ink);padding:var(--u) calc(var(--u)*2);font-weight:700}
+.skip:focus{top:var(--u)}
+
+/* ---------- ruggengraat: de rail houdt links een strook vrij ---------- */
+.wrap{
+  width:100%;max-width:var(--wrap);margin:0 auto;
+  padding-left:calc(var(--gutter) + var(--lane));
+  padding-right:var(--gutter);
+}
+.night{background:var(--night);color:var(--on-night)}
+.night-2{background:var(--night-2);color:var(--on-night)}
+.light{background:var(--chalk);color:var(--ink)}
+section{position:relative}
+
+
+/* ---------- knoppen ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:calc(var(--u)*1.5);
+  min-height:56px;padding:0 calc(var(--u)*3.5);border:0;border-radius:999px;
+  font:inherit;font-weight:700;font-size:var(--fs-body);letter-spacing:.005em;text-decoration:none;cursor:pointer;
+  transition:background-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.btn svg{width:20px;height:20px;flex:none;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn:active{transform:translateY(1px)}
+.btn-go{background:var(--orange);color:var(--ink)}
+.btn-go:hover{background:var(--orange-hi);box-shadow:0 10px 28px -10px rgba(242,108,8,.7)}
+.btn-line{background:transparent;color:var(--on-night);box-shadow:inset 0 0 0 2px var(--line-night)}
+.btn-line:hover{box-shadow:inset 0 0 0 2px var(--on-night)}
+.light .btn-go,.btn-do{background:var(--violet);color:var(--white)}
+.light .btn-go:hover,.btn-do:hover{background:var(--violet-hi);box-shadow:0 10px 28px -10px rgba(99,0,159,.6)}
+.light .btn-line{color:var(--ink);box-shadow:inset 0 0 0 2px rgba(23,18,29,.28)}
+.light .btn-line:hover{box-shadow:inset 0 0 0 2px var(--ink)}
+.btn-block{width:100%}
+
+/* ---------- kop ---------- */
+.mast{position:absolute;top:0;left:0;right:0;z-index:20}
+.mast .wrap{display:flex;align-items:center;gap:calc(var(--u)*4);padding-top:calc(var(--u)*3);padding-bottom:calc(var(--u)*3)}
+.mast .logo{display:block;margin-left:calc(-1 * var(--lane))}
+.mast .logo img{width:104px;height:auto}
+.mast nav{display:flex;gap:calc(var(--u)*3);margin-left:auto;font-size:var(--fs-fine);font-weight:600}
+.mast nav a{text-decoration:none;color:var(--on-night-2);padding:var(--u) 0}
+.mast nav a:hover{color:var(--on-night)}
+.mast .btn{min-height:48px;padding:0 calc(var(--u)*2.5);font-size:var(--fs-fine)}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;overflow:hidden;isolation:isolate}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:calc(var(--u)*6);align-items:end;padding-top:calc(var(--u)*16);padding-bottom:calc(var(--u)*10)}
+.hero-tekst{position:relative;z-index:2}
+.merk{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 calc(var(--u)*1.25);font-size:var(--fs-fine);color:var(--on-night-2);margin-bottom:calc(var(--u)*4)}
+.merk b{color:var(--on-night);font-weight:700}
+.hero h1 .regel{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .regel > span{display:block}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero .lead{max-width:34ch;margin-top:calc(var(--u)*4);color:var(--on-night-2)}
+.hero .lead strong{color:var(--on-night);font-weight:600}
+.knoppen{display:flex;flex-wrap:wrap;gap:calc(var(--u)*2);margin-top:calc(var(--u)*5)}
+.score{display:flex;align-items:center;gap:calc(var(--u)*2);margin-top:calc(var(--u)*5);font-size:var(--fs-fine);color:var(--on-night-2)}
+.score .cijfer{font-size:2.25rem;font-weight:800;color:var(--on-night);line-height:1;font-variation-settings:"wdth" 74}
+.sterren{display:inline-flex;gap:2px}
+.sterren svg{width:18px;height:18px;fill:var(--orange)}
+
+.hero-beeld{
+  position:absolute;z-index:1;top:0;right:0;bottom:0;width:46vw;
+  clip-path:inset(0 0 0 0);
+}
+.hero-beeld img{width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+.hero-beeld::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(33,0,58,.85) 0%,rgba(33,0,58,0) 18%),linear-gradient(90deg,var(--night) 0%,rgba(33,0,58,.55) 18%,rgba(33,0,58,0) 42%);
+}
+.hero-bijschrift{position:absolute;z-index:2;right:var(--gutter);bottom:calc(var(--u)*4);font-size:var(--fs-fine);color:var(--white);background:rgba(23,18,29,.62);padding:var(--u) calc(var(--u)*1.75);border-radius:999px;backdrop-filter:blur(6px)}
+
+/* ---------- algemene sectie ---------- */
+.sectie{padding:calc(var(--u)*16) 0}
+.sectie-kop{max-width:30ch}
+.sectie-kop + *{margin-top:calc(var(--u)*7)}
+.inleiding{max-width:60ch;margin-top:calc(var(--u)*3);color:var(--ink-2)}
+.night .inleiding,.night-2 .inleiding{color:var(--on-night-2)}
+
+/* ---------- maatwerk + brochure ---------- */
+.twee{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:calc(var(--u)*10);align-items:start}
+.tekstblok > p + p{margin-top:calc(var(--u)*2.5)}
+.tekstblok > p{max-width:60ch;color:var(--ink-2)}
+.tekstblok > p.lead{color:var(--ink)}
+.vinkjes{list-style:none;margin:calc(var(--u)*5) 0 0;padding:0;display:grid;gap:calc(var(--u)*2)}
+.vinkjes li{display:grid;grid-template-columns:28px 1fr;gap:calc(var(--u)*1.5);align-items:start}
+.vinkjes svg{width:28px;height:28px;fill:none;stroke:var(--orange-text);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+
+.vel{
+  position:relative;background:var(--white);color:var(--ink);
+  border-radius:20px;padding:calc(var(--u)*5);
+  box-shadow:0 1px 2px rgba(33,0,58,.06),0 24px 60px -24px rgba(33,0,58,.28);
+}
+.vel h3{font-size:clamp(1.5rem,1.2rem + 1vw,2rem);font-variation-settings:"wdth" 80;line-height:1.05}
+.vel .fine{color:var(--ink-2);margin-top:calc(var(--u)*1.5)}
+.vel.wijs-aan{animation:wijs .85s var(--ease)}
+@keyframes wijs{
+  0%{box-shadow:0 0 0 14px rgba(99,0,159,.35),0 24px 60px -24px rgba(33,0,58,.28);transform:translateY(-4px)}
+  60%{box-shadow:0 0 0 4px rgba(99,0,159,.55),0 24px 60px -24px rgba(33,0,58,.28)}
+  100%{box-shadow:0 0 0 0 rgba(99,0,159,0),0 24px 60px -24px rgba(33,0,58,.28);transform:none}
+}
+.formulier{display:grid;gap:calc(var(--u)*2.5);margin-top:calc(var(--u)*4)}
+.veld{display:grid;gap:calc(var(--u)*.75)}
+.veld label{font-size:var(--fs-fine);font-weight:600}
+.veld input{
+  height:52px;width:100%;padding:0 calc(var(--u)*2);
+  font:inherit;font-size:var(--fs-body);color:var(--ink);caret-color:var(--violet);
+  background:var(--chalk);border:2px solid transparent;border-radius:12px;
+  transition:border-color .2s,background-color .2s;
+}
+.veld input:hover{border-color:var(--chalk-2)}
+.veld input:focus{outline:none;border-color:var(--violet);background:var(--white)}
+.veld .fout{display:none;font-size:var(--fs-fine);color:#A3001B}
+.veld.fout-aan input{border-color:#A3001B;background:#FFF5F6}
+.veld.fout-aan .fout{display:block}
+.akkoord{display:grid;grid-template-columns:24px 1fr;gap:calc(var(--u)*1.5);align-items:start;font-size:var(--fs-fine);color:var(--ink-2)}
+.akkoord input{width:24px;height:24px;margin:1px 0 0;accent-color:var(--violet)}
+.vel .geruststelling{display:flex;gap:var(--u);align-items:center;margin-top:calc(var(--u)*2);font-size:var(--fs-fine);color:var(--ink-2)}
+.geruststelling svg{width:18px;height:18px;flex:none;fill:none;stroke:var(--violet);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- de grote foto ---------- */
+.band{background:var(--white);overflow:hidden}
+.band-in{position:relative;max-width:2000px;margin:0 auto}
+.band img{width:100%;aspect-ratio:2400/1113;object-fit:cover}
+.band-zin{
+  position:absolute;left:calc(var(--gutter) + var(--lane));bottom:8%;max-width:13ch;
+  font-size:clamp(2rem,1rem + 3.6vw,4.5rem);font-weight:800;line-height:.98;letter-spacing:-.02em;font-variation-settings:"wdth" 70;color:var(--night)
+}
+.band-zin span{color:var(--orange-text)}
+
+/* ---------- prijswizard ---------- */
+.wizard{max-width:980px}
+.voortgang{display:flex;align-items:center;gap:calc(var(--u)*2);margin-bottom:calc(var(--u)*4)}
+.blokjes{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.blokjes li{width:44px;height:8px;border-radius:4px;background:rgba(255,255,255,.18);transition:background-color .3s}
+.blokjes li[data-stand=klaar]{background:var(--orange)}
+.blokjes li[data-stand=nu]{background:var(--white)}
+.stapmelding{font-size:var(--fs-fine);color:var(--on-night-2);font-weight:600}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+fieldset[data-stap]{display:none}
+fieldset[data-stap].actief{display:block;animation:stapin .5s var(--ease)}
+@keyframes stapin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+legend{padding:0;font-size:clamp(1.5rem,1.1rem + 1.4vw,2.25rem);font-weight:700;line-height:1.15;letter-spacing:-.01em;font-variation-settings:"wdth" 84;max-width:28ch}
+legend:focus{outline:none}
+.keuzes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:calc(var(--u)*2);margin-top:calc(var(--u)*4)}
+.keuze{position:relative;cursor:pointer}
+.keuze input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.keuze-in{
+  display:flex;flex-direction:column;gap:calc(var(--u)*2);min-height:168px;padding:calc(var(--u)*3);
+  border-radius:16px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 2px var(--line-night);
+  transition:background-color .25s var(--ease),box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.keuze svg{width:56px;height:56px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.keuze .romp{stroke:var(--on-night)}
+.keuze .trede{stroke:var(--orange)}
+.keuze-tekst{margin-top:auto;font-weight:700;font-size:var(--fs-xl);line-height:1.2}
+.keuze:hover .keuze-in{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 2px var(--on-night);transform:translateY(-2px)}
+.keuze input:focus-visible + .keuze-in{outline:3px solid var(--orange);outline-offset:3px}
+.keuze.gekozen .keuze-in{background:var(--orange);box-shadow:inset 0 0 0 2px var(--orange);color:var(--ink)}
+.keuze.gekozen .romp,.keuze.gekozen .trede{stroke:var(--ink)}
+.wizard-velden{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--u)*2.5);margin-top:calc(var(--u)*4)}
+.wizard-velden .breed{grid-column:1/-1}
+.wizard .veld input{background:rgba(255,255,255,.08);color:var(--white);border-color:var(--line-night);caret-color:var(--orange)}
+.wizard .veld input:focus{border-color:var(--orange);background:rgba(255,255,255,.12)}
+.wizard .veld .fout,.wizard .err-los{color:#FFB3A6}
+.wizard .veld.fout-aan input{border-color:#FF8F7C;background:rgba(255,143,124,.12)}
+.wizard .akkoord{color:var(--on-night-2);margin-top:calc(var(--u)*3)}
+.wizard .akkoord input{accent-color:var(--orange)}
+.err-los{display:none;font-size:var(--fs-fine);margin-top:var(--u)}
+.wizard-nav{display:flex;gap:calc(var(--u)*2);margin-top:calc(var(--u)*5);flex-wrap:wrap}
+.wizard-klaar{display:none}
+.wizard-klaar.actief{display:block;animation:stapin .5s var(--ease)}
+.wizard-klaar h3{font-size:clamp(1.75rem,1.2rem + 2vw,2.75rem);font-variation-settings:"wdth" 76;line-height:1.02}
+.wizard-klaar p{margin-top:calc(var(--u)*2);color:var(--on-night-2);max-width:56ch}
+.samenvatting{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:calc(var(--u)*2);margin:calc(var(--u)*4) 0 0}
+.samenvatting div{background:rgba(255,255,255,.07);border-radius:12px;padding:calc(var(--u)*2)}
+.samenvatting dt{font-size:var(--fs-fine);color:var(--on-night-2)}
+.samenvatting dd{margin:0;font-weight:700}
+.demo-melding{margin-top:calc(var(--u)*4);padding:calc(var(--u)*2) calc(var(--u)*2.5);border-radius:12px;background:rgba(242,108,8,.16);color:var(--white);font-size:var(--fs-fine)}
+
+/* ---------- specificaties als bordestrap ---------- */
+.trap{--tree:clamp(64px,6.4vw,92px);position:relative;margin:calc(var(--u)*4) 0 0}
+.vlucht{list-style:none;margin:0;padding:0;position:relative}
+.trede-rij{
+  position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:calc(var(--u)*3);
+  height:var(--tree);padding:0 calc(var(--u)*3) calc(var(--u)*1.75);
+  background:var(--chalk-2);border-radius:0 0 4px 4px;
+  box-shadow:inset 0 3px 0 var(--ink);
+}
+.trede-rij dt{font-size:var(--fs-fine);color:var(--ink-2);font-weight:600;line-height:1.3}
+.trede-rij dd{margin:0;font-size:clamp(1.25rem,.9rem + 1.3vw,2.125rem);font-weight:800;line-height:1;letter-spacing:-.01em;font-variation-settings:"wdth" 78;white-space:nowrap}
+.trede-rij dd.woord{font-variation-settings:"wdth" 88;font-size:var(--fs-xl);font-weight:700}
+.vlucht-1 .trede-rij{margin-left:calc(var(--i) * var(--tree));width:calc(100% - 3 * var(--tree))}
+.vlucht-2 .trede-rij{margin-left:calc((2 - var(--i)) * var(--tree));width:calc(100% - 3 * var(--tree))}
+.bordes{height:calc(var(--tree) * 1.5);position:relative}
+.bordes p{position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:var(--fs-fine);color:var(--ink-2);max-width:24ch;text-align:right}
+.trap{padding-top:calc(var(--u)*15)}
+.trap-noot{margin-top:calc(var(--u)*5);padding-left:calc(var(--u)*6);color:var(--ink-2);max-width:60ch}
+
+/* ---------- foto's ---------- */
+.galerij{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:calc(var(--u)*2.5);align-items:end}
+.galerij figure{margin:0}
+.galerij figure:nth-child(1){grid-row:span 1}
+.galerij figure:nth-child(2){margin-bottom:calc(var(--u)*8)}
+.galerij figure:nth-child(3){margin-bottom:calc(var(--u)*16)}
+.galerij figure:nth-child(4){margin-bottom:calc(var(--u)*24)}
+.galerij .foto{background:var(--white);border-radius:16px;overflow:hidden;aspect-ratio:3/4}
+.galerij img{width:100%;height:100%;object-fit:contain;transition:transform .8s var(--ease)}
+.galerij figure:hover img{transform:scale(1.04)}
+.galerij figcaption{margin-top:calc(var(--u)*1.5);font-size:var(--fs-fine);color:var(--ink-2);font-weight:600}
+.oproep{display:flex;flex-wrap:wrap;align-items:center;gap:calc(var(--u)*2) calc(var(--u)*4);margin-top:calc(var(--u)*8)}
+.oproep p{font-size:var(--fs-xl);font-weight:600;max-width:32ch}
+
+/* ---------- fabrikant ---------- */
+.feiten{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:calc(var(--u)*5)}
+.feiten dt{font-weight:800;font-size:var(--h3);line-height:1.15;font-variation-settings:"wdth" 86}
+.feiten dd{margin:calc(var(--u)*1.5) 0 0;color:var(--ink-2)}
+.keurmerken{display:flex;flex-wrap:wrap;align-items:center;gap:calc(var(--u)*5);margin-top:calc(var(--u)*9)}
+.keurmerken img{height:58px;width:auto;mix-blend-mode:multiply}
+
+/* ---------- beoordelingen ---------- */
+.reviews-kop{position:relative;display:grid;grid-template-columns:auto 1fr;gap:calc(var(--u)*5);align-items:end}
+.groot-cijfer{font-size:clamp(7rem,4rem + 12vw,15rem);font-weight:900;line-height:.78;letter-spacing:-.04em;font-variation-settings:"wdth" 64;color:var(--orange)}
+.reviews-kop h2 + p{color:var(--on-night-2);margin-top:calc(var(--u)*2)}
+.citaten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*5);margin-top:calc(var(--u)*10)}
+.citaten figure{margin:0;display:flex;flex-direction:column;gap:calc(var(--u)*3)}
+.citaten blockquote{margin:0;font-size:var(--fs-xl);line-height:1.45;font-weight:500}
+.citaten figcaption{display:flex;align-items:center;gap:calc(var(--u)*1.5);margin-top:auto;font-size:var(--fs-fine);color:var(--on-night-2)}
+.citaten figcaption b{color:var(--on-night);font-size:var(--fs-body)}
+
+/* ---------- aankomst ---------- */
+.aankomst .twee{align-items:center}
+.aankomst .brochure{width:clamp(180px,22vw,280px);margin-top:calc(var(--u)*5);transform:rotate(-4deg);filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+.aankomst .lead{color:var(--on-night-2);margin-top:calc(var(--u)*3);max-width:40ch}
+
+/* ---------- voet ---------- */
+.voet{background:#120020;color:var(--on-night-2);padding:calc(var(--u)*8) 0 calc(var(--u)*10)}
+.voet .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:calc(var(--u)*5);align-items:start}
+.voet a{color:var(--on-night)}
+
+[hidden]{display:none!important}
+
+/* ================= VERSIE "FILM": licht, en de beweging zit in beeld en woord ================= */
+html:root{--lane:0px}
+:root{--licht:#F8F7FB;--lijn:#DCD6E4;--paars-kop:#5A0A93}
+body{background:var(--licht)}
+@media (min-width:861px){.wrap{padding-right:max(var(--gutter),64px)}}
+.mast{position:absolute}
+.mast .logo{margin-left:0}
+.mast .logo img{width:120px}
+.mast nav a{color:var(--ink-2)}
+.mast nav a:hover{color:var(--ink)}
+.mast .btn{background:var(--violet);color:var(--white)}
+.mast .btn:hover{background:var(--violet-hi)}
+.kap{text-transform:uppercase;font-variation-settings:"wdth" 66;letter-spacing:-.005em;line-height:.92}
+h2.kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
+.kap .paars{color:var(--paars-kop)}
+.night .kap .paars,.night-2 .kap .paars{color:var(--orange)}
+
+/* ---------- 1. opening: het merkblok blijft staan, het verhuisblok schuift erover ---------- */
+.opening{position:relative;background:var(--licht)}
+.opening-podium{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;transform:scale(var(--zak,1));transform-origin:50% 0}
+.opening-podium::after{content:"";position:absolute;inset:0;z-index:5;background:var(--night);opacity:var(--dim,0);pointer-events:none}
+.opening-tekst{position:absolute;inset:0;display:flex;align-items:center;z-index:2}
+.opening-tekst .wrap{padding-top:calc(var(--u)*8)}
+.opening-tekst .blok{max-width:min(46vw,640px)}
+.opening h1{font-size:clamp(3rem,1.2rem + 5.6vw,6rem)}
+.opening .merk{color:var(--ink-2);margin-bottom:calc(var(--u)*3)}
+.opening .merk b{color:var(--ink)}
+.opening .lead{color:var(--ink-2);margin-top:calc(var(--u)*4);max-width:36ch}
+.opening .knoppen{margin-top:calc(var(--u)*5)}
+.opening .btn-line{color:var(--ink);box-shadow:inset 0 0 0 2px rgba(23,18,29,.3)}
+.opening .btn-line:hover{box-shadow:inset 0 0 0 2px var(--ink)}
+.opening .btn-go{background:var(--violet);color:var(--white)}
+.opening .btn-go:hover{background:var(--violet-hi)}
+.opening .score{color:var(--ink-2)}
+.opening .score .cijfer{color:var(--ink)}
+.opening-foto{position:absolute;z-index:1;overflow:hidden;top:16vh;right:5vw;bottom:10vh;left:55vw;border-radius:6px}
+.opening-foto img{width:100%;height:100%;object-fit:cover;object-position:44% 50%;transform:translateY(var(--foto-y,0px)) scale(1.08)}
+.opening-klein{position:absolute;z-index:3;left:calc(55vw - 120px);bottom:calc(10vh - 40px);width:clamp(150px,13vw,210px);aspect-ratio:3/4;background:var(--white);box-shadow:0 30px 60px -30px rgba(33,0,58,.45);transform:translateY(var(--klein-y,0px))}
+.opening-klein img{width:100%;height:100%;object-fit:contain;padding:10px}
+
+/* het verhuisblok: een oranje vel dat over de opening schuift */
+.verhuis{position:relative;z-index:6;min-height:72vh;display:flex;align-items:center;background:var(--licht);color:var(--ink);border-radius:24px 24px 0 0;box-shadow:0 -24px 50px -24px rgba(33,0,58,.28)}
+.verhuis .wrap{padding-top:calc(var(--u)*12);padding-bottom:calc(var(--u)*12)}
+.verhuis h2{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem);font-weight:800;text-transform:uppercase;font-variation-settings:"wdth" 66;line-height:.92;letter-spacing:-.005em}
+.verhuis h2 .paars{color:var(--paars-kop)}
+.verhuis h2 .r{display:block;overflow:hidden;padding-bottom:.04em}
+.verhuis h2 .r > span{display:block;transform:translateY(var(--ry,0%))}
+.verhuis p{margin-top:calc(var(--u)*4);font-size:var(--fs-xl);color:var(--ink-2);max-width:44ch;opacity:var(--sub-op,1)}
+.verhuis .knoppen{opacity:var(--sub-op,1)}
+.verhuis .knoppen .btn-go{background:var(--violet);color:var(--white)}
+.verhuis .knoppen .btn-go:hover{background:var(--violet-hi)}
+.verhuis :focus-visible{outline-color:var(--violet)}
+
+/* ---------- vaste zijnavigatie, rechts tegen de rand ---------- */
+.zijnav{position:fixed;z-index:25;right:2px;top:50%;display:flex;flex-direction:column;gap:6px;
+  transform:translate(110%,-50%);visibility:hidden;transition:transform .55s var(--ease),visibility 0s linear .55s}
+.zijnav.zichtbaar{transform:translate(0,-50%);visibility:visible;transition:transform .55s var(--ease),visibility 0s}
+.zijnav a{writing-mode:vertical-rl;transform:rotate(180deg);display:block;padding:calc(var(--u)*2.5) calc(var(--u)*1.5);
+  background:var(--violet);color:var(--white);text-decoration:none;font-weight:700;font-size:var(--fs-fine);letter-spacing:.02em;
+  border-radius:0 10px 10px 0;box-shadow:0 0 0 2px var(--white),0 10px 24px -12px rgba(33,0,58,.6);transition:background-color .2s,padding .25s var(--ease)}
+.zijnav a:hover{background:var(--violet-hi);padding-bottom:calc(var(--u)*3.5)}
+.zijnav a[aria-current="true"]{background:var(--orange);color:var(--ink)}
+.zijnav a:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+/* ---------- 2. woorden: de trap verandert, het antwoord niet ---------- */
+.woorden{position:relative;height:300vh;background:var(--licht);color:var(--white)}
+.woorden-podium{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;overflow:hidden}
+.woorden .wrap{position:relative;width:100%}
+.kaart{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:min(78vh,620px);
+  padding:calc(var(--u)*8) clamp(28px,9vw,170px);background:var(--violet);border-radius:20px}
+.kaart .teller{right:clamp(20px,9vw,170px)}
+.woorden-in{font-weight:800;text-transform:uppercase;font-variation-settings:"wdth" 66;line-height:.92;letter-spacing:-.005em;font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
+.woorden-voor{display:block;color:var(--white)}
+.venster{display:block;height:1.04em;overflow:hidden;color:#FFAE6B}
+.rol{display:block;transform:translateY(calc(var(--w,0) * -1.04em))}
+.rol span{display:block;height:1.04em;line-height:1.04}
+.woorden-sub{position:relative;margin-top:calc(var(--u)*4);min-height:3.4em;max-width:44ch;font-size:var(--fs-xl);color:#F3EAFB}
+.woorden-sub span{position:absolute;inset:0 auto auto 0;opacity:0;transform:translateY(12px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.woorden-sub span.aan{opacity:1;transform:none}
+.teller{position:absolute;right:var(--gutter);top:50%;transform:translateY(-50%);display:grid;gap:10px}
+.teller i{display:block;width:4px;height:44px;border-radius:2px;background:rgba(255,255,255,.25);overflow:hidden;position:relative}
+.teller i::after{content:"";position:absolute;inset:0;background:#FFAE6B;transform:scaleY(var(--v,0));transform-origin:top}
+
+/* ---------- 3. maatwerk ---------- */
+.maatwerk .vinkjes{gap:0}
+.maatwerk .vinkjes li{padding:calc(var(--u)*1.75) 0;border-top:1px solid var(--lijn)}
+.maatwerk .vinkjes li:last-child{border-bottom:1px solid var(--lijn)}
+.fotoduo{position:relative;margin-top:calc(var(--u)*6);max-width:560px}
+.fotoduo .groot{width:78%;aspect-ratio:4/3;object-fit:cover;object-position:left center}
+.fotoduo .klein{position:absolute;right:0;bottom:-48px;width:40%;aspect-ratio:3/4;object-fit:contain;background:var(--white);padding:10px;box-shadow:0 30px 60px -30px rgba(33,0,58,.45)}
+.vel{border-radius:6px}
+.veld input{border-radius:4px}
+
+/* ---------- 4. draaischijf: de S200 van alle kanten ---------- */
+.draai{position:relative;height:320vh;background:var(--white)}
+.draai-podium{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;overflow:hidden}
+.draai .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:calc(var(--u)*8);align-items:center}
+.zijden{list-style:none;margin:calc(var(--u)*6) 0 0;padding:0}
+.zijden li{position:relative;padding:calc(var(--u)*2.25) 0;border-top:1px solid var(--lijn);color:var(--ink-2);transition:color .3s}
+.zijden li:last-child{border-bottom:1px solid var(--lijn)}
+.zijden b{display:block;font-size:var(--h3);font-variation-settings:"wdth" 80;color:inherit;transition:color .3s}
+.zijden span{font-size:var(--fs-fine)}
+.zijden li::after{content:"";position:absolute;left:0;top:-1px;height:2px;width:100%;background:var(--violet);transform:scaleX(var(--v,0));transform-origin:left}
+.zijden li.aan{color:var(--ink)}
+.zijden li.aan b{color:var(--paars-kop)}
+.buhne{position:relative;height:min(72vh,640px);perspective:1400px}
+.buhne::after{content:none}
+.buhne figure{position:absolute;inset:0;margin:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4%;z-index:1;
+  opacity:var(--o,0);transform:translateX(var(--tx,0)) rotateY(var(--ry,0deg)) scale(var(--s,1));will-change:transform,opacity}
+.buhne img{max-height:92%;width:auto;object-fit:contain;mix-blend-mode:multiply}
+.buhne figure:nth-child(1) img{max-height:96%}
+
+/* ---------- 5. zo gaat het ---------- */
+.stappen-film{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*5);margin-top:calc(var(--u)*8);counter-reset:stap}
+.stappen-film li{list-style:none;border-top:2px solid var(--ink);padding-top:calc(var(--u)*3)}
+.stappen-film .nr{display:block;font-weight:800;font-size:clamp(3.5rem,2rem + 3vw,5rem);line-height:.9;color:var(--paars-kop);font-variation-settings:"wdth" 64}
+.stappen-film h3{margin-top:calc(var(--u)*2);text-transform:uppercase;font-variation-settings:"wdth" 70;font-size:1.75rem;line-height:1}
+.stappen-film p{margin-top:calc(var(--u)*1.5);color:var(--ink-2)}
+.js-film .onthul{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js-film .onthul.in{opacity:1;transform:none}
+.js-film .onthul:nth-child(2){transition-delay:.12s}
+.js-film .onthul:nth-child(3){transition-delay:.24s}
+.js-film .onthul:nth-child(4){transition-delay:.36s}
+
+/* ---------- 6. specificaties: een datablad ---------- */
+.datablad{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:calc(var(--u)*8);margin:calc(var(--u)*7) 0 0}
+.datablad div{display:flex;justify-content:space-between;align-items:baseline;gap:calc(var(--u)*3);padding:calc(var(--u)*2.5) 0;border-top:1px solid var(--lijn)}
+.datablad dt{color:var(--ink-2)}
+.datablad dd{margin:0;font-weight:800;font-size:clamp(1.25rem,1rem + .9vw,1.875rem);font-variation-settings:"wdth" 74;text-align:right}
+
+/* ---------- 7. beoordelingen: het citaat licht woord per woord op ---------- */
+.scrub{margin:calc(var(--u)*8) 0 0;max-width:24ch;font-weight:700;font-size:clamp(2rem,1rem + 3.4vw,4.25rem);line-height:1.04;letter-spacing:-.015em;font-variation-settings:"wdth" 76}
+.scrub span{opacity:var(--o,1);transition:opacity .15s linear}
+.scrub-bron{display:flex;align-items:center;gap:calc(var(--u)*1.5);margin-top:calc(var(--u)*3);font-size:var(--fs-fine);color:var(--on-night-2)}
+.scrub-bron b{color:var(--white);font-size:var(--fs-body)}
+.citaten-twee{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:calc(var(--u)*10)}
+
+/* ---------- 8. slot ---------- */
+.slot .kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
+
+@media (max-width:1100px){
+  .draai .wrap{grid-template-columns:1fr;gap:calc(var(--u)*3)}
+  .draai-podium{align-items:flex-start;padding-top:calc(var(--u)*6)}
+  .zijden{margin-top:calc(var(--u)*3)}
+  .zijden li{padding:calc(var(--u)*1.25) 0}
+  .zijden li:not(.aan) span{display:none}
+  .buhne{height:46vh}
+  .datablad{grid-template-columns:1fr}
+  .stappen-film{grid-template-columns:1fr;gap:calc(var(--u)*4)}
+  .citaten-twee{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .opening-podium{position:relative;height:auto;overflow:visible;transform:none}
+  .opening-podium::after{display:none}
+  .opening-tekst{position:relative}
+  .opening-tekst .wrap{padding-top:calc(var(--u)*13);padding-bottom:calc(var(--u)*5)}
+  .opening-tekst .blok{max-width:none}
+  .opening-foto{position:relative;inset:auto;aspect-ratio:1060/771;margin:0 var(--gutter) calc(var(--u)*6);border-radius:4px}
+  .opening-foto img{transform:none}
+  .opening-klein{display:none}
+  .verhuis{min-height:0;border-radius:20px 20px 0 0}
+  .woorden{height:260vh}
+  .woorden .wrap{padding-left:var(--u);padding-right:var(--u)}
+  .kaart{min-height:min(84vh,620px);padding:calc(var(--u)*5) calc(var(--u)*3);border-radius:16px}
+  .verhuis .wrap{padding-top:calc(var(--u)*9);padding-bottom:calc(var(--u)*9)}
+  .zijnav{display:none}
+  .teller{display:none}
+  .mast .logo img{width:96px}
+  .fotoduo .klein{bottom:-32px}
+}
+@media (prefers-reduced-motion:reduce){
+  .woorden,.draai{height:auto}
+  .woorden-podium,.draai-podium{position:relative;height:auto;overflow:visible}
+  .woorden-podium,.draai-podium{padding:calc(var(--u)*14) 0}
+  .opening-podium{transform:none}
+  .opening-podium::after{display:none}
+  .verhuis h2 .r > span{transform:none}
+  .verhuis p{opacity:1}
+  .opening-foto img{transform:none}
+  .venster{height:auto}
+  .rol{transform:none!important}
+  .rol span{display:inline;height:auto}
+  .rol span + span::before{content:" "}
+  .woorden-sub span{position:static;display:block;opacity:1;transform:none;margin-top:var(--u)}
+  .teller{display:none}
+  .buhne{height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;perspective:none}
+  .buhne figure{position:relative;opacity:1!important;transform:none!important}
+  .buhne::after{display:none}
+  .js-film .onthul{opacity:1;transform:none}
+  .scrub span{opacity:1!important}
+}
+
+.dock{display:none}
+
+/* ---------- smaller ---------- */
+@media (max-width:1100px){
+  .mast nav{display:none}
+  .twee{grid-template-columns:1fr;gap:calc(var(--u)*7)}
+  .feiten{grid-template-columns:1fr 1fr}
+  .citaten{grid-template-columns:1fr;gap:calc(var(--u)*6)}
+  .galerij{grid-template-columns:1fr 1fr}
+  .galerij figure:nth-child(n){margin-bottom:0}
+  .galerij figure:nth-child(even){transform:translateY(calc(var(--u)*6))}
+  .oproep{margin-top:calc(var(--u)*12)}
+}
+@media (max-width:860px){
+  :root{--lane:46px;--gutter:16px}
+  body{font-size:1.0625rem}
+  .hero{min-height:auto;flex-direction:column}
+  .hero .wrap{grid-template-columns:1fr;padding-top:calc(var(--u)*13);padding-bottom:calc(var(--u)*6);gap:0}
+  .hero-beeld{position:relative;order:2;width:100%;height:auto;aspect-ratio:1060/771}
+  .hero-beeld::after{background:linear-gradient(180deg,var(--night) 0%,rgba(33,0,58,0) 22%)}
+  .hero-bijschrift{display:none}
+  .knoppen .btn{flex:1 1 220px}
+  .sectie{padding:calc(var(--u)*11) 0}
+  .vel{padding:calc(var(--u)*3);border-radius:16px}
+  .band-zin{position:static;padding:calc(var(--u)*4) var(--gutter) 0 calc(var(--gutter) + var(--lane));max-width:none}
+  .band{padding-bottom:calc(var(--u)*2)}
+  .wizard-velden{grid-template-columns:1fr}
+  .blokjes li{width:28px}
+  .stapmelding{white-space:nowrap}
+  .keuzes{grid-template-columns:1fr}
+  .keuze-in{flex-direction:row;align-items:center;min-height:84px;padding:calc(var(--u)*2)}
+  .keuze svg{width:44px;height:44px}
+  .keuze-tekst{margin-top:0}
+  .trap{--tree:0px}
+  .vlucht .trede-rij{margin-left:0!important;width:100%!important;height:auto;padding:calc(var(--u)*2);grid-template-columns:1fr;gap:4px;margin-bottom:6px;border-radius:8px;box-shadow:none}
+  .bordes{height:calc(var(--u)*2)}
+  .trap{padding-top:0}
+  .feiten{grid-template-columns:1fr;gap:calc(var(--u)*4)}
+  .keurmerken{gap:calc(var(--u)*3)}
+  .keurmerken img{height:44px}
+  .reviews-kop{grid-template-columns:1fr;gap:calc(var(--u)*2)}
+  .voet .wrap{grid-template-columns:1fr}
+  .dock{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:calc(var(--u)*1.25) var(--gutter) calc(var(--u)*1.25 + env(safe-area-inset-bottom));background:rgba(33,0,58,.94);backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .4s var(--ease)}
+  .dock.zichtbaar{transform:none}
+  .voet{padding-bottom:calc(var(--u)*14)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js-intro .hero h1 .regel > span,.js-intro .hero .merk,.js-intro .hero .lead,.js-intro .hero .knoppen,.js-intro .hero .score{transform:none;opacity:1}
+  .js-intro .hero-beeld{clip-path:none}
+  .vel.wijs-aan{box-shadow:0 0 0 4px var(--violet)}
+}
+</style>
+<script>document.documentElement.classList.add('js-film')</script>
+</head>
+<body>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
+
+<header class="mast">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="TK Elevator, naar boven">
+      <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/c63ce758-tke-logo-rgb-standard-gradient_10do09c07i039033030028.png" alt="TK Elevator" width="120" height="53">
+    </a>
+    <nav aria-label="Secties">
+      <a href="#maatwerk">Maatwerk</a>
+      <a href="#fotos">Van dichtbij</a>
+      <a href="#prijs">Prijsindicatie</a>
+      <a href="#specificaties">Specificaties</a>
+      <a href="#beoordelingen">Beoordelingen</a>
+    </nav>
+    <a class="btn" href="#brochure">Gratis brochure</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= 1. OPENING ======================= -->
+<section class="opening" id="opening" aria-labelledby="h-opening">
+  <div class="opening-podium">
+    <div class="opening-tekst">
+      <div class="wrap">
+        <div class="blok">
+          <p class="merk"><b>TK Home Solutions</b> <span>voorheen Thyssenkrupp</span></p>
+          <h1 id="h-opening" class="kap"><span class="paars">Trapliften</span> voor elke trap en elke woning</h1>
+          <p class="lead">Elke traplift wordt gemaakt op maat van uw trap, hoe smal, steil of bochtig die ook is. U hoeft niet te verhuizen.</p>
+          <div class="knoppen">
+            <a class="btn btn-go" href="#brochure">Gratis brochure
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+            <a class="btn btn-line" href="#prijs">Bereken uw prijs</a>
+          </div>
+          <div class="score">
+            <span class="cijfer">9,0</span>
+            <span><span class="sterren" role="img" aria-label="9,0 uit 10"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg></span><br>gemiddeld over 218 beoordelingen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="opening-foto">
+      <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/03cb4b2d-tke-hdr-sand-color.jpg" alt="Een vrouw zit op de S200-traplift onderaan haar trap; haar dochter staat naast haar met een hand op haar schouder." width="1060" height="771" fetchpriority="high">
+    </div>
+    <div class="opening-klein" aria-hidden="true">
+      <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/ec4d7f87-traplift-stoel-sand.jpg" alt="" width="494" height="663">
+    </div>
+
+  </div>
+
+  <div class="verhuis" id="verhuis">
+    <div class="wrap">
+      <h2 id="h-verhuis"><span class="r"><span>U hoeft niet te verhuizen.</span></span><span class="r"><span class="paars">Nu niet, en later ook niet.</span></span></h2>
+      <p>U maakt maximaal gebruik van elke etage: u komt er gemakkelijk, comfortabel en snel. Elke traplift wordt gemaakt op maat van uw trap.</p>
+      <div class="knoppen"><a class="btn btn-go" href="#prijs">Bereken uw prijs
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. WOORDEN ======================= -->
+<section class="woorden" id="woorden" aria-label="Elke trap past">
+  <div class="woorden-podium">
+    <div class="wrap">
+     <div class="kaart">
+      <p class="woorden-in">
+        <span class="woorden-voor">Uw trap is</span>
+        <span class="venster"><span class="rol"><span>smal?</span><span>steil?</span><span>bochtig?</span><span>uniek?</span></span></span>
+      </p>
+      <p class="woorden-sub" aria-live="off">
+        <span class="aan">Toch blijft er altijd voldoende loopruimte over voor wie de trap te voet neemt.</span>
+        <span>Ook dan krijgt u een traplift die veilig en comfortabel naar boven rijdt.</span>
+        <span>Dan wordt de rail gebogen naar de vorm van úw trap.</span>
+        <span>Daarom wordt de rail gemaakt op uw trap. Niet omgekeerd.</span>
+      </p>
+      <div class="teller" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+     </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. MAATWERK + BROCHURE ======================= -->
+<section id="maatwerk" class="sectie light maatwerk" aria-labelledby="h-maatwerk">
+  <div class="wrap twee" id="inhoud">
+    <div class="tekstblok">
+      <h2 id="h-maatwerk" class="kap sectie-kop">Uw huis blijft<br><span class="paars">uw thuis</span></h2>
+      <p class="lead" style="margin-top:calc(var(--u)*4)">U hoeft niet te verhuizen, nu niet en ook niet in de toekomst. U maakt maximaal gebruik van elke etage: u komt er gemakkelijk, comfortabel en snel.</p>
+      <p>Door het slimme ontwerp en het maatwerk past een traplift van TK Home Solutions op elke trap, hoe smal, steil of bochtig die ook is. En u houdt altijd voldoende loopruimte over: TK Home Solutions geeft prioriteit aan de veiligheid van trapliftgebruikers én van wie de trap gewoon te voet neemt.</p>
+      <ul class="vinkjes">
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M6 14.5l5 5L22 8.5"/></svg><span>Maximaal comfort met een brede zitting en bekleding naar keuze</span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M6 14.5l5 5L22 8.5"/></svg><span>Extra veiligheid en steun bij het opstaan dankzij de armleuningen</span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M6 14.5l5 5L22 8.5"/></svg><span>Eenvoudig bedienbare veiligheidsgesp</span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M6 14.5l5 5L22 8.5"/></svg><span>Gecertificeerd volgens alle recente wet- en regelgeving</span></li>
+      </ul>
+    </div>
+
+    <div class="vel" id="brochure">
+      <h3>Vraag de gratis brochure aan</h3>
+      <p class="fine">U krijgt de brochure toegestuurd. Een adviseur belt u om te vragen wanneer het schikt om uw trap te komen opmeten — vrijblijvend.</p>
+      <form class="formulier lead-form" method="post" action="https://www.tke-trapliften.be/fsg?pageId=54867e99-1b6c-4969-ac61-4ee39000b4d9&amp;variant=z" novalidate>
+        <input type="hidden" name="pageId" value="54867e99-1b6c-4969-ac61-4ee39000b4d9">
+        <input type="hidden" name="pageVariant" value="z">
+        <input type="hidden" name="utm_campaign" value=""><input type="hidden" name="utm_source" value=""><input type="hidden" name="utm_medium" value=""><input type="hidden" name="utm_content" value=""><input type="hidden" name="utm_keyword" value=""><input type="hidden" name="gclid" value="">
+        <div class="veld">
+          <label for="f1-name">Voor- en achternaam</label>
+          <input id="f1-name" name="name" type="text" autocomplete="name" required>
+          <span class="fout">Vul uw voor- en achternaam in.</span>
+        </div>
+        <div class="veld">
+          <label for="f1-phone">Telefoonnummer</label>
+          <input id="f1-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <span class="fout">Vul een telefoonnummer in waarop wij u kunnen bereiken.</span>
+        </div>
+        <div class="veld">
+          <label for="f1-email">E-mailadres</label>
+          <input id="f1-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+          <span class="fout">Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.be.</span>
+        </div>
+        <div class="akkoord">
+          <input id="f1-privacy" name="privacy_policy" type="checkbox" value="1">
+          <label for="f1-privacy">Ik heb kennis genomen van de <a href="https://www.tke-trapliften.be/privacy-verklaring">privacyverklaring</a> van TK Home Solutions.</label>
+        </div>
+        <button class="btn btn-do btn-block" type="submit">Stuur mij de brochure</button>
+      </form>
+      <p class="geruststelling"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1.5l6 2.5v4.5c0 3.6-2.6 6.6-6 7.5-3.4-.9-6-3.9-6-7.5V4z"/><path d="M6 9l2 2 4-4"/></svg>Wij bellen u binnen twee werkdagen. Uw gegevens gaan niet naar derden.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. DRAAISCHIJF ======================= -->
+<section class="draai" id="fotos" aria-labelledby="h-fotos">
+  <div class="draai-podium">
+    <div class="wrap">
+      <div>
+        <h2 id="h-fotos" class="kap">De S200<br><span class="paars">van dichtbij</span></h2>
+        <ol class="zijden">
+          <li class="aan"><b>Zitting en armleuningen</b><span>Brede zitting, bekleding naar keuze, steun bij het opstaan.</span></li>
+          <li><b>Ingeklapt, opzij</b><span>De stoel klapt in, zodat er loopruimte blijft op de trap.</span></li>
+          <li><b>Aandrijving en rail</b><span>Lokaal geproduceerd, gecertificeerd volgens EN 81-40:2020.</span></li>
+        </ol>
+      </div>
+      <div class="buhne">
+        <figure><img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/ec4d7f87-traplift-stoel-sand.jpg" alt="De stoel van de S200 in de kleur Sand, met opgeklapte armleuningen." width="494" height="663" loading="lazy"></figure>
+        <figure><img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/520697dd-traplift-zijkant-sand.jpg" alt="De S200 van opzij gezien, met de zitting ingeklapt tegen de rail." width="304" height="373" loading="lazy"></figure>
+        <figure><img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/3e55997f-traplift-zijkant-achterkant.jpg" alt="De achterzijde van de S200 met de aandrijfkast op de rail." width="297" height="394" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 5. ZO GAAT HET ======================= -->
+<section class="sectie light" aria-labelledby="h-stappen">
+  <div class="wrap">
+    <h2 id="h-stappen" class="kap">Zo gaat het<br><span class="paars">in zijn werk</span></h2>
+    <ol class="stappen-film">
+      <li class="onthul"><span class="nr">1</span><h3>U vraagt aan</h3><p>De brochure, een prijsindicatie, of allebei. Gratis en vrijblijvend.</p></li>
+      <li class="onthul"><span class="nr">2</span><h3>Wij meten op</h3><p>Een adviseur belt u en komt langs wanneer het u schikt, om uw trap op te meten.</p></li>
+      <li class="onthul"><span class="nr">3</span><h3>Op maat gemaakt</h3><p>Uw rail wordt gemaakt op uw trap, in de fabriek in Nederland. Materialen en kleuren kiest u zelf.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= 6. PRIJSWIZARD ======================= -->
+<section id="prijs" class="sectie night" aria-labelledby="h-prijs">
+  <div class="wrap">
+    <h2 id="h-prijs" class="kap">Hoeveel kost<br><span class="paars">uw traplift?</span></h2>
+    <p class="inleiding lead">Vier korte vragen over uw trap. Daarna weet onze adviseur genoeg om u een prijs op maat te geven, geheel vrijblijvend.</p>
+
+    <div class="wizard" id="wizard" style="margin-top:calc(var(--u)*8)">
+      <div class="voortgang">
+        <ol class="blokjes" aria-hidden="true">
+          <li data-stand="nu"></li><li data-stand="komt"></li><li data-stand="komt"></li><li data-stand="komt"></li><li data-stand="komt"></li>
+        </ol>
+        <p class="stapmelding" role="status">Stap 1 van 5</p>
+      </div>
+
+      <form id="wizardform" novalidate>
+        <fieldset data-stap class="actief">
+          <legend>Waar wilt u een traplift installeren?</legend>
+          <div class="keuzes">
+            <label class="keuze"><input type="radio" name="plaats" value="Binnenshuis" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="romp" d="M7 23 L24 8 L41 23"/><path class="romp" d="M11 21v20h26V21"/><path class="trede" d="M15 37v-4h6v-4h6v-4h6"/></svg><span class="keuze-tekst">Binnenshuis</span></span></label>
+            <label class="keuze"><input type="radio" name="plaats" value="Buitenshuis" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="romp" d="M21 25 L32 14 L43 25"/><path class="romp" d="M24 23v18h16V23"/><circle class="romp" cx="11" cy="10" r="4"/><path class="romp" d="M11 2v2M11 16v2M3 10h2M17 10h2M5.4 4.4l1.4 1.4M15.2 14.2l1.4 1.4M16.6 4.4l-1.4 1.4M6.8 14.2l-1.4 1.4"/><path class="trede" d="M6 41v-4h6v-4h6v-4h5"/></svg><span class="keuze-tekst">Buitenshuis</span></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset data-stap>
+          <legend>Hoe ziet uw trap eruit?</legend>
+          <div class="keuzes">
+            <label class="keuze"><input type="radio" name="vorm" value="Rechte trap" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="romp" d="M4 44h40"/><path class="trede" d="M5 40v-6h7v-6h7v-6h7v-6h7v-6h7"/></svg><span class="keuze-tekst">Rechte trap</span></span></label>
+            <label class="keuze"><input type="radio" name="vorm" value="Trap met bochten" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="romp" d="M4 44h40"/><path class="trede" d="M7 40C7 32 12 27 20 25c9-2 14-7 14-15"/><path class="romp" d="M10 35l4 2M16 29l4 2M24 25l3 3M31 18l4 1"/></svg><span class="keuze-tekst">Trap met bochten</span></span></label>
+            <label class="keuze"><input type="radio" name="vorm" value="Geen idee" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="romp" d="M4 44h40M7 40v-6h8v-6h6"/><path class="trede" d="M21 17a6 6 0 1 1 7.6 5.8c-1.7.5-2.6 1.9-2.6 3.7v1.7"/><circle class="trede" cx="26" cy="34" r="1.4"/></svg><span class="keuze-tekst">Geen idee</span></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset data-stap>
+          <legend>Hoeveel verdiepingen dienen overbrugd te worden?</legend>
+          <div class="keuzes">
+            <label class="keuze"><input type="radio" name="verdiepingen" value="1 verdieping" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="romp" d="M4 45h40M28 15h16"/><path class="trede" d="M6 45v-5h5v-5h5v-5h5v-5h5v-5h2v-5"/></svg><span class="keuze-tekst">1 verdieping</span></span></label>
+            <label class="keuze"><input type="radio" name="verdiepingen" value="2 of meerdere verdiepingen" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="romp" d="M4 45h40M26 26h18M26 9h18"/><path class="trede" d="M7 45v-4h5v-4h5v-4h5v-4h4v-3"/><path class="trede" d="M7 26v-4h5v-4h5v-4h5v-4h4v-1"/></svg><span class="keuze-tekst">2 of meerdere verdiepingen</span></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset data-stap>
+          <legend>Hoe snel heeft u een traplift nodig?</legend>
+          <div class="keuzes">
+            <label class="keuze"><input type="radio" name="termijn" value="Nu onmiddellijk" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="romp" cx="24" cy="25" r="15"/><path class="romp" d="M24 6v4"/><path class="trede" d="M24 25v-9M24 25h7"/></svg><span class="keuze-tekst">Nu onmiddellijk</span></span></label>
+            <label class="keuze"><input type="radio" name="termijn" value="Binnen 1 à 2 maand" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><rect class="romp" x="7" y="11" width="34" height="30" rx="3"/><path class="romp" d="M7 20h34M16 6v8M32 6v8"/><path class="trede" d="M15 27h5M23 27h5M15 34h5"/></svg><span class="keuze-tekst">Binnen 1 à 2 maand</span></span></label>
+            <label class="keuze"><input type="radio" name="termijn" value="Later" data-auto>
+              <span class="keuze-in"><svg viewBox="0 0 48 48" aria-hidden="true"><rect class="romp" x="7" y="11" width="34" height="30" rx="3"/><path class="romp" d="M7 20h34M16 6v8M32 6v8"/><path class="trede" d="M15 30h16m-5-5l5 5-5 5"/></svg><span class="keuze-tekst">Later</span></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset data-stap>
+          <legend>Naar wie mogen wij de gratis offerte sturen?</legend>
+          <div class="wizard-velden">
+            <div class="veld"><label for="w-voornaam">Voornaam</label><input id="w-voornaam" name="voornaam" type="text" autocomplete="given-name" required><span class="fout">Vul uw voornaam in.</span></div>
+            <div class="veld"><label for="w-achternaam">Achternaam</label><input id="w-achternaam" name="achternaam" type="text" autocomplete="family-name" required><span class="fout">Vul uw achternaam in.</span></div>
+            <div class="veld"><label for="w-telefoon">Telefoonnummer</label><input id="w-telefoon" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" required><span class="fout">Vul een telefoonnummer in waarop wij u kunnen bereiken.</span></div>
+            <div class="veld"><label for="w-postcode">Postcode</label><input id="w-postcode" name="postcode" type="text" autocomplete="postal-code" inputmode="numeric" required><span class="fout">Vul uw postcode in.</span></div>
+            <div class="veld breed"><label for="w-email">E-mailadres</label><input id="w-email" name="email" type="email" autocomplete="email" inputmode="email" required><span class="fout">Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.be.</span></div>
+          </div>
+          <div class="akkoord">
+            <input id="w-privacy" name="privacy" type="checkbox" value="1" required>
+            <label for="w-privacy">Ik heb kennis genomen van de <a href="https://www.tke-trapliften.be/privacy-verklaring">privacyverklaring</a> van TK Home Solutions.</label>
+          </div>
+          <p class="err-los" id="w-privacy-err">U moet de privacyverklaring aanvaarden voor wij u een offerte kunnen sturen. Vink het vakje hierboven aan.</p>
+        </fieldset>
+
+        <div class="wizard-nav">
+          <button class="btn btn-line" type="button" data-terug hidden>Vorige</button>
+          <button class="btn btn-go" type="submit" data-verzend hidden>Vraag een geheel vrijblijvende offerte aan</button>
+        </div>
+      </form>
+
+      <div class="wizard-klaar" id="wizardklaar">
+        <h3>Bedankt, uw aanvraag is compleet</h3>
+        <p>Een adviseur bekijkt uw antwoorden en neemt binnen twee werkdagen contact met u op voor een prijs op maat van uw trap.</p>
+        <dl class="samenvatting" id="wizardsamenvatting"></dl>
+        <!-- DEMO: haal dit blok weg zodra het formulier echt verstuurt. -->
+        <p class="demo-melding">Dit is een voorbeeldpagina: er is nog niets verstuurd. Het formulier moet nog aan het leadsysteem gekoppeld worden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 7. SPECIFICATIES ======================= -->
+<section id="specificaties" class="sectie light" aria-labelledby="h-specs">
+  <div class="wrap">
+    <h2 id="h-specs" class="kap">Gemeten<br><span class="paars">en gekeurd</span></h2>
+    <p class="inleiding lead">Deze waarden gelden voor elke S200; de rail zelf wordt per trap gemaakt.</p>
+    <dl class="datablad">
+      <div class="onthul"><dt>Maximaal laadvermogen</dt><dd>125 kg</dd></div>
+      <div class="onthul"><dt>Raildoorsnede</dt><dd>80 mm</dd></div>
+      <div class="onthul"><dt>Accu's</dt><dd>2 × 12 V — 24 V</dd></div>
+      <div class="onthul"><dt>Machinerichtlijn</dt><dd>EN 81-40:2020</dd></div>
+      <div class="onthul"><dt>Reverse Drive Technology</dt><dd>ASL-technologie</dd></div>
+      <div class="onthul"><dt>Klembeveiliging</dt><dd>Standaard uitgebreid</dd></div>
+      <div class="onthul"><dt>Rail</dt><dd>Maatwerk</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ======================= FABRIKANT ======================= -->
+<section class="sectie light" style="background:var(--white)" aria-labelledby="h-fabrikant">
+  <div class="wrap">
+    <h2 id="h-fabrikant" class="kap sectie-kop">Waar uw traplift<br><span class="paars">vandaan komt</span></h2>
+    <dl class="feiten">
+      <div><dt>Maatwerk</dt><dd>Een traplift die altijd past bij uw thuis. U heeft volledige controle over de gebruikte materialen en kleuren.</dd></div>
+      <div><dt>Duurzaam en lokaal</dt><dd>Uw traplift wordt lokaal geproduceerd in de fabriek in Nederland.</dd></div>
+      <div><dt>Veiligheid voorop</dt><dd>Voor trapliftgebruikers en omgeving, door ons Call-Device en MAX Home®.</dd></div>
+      <div><dt>Wereldwijd marktleider</dt><dd>Onze trapliften geven in meer dan 100 landen mobiliteit en zelfstandigheid aan onze klanten.</dd></div>
+    </dl>
+    <div class="keurmerken">
+      <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/955644a6-en-81-40-2020-nl_1000000000000000000028.png" alt="Gecertificeerd volgens EN 81-40:2020" width="170" height="79" loading="lazy">
+      <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/9537c8fa-iso-9001-2015_1000000000000000000028.png" alt="ISO 9001:2015 Quality Management" width="125" height="58" loading="lazy">
+      <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/94fab808-iso-14001-2015_1000000000000000000028.png" alt="ISO 14001:2015 Environmental Management" width="125" height="58" loading="lazy">
+      <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/035f43a1-gda22_1000000000000000000028.png" alt="German Design Award 2022" width="125" height="58" loading="lazy">
+      <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/849a3d6d-reddot-logo_100000006g038000000028.png" alt="Red Dot winner" width="116" height="58" loading="lazy">
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================= 8. BEOORDELINGEN ======================= -->
+<section id="beoordelingen" class="sectie night-2" aria-labelledby="h-reviews">
+  <div class="wrap">
+    <h2 id="h-reviews" class="kap">Klanten geven<br><span class="paars">ons een 9,0</span></h2>
+    <p class="inleiding">gemiddeld over 218 beoordelingen</p>
+    <figure style="margin:0">
+      <blockquote class="scrub" id="scrub">Een topbedrijf waar ze echt oor hebben voor de klant en heel oplossingsgericht denken!</blockquote>
+      <figcaption class="scrub-bron"><b>10</b><span class="sterren" role="img" aria-label="10 uit 10"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg></span>H. Sergeant</figcaption>
+    </figure>
+    <div class="citaten citaten-twee">
+      <figure>
+        <blockquote>“Zeer goede ervaring bij levering traplift. Zeer tevreden met klantvriendelijkheid, van de adviseur en de techniekers.”</blockquote>
+        <figcaption><b>9</b><span class="sterren" role="img" aria-label="9 uit 10"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg></span>G. L.</figcaption>
+      </figure>
+      <figure>
+        <blockquote>“Zeer tevreden, vlotte service, vriendelijk en beleefde installateur! Degelijke uitleg in verband met gebruik van de lift. Alles tip top in orde!”</blockquote>
+        <figcaption><b>10</b><span class="sterren" role="img" aria-label="10 uit 10"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></svg></span>F. R.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 9. SLOT ======================= -->
+<section id="aankomst" class="sectie night slot aankomst" aria-labelledby="h-slot">
+  <div class="wrap twee">
+    <div>
+      <h2 id="h-slot" class="kap">Benieuwd wat het<br><span class="paars">op úw trap wordt?</span></h2>
+      <p class="lead">Laat uw gegevens achter. U krijgt de brochure en een prijsindicatie op basis van uw eigen trap, en een adviseur komt vrijblijvend langs om op te meten.</p>
+      <img class="brochure" src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/a58849b8-brochure.webp" alt="De brochure van TK Home Solutions." width="280" height="280" loading="lazy">
+    </div>
+    <div class="vel" id="prijsindicatie">
+      <h3>Vraag brochure en prijsindicatie aan</h3>
+      <form class="formulier lead-form" method="post" action="https://www.tke-trapliften.be/fsg?pageId=54867e99-1b6c-4969-ac61-4ee39000b4d9&amp;variant=z" novalidate>
+        <input type="hidden" name="pageId" value="54867e99-1b6c-4969-ac61-4ee39000b4d9">
+        <input type="hidden" name="pageVariant" value="z">
+        <input type="hidden" name="utm_campaign" value=""><input type="hidden" name="utm_source" value=""><input type="hidden" name="utm_medium" value=""><input type="hidden" name="utm_content" value=""><input type="hidden" name="utm_keyword" value=""><input type="hidden" name="gclid" value="">
+        <div class="veld"><label for="f2-name">Voor- en achternaam</label><input id="f2-name" name="name" type="text" autocomplete="name" required><span class="fout">Vul uw voor- en achternaam in.</span></div>
+        <div class="veld"><label for="f2-phone">Telefoonnummer</label><input id="f2-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="fout">Vul een telefoonnummer in waarop wij u kunnen bereiken.</span></div>
+        <div class="veld"><label for="f2-email">E-mailadres</label><input id="f2-email" name="email" type="email" autocomplete="email" inputmode="email" required><span class="fout">Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.be.</span></div>
+        <div class="akkoord">
+          <input id="f2-privacy" name="privacy_policy" type="checkbox" value="1">
+          <label for="f2-privacy">Ik heb kennis genomen van de <a href="https://www.tke-trapliften.be/privacy-verklaring">privacyverklaring</a> van TK Home Solutions.</label>
+        </div>
+        <button class="btn btn-do btn-block" type="submit">Stuur mij brochure en prijsindicatie</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="voet">
+  <div class="wrap">
+    <img src="https://d9hhrg4mnvzow.cloudfront.net/www.tke-trapliften.be/sea/c36233d7-tke-logo-rgb-small-white_100000004200t00000z028.png" alt="TK Elevator" width="96" height="19" loading="lazy">
+    <p class="fine">TK Home Solutions NV · Ondernemingsnummer BE0427401202<br>Buchtenstraat 9/302, 9051 Gent · <a href="mailto:info.home.be@tkelevator.com">info.home.be@tkelevator.com</a></p>
+    <p class="fine"><a href="https://www.tke-trapliften.be/algemene-voorwaarden">Algemene voorwaarden</a> · <a href="https://www.tke-trapliften.be/privacy-verklaring">Privacyverklaring</a><br>TK Elevator © 2026</p>
+  </div>
+</footer>
+
+<nav class="zijnav" id="zijnav" aria-label="Snel naar">
+  <a href="#brochure" data-doel="maatwerk">Brochure</a>
+  <a href="#aankomst" data-doel="aankomst">Contact</a>
+</nav>
+
+<div class="dock" id="dock"><a class="btn btn-go btn-block" href="#brochure">Gratis brochure aanvragen</a></div>
+
+<script>
+(function(){
+  var doc = document.documentElement;
+
+  // Advertentieparameters uit de URL doorgeven aan het formulier.
+  var q = new URLSearchParams(location.search);
+  var map = {utm_campaign:'utm_campaign',utm_source:'utm_source',utm_medium:'utm_medium',utm_content:'utm_content',utm_keyword:'utm_term',gclid:'gclid'};
+  document.querySelectorAll('form.lead-form').forEach(function(f){
+    Object.keys(map).forEach(function(field){
+      var el = f.querySelector('[name="'+field+'"]');
+      if (el) el.value = q.get(map[field]) || q.get(field) || '';
+    });
+    // Eigen validatie met zichtbare, behulpzame foutmeldingen.
+    f.addEventListener('submit', function(e){
+      var eerste = null;
+      f.querySelectorAll('input[required]').forEach(function(inp){
+        var ok = inp.checkValidity() && inp.value.trim() !== '';
+        inp.closest('.veld').classList.toggle('fout-aan', !ok);
+        inp.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        if (!ok && !eerste) eerste = inp;
+      });
+      if (eerste){ e.preventDefault(); eerste.focus(); }
+    });
+    f.addEventListener('input', function(e){
+      var v = e.target.closest && e.target.closest('.veld');
+      if (v && e.target.checkValidity()) v.classList.remove('fout-aan');
+    });
+  });
+
+
+  // ---------- Prijswizard (zelfde vragen als het offerteformulier van TK) ----------
+  (function(){
+    var w = document.getElementById('wizard'); if (!w) return;
+    var form = document.getElementById('wizardform');
+    var klaar = document.getElementById('wizardklaar');
+    var vatting = document.getElementById('wizardsamenvatting');
+    var stappen = [].slice.call(w.querySelectorAll('[data-stap]'));
+    var blokjes = [].slice.call(w.querySelectorAll('.blokjes li'));
+    var melding = w.querySelector('.stapmelding');
+    var terug = w.querySelector('[data-terug]');
+    var verzend = w.querySelector('[data-verzend]');
+    var privErr = document.getElementById('w-privacy-err');
+    var nu = 0;
+    var vragen = [['plaats','Plaats'],['vorm','Vorm van de trap'],['verdiepingen','Te overbruggen'],['termijn','Gewenste termijn']];
+
+    function toon(i, focus){
+      nu = i;
+      stappen.forEach(function(s,n){ s.classList.toggle('actief', n === i); });
+      blokjes.forEach(function(b,n){ b.setAttribute('data-stand', n < i ? 'klaar' : (n === i ? 'nu' : 'komt')); });
+      melding.textContent = 'Stap ' + (i+1) + ' van ' + stappen.length;
+      terug.hidden = (i === 0);
+      verzend.hidden = (i !== stappen.length - 1);
+      if (focus){
+        var top = w.getBoundingClientRect().top;
+        if (top < 24 || top > innerHeight - 200) w.scrollIntoView({block:'start', behavior:'smooth'});
+        var lg = stappen[i].querySelector('legend');
+        if (lg){ lg.setAttribute('tabindex','-1'); lg.focus({preventScroll:true}); }
+      }
+    }
+    w.addEventListener('change', function(e){
+      var inp = e.target;
+      if (!inp.hasAttribute || !inp.hasAttribute('data-auto')) return;
+      w.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(r){ r.closest('.keuze').classList.toggle('gekozen', r.checked); });
+      setTimeout(function(){ if (nu < stappen.length - 1) toon(nu + 1, true); }, 260);
+    });
+    terug.addEventListener('click', function(){ if (nu > 0) toon(nu - 1, true); });
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var eerste = null;
+      stappen[stappen.length-1].querySelectorAll('input[required]').forEach(function(v){
+        if (v.type === 'checkbox') return;
+        var ok = v.checkValidity() && v.value.trim() !== '';
+        v.closest('.veld').classList.toggle('fout-aan', !ok);
+        if (!ok && !eerste) eerste = v;
+      });
+      var priv = document.getElementById('w-privacy');
+      privErr.style.display = priv.checked ? 'none' : 'block';
+      if (eerste){ eerste.focus(); return; }
+      if (!priv.checked){ priv.focus(); return; }
+      vatting.innerHTML = '';
+      vragen.forEach(function(v){
+        var g = form.querySelector('input[name="'+v[0]+'"]:checked');
+        var rij = document.createElement('div'), dt = document.createElement('dt'), dd = document.createElement('dd');
+        dt.textContent = v[1]; dd.textContent = g ? g.value : 'Niet ingevuld';
+        rij.appendChild(dt); rij.appendChild(dd); vatting.appendChild(rij);
+      });
+      form.style.display = 'none';
+      w.querySelector('.voortgang').style.display = 'none';
+      klaar.classList.add('actief');
+      var h = klaar.querySelector('h3'); h.setAttribute('tabindex','-1'); h.focus({preventScroll:true});
+      if (w.getBoundingClientRect().top < 24) w.scrollIntoView({block:'start', behavior:'smooth'});
+    });
+    document.getElementById('w-privacy').addEventListener('change', function(){ if (this.checked) privErr.style.display = 'none'; });
+    toon(0, false);
+  })();
+
+  // ---------- Het brochurevel wijst zichzelf aan als er niets scrolt ----------
+  var vel = document.getElementById('brochure');
+  if (vel){
+    var opruimen = function(){ vel.classList.remove('wijs-aan'); };
+    vel.addEventListener('animationend', opruimen);
+    var naScroll = function(fn){
+      var gedaan = false, af = function(){ if (!gedaan){ gedaan = true; fn(); } };
+      var y0 = scrollY;
+      setTimeout(function(){
+        if (scrollY === y0) return af();
+        var vorige = scrollY, stil = 0;
+        var t = setInterval(function(){
+          if (scrollY === vorige){ if (++stil > 2){ clearInterval(t); af(); } }
+          else { stil = 0; vorige = scrollY; }
+        }, 60);
+        setTimeout(function(){ clearInterval(t); af(); }, 1400);
+      }, 60);
+    };
+    document.querySelectorAll('a[href="#brochure"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        naScroll(function(){
+          opruimen(); void vel.offsetWidth; vel.classList.add('wijs-aan'); setTimeout(opruimen, 1200);
+          if (innerWidth > 860){ var e = vel.querySelector('input[type=text]'); if (e) e.focus({preventScroll:true}); }
+        });
+      });
+    });
+  }
+
+
+  // ================= De scènes: alles hangt aan de scrollpositie =================
+  var rustig = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function klem(v, a, b){ return Math.max(a, Math.min(b, v)); }
+  function deel(v, a, b){ return klem((v - a) / (b - a), 0, 1); }
+  function zacht(t){ return t * t * (3 - 2 * t); }
+  function uit(t){ return 1 - Math.pow(1 - t, 3); }
+  // voortgang van een vastgezette scène: 0 als ze bovenaan komt, 1 als ze loslaat
+  function voortgang(el){
+    var r = el.getBoundingClientRect();
+    var weg = r.height - innerHeight;
+    return weg > 0 ? klem(-r.top / weg, 0, 1) : (r.top < 0 ? 1 : 0);
+  }
+
+  // 1. Opening: het oranje vel schuift over het merkblok, dat een beetje terugwijkt
+  var opening = document.getElementById('opening');
+  var verhuis = document.getElementById('verhuis');
+  var regels = [].slice.call(verhuis.querySelectorAll('h2 .r > span'));
+  function verhuisVoortgang(){
+    // 0 = het vel staat onderaan het scherm, 1 = het vel bedekt het hele scherm
+    return klem((innerHeight - verhuis.getBoundingClientRect().top) / innerHeight, 0, 1);
+  }
+  function openingScene(){
+    var p = verhuisVoortgang();
+    if (innerWidth > 860){
+      opening.style.setProperty('--zak', (1 - .05 * p).toFixed(4));
+      opening.style.setProperty('--dim', (.45 * p).toFixed(3));
+      opening.style.setProperty('--foto-y', (-40 * p).toFixed(1) + 'px');
+      opening.style.setProperty('--klein-y', (-90 * p).toFixed(1) + 'px');
+    }
+    // de regels komen één voor één omhoog terwijl het vel binnenschuift
+    regels.forEach(function(r, k){
+      var t = uit(deel(p, .25 + k * .1, .7 + k * .1));
+      r.style.setProperty('--ry', (105 * (1 - t)).toFixed(1) + '%');
+    });
+    verhuis.style.setProperty('--sub-op', deel(p, .7, 1).toFixed(3));
+  }
+
+  // 2. Woorden: smal, steil, bochtig, uniek — elk woord blijft even staan
+  var woorden = document.getElementById('woorden');
+  var rol = woorden.querySelector('.rol');
+  var subs = [].slice.call(woorden.querySelectorAll('.woorden-sub span'));
+  var balkjes = [].slice.call(woorden.querySelectorAll('.teller i'));
+  var n = subs.length;
+  function woordenScene(){
+    var p = voortgang(woorden) * (n - 1);
+    var i = Math.floor(p), f = p - i;
+    var w = i + zacht(deel(f, .55, .95));          // houdt stil, rolt dan door
+    if (p >= n - 1) w = n - 1;
+    rol.style.setProperty('--w', w.toFixed(4));
+    var actief = Math.round(w);
+    subs.forEach(function(s, k){ s.classList.toggle('aan', k === actief); });
+    balkjes.forEach(function(b, k){ b.style.setProperty('--v', klem(w - k + 1, 0, 1).toFixed(3)); });
+  }
+
+  // 4. Draaischijf: de stoel draait van voor naar opzij naar achter
+  var draai = document.getElementById('fotos');
+  var figs = [].slice.call(draai.querySelectorAll('.buhne figure'));
+  var zijden = [].slice.call(draai.querySelectorAll('.zijden li'));
+  function draaiScene(){
+    var p = voortgang(draai) * (figs.length - 1);
+    var i = Math.floor(p), f = p - i;
+    var w = i + zacht(deel(f, .45, .95));
+    if (p >= figs.length - 1) w = figs.length - 1;
+    figs.forEach(function(fig, k){
+      var d = w - k, a = Math.abs(d);
+      fig.style.setProperty('--o', klem(1 - a * 1.7, 0, 1).toFixed(3));
+      fig.style.setProperty('--ry', (d * -55).toFixed(2) + 'deg');
+      fig.style.setProperty('--tx', (d * -22).toFixed(2) + '%');
+      fig.style.setProperty('--s', (1 - Math.min(a, 1) * .12).toFixed(4));
+    });
+    var actief = Math.round(w);
+    zijden.forEach(function(li, k){
+      li.classList.toggle('aan', k === actief);
+      var van = Math.max(0, k - .5), tot = Math.min(figs.length - 1, k + .5);
+      li.style.setProperty('--v', deel(p, van, tot).toFixed(3));
+    });
+  }
+
+  // 8. Het eerste citaat licht woord per woord op
+  var scrub = document.getElementById('scrub');
+  var scrubWoorden = [];
+  if (scrub){
+    var tekst = scrub.textContent.trim().split(/\s+/);
+    scrub.textContent = '';
+    var echt = document.createElement('span'); echt.className = 'sr'; echt.textContent = '“' + tekst.join(' ') + '”';
+    scrub.appendChild(echt);
+    var zichtbaar = document.createElement('span'); zichtbaar.setAttribute('aria-hidden', 'true'); zichtbaar.style.opacity = 1;
+    tekst.forEach(function(wd, k){
+      var sp = document.createElement('span');
+      sp.textContent = (k === 0 ? '“' : '') + wd + (k === tekst.length - 1 ? '”' : '');
+      zichtbaar.appendChild(sp); zichtbaar.appendChild(document.createTextNode(' '));
+      scrubWoorden.push(sp);
+    });
+    scrub.appendChild(zichtbaar);
+  }
+  function scrubScene(){
+    if (!scrub) return;
+    var r = scrub.getBoundingClientRect();
+    var p = deel(innerHeight * .88 - r.top, 0, innerHeight * .5 + r.height * .4);
+    var m = scrubWoorden.length;
+    scrubWoorden.forEach(function(sp, k){
+      sp.style.setProperty('--o', (.16 + .84 * klem(p * (m + 2) - k, 0, 1)).toFixed(3));
+    });
+  }
+
+  // Rijen en stappen schuiven één keer binnen
+  var onthul = [].slice.call(document.querySelectorAll('.onthul'));
+  if (rustig || !('IntersectionObserver' in window)){
+    onthul.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.2, rootMargin:'0px 0px -8% 0px'});
+    onthul.forEach(function(el){ io.observe(el); });
+  }
+
+  // Mobiele balk: pas na de opening, en weg zolang er een formulier in beeld is
+  var dock = document.getElementById('dock');
+  var vormen = ['brochure', 'prijs', 'aankomst'].map(function(id){ return document.getElementById(id); });
+  function dockStand(){
+    var na = verhuis.getBoundingClientRect().bottom < innerHeight * .5;
+    var form = vormen.some(function(el){ var r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
+    dock.classList.toggle('zichtbaar', na && !form);
+  }
+
+  // Zijnavigatie: verschijnt zodra het verhuisblok binnenschuift, en toont waar u bent
+  var zijnav = document.getElementById('zijnav');
+  var zijlinks = [].slice.call(zijnav.querySelectorAll('a'));
+  function zijnavStand(){
+    var aan = verhuis.getBoundingClientRect().top < innerHeight * .55;
+    zijnav.classList.toggle('zichtbaar', aan);
+    var midden = innerHeight / 2, actief = null;
+    zijlinks.forEach(function(a){
+      var r = document.getElementById(a.getAttribute('data-doel')).getBoundingClientRect();
+      if (r.top < midden && r.bottom > midden) actief = a;
+    });
+    zijlinks.forEach(function(a){ if (a === actief) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+  }
+
+  var gepland = false;
+  function teken(){
+    gepland = false;
+    if (!rustig){ openingScene(); woordenScene(); draaiScene(); scrubScene(); }
+    dockStand();
+    zijnavStand();
+  }
+  function plan(){ if (!gepland){ gepland = true; requestAnimationFrame(teken); } }
+  addEventListener('scroll', plan, {passive:true});
+  addEventListener('resize', plan);
+  teken();
+  // ook tekenen als het tabblad geen frames geeft (achtergrond, voorbeeld)
+  setTimeout(teken, 120);
+})();
+</script>
+</body>
+</html>
