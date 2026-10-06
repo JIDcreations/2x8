@@ -16,7 +16,9 @@ built on the server, so whatever you push is exactly what visitors get (see "Dep
 - `cms.html`: WordPress, Shopify and Wix side by side. It hangs off the first bullet under
   Websites on the services page and is not in the nav — see "CMS page".
 - `work/*.html`: case pages (Specter, EQTY, Studio Klei, NADIR, Keikoku Atelier, DLTA, Elevator
-  Antwerp, Jasper Impens, WEB.WORK). Elevator Antwerp opens the list on purpose, with the two
+  Antwerp, Jasper Impens, WEB.WORK, Salon Dola). Salon Dola closes the list; its site lives in
+  `salon-dola/`, a Vite build from the JIDcreations/Dola_V1 repo, and its case images were shot
+  from that build with headless Chromium and reduced motion. Elevator Antwerp opens the list on purpose, with the two
   founders' own sites, Jasper Impens and WEB.WORK, right behind it, on the homepage and on `/werk`. The `work/` entries in `routes.json` are in that
   same order, and that order is what the schema on `/werk` and `llms.txt` follow, so keep the three
   in step when a case is added or moved

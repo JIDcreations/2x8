@@ -21,7 +21,7 @@
 ## Pagina’s
 
 - [2X8 | Digitale interfaces, creatie en implementatie](https://2x8.be/): 2X8 is de studio van Florian en Jasper. We bouwen websites, webshops, platformen en apps, en we adviseren over software zoals Odoo en Notion, AI-workflows en AI SEO.
-- [Werk | 2X8](https://2x8.be/werk): Negen projecten van 2X8: Elevator Antwerp, Specter, EQTY, Studio Klei, NADIR, Keikoku Atelier, DLTA, en de eigen sites van Jasper Impens en WEB.WORK.
+- [Werk | 2X8](https://2x8.be/werk): Tien projecten van 2X8: Elevator Antwerp, Specter, EQTY, Studio Klei, NADIR, Keikoku Atelier, DLTA, Salon Dola, en de eigen sites van Jasper Impens en WEB.WORK.
 - [Diensten | 2X8](https://2x8.be/diensten/): Websites, webshops, platformen en apps bouwen, en AI-workflows, AI SEO en softwarepakketten beter laten draaien. Zeven diensten, door 2X8.
 - [Studio | 2X8](https://2x8.be/studio): 2X8 is het samenwerkingsverband van Florian en Jasper. 2 makers, 8 bits per byte, altijd rechtstreeks contact.
 - [Welk CMS? WordPress, Shopify of Wix | 2X8](https://2x8.be/cms): WordPress, Shopify en Wix eerlijk naast elkaar: beheer, kosten, uitbreiden en eigendom. Zo kies je het systeem waarmee je je site zelf bijhoudt.
@@ -39,6 +39,7 @@
 - [NADIR](https://2x8.be/work/nadir) — Eigen project (platform) · 2026 · Design, Development: Een realtime dashboard dat aandelen opspoort die het diepst gevallen zijn tegenover hun 52-wekenhoogtepunt. “The art of buying fallen giants.”
 - [Keikoku Atelier](https://2x8.be/work/keikoku) — Keikoku Atelier · 2026 · Design, Development: Een rustige, beeldgedreven site voor een architectenbureau dat huizen ontwerpt die honderd jaar moeten meegaan.
 - [DLTA](https://2x8.be/work/delta) — Eigen project (platform) · 2026 · Design, Development, Next.js: Een cryptoportefeuilletracker die meerdere aankooplots per munt bijhoudt en live winst en verlies berekent, volledig client-side.
+- [Salon Dola](https://2x8.be/work/salon-dola) — Salon Dola · 2026 · Design, Development: Een one-pager voor een dameskapsalon in Moerbeke: zwart-wit, één lettertype, en een afspraak die altijd één stap ver is.
 
 ## Ook in het Frans en het Engels
 
