@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://d9hhrg4mnvzow.cloudfront.net">
+<link rel="preload" href="https://fonts.gstatic.com/s/archivo/v25/k3kQo8UDI-1M0wlSfdnoLg.woff2" as="font" type="font/woff2" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -555,8 +556,15 @@ h2.kap{font-size:clamp(2.4rem,1.5rem + 3.6vw,4.5rem)}
   .js-intro .hero-beeld{clip-path:none}
   .vel.wijs-aan{box-shadow:0 0 0 4px var(--violet)}
 }
+
+.letter-wacht .opening-tekst,.letter-wacht .mast nav{visibility:hidden}
+@media (max-width:860px){.letter-wacht .opening-foto{visibility:hidden}.opening-foto{animation:intro-in .5s var(--ease) both}.letter-wacht .opening-foto{animation:none}}
+.opening-tekst{animation:intro-in .5s var(--ease) both}
+.letter-wacht .opening-tekst{animation:none}
+@keyframes intro-in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.opening-tekst{animation:none}}
 </style>
-<script>document.documentElement.classList.add('js-film')</script>
+<script>(function(d){d.classList.add('js-film');if(!document.fonts||!document.fonts.load)return;d.classList.add('letter-wacht');var klaar=function(){d.classList.remove('letter-wacht')};Promise.all([document.fonts.load('800 1em Archivo'),document.fonts.load('400 1em Archivo')]).then(klaar,klaar);setTimeout(klaar,1500)})(document.documentElement)</script>
 </head>
 <body>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
