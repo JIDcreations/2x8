@@ -1,0 +1,48 @@
+# 2X8
+
+> 2X8 is de studio van Florian en Jasper. We bouwen websites, webshops, platformen en apps, en we adviseren over software zoals Odoo en Notion, AI-workflows en AI SEO.
+
+2X8 is een tweekoppige digitale studio uit België: Florian Bracke (development & consultancy) en Jasper Impens (design & front-end). We ontwerpen en bouwen websites, webshops en apps, en we adviseren over softwarepakketten en AI-workflows. Je werkt rechtstreeks met ons, zonder account-manager ertussen.
+
+- Contact: hello@2x8.be
+- Talen: Nederlands (https://2x8.be/), Frans (https://2x8.be/fr/), Engels (https://2x8.be/en/)
+- Werkgebied: België
+
+## Diensten
+
+- **Websites** (https://2x8.be/diensten/websites): Een moderne site die kwaliteit uitstraalt, vlot te beheren is en afgestemd is op jouw noden.
+- **Webshops** (https://2x8.be/diensten/webshops): Verkopen is nog nooit zo gemakkelijk geweest.
+- **Platformen** (https://2x8.be/diensten/platformen): Eén plek waar je klanten, partners of team samenkomen, met eigen logins en data die klopt.
+- **Apps** (https://2x8.be/diensten/apps): Een kwalitatieve tool, gebouwd om razendsnel te doen wat ze moet doen.
+- **Software** (https://2x8.be/diensten/software): Het juiste pakket, correct ingericht, en niet meer dan nodig is.
+- **AI-workflows** (https://2x8.be/diensten/ai-workflows): Repetitief werk dat zichzelf doet, met jou aan de k(n)op.
+- **AI SEO** (https://2x8.be/diensten/ai-seo): Gevonden worden in ChatGPT, Claude en Google’s AI-antwoorden, niet alleen in de blauwe links.
+
+## Pagina’s
+
+- [2X8 | Digitale interfaces, creatie en implementatie](https://2x8.be/): 2X8 is de studio van Florian en Jasper. We bouwen websites, webshops, platformen en apps, en we adviseren over software zoals Odoo en Notion, AI-workflows en AI SEO.
+- [Werk | 2X8](https://2x8.be/werk): Tien projecten van 2X8: Elevator Antwerp, Specter, EQTY, Studio Klei, NADIR, Keikoku Atelier, DLTA, Salon Dola, en de eigen sites van Jasper Impens en WEB.WORK.
+- [Diensten | 2X8](https://2x8.be/diensten/): Websites, webshops, platformen en apps bouwen, en AI-workflows, AI SEO en softwarepakketten beter laten draaien. Zeven diensten, door 2X8.
+- [Studio | 2X8](https://2x8.be/studio): 2X8 is het samenwerkingsverband van Florian en Jasper. 2 makers, 8 bits per byte, altijd rechtstreeks contact.
+- [Welk CMS? WordPress, Shopify of Wix | 2X8](https://2x8.be/cms): WordPress, Shopify en Wix eerlijk naast elkaar: beheer, kosten, uitbreiden en eigendom. Zo kies je het systeem waarmee je je site zelf bijhoudt.
+- [Contact | 2X8](https://2x8.be/contact): Vertel ons waar je mee zit. 2X8 antwoordt binnen twee werkdagen, altijd rechtstreeks met Florian en Jasper.
+- [Privacybeleid | 2X8](https://2x8.be/privacy): Hoe 2X8 omgaat met je gegevens: welke we verzamelen, waarom, en hoe je ze kan laten aanpassen of verwijderen.
+
+## Werk
+
+- [Elevator Antwerp](https://2x8.be/work/elevator-antwerp) — Elevator Antwerp · 2026 · Design, Development: Een strakke, beeldgedreven website voor een galerie zonder vaste locatie: hedendaagse kunst, tijdelijke tentoonstellingen en werken die te koop zijn.
+- [Impens Jasper COMMV](https://2x8.be/work/jasper-impens) — Persoonlijk project (Jasper Impens) · 2026 · Design, Development: Geen klantproject, maar het eigen portfolio van mede-oprichter Jasper, getoond als extra bewijs van het niveau waarop we werken.
+- [WEB.WORK](https://2x8.be/work/web-work) — Eigen zaak (Florian Bracke) · 2026 · Design, Development: Geen klantproject, maar de eigen site van medeoprichter Florian: webdevelopment uit Gent, met een vaste prijs en één aanspreekpunt.
+- [Specter](https://2x8.be/work/specter) — Specter Atelier · 2026 · Design, Development, WordPress / WooCommerce: Een brutalistische webshop voor een maatkleding-atelier in Antwerpen: negen stuks, geen rek, alles op afspraak.
+- [EQTY](https://2x8.be/work/eqty) — Jasper Impens · 2026 · Design, Development, React Native (Expo): Een Nederlandstalige app die beleggen leert als proces: onboarding-quiz, thematische lessen en reflectievragen die bepalen wat je daarna te zien krijgt.
+- [Studio Klei](https://2x8.be/work/studio-klei) — Studio Klei · 2026 · Design, Development, WordPress / WooCommerce: Een warme, Nederlandstalige webshop voor een keramiekatelier in Gent: categorieën, workshops en een winkelmandje.
+- [NADIR](https://2x8.be/work/nadir) — Eigen project (platform) · 2026 · Design, Development: Een realtime dashboard dat aandelen opspoort die het diepst gevallen zijn tegenover hun 52-wekenhoogtepunt. “The art of buying fallen giants.”
+- [Keikoku Atelier](https://2x8.be/work/keikoku) — Keikoku Atelier · 2026 · Design, Development: Een rustige, beeldgedreven site voor een architectenbureau dat huizen ontwerpt die honderd jaar moeten meegaan.
+- [DLTA](https://2x8.be/work/delta) — Eigen project (platform) · 2026 · Design, Development, Next.js: Een cryptoportefeuilletracker die meerdere aankooplots per munt bijhoudt en live winst en verlies berekent, volledig client-side.
+- [Salon Dola](https://2x8.be/work/salon-dola) — Salon Dola · 2026 · Design, Development: Een one-pager voor een dameskapsalon in Moerbeke: zwart-wit, één lettertype, en een afspraak die altijd één stap ver is.
+
+## Ook in het Frans en het Engels
+
+Elke pagina hierboven bestaat in drie talen: de Franse versie onder /fr, de
+Engelse onder /en. Elke pagina verwijst met hreflang naar haar tegenhangers.
+De volledige lijst met URL’s staat in https://2x8.be/sitemap.xml.

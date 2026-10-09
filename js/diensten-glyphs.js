@@ -182,6 +182,28 @@
         e.forEach(function (ab) { p.push([0.9, line(n[ab[0]], n[ab[1]], 0.01)]); });
         return sample(p, [0.15, -0.3]);
       },
+      // AI SEO: een vergrootglas dat geen lijst met links vindt maar één
+      // antwoord, als een tekstblok binnen de lens.
+      7: function () {
+        var cx = -0.15, cy = 0.2, r = 0.92, p = [];
+        p.push([5.4, arc(cx, cy, 0, r, 0, Math.PI * 2, 0.012)]);
+        p.push([2.2, arc(cx, cy, 0.07, r - 0.07, 0, Math.PI * 2, 0.01)]);
+        // De steel, in de richting die de cirkel op dat punt raakt.
+        var a = -Math.PI / 4;
+        p.push([2.6, line(
+          [cx + Math.cos(a) * r, cy + Math.sin(a) * r, 0],
+          [cx + Math.cos(a) * (r + 0.85), cy + Math.sin(a) * (r + 0.85), 0], 0.02)]);
+        // Het antwoord in de lens: drie regels, de bovenste vol.
+        p.push([1.9, fill(cx - 0.5, cy + 0.18, 1.0, 0.1, 0.09, 0.008)]);
+        p.push([1.4, fill(cx - 0.5, cy - 0.02, 0.78, 0.08, 0.09, 0.008)]);
+        p.push([1.0, fill(cx - 0.5, cy - 0.2, 0.55, 0.08, 0.09, 0.008)]);
+        // Een vonk rechtsboven: het antwoord komt ergens vandaan.
+        [[0.62, 0.62], [0.9, 0.34], [0.34, 0.9]].forEach(function (d) {
+          p.push([0.5, line([cx + d[0] * 0.55, cy + d[1] * 0.55, 0.18],
+                            [cx + d[0] * 1.35, cy + d[1] * 1.35, 0.18], 0.012)]);
+        });
+        return sample(p, [0.1, 0.35]);
+      },
     };
 
     /* ---------------------------------------------------------------- */

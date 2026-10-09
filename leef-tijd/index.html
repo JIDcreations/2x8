@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leef-Tijd – Ouder worden met de glimlach</title>
+<meta name="description" content="Boeken en programma's van Mark Claus over pensioen en ouder worden: actief, positief en creatief. Voor bedrijven, seniorenraden, seniorenorganisaties, lokale dienstencentra en bibliotheken.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#f5f6f3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f6f3;
+  --surface:#ffffff;
+  --surface-2:#eef1ec;
+  --ink:#2e3733;
+  --ink-2:#5f6b65;
+  --ink-3:#8c968f;
+  --line:#e3e7e0;
+  --sage:#7a9a82;
+  --sage-deep:#4f7457;
+  --sage-soft:#e1eae2;
+  --sage-text:#3d5c44;
+  --apricot:#e6b48c;
+  --apricot-soft:#f8ebdf;
+  --sky-soft:#e3eaee;
+  --shadow:0 1px 2px rgba(40,50,45,.04),0 14px 36px -18px rgba(40,50,45,.16);
+  --shadow-s:0 1px 2px rgba(40,50,45,.05),0 8px 20px -12px rgba(40,50,45,.14);
+  --radius:22px;
+  --radius-s:14px;
+  --maat:66ch;
+  --display:'Bricolage Grotesque','Figtree',system-ui,sans-serif;
+  --tekst:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--tekst);font-size:1.125rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--apricot-soft);color:var(--ink)}
+::-webkit-scrollbar{width:12px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#cfd6cf;border:3px solid var(--bg);border-radius:8px}
+:focus-visible{outline:3px solid var(--sage);outline-offset:3px;border-radius:8px}
+a{color:var(--sage-deep);text-decoration-thickness:1.5px;text-underline-offset:.22em;text-decoration-color:rgba(79,116,87,.45)}
+a:hover{color:var(--ink);text-decoration-color:currentColor}
+p{margin:0 0 1em}
+img{max-width:100%;height:auto;display:block}
+h1,h2{font-family:var(--display);font-weight:600;line-height:1.2;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4vw,2.75rem)}
+h3{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.3;letter-spacing:-.01em;margin:0 0 .5em;text-wrap:balance}
+h3 a{color:var(--ink);text-decoration:none}
+h3 a:hover{color:var(--sage-deep);text-decoration:underline}
+strong{font-weight:600}
+.schijf,.stop-nr{font-family:var(--display);font-weight:600}
+
+/* ---------- Pagina ---------- */
+.bord{position:relative}
+.binnen{max-width:1140px;margin:0 auto;padding-inline:clamp(18px,4vw,40px)}
+
+/* ---------- Kop ---------- */
+.kop{
+  position:sticky;top:0;z-index:20;
+  background:rgba(245,246,243,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.kop .binnen{max-width:1280px}
+.kop-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:12px;flex-wrap:nowrap}
+.merk{text-decoration:none;color:var(--ink);display:block;line-height:1;flex:none}
+.merk h1{font-size:1.5rem;color:var(--ink)}
+.merk small{display:block;color:var(--ink-2);font-family:var(--tekst);font-size:.9rem;margin-top:5px;font-weight:500}
+.menu{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:2px;margin:0;padding:0;list-style:none}
+.menu a{
+  display:inline-block;color:var(--ink-2);text-decoration:none;font-weight:500;font-size:.9rem;line-height:1.3;
+  padding:8px 11px;border-radius:999px;transition:background .18s,color .18s;
+}
+.menu a:hover{background:var(--surface-2);color:var(--ink)}
+.menu a.boeken{background:var(--sage-soft);color:var(--sage-text);font-weight:600}
+.menu a.boeken:hover{background:#d3dfd5;color:var(--sage-text)}
+
+/* ---------- Start ---------- */
+.start{padding-block:36px 72px}
+.lid{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.lid img{width:100%;height:clamp(280px,44vw,520px);object-fit:cover;object-position:center 45%}
+.lid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,55,51,0) 45%,rgba(46,55,51,.25));pointer-events:none}
+.spreuk{
+  position:absolute;left:clamp(16px,3.5%,40px);bottom:clamp(16px,3.5%,40px);z-index:1;
+  max-width:min(560px,88%);background:rgba(255,255,255,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:var(--ink);padding:24px 28px;border-radius:18px;box-shadow:var(--shadow-s);
+}
+.spreuk p{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3;letter-spacing:-.01em;text-wrap:balance}
+.spreuk cite{display:block;font-style:normal;color:var(--ink-2);margin-top:10px;font-size:.95rem;font-weight:500}
+.welkom{
+  display:grid;grid-template-columns:1fr minmax(240px,320px);gap:28px 56px;align-items:start;
+  padding:clamp(28px,4vw,48px) 0 0;
+}
+.welkom h2{margin-bottom:.6em}
+.welkom .tekst{max-width:var(--maat)}
+.welkom ol{padding-left:1.3em;margin:0 0 1em}
+.welkom li{margin-bottom:.45em}
+.groet{margin-top:1.4em}
+.groet p{margin:0}
+.groet .naam{font-family:var(--display);font-weight:600;font-size:1.35rem;color:var(--ink);margin-top:4px}
+.foto{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);justify-self:end;background:var(--surface-2)}
+.welkom .foto{position:sticky;top:96px}
+.menu-knop{display:none}
+.foto img{aspect-ratio:892/1200;object-fit:cover;width:100%}
+
+/* ---------- Knoppen ---------- */
+.knop{
+  display:inline-flex;align-items:center;gap:.55em;font-weight:600;font-size:1rem;line-height:1.3;
+  padding:13px 22px;border-radius:999px;text-decoration:none;color:#fff;background:var(--sage-deep);
+  border:1.5px solid transparent;cursor:pointer;font-family:var(--tekst);
+  transition:background .18s,color .18s,border-color .18s,transform .18s cubic-bezier(.2,.8,.2,1);
+}
+.knop:hover{background:#42634a;color:#fff;transform:translateY(-1px)}
+.knop:active{transform:translateY(0)}
+.knop.geel{background:var(--sage-deep);color:#fff}
+.knop.blauw{background:transparent;color:var(--ink);border-color:#c9d1ca}
+.knop.blauw:hover{background:var(--surface-2);color:var(--ink)}
+.knop svg{width:1.25em;height:1.25em;flex:none}
+.knop.rol svg{animation:rol .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes rol{0%{transform:rotate(0) scale(1)}40%{transform:rotate(200deg) scale(1.3)}100%{transform:rotate(360deg) scale(1)}}
+
+/* ---------- Zones ---------- */
+.zone{padding-block:64px 72px;border-top:1px solid var(--line)}
+.zonekop{display:flex;align-items:center;gap:14px;margin-bottom:36px;flex-wrap:wrap}
+.zonekop .lint{
+  order:2;color:var(--ink-2);font-size:.78rem;font-weight:600;letter-spacing:.14em;padding:7px 12px;border-radius:999px;
+  background:var(--surface-2);
+}
+.lint.geel{background:var(--apricot-soft);color:#8a5a2e}
+.lint.blauw{background:var(--sky-soft);color:#3f5866}
+.lint.oranje{background:var(--apricot-soft);color:#8a5a2e}
+.lint.groen{background:var(--sage-soft);color:var(--sage-text)}
+.lint.rood{background:var(--sage-soft);color:var(--sage-text)}
+
+/* ---------- Het pad (boeken) ---------- */
+.pad{position:relative;display:grid;gap:40px}
+.stop{position:relative;display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start}
+.stop.r{grid-template-columns:1fr 64px}
+.stop.r .schijf{grid-column:2;grid-row:1}
+.stop.r .tegel{grid-column:1;grid-row:1}
+.stop::before{content:"";position:absolute;top:31px;left:32px;right:32px;border-top:2px dashed #cbd4cc;z-index:0}
+.stop::after{content:"";position:absolute;top:32px;bottom:-40px;width:0;border-left:2px dashed #cbd4cc;z-index:0;right:31px}
+.stop.r::after{right:auto;left:31px}
+.pad.ingeklapt > .stop:last-of-type::after,.rest > .stop:last-of-type::after{display:none}
+.rest{display:grid;gap:40px}
+.rest[hidden]{display:none}
+.meer{display:flex;justify-content:center;padding:8px 0 4px}
+.meer[hidden]{display:none}
+.schijf{
+  position:relative;z-index:2;width:64px;height:64px;border-radius:50%;
+  display:grid;place-items:center;font-size:1.35rem;color:var(--sage-deep);background:var(--surface);
+  border:2px solid #cbd4cc;transition:background .3s,color .3s,border-color .3s
+}
+.stop.actief .schijf{background:var(--sage-deep);color:#fff;border-color:var(--sage-deep)}
+.tegel{
+  position:relative;z-index:1;background:var(--surface);border-radius:var(--radius);
+  box-shadow:var(--shadow-s);padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:120px 1fr;gap:28px;align-items:start;
+  transition:border-color .3s,box-shadow .3s
+}
+.stop.actief .tegel{box-shadow:var(--shadow)}
+.kaft{display:block;justify-self:start;border-radius:10px;overflow:hidden;box-shadow:var(--shadow-s);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.kaft:hover{transform:translateY(-3px)}
+.kaft img{width:120px;height:auto}
+.boek{max-width:var(--maat)}
+.boek p{margin-bottom:.9em}
+.meta{color:var(--ink-2);font-size:.95rem;margin:0 0 1.1em;line-height:1.5}
+.padnoot{margin-top:40px;background:var(--apricot-soft);color:var(--ink);border-radius:var(--radius-s);padding:20px 26px;font-size:1.05rem;max-width:var(--maat)}
+.padnoot p{margin:0}
+.padnoot a{color:var(--ink);font-weight:600}
+
+/* ---------- Grote blokken ---------- */
+.groot{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow-s);padding:clamp(24px,4vw,48px)}
+.groot .tekst{max-width:var(--maat)}
+.groot h3{font-size:1.3rem}
+.groot h3.titel{font-size:1.5rem;margin-bottom:.7em}
+.figuur{margin:1.6em 0;display:grid;justify-items:start}
+.figuur img{border-radius:var(--radius-s);box-shadow:var(--shadow-s);max-width:min(100%,520px)}
+.kaftlink{display:inline-block;border-radius:10px;overflow:hidden;box-shadow:var(--shadow-s);margin:.3em 0 1.2em;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.kaftlink:hover{transform:translateY(-3px)}
+.kaftlink img{width:120px}
+.boekje{
+  display:inline-block;margin:.3em 0 1.4em;padding:26px 30px;max-width:420px;
+  background:var(--surface-2);border-radius:var(--radius-s);font-size:1.02rem;line-height:1.5
+}
+.boekje .titel{font-family:var(--display);font-weight:600;font-size:1.25rem;line-height:1.3;margin-bottom:.2em}
+.boekje .sub{font-size:.85rem;font-weight:600;letter-spacing:.06em;color:var(--ink-2);margin-bottom:1em}
+.boekje p{margin:0}
+.boekje .auteur{margin-top:1em;font-weight:600}
+.boekje .rood{color:#a6553a;font-weight:600;letter-spacing:.02em}
+.video{margin:1.6em 0 .4em;border-radius:var(--radius-s);overflow:hidden;box-shadow:var(--shadow-s);background:#1f2523;max-width:640px}
+.video video{width:100%;height:auto;aspect-ratio:16/9;display:block}
+
+
+/* bedrijven-kaart */
+.bedrijf-kop{margin-bottom:32px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.bedrijf .titel{margin:0}
+.titel-hoofd{display:block;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em;line-height:1.15}
+.titel-sub{display:block;font-family:var(--tekst);font-weight:500;font-size:1.05rem;line-height:1.5;color:var(--ink-2);margin-top:10px;max-width:var(--maat)}
+.bedrijf-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}
+.bedrijf-intro .tekst p:last-child{margin-bottom:0}
+.bedrijf-foto{margin:0;position:sticky;top:96px}
+.bedrijf-foto img{border-radius:var(--radius-s);box-shadow:var(--shadow-s);width:100%;aspect-ratio:4/3;object-fit:cover}
+.bedrijf-vervolg{margin-top:1.4em}
+.bedrijf-boek{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:var(--surface-2);border-radius:var(--radius-s);padding:26px 30px;margin:32px 0}
+.bedrijf-boek .kaftlink{margin:0}
+.bedrijf-boek .label{color:var(--ink-2);font-size:.95rem;margin:0 0 4px}
+.bedrijf-boek .boektitel{font-family:var(--display);font-weight:600;font-size:1.4rem;letter-spacing:-.01em;margin:0 0 16px}
+.bedrijf-boekje{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;margin:0 0 32px}
+.bedrijf-boekje .boekje{margin:0}
+.bedrijf-boekje .tekst p{margin:0}
+.bedrijf .video{margin:0;max-width:760px}
+@media (max-width:900px){
+  .bedrijf-intro{grid-template-columns:1fr;gap:24px}
+  .bedrijf-foto{position:static}
+  .bedrijf-boek,.bedrijf-boekje{grid-template-columns:1fr;gap:20px}
+}
+
+/* programma's */
+.programma{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.programma > li{position:relative;padding:30px 0 28px 84px;border-top:1px solid var(--line)}
+.programma > li:first-child{border-top:0;padding-top:4px}
+.stop-nr{
+  position:absolute;left:0;top:26px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  font-size:1.15rem;color:var(--sage-deep);background:var(--surface);border:2px solid #cbd4cc
+}
+.programma > li:first-child .stop-nr{top:0}
+.programma h3{font-size:1.3rem}
+.programma .tekst{max-width:var(--maat)}
+.programma .metkaft{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start}
+.programma .metkaft .kaftlink{margin:0}
+.vragen{margin:.4em 0 1.2em 1.2em}
+.vragen p{margin:.25em 0;font-weight:600}
+
+/* over mezelf */
+.over{display:grid;grid-template-columns:minmax(200px,280px) 1fr;gap:44px;align-items:start}
+.over .foto{justify-self:start}
+.over h3{margin-top:1.6em}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
+.contact h2{font-size:1.8rem;margin-bottom:.7em}
+.veld{display:block;margin-bottom:18px;font-weight:600;font-size:.95rem;color:var(--ink-2)}
+.veld input,.veld textarea{
+  display:block;width:100%;margin-top:6px;font:inherit;font-weight:400;font-size:1.05rem;color:var(--ink);
+  padding:13px 16px;border:1.5px solid #cfd6cf;border-radius:12px;background:var(--surface);
+  caret-color:var(--sage-deep);transition:border-color .15s,box-shadow .15s
+}
+.veld input:focus,.veld textarea:focus{border-color:var(--sage);box-shadow:0 0 0 4px var(--sage-soft);outline:none}
+.veld textarea{resize:vertical;min-height:170px}
+.finish{background:var(--sage-soft);color:var(--ink);border-radius:var(--radius);padding:30px 32px;position:relative}
+.finish h3{font-size:1.35rem;margin-bottom:.4em}
+.finish p{margin:0 0 .3em;font-size:1.02rem}
+.finish a{color:var(--ink)}
+.finish .adres{margin-top:14px;line-height:1.55}
+.sociaal{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.sociaal a{display:inline-flex;align-items:center;gap:.5em;color:var(--ink);text-decoration:none;font-weight:600;padding:8px 14px 8px 10px;border-radius:999px;background:var(--surface);transition:background .15s,box-shadow .15s}
+.sociaal a:hover{box-shadow:var(--shadow-s)}
+.sociaal svg{width:24px;height:24px}
+
+/* voet */
+.voet{color:var(--ink-2);padding:32px 0 44px;border-top:1px solid var(--line);font-size:.95rem}
+.voet-in{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:flex-start}
+.voet ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.voet a{color:var(--ink-2)}
+.voet p{margin:0}
+
+/* naar boven */
+.omhoog{
+  position:fixed;right:18px;bottom:18px;z-index:30;width:50px;height:50px;border-radius:50%;background:var(--surface);
+  display:grid;place-items:center;box-shadow:var(--shadow);color:var(--ink);opacity:0;transform:translateY(12px);
+  transition:opacity .3s,transform .3s;pointer-events:none
+}
+.omhoog.zichtbaar{opacity:1;transform:none;pointer-events:auto}
+.omhoog svg{width:22px;height:22px}
+
+/* ---------- Kleine schermen ---------- */
+@media (max-width:900px){
+  .welkom{grid-template-columns:1fr}
+  .welkom .foto{position:static}
+  .foto{justify-self:start;max-width:260px}
+  .over{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .tegel{grid-template-columns:120px 1fr;gap:20px}
+}
+@media (max-width:720px){
+  body{font-size:1.06rem}
+  html{scroll-padding-top:118px}
+  .kop{position:sticky}
+  .kop-in{flex-wrap:wrap;gap:0;padding-block:10px;align-items:center}
+  .merk{flex:1 1 auto}
+  .merk h1{font-size:1.3rem}
+  .merk small{margin-top:3px;font-size:.82rem}
+  .menu-knop{
+    display:inline-flex;align-items:center;gap:8px;flex:none;
+    font:inherit;font-weight:600;font-size:.95rem;color:var(--ink);background:var(--surface);
+    border:1.5px solid #cfd6cf;border-radius:999px;padding:9px 14px 9px 12px;cursor:pointer
+  }
+  .menu-knop svg{width:20px;height:20px}
+  .menu-knop .ico-dicht{display:none}
+  .menu-knop[aria-expanded="true"] .ico-open{display:none}
+  .menu-knop[aria-expanded="true"] .ico-dicht{display:block}
+  .kop nav{display:none;flex:1 1 100%;min-width:0;margin:0;padding:10px 0 6px;border-top:1px solid var(--line);margin-top:10px}
+  .kop.open nav{display:block}
+  .menu{flex-direction:column;gap:2px;overflow:visible;padding:0}
+  .menu li{flex:none}
+  .menu a{display:block;font-size:1.05rem;padding:12px 12px;border-radius:12px;white-space:normal}
+  .menu a.boeken{background:var(--sage-soft)}
+  .welkom .foto{position:static}
+  .start{padding-block:16px 48px}
+  .lid img{height:220px}
+  .spreuk{position:static;max-width:none;border-radius:0;box-shadow:none;background:var(--surface);padding:20px 20px 22px;backdrop-filter:none}
+  .lid::after{display:none}
+  .welkom{padding-top:28px;gap:24px}
+  .foto{max-width:220px}
+  .zone{padding-block:48px 56px}
+  .zonekop{gap:10px;margin-bottom:26px}
+  .pad{gap:24px}
+  .stop,.stop.r{grid-template-columns:44px 1fr;gap:12px}
+  .stop.r .schijf{grid-column:1}
+  .stop.r .tegel{grid-column:2}
+  .stop::before{display:none}
+  .stop::after,.stop.r::after{right:auto;left:21px;top:22px;bottom:-24px}
+  .schijf{width:44px;height:44px;font-size:1rem}
+  .tegel{grid-template-columns:1fr;gap:16px;padding:18px 16px}
+  .kaft{justify-self:center}
+  .kaft img{width:120px}
+  .rest{gap:24px}
+  .meer{padding:4px 0}
+  .meer .knop{width:100%;justify-content:center}
+  .padnoot{padding:18px 20px;font-size:1rem}
+  .groot{padding:22px 18px;border-radius:18px}
+  .bedrijf-boek,.bedrijf-boekje{padding:20px 18px}
+  .boekje{padding:20px 22px;max-width:none;display:block}
+  .programma > li{padding-left:0;padding-top:72px}
+  .programma > li:first-child{padding-top:60px}
+  .stop-nr{top:22px;width:44px;height:44px;font-size:1rem}
+  .programma > li:first-child .stop-nr{top:6px}
+  .programma .metkaft{grid-template-columns:1fr}
+  .programma .metkaft .kaftlink{margin-top:4px}
+  .over .foto{max-width:220px}
+  .contact{gap:20px}
+  .finish{padding:24px 20px}
+  .voet-in{flex-direction:column;gap:14px}
+  .omhoog{width:46px;height:46px;right:12px;bottom:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="bord" id="top">
+
+  <header class="kop">
+    <div class="binnen kop-in">
+      <a class="merk" href="#top">
+        <h1>Leef-Tijd</h1>
+        <small>Ouder worden met de glimlach</small>
+      </a>
+      <button class="menu-knop" type="button" id="menu-knop" aria-expanded="false" aria-controls="hoofdmenu">
+        <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ico-dicht" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <span>Menu</span>
+      </button>
+      <nav aria-label="Hoofdmenu" id="hoofdmenu">
+        <ul class="menu">
+          <li><a class="boeken" href="#boeken">Boeken</a></li>
+          <li><a href="#bedrijven">Bedrijven &amp; Seniorenraden</a></li>
+          <li><a href="#organisaties">Seniorenorganisaties, Lokale Dienstencentra &amp; Bibliotheken</a></li>
+          <li><a href="#over">Iets over mezelf</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- START -->
+    <section class="binnen start" aria-labelledby="welkom-titel">
+      <div class="lid">
+        <img src="img/hero.jpg?v=20260930" width="2000" height="668" alt="Een kronkelende landweg tussen groene weiden en bomen">
+        <div class="spreuk">
+          <p>De toekomst is niet zomaar een plek waar we heen gaan, maar een plek die wijzelf creëren.</p>
+          <cite>J. Schaar</cite>
+        </div>
+      </div>
+
+      <div class="welkom">
+        <div class="tekst">
+          <h2 id="welkom-titel">Welkom bij Leef-Tijd</h2>
+          <p>Ouder worden doen we allemaal. De ene al wat enthousiaster dan de ander. Vanaf we geboren worden doen we het elke dag. In het begin valt dat niet zo op maar na een tijdje, zo vanaf 60 jaar, laat dat ouder worden zich kennen en voelen.</p>
+          <p>In deze website neem ik je graag mee langs de essentie van wat ik doe, hoe ik dat doe, en waarom ik dat doe. Want ouder worden we allemaal en is het niet zinvol om te zoeken naar de beste manier om dat te doen?</p>
+          <p>Er zijn twee groepen waarvoor ik werk:</p>
+          <ol>
+            <li><strong>Bedrijven en seniorenraden</strong> met het programma <a href="#bedrijven">Voorbereiding op pensioen: gepassioneerd gepensioneerd</a></li>
+            <li><strong>Seniorenorganisaties, lokale dienstencentra, bibliotheken</strong>… <a href="#organisaties">Met een waaier aan programma’s</a></li>
+          </ol>
+          <p>Verder vertel ik iets over mezelf, kun je de boeken zien die ik schreef die in de bibliotheek te lenen zijn en velen ook in de boekhandel te krijgen of je kan ze bij mij bestellen via het <a href="#contact">contactformulier</a>. Een laatste hoofdstuk hoe je contact kan nemen.</p>
+          <div class="groet">
+            <p>Hartelijke groet,</p>
+            <p class="naam">Mark Claus</p>
+          </div>
+        </div>
+        <div class="foto">
+          <img src="img/profielfoto.jpg?v=20260930" width="892" height="1200" alt="Mark Claus">
+        </div>
+      </div>
+    </section>
+
+    <!-- BOEKEN -->
+    <section class="binnen zone" id="boeken" aria-labelledby="boeken-titel">
+      <div class="zonekop">
+        <span class="lint geel">11 BOEKEN</span>
+        <h2 id="boeken-titel">Boeken door Mark Claus</h2>
+      </div>
+
+      <div class="pad ingeklapt" id="pad">
+        <article class="stop l">
+          <div class="schijf" aria-hidden="true">1</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/be/nl/p/oud-worden-voor-beginners/9300000250714479/?Referrer=ADVNLGOO002008J-S--9300000250714479-PMAX-C-22294752364" target="_blank"><img src="img/oud-worden-voor-beginners.jpg" width="781" height="1200" alt="Boekomslag Oud worden voor beginners"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/be/nl/p/oud-worden-voor-beginners/9300000250714479/?Referrer=ADVNLGOO002008J-S--9300000250714479-PMAX-C-22294752364" target="_blank">Oud worden voor beginners</a></h3>
+              <p>Oud worden is niet zo moeilijk, maar het kwaliteits- en zinvol vormgeven, is een uitdaging. Mark Claus schrijft wat hij leerde en nog steeds elke dag leert neer in de vorm van korte levenslesjes. Actief, positief en creatief ouder worden.</p>
+              <p class="meta"><strong>Uitgever:</strong> New Book Collective<br><strong>Publicatiedatum:</strong> 02/2026</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/be/nl/p/oud-worden-voor-beginners/9300000250714479/?Referrer=ADVNLGOO002008J-S--9300000250714479-PMAX-C-22294752364" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop r">
+          <div class="schijf" aria-hidden="true">2</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/be/nl/p/geniet-van-je-pensioen/9200000113157807/" target="_blank"><img src="img/geniet-van-je-pensioen.png" width="315" height="497" alt="Boekomslag Geniet van je pensioen"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/be/nl/p/geniet-van-je-pensioen/9200000113157807/" target="_blank">Geniet van je pensioen – 200 tips om actief te blijven</a></h3>
+              <p>Dat is voor als ik met pensioen ben – hoe dikwijls hoor je dat niet zeggen? Eindelijk zeeën van tijd om te doen wat je graag doet… Maar wat is dat dan allemaal? Wat is voor jou echt van belang? Hoe wil je je dagen doorbrengen? Sommige senioren hebben het drukker dan ooit wanneer ze gepensioneerd zijn en andere genieten juist van de rust. Dit boek zet je op weg om jouw tweede carrière zin te geven en reikt 200 tips aan om actief te blijven.</p>
+              <p class="meta"><strong>Uitgever:</strong> Davidsfonds<br><strong>Publicatiedatum:</strong> 12/2019</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/be/nl/p/geniet-van-je-pensioen/9200000113157807/" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop l">
+          <div class="schijf" aria-hidden="true">3</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/ouder-worden-met-de-glimlach/9200000058527870/?country=BE&amp;suggestionType=typedsearch" target="_blank"><img src="img/ouder-worden-met-de-glimlach.jpg" width="150" height="200" alt="Boekomslag Ouder worden met de glimlach"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/ouder-worden-met-de-glimlach/9200000058527870/?country=BE&amp;suggestionType=typedsearch" target="_blank">Ouder worden met de glimlach</a></h3>
+              <p>Lachen is gezond. Met een glimlach om de lippen voel je je blijer en gelukkiger. Bovendien is lachen makkelijk en zeker niet duur. Wanneer je bijna of helemaal met pensioen bent en de tijd steeds sneller lijkt te gaan, is humor een uitstekend middel tegen de stress en de ongemakken van het leven. Heb je Abraham of Sara allang gezien? Dan ga je met dit boekje vol inspiratie in de hand met een glimlach de toekomst tegemoet!</p>
+              <p class="meta"><strong>Uitgever:</strong> Witsand Uitgevers<br><strong>Publicatiedatum:</strong> 06/2016</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/ouder-worden-met-de-glimlach/9200000058527870/?country=BE&amp;suggestionType=typedsearch" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <div class="meer" id="meer">
+          <button class="knop" type="button" id="toon-boeken">Bekijk al mijn boeken</button>
+        </div>
+        <div class="rest" id="rest" hidden>
+        <article class="stop r">
+          <div class="schijf" aria-hidden="true">4</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/met-plezier-met-pensioen/9200000038475276/?country=BE&amp;suggestionType=typedsearch" target="_blank"><img src="img/met-plezier-met-pensioen.jpg" width="525" height="793" alt="Boekomslag Met plezier met pensioen"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/met-plezier-met-pensioen/9200000038475276/?country=BE&amp;suggestionType=typedsearch" target="_blank">Met plezier met pensioen</a></h3>
+              <p>In ‘Met plezier met pensioen’ stoomt Mark Claus je klaar voor de start van je tweede carrière. Het bevat tal van tips en adviezen die je helpen je toekomst na je laatste werkdag uit te stippelen: van het bepalen van je afbouwscenario, naar het schrijven van je afscheidsspeech tot het zoeken van nieuwe uitdagingen. Daarnaast reikt Claus je heel wat nuttige vragen, doe-opdrachten en leestips aan die je stimuleren om je pensioen helemaal op maat voor te bereiden. Op pensioen gaan of zijn moet je leren, maar met deze handleiding word je al aardig op weg gezet.</p>
+              <p class="meta"><strong>Uitgever:</strong> Davidsfonds<br><strong>Publicatiedatum:</strong> 02/2015</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/met-plezier-met-pensioen/9200000038475276/?country=BE&amp;suggestionType=typedsearch" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop l">
+          <div class="schijf" aria-hidden="true">5</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/gefeliciteerd-gepensioneerd/1001004011699300/?country=BE&amp;suggestionType=typedsearch" target="_blank"><img src="img/gefeliciteerd-gepensioneerd.jpg" width="150" height="200" alt="Boekomslag Gefeliciteerd! Gepensioneerd!"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/gefeliciteerd-gepensioneerd/1001004011699300/?country=BE&amp;suggestionType=typedsearch" target="_blank">Gefeliciteerd! Gepensioneerd!</a></h3>
+              <p>Bijna of net met pensioen? Proficiat! De mooiste tijd van je leven komt eraan! Dit boek is het mooiste cadeau dat je van iemand kan krijgen. Het zal je helpen om je pensioen zinvol in te vullen door je te laten zien hoe je positief, actief en creatief kunt blijven als je met pensioen bent. Hoe kun je ten volle genieten van de jaren die komen? En welke valkuilen kun je maar beter vermijden?</p>
+              <p class="meta"><strong>Uitgever:</strong> Witsand Uitgevers<br><strong>Publicatiedatum:</strong> 09/2011</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/gefeliciteerd-gepensioneerd/1001004011699300/?country=BE&amp;suggestionType=typedsearch" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop r">
+          <div class="schijf" aria-hidden="true">6</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/gepassioneerd-gepensioneerd/1001004008508988/?country=BE&amp;suggestionType=typedsearch" target="_blank"><img src="img/gepassioneerd-gepensioneerd.jpg" width="150" height="229" alt="Boekomslag Gepassioneerd gepensioneerd"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/gepassioneerd-gepensioneerd/1001004008508988/?country=BE&amp;suggestionType=typedsearch" target="_blank">Gepassioneerd gepensioneerd</a></h3>
+              <p>Het perfecte cadeauboekje voor wie met pensioen gaat of net is gegaan, en zich realiseert dat hij nog een heel leven voor de boeg heeft, boordevol tips over hoe je dat zo zinvol en gelukkig mogelijk kunt invullen.</p>
+              <p class="meta"><strong>Uitgever:</strong> Witsand Uitgevers<br><strong>Publicatiedatum:</strong> 11/2010</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/gepassioneerd-gepensioneerd/1001004008508988/?country=BE&amp;suggestionType=typedsearch" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop l">
+          <div class="schijf" aria-hidden="true">7</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/beter-met-de-jaren/1001004006044196/" target="_blank"><img src="img/beter-met-de-jaren.jpg" width="150" height="197" alt="Boekomslag Beter met de jaren"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/beter-met-de-jaren/1001004006044196/" target="_blank">Beter met de jaren – 123 tips om te blijven werken met de glimlach na je vijftigste</a></h3>
+              <p>Ben je de vijftig voorbij en heb je Abraham of Sarah dus al gezien? Dan is de tijd aangebroken dat iedereen (en jijzelf in de eerste plaats) het weet: vanaf nu word je alleen nog maar beter met de jaren! Dit boekje staat boordevol tips om van dit stuk van je carrière zelf de mooiste jaren van je leven te maken. Wat wil je nog bereiken? Hoe stel je je op in de toekomst? Hoe zorg je voor een goede balans tussen leven en werken? Hoe ga je demotivatie en andere bedreigingen te lijf?</p>
+              <p class="meta"><strong>Uitgever:</strong> Lannoo<br><strong>Publicatiedatum:</strong> 08/2008</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/beter-met-de-jaren/1001004006044196/" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop r">
+          <div class="schijf" aria-hidden="true">8</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/hartelijk-gepensioneerd-123-tips-bij-nieuwe-start/1001004004542655/?country=BE&amp;suggestionType=typedsearch" target="_blank"><img src="img/hartelijk-gepensioneerd.jpg" width="150" height="196" alt="Boekomslag Hartelijk gepensioneerd!"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/hartelijk-gepensioneerd-123-tips-bij-nieuwe-start/1001004004542655/?country=BE&amp;suggestionType=typedsearch" target="_blank">Hartelijk gepensioneerd! – 123 tips tips bij een nieuwe start</a></h3>
+              <p>Mark Claus begeleidt al dertig jaar mensen die op het punt staan met pensioen te gaan. De 123 beste tips heeft hij nu gebundeld in dit leuke cadeauboekje. Hoe bereid je je het beste voor op je nieuwe carrière ná je pensioen? Hoe neem je goed afscheid van je werk en je collega’s? Hoe ga je om met het pensioen van je partner? Hoe blijf je scherp? Waarom is humor zo belangrijk? Waar vind je nieuwe uitdagingen? Hoe zorg je goed voor jezelf? Mooi vormgegeven en geïllustreerd, en gekruid met een vleugje humor.</p>
+              <p class="meta"><strong>Uitgever:</strong> Lannoo<br><strong>Publicatiedatum:</strong> 06/2007</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/hartelijk-gepensioneerd-123-tips-bij-nieuwe-start/1001004004542655/?country=BE&amp;suggestionType=typedsearch" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop l">
+          <div class="schijf" aria-hidden="true">9</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/leven-begint-vandaag-123-inspirerende-gedachten/1001004005511423/?country=BE&amp;suggestionType=typedsearch" target="_blank"><img src="img/het-leven-begint-vandaag.jpg" width="150" height="196" alt="Boekomslag Het leven begint vandaag"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/leven-begint-vandaag-123-inspirerende-gedachten/1001004005511423/?country=BE&amp;suggestionType=typedsearch" target="_blank">Het leven begint vandaag – 123 inspirerende gedachten</a></h3>
+              <p>Een boekje vol inspiratie om cadeau te doen aan wie vol vertrouwen de tweede helft van zijn leven is ingestapt. De opvolger van het succesvolle cadeauboekje Hartelijk gepensioneerd, dat vorig jaar verscheen en meermaals werd herdrukt. Een geschenk voor wie, pas of langer geleden, Abraham of Sarah heeft gezien.<br>
+              Ouder worden kan op veel manieren. Je kunt versuikeren, verharden of verzuren, maar je kunt ook rijpen of beter en wijzer worden. Dit boekje bundelt 123 inspirerende gedachten die ervoor zorgen dat je leven na je vijftigste alleen maar beter wordt…</p>
+              <p class="meta"><strong>Uitgever:</strong> Lannoo<br><strong>Publicatiedatum:</strong> 10/2007</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/leven-begint-vandaag-123-inspirerende-gedachten/1001004005511423/?country=BE&amp;suggestionType=typedsearch" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop r">
+          <div class="schijf" aria-hidden="true">10</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/op-safari-naar-je-werk/1001004005357808/?country=BE&amp;suggestionType=typedsearch" target="_blank"><img src="img/op-safari-naar-je-werk.jpg" width="150" height="212" alt="Boekomslag Op Safari naar je werk"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/op-safari-naar-je-werk/1001004005357808/?country=BE&amp;suggestionType=typedsearch" target="_blank">Op Safari naar je werk</a></h3>
+              <p>Als ervaren werknemer kun je vandaag niet meer stoppen met werken op je vijfenvijftigste. Zelfs op je zestigste stoppen zit er niet meer in. Vind je dat een grote ramp of valt het nog wel mee? Onze maatschappij heeft duidelijk een probleem. Dat probleem heeft te maken met de kleuren grijs en groen. Er komen meer ouderen – dat is de vergrijzing – en er komen minder jongeren – dat is de ontgroening. Om dat probleem aan te pakken moet het roer radicaal om. Gelukkig groeit de maatschappelijke tendens om langer aan de slag te blijven. Dit boek overtuigt je om dat probleem om te smeden tot een uitdaging.</p>
+              <p class="meta"><strong>Uitgever:</strong> Lannoo<br><strong>Publicatiedatum:</strong> 10/2007</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/op-safari-naar-je-werk/1001004005357808/?country=BE&amp;suggestionType=typedsearch" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="stop l">
+          <div class="schijf" aria-hidden="true">11</div>
+          <div class="tegel">
+            <a class="kaft" rel="nofollow" href="https://www.bol.com/nl/p/het-geheim-van-een-succesvol-pensioen/1001004002408793/?country=BE&amp;suggestionType=typedsearch" target="_blank"><img src="img/het-geheim-van-een-succesvol-pensioen.jpg" width="150" height="226" alt="Boekomslag Het geheim van een succesvol pensioen"></a>
+            <div class="boek">
+              <h3><a rel="nofollow" href="https://www.bol.com/nl/p/het-geheim-van-een-succesvol-pensioen/1001004002408793/?country=BE&amp;suggestionType=typedsearch" target="_blank">Het geheim van een succesvol pensioen</a></h3>
+              <p>Het resultaat van vele jaren training aan groepen en individuen die op het punt staan met pensioen te gaan. De perfecte voorbereiding op je derde leven: dat van het leven na het pensioen. Hoe vermijd je het zwarte gat? Met je pensioen begint een heel nieuwe carrière.<br>
+              Verneem hoe je het beste afscheid neemt op je werk, maak kennis met de 10 instrumenten die je helpen om zinvol met pensioen te gaan, leer ouder te worden met de glimlach…<br>
+              Boordevol concrete tips, getuigenissen en doe-hetzelfopdrachten. Stippel je persoonlijke beleidsplan uit!</p>
+              <p class="meta"><strong>Uitgever:</strong> Lannoo<br><strong>Publicatiedatum:</strong> 04/2005</p>
+              <a class="knop" rel="nofollow" href="https://www.bol.com/nl/p/het-geheim-van-een-succesvol-pensioen/1001004002408793/?country=BE&amp;suggestionType=typedsearch" target="_blank">Boek bestellen</a>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="padnoot">
+        <p>Alle <strong>boeken</strong> uit deze lijst zijn ook te verkrijgen in je lokale bibliotheek, of op aanvraag te <a href="#contact">bestellen bij Mark Claus</a>.</p>
+      </div>
+    </section>
+
+    <!-- BEDRIJVEN -->
+    <section class="binnen zone" id="bedrijven" aria-labelledby="bedrijven-titel">
+      <div class="zonekop">
+        <span class="lint blauw">PROGRAMMA</span>
+        <h2 id="bedrijven-titel">Voor bedrijven &amp; seniorenraden</h2>
+      </div>
+      <div class="groot bedrijf">
+        <header class="bedrijf-kop">
+          <h3 class="titel"><span class="titel-hoofd">GEPASSIONEERD GEPENSIONEERD</span> <span class="titel-sub">(Voorbereiding op pensioen voor medewerkers die nog werken of net gestopt zijn)</span></h3>
+        </header>
+        <div class="bedrijf-intro">
+          <div class="tekst">
+            <p>Stoppen met werken is tegelijkertijd een afscheid en een nieuw begin. Het beïnvloedt je hele leven en dat van je partner ingrijpend. Je staat op de drempel van een volledig nieuwe levensfase waarin nog veel mogelijk is en die met een beetje geluk even lang duurt als je eerste carrière. Maar hoe ga je die “nieuwe carrière” vorm geven? Hoe maak je jouw pensioen en dat van je partner tot een succes?</p>
+            <p>Deze presentatie geeft aanzetten om uw pensioen voor te bereiden om te beginnen met het thema afbouwen, een verwaarloosd thema. Ook het afscheid nemen komt aan bod, in Nederland enthousiast gevierd in Vlaanderen minder. Veder bespreken we wat je zoal kan doen voor je gezondheid, je geest, je hebben en houden, je relaties en niet te vergeten je zingeving.</p>
+            <p>Deze presentatie word best gegeven, een jaar voor de pensionering. Heel belangrijk is om de partners mee uit te nodigen want je gaat samen met pensioen.</p>
+          </div>
+          <figure class="bedrijf-foto">
+            <img src="img/schilder.jpg" width="969" height="620" alt="schilder">
+          </figure>
+        </div>
+        <div class="tekst bedrijf-vervolg">
+          <p>Bij deze presentatie hoort een interactieve vragenlijst die de deelnemers de kans geeft om de thema’s te personaliseren, te integreren en concreet te maken. We kunnen afspraken maken hoe deelnemers feedback van mij kunnen krijgen op hun “huiswerk.”</p>
+          <p>Een bedrijf of organisatie heeft niet altijd een groep mensen die met pensioen gaan, daarvoor ontwikkelde ik een dag wandelcoaching in Gent vertrekkend van Gent Sint Pieters langs educatieve instellingen, de Krook (bibliotheek met Digipunt, de leerwinkel “De stap” en een rijk aanbod aan info en vormingsmogelijkheden. Meer mogelijkheden lees je bij <a href="#wandelend">“Wandelend door Gent”</a></p>
+        </div>
+        <div class="bedrijf-boek">
+          <a class="kaftlink" rel="nofollow" href="https://www.standaardboekhandel.be/p/met-plezier-met-pensioen-9789059086197" target="_blank"><img src="img/met-plezier-met-pensioen.jpg" width="525" height="793" alt="boek mark claus met plezier met pensioen"></a>
+          <div>
+            <p class="label">Het boek dat hierbij hoort is:</p>
+            <p class="boektitel">Met plezier met pensioen</p>
+            <a class="knop" rel="nofollow" href="https://www.standaardboekhandel.be/p/met-plezier-met-pensioen-9789059086197" target="_blank">Boek bestellen</a>
+          </div>
+        </div>
+        <div class="bedrijf-boekje">
+          <div class="boekje">
+            <p class="titel">HET BOEK VAN MIJN CARRIÈRE</p>
+            <p class="sub">DOE- HET- ZELF- HANDLEIDING</p>
+            <p>Verwerk je carrière</p>
+            <p>Laat ergernis, schuld en spijt los</p>
+            <p>Aanvaard tekorten en fouten</p>
+            <p>Koester de mooie momenten</p>
+            <p>Zeef de goede elementen</p>
+            <p>Als bouwstenen voor de toekomst</p>
+            <p>De fundamenten van je tweede carrière</p>
+            <p class="auteur">Mark Claus</p>
+          </div>
+          <div class="tekst">
+            <p>Ik schreef ook nog het volgend boekje dat ik <a href="#contact">op aanvraag</a> mail voor 5€. Het voordeel is dat je er dan gelijk ik kan beginnen werken.</p>
+          </div>
+        </div>
+        <div class="video">
+          <video controls preload="metadata" playsinline width="640" height="360">
+            <source type="video/mp4" src="video/actief-en-positief-met-pensioen.mp4">
+            <a href="video/actief-en-positief-met-pensioen.mp4">video/actief-en-positief-met-pensioen.mp4</a>
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORGANISATIES -->
+    <section class="binnen zone" id="organisaties" aria-labelledby="organisaties-titel">
+      <div class="zonekop">
+        <span class="lint oranje">9 PROGRAMMA’S</span>
+        <h2 id="organisaties-titel">Seniorenorganisaties, lokale dienstencentra &amp; bibliotheken</h2>
+      </div>
+      <div class="groot">
+        <ol class="programma">
+          <li>
+            <span class="stop-nr" aria-hidden="true">1</span>
+            <div class="metkaft">
+              <div class="tekst">
+                <h3>1. Actief, positief en creatief genieten van je pensioen (voor mensen die al met pensioen zijn)</h3>
+                <p>We leven steeds langer, veel langer. De pensioentijd (ik noem het graag: tweede carrière) duurt steeds langer. De moeite waard dus om er zorgzaam mee om te gaan en er in te investeren. In deze presentatie geeft ik tips hoe je dat kan aanpakken.</p>
+                <p>We gebruiken het beeld van een huis waarvan de fundamenten zijn: een actieve, een positieve en een creatieve opstelling. Daarna exploreren we de kamers: mijn lichaam, mijn geest, mijn relaties, mijn hebben en houden en mijn zingeving. Rond ons huis is een tuin waar misschien moet gesnoeid worden maar waar ook ruimte is om te zaaien en te planten: liefst “streekeigen” planten. Ons huis heeft ook een zolder en een kelder waar misschien nog schatten van vroeger liggen die wachten om herontdekt te worden.</p>
+                <p>Deze presentatie kan in een middag maar liever in een dag; ook als cursus van een aantal dagdelen waar men persoonlijk aan het werk gaat.</p>
+                <p>Het boek dat hierbij hoort:</p>
+              </div>
+              <a class="kaftlink" href="#boeken" title="Geniet van je pensioen – 200 tips om actief te blijven"><img src="img/geniet-van-je-pensioen.png" width="315" height="497" alt="200tips"></a>
+            </div>
+          </li>
+          <li>
+            <span class="stop-nr" aria-hidden="true">2</span>
+            <div class="metkaft">
+              <div class="tekst">
+                <h3>2. Wat ik leerde sinds ik met pensioen ben: uitwisseling</h3>
+                <p>Ik schreef een boek: “Ouder worden voor beginners. Wat ik leerde na mijn pensioen.” Deze middag geef ik een aantal voorbeelden van mezelf maar verwacht dat de deelnemers naar voor brengen wat zij leerden: een levensles van anderen, van henzelf, van auteurs (Lees een paar zinnen uit een boek dat je dan ook meeneemt). Levenslessen in citaten, metaforen, haiku’s, gedichten, gezondheidstips…</p>
+                <p>Het boek dat hierbij hoort is:</p>
+              </div>
+              <a class="kaftlink" href="#boeken" title="Oud worden voor beginners"><img src="img/oud-worden-voor-beginners.jpg" width="781" height="1200" alt="781x1200"></a>
+            </div>
+          </li>
+          <li>
+            <span class="stop-nr" aria-hidden="true">3</span>
+            <div class="tekst">
+              <h3>3. De mogelijkheden, kansen, voorzieningen… voor de zorgen, bekommernissen en problemen van senioren</h3>
+              <p>In deze interactieve presentatie heb ik een aantal van de bekommernissen, zorgen, problemen, noden van senioren verzameld in 9 thema’s: gezondheid, wonen, mobiliteit, veiligheid, hebben en houden, zingeving, relaties, geest-geestelijke gezondheid en mee-zijn. Naast de problemen en uitdagingen geef ik telkens de kansen, mogelijkheden, voorzieningen die ten dienste staan om senioren te inspireren en bij te staan. Heel vaak zijn die totaal onbekend en dat is een gemiste kans. Ik heb nog geen boek wel een digitale versie.</p>
+            </div>
+          </li>
+          <li>
+            <span class="stop-nr" aria-hidden="true">4</span>
+            <div class="metkaft">
+              <div class="tekst">
+                <h3>4. Ouder worden met de glimlach</h3>
+                <p>Door meer te lachen en te glimlachen kun je op een eenvoudige wijze – en geef toe, op een prettige wijze – een bijdrage leveren aan je gezondheid en geluk. Een speelse presentatie die je lach en glimlach kietelt. Ik verken ook wegen om de lach en de glimlach een plaats te geven in je dagelijks leven en zo gelukkiger oud te worden. Het boek dat hierbij hoort is “Ouder worden met de glimlach.”</p>
+              </div>
+              <a class="kaftlink" href="#boeken" title="Ouder worden met de glimlach"><img src="img/ouder-worden-met-de-glimlach.jpg" width="150" height="200" alt="boek mark claus ouder worden met de glimlach"></a>
+            </div>
+          </li>
+          <li>
+            <span class="stop-nr" aria-hidden="true">5</span>
+            <div class="tekst">
+              <h3>5. Creatief denken</h3>
+              <p>Via informatie en allerlei oefeningen krijg je in deze workshop inzicht in wat creatief denken is, hoe het werkt en hoe je het kunt gebruiken. Creatief denken komt van pas om het hoofd te bieden aan allerlei oude en nieuwe probleempjes en uitdagingen maar ook om je leven meer inhoud te geven en je wensen te realiseren: je zult het toch zelf moeten doen: “De toekomst is een plek die wijzelf creëren. J.Schaar.)</p>
+            </div>
+          </li>
+          <li>
+            <span class="stop-nr" aria-hidden="true">6</span>
+            <div class="tekst">
+              <h3>6. Het verhaal van mijn leven</h3>
+              <p>Hier richt ik mij op twee doelgroepen: enerzijds senioren die al wat meer jaren kunnen overzien en die zelf hun verhaal willen schrijven. Daar voorzie ik een middag en krijgen ze tips over aanpak en kunnen ook het doe-het-zelf-handboek meekrijgen. Anderzijds richt ik mij op vrijwilligers die het verhaal van een senior willen schrijven omdat de drempel voor sommige senioren om zelf hun verhaal te schrijven misschien wel te hoog is. Maar hun verhaal vertellen willen veel senioren graag. Ze krijgen tips over hoe ze dat kunnen aanpakken. Om dit project te realiseren overleg ik graag over de verschillende stappen: wie kunnen we als vrijwilliger uitnodigen en hoeveel vorming en ondersteuning organiseren we?</p>
+              <p>Het boekje dat hierbij hoort:</p>
+              <div class="boekje">
+                <p><strong>Vertelt een senior zijn levensverhaal…</strong></p>
+                <p class="rood">HET VERHAAL VAN MIJN LEVEN</p>
+                <p><strong>Maakt een vrijwilliger er een boek van…</strong></p>
+                <p class="rood">PROJECT MET VRIJWILLIGERS</p>
+                <p class="auteur">Mark Claus</p>
+              </div>
+            </div>
+          </li>
+          <li id="wandelend">
+            <span class="stop-nr" aria-hidden="true">7</span>
+            <div class="tekst">
+              <h3>7. Wandelend door Gent</h3>
+              <p>We combineren drie doelstellingen: bewegen, in dit geval wandelen en interesse in cultuur en in leren. Ik woon in Gent dus doen we dit in Gent. Er zijn verschillende thema’s waar we in overleg een keuze uit maken; bezoek aan educatieve instellingen: het volwassenonderwijs, Avansa, de bibliotheek de Krook met Digipunt, de leerwinkel “De stap” en een rijk aanbod aan info en vormingsmogelijkheden. Maar natuurlijk is er ook oog voor een paar minder bekende klassiekers: de plantentuin van de universiteit, de wijngaard van de Sint Pietersabdij. Ook nieuwe ontwikkelingen in de stad komen aanbod: het station met ondergrondse parking, het nieuwe winkelconcept van Colruyt namelijk De Cru, de nieuwe Schelde-verbinding met sluis. We lunchen in een sociaal restaurant en eindigen vaak in het oude cafeetje van het Huis van Alijn door vrijwilligers gerund.</p>
+            </div>
+          </li>
+          <li>
+            <span class="stop-nr" aria-hidden="true">8</span>
+            <div class="tekst">
+              <h3>8. Zoeken en vinden van zin en betekenis voor 75+</h3>
+              <p>Het bereiken van een hoge leeftijd is iedereen niet gegeven en een mijlpaal om dankbaar voor te zijn. Tegelijkertijd brengt het ook uitdagingen met zich mee: bepaalde mogelijkheden nemen af of verdwijnen. Tijdens deze presentatie bieden we inspirerende inzichten en praktische handvaten om dit proces te ondersteunen maar daarna is er volop ruimte om eigen ervaringen en strategieën te delen die helpen om het leven op een zinvolle manier vorm te geven.</p>
+            </div>
+          </li>
+          <li>
+            <span class="stop-nr" aria-hidden="true">9</span>
+            <div class="tekst">
+              <h3>9. De stad van Axen</h3>
+              <p>De Axenroos is een instrument ontwikkeld door Nand Cuvelier van de Relatiestudio in Gent. Het is wetenschappelijk onderbouw en in Vlaanderen ontstaan: beeldend, concreet en niet hoogdravend. De Axenroos geeft zicht op de manier waarop je omgaat met andere mensen en laat ook alternatieven zien. In mijn eerste carrière heb ik dit instrument meer dan 20 jaar gebruikt in mijn cursussen met mensen uit het onderwijs, de zorg, ambtenarij en vrijwilligerswerk. Ook in mijn cursussen pensioen in zicht heb ik het veel gebruikt. Ze vonden het allemaal verrassend, inspirerend maar ook concreet toepasbaar in hun dagelijkse realiteit. Na een korte uitleg en een paar oefeningen om het instrument goed te leren kennen gaan we aan de slag met het situeren van jezelf in de Axenroos met 10 mogelijkheden:</p>
+              <div class="vragen">
+                <p>Wat doe ik veel? Wat doe ik weinig?</p>
+                <p>Dan maken we een plan voor de toekomst:</p>
+                <p>Wat wil ik meer doen en wat minder?</p>
+                <p>Wat zou ik leuk vinden (let op de formulering) dat mijn partner meer of minder doet?</p>
+              </div>
+              <p>Ter inspiratie kan u het boek: “De Stad van Axen” van Ferdinand Cuvelier lezen.</p>
+              <figure class="figuur">
+                <img src="img/axes.jpg" width="412" height="308" alt="Axes">
+              </figure>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- OVER -->
+    <section class="binnen zone" id="over" aria-labelledby="over-titel">
+      <div class="zonekop">
+        <span class="lint groen">DE SPELLEIDER</span>
+        <h2 id="over-titel">Iets over mezelf</h2>
+      </div>
+      <div class="groot over">
+        <div class="foto">
+          <img src="img/profielfoto.jpg?v=20260930" width="892" height="1200" alt="Mark Claus">
+        </div>
+        <div class="tekst">
+          <p>Ik ben geboren in 1944 in Beveren-waas, waar ik ook mijn jeugd doorbracht. Toen we trouwden verhuisden we naar Aalter. Ik studeerde eerst voor onderwijzer en daarna sociaal cultureel werk. Heel mijn eerste carrière heb ik in Nederland, in Zeeuws-Vlaanderen gewerkt, in volkshogeschool – vormingscentrum in Aardenburg en Cadzand maar in Aalter blijven wonen. Bijscholingen die ik volgde: Relatieconsulent bij de Relatiestudio in Gent van Nand Cuvelier, Gestaltherapie bij IVC, postgraduaat Mindfunless aan Arteveldehogeschool en Counceling Existentieel Welzijn aan KUL Leuven.</p>
+          <p>In 2006 stopte ik het laatste stuk van mijn carrière met werken voor een baas in Nederland waar ik als senior-trainer werkte voor een groot bureau voor training en advies. 37 jaar gaf ik trainingen aan allerlei groepen en zeker ook aan senioren, oudere werknemers en mensen die met pensioen gingen. Dat laatste werk heb ik lang gecoördineerd.</p>
+          <p>Ik kon al mijn kennis en ervaring toch niet laten verloren gaan bovendien had ik nu ervaring als “gepensioneerde” en dus startte in 2006 mijn tweede carrière met de vennootschap Leef-Tijd.</p>
+          <p>Net voor mijn pensioen ben ik beginnen schrijven: mijn bestseller is “Gefeliciteerd Gepensioneerd” en later verschenen: “Met plezier met pensioen” achtste druk, “Ouder worden met de glimlach”, “Geniet van je pensioen” en in 2006: “Oud worden voor beginners.” Zie voor al mijn boeken bij de rubriek <a href="#boeken">“Boeken”</a> hier op deze website.</p>
+          <p>Ik werkte voor bedrijven o.a. Bekaert, Electrabel, Lanxess, Havenbedrijf Antwerpen, Virga Jesse ziekenhuis, FSMA, Port of Zeebrugge, Pidpa…</p>
+          <p>Voor overheid: Stad Gent, Stad Aalst, Gemeente Lanaken, FOD WASO, FOD Economische zaken, Brussels Hoofdstedelijk gewest, federale politie…</p>
+          <p>Voor organisaties: Vorming-Plus, NEOS, OKRA, dienstencentra, seniorenraden en bibliotheken.</p>
+          <p>In Nederland voor Stichting Pensioenfonds Medisch specialisten.</p>
+          <h3>Actief, positief en creatief ouder worden</h3>
+          <p>Iedereen wil graag oud worden maar niemand wil het zijn. Het is wel de enig manier om te blijven leven. Het vraagt enige zorg, aandacht, bewustzijn, visie en inzet om dat op een actieve, positieve en creatieve manier dat ouder worden vorm te geven: met uw lichaam, uw geest, hebben en houden, relaties en zingeving of met de fysieke, sociale, psychische en spirituele dimensies van uw bestaan.</p>
+          <p>Dat is waar ik mee bezig ben. Ik lees erover, volg opleidingen, praat er met mensen over, doe zelf ervaringen op, denk erover na en reflecteer erover. Graag wil ik hier ook iets van delen met anderen, dat brengt contacten mee, inspireert en stimuleer weer mijn denken.</p>
+          <h3>Manier van werken</h3>
+          <p>Voor de genoemde thema’s heb ik een presentatie met mogelijkheid tot interactie van een dagdeel (morgen, middag, avond) maar indien mogelijk werk ik graag één dag dan is er meer kans op interactie en een cursus van meerdere dagdelen is ook mogelijk. Als sociaal cultureel werker maak ik ook een programma op maat van uw vraag. Na een gesprek maak ik dan een programmavoorstel.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="binnen zone" id="contact" aria-labelledby="contact-titel">
+      <div class="zonekop">
+        <h2 id="contact-titel">Contact</h2>
+      </div>
+      <div class="contact">
+        <form class="groot" action="mailto:claus.mark8@gmail.com" method="post" enctype="text/plain">
+          <h2>Contact Opnemen</h2>
+          <label class="veld">Je naam*<input type="text" name="Naam" required autocomplete="name"></label>
+          <label class="veld">Je e-mail*<input type="email" name="E-mail" required autocomplete="email"></label>
+          <label class="veld">Onderwerp<input type="text" name="Onderwerp"></label>
+          <label class="veld">Je bericht*<textarea name="Bericht" rows="8" required></textarea></label>
+          <button class="knop" type="submit">Verzenden</button>
+        </form>
+        <aside class="finish" aria-label="Adres en volgen">
+          <h3>Leef-Tijd</h3>
+          <p>Mark Claus</p>
+          <p class="adres">Tondelierlaan 54 bus 304<br>9000 Gent<br>België<br><a href="tel:+32497723322">+32 497 723 322</a><br><a href="mailto:claus.mark8@gmail.com">claus.mark8@gmail.com</a></p>
+          <p style="margin-top:22px;font-weight:700">Volg Leef-Tijd:</p>
+          <div class="sociaal">
+            <a href="https://www.facebook.com/mark.claus.90?fref=ts" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#ffffff"/><path d="M13.4 19v-6h2l.3-2.4h-2.3V9.2c0-.7.2-1.2 1.2-1.2h1.3V5.9c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.6H8.8V13h2.1v6z" fill="#4f7457"/></svg>
+              Facebook
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="voet">
+    <div class="binnen voet-in">
+      <ul>
+        <li><a href="#bedrijven">Bedrijven &amp; seniorenraden</a></li>
+        <li><a href="#organisaties">Seniorenorganisaties, lokale dienstencentra &amp; bibliotheken</a></li>
+      </ul>
+      <ul>
+        <li><a href="#over">Iets over mezelf</a></li>
+        <li><a href="#boeken">Boeken door Mark Claus</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p>Copyright © 2026 <a href="#top">Leef-Tijd</a>.</p>
+    </div>
+  </footer>
+
+</div>
+
+<a class="omhoog" href="#top" id="omhoog" aria-label="Naar boven">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<script>
+(function(){
+  var kop=document.querySelector('.kop'),menuKnop=document.getElementById('menu-knop');
+  function zetMenu(open){kop.classList.toggle('open',open);menuKnop.setAttribute('aria-expanded',open?'true':'false')}
+  menuKnop.addEventListener('click',function(){zetMenu(!kop.classList.contains('open'))});
+  document.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('click',function(){zetMenu(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')zetMenu(false)});
+  var knop=document.getElementById('toon-boeken'),rest=document.getElementById('rest'),meer=document.getElementById('meer'),pad=document.getElementById('pad');
+  knop.addEventListener('click',function(){
+    rest.hidden=false; meer.hidden=true; pad.classList.remove('ingeklapt');
+    var eerste=rest.querySelector('h3 a'); if(eerste){eerste.focus({preventScroll:true})}
+  });
+  var omhoog=document.getElementById('omhoog');
+  function toonOmhoog(){omhoog.classList.toggle('zichtbaar',window.scrollY>700)}
+  window.addEventListener('scroll',toonOmhoog,{passive:true}); toonOmhoog();
+})();
+</script>
+</body>
+</html>

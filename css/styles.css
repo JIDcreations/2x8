@@ -3106,6 +3106,92 @@ a.services-tabs__btn {
     6px 6px,
     6px 6px;
 }
+/* Eigen keuzelijst. cselect() in js/main.js schuift de <select> opzij en zet
+   er een knop en een lijst voor in de plaats; zonder JS gebeurt er niets en
+   blijft de gestileerde <select> hierboven staan. */
+.cselect {
+  position: relative;
+}
+.cselect__native {
+  /* Buiten beeld, maar niet display:none: het blijft het veld dat verstuurd
+     wordt, en een browser slaat een verborgen veld niet over. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.cselect__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  /* Dezelfde onderlijn en oranje pijl als de <select> die hij vervangt. */
+  appearance: none;
+  background-image:
+    linear-gradient(var(--orange), var(--orange)),
+    linear-gradient(45deg, transparent 50%, var(--orange) 50%),
+    linear-gradient(135deg, var(--orange) 50%, transparent 50%);
+  background-position:
+    0 100%,
+    calc(100% - 14px) 50%,
+    calc(100% - 8px) 50%;
+  background-size:
+    0% 2px,
+    6px 6px,
+    6px 6px;
+  padding-right: 32px;
+}
+.cselect__button:focus-visible,
+.cselect__button[aria-expanded='true'] {
+  outline: none;
+  background-size:
+    100% 2px,
+    6px 6px,
+    6px 6px;
+}
+/* Open: de pijl wijst omhoog. */
+.cselect__button[aria-expanded='true'] {
+  background-image:
+    linear-gradient(var(--orange), var(--orange)),
+    linear-gradient(135deg, transparent 50%, var(--orange) 50%),
+    linear-gradient(45deg, var(--orange) 50%, transparent 50%);
+}
+.cselect__list {
+  position: absolute;
+  z-index: 5;
+  inset-inline: 0;
+  top: calc(100% + 2px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 19em;
+  overflow-y: auto;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  box-shadow: 6px 6px 0 var(--wash);
+}
+.cselect__option {
+  padding: 10px 14px;
+  font-size: 17px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--wash);
+}
+.cselect__option:last-child {
+  border-bottom: 0;
+}
+.cselect__option.is-active {
+  background: var(--fg);
+  color: var(--bg);
+}
+.cselect__option[aria-selected='true']::after {
+  content: '\2022';
+  color: var(--orange);
+  padding-left: 8px;
+}
+
 .field__input--area {
   resize: vertical;
   min-height: 9em;
@@ -3313,12 +3399,20 @@ a.services-tabs__btn {
   gap: var(--sp-3);
   padding: clamp(20px, 2.4vw, 32px) clamp(16px, 2vw, 24px);
 }
-.svc-tile__desc {
+/* Op een dienstentegel is de dienstnaam waar je op afkomt, niet de zin eronder:
+   die twee dragen hier dus elkaars maat. Op de werktegels van de homepage blijft
+   .case-tile__name gewoon de kleine balkregel. */
+.svc-tile .case-tile__name {
   font-size: clamp(1.25rem, 1.7vw, 1.65rem);
-  font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.2;
-  max-width: 26ch;
+}
+.svc-tile__desc {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+  max-width: 34ch;
 }
 .svc-tile__points {
   display: flex;
@@ -3348,11 +3442,100 @@ a.services-tabs__btn {
   text-decoration-color: var(--orange);
   text-underline-offset: 3px;
 }
+/* De cases en de knop zakken samen naar de onderkant van de tegel. Tegels in
+   dezelfde rij zijn even hoog (flex rekt ze uit), dus daarmee staan de cases
+   op elke tegel op dezelfde lijn, hoeveel punten er ook boven staan. */
+.svc-tile__body {
+  flex: 1 1 auto;
+}
+.svc-tile__end {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  align-items: flex-start;
+}
+/* De knop staat in de balk, op de plek waar eerst het label stond: naast de
+   dienstnaam, waar je hem verwacht als je die naam net gelezen hebt. */
+.svc-tile__cta {
+  margin-left: auto;
+  flex: none;
+  height: 34px;
+  padding-inline: 14px;
+  font-size: 13px;
+}
+/* Op een telefoon past de knop niet meer naast de naam en valt hij op een
+   eigen regel. Rechts uitgelijnd zweeft hij daar; links staat hij onder de
+   naam waar hij bij hoort. */
+@media (max-width: 767px) {
+  .case-tile__bar:has(.svc-tile__cta) {
+    flex-wrap: wrap;
+  }
+  .svc-tile__cta {
+    margin-left: 0;
+  }
+}
+
+/* Drie cases passen naast elkaar; vanaf de vierde — en op een smal scherm al
+   eerder — schuift de rij door. De pijlen komen van caseScroll() in main.js:
+   zonder JS blijft het een gewone scrollrij, die met de vinger ook werkt. */
 .svc-tile__cases {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 20px) / 3);
   gap: 10px;
   max-width: 460px;
+  overflow-x: auto;
+  /* Geen scroll-behavior hier: caseScroll() geeft het zelf mee per klik, zodat
+     het bij prefers-reduced-motion meteen kan springen. */
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.svc-tile__cases::-webkit-scrollbar {
+  display: none;
+}
+.svc-tile__cases > li {
+  scroll-snap-align: start;
+  min-width: 0;
+}
+.svc-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 460px;
+  width: 100%;
+}
+.svc-cases__nav {
+  display: flex;
+  gap: 8px;
+}
+.svc-cases__btn {
+  appearance: none;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    opacity 0.3s;
+}
+.svc-cases__btn:hover:not(:disabled) {
+  background: var(--fg);
+  color: var(--bg);
+}
+.svc-cases__btn:disabled {
+  opacity: 0.25;
+  cursor: default;
 }
 .svc-tile__case {
   display: flex;
@@ -3530,11 +3713,123 @@ a.services-tabs__btn {
     margin: 0;
   }
   .svc-tile__cases {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-columns: calc((100% - 10px) / 2);
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .svc-tile__thumb img {
+    transition: none;
+  }
+}
+
+
+/* ==========================================================================
+   Dienstpagina
+   Eén dienst uitgeschreven: wat je krijgt, het werk dat er al staat, en de
+   vragen die klanten echt stellen. Die laatste staan in <details> zodat de
+   pagina leesbaar blijft; de tekst zit wél gewoon in de HTML, dus een
+   zoekmachine en een taalmodel lezen ze allebei.
+   ========================================================================== */
+.svc-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  padding-block: var(--sp-5) var(--sp-7);
+}
+.svc-page__block {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gx);
+  align-items: start;
+}
+.svc-page__block > h2 {
+  grid-column: 1 / 4;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-top: 6px;
+}
+.svc-page__block > *:not(h2) {
+  grid-column: 4 / -1;
+}
+.svc-page__block .svc-tile__points li {
+  font-size: 17px;
+}
+.svc-page__cases {
+  max-width: 620px;
+}
+.svc-faq {
+  border-top: 1px solid var(--line-strong);
+  max-width: 68ch;
+}
+.svc-faq__item {
+  border-bottom: 1px solid var(--line-strong);
+}
+.svc-faq__q {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--u);
+  padding: 18px 0;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+.svc-faq__q::-webkit-details-marker {
+  display: none;
+}
+/* Een plus die een min wordt: twee streepjes, de tweede draait weg. */
+.svc-faq__sign {
+  position: relative;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  translate: 0 2px;
+}
+.svc-faq__sign::before,
+.svc-faq__sign::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 2px;
+  background: var(--orange);
+  transition: rotate 0.5s var(--ease);
+}
+.svc-faq__sign::after {
+  rotate: 90deg;
+}
+.svc-faq__item[open] .svc-faq__sign::after {
+  rotate: 0deg;
+}
+.svc-faq__q:hover {
+  color: var(--orange-text);
+}
+.svc-faq__a p {
+  margin: 0;
+  padding-bottom: 20px;
+  max-width: 62ch;
+  color: var(--ash);
+  line-height: 1.6;
+}
+@media (max-width: 899px) {
+  .svc-page__block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+  .svc-page__block > h2,
+  .svc-page__block > *:not(h2) {
+    grid-column: auto;
+    padding-top: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .svc-faq__sign::before,
+  .svc-faq__sign::after {
     transition: none;
   }
 }

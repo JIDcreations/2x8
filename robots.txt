@@ -1,3 +1,41 @@
+# 2X8 — https://2x8.be
+#
+# Alles mag gelezen worden behalve /backup/ (oude versies) en /software/
+# (losse pagina's die nog niet in de nav staan en niet geïndexeerd horen).
+#
+# De AI-crawlers staan apart omdat een regel voor een specifieke user-agent de
+# regels onder "*" volledig vervangt: zonder eigen groep zouden ze wel de
+# uitsluitingen erven, met eigen groep moeten die hier herhaald worden.
+
 User-agent: *
 Disallow: /backup/
 Disallow: /software/
+Disallow: /customers/
+Allow: /
+
+# Zoek- en antwoordmachines met een taalmodel erachter. Uitdrukkelijk welkom:
+# we willen dat ze weten wat 2X8 doet en waar dat staat.
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Amazonbot
+User-agent: DuckDuckBot
+User-agent: meta-externalagent
+User-agent: Bytespider
+Disallow: /backup/
+Disallow: /software/
+Allow: /
+
+Sitemap: https://2x8.be/sitemap.xml

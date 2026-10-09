@@ -699,6 +699,234 @@
   }
 
   /* ---------------------------------------------------------------- */
+  /* Cases doorbladeren                                                 */
+  /*                                                                    */
+  /* Op een dienstentegel passen er drie cases naast elkaar. Komt er een */
+  /* vierde bij, of is het scherm smal, dan schuift de rij door en zetten */
+  /* we er twee pijlen onder. Die worden hier gemaakt en niet in de HTML: */
+  /* zonder JS heeft een knop die niets doet geen nut, en de rij blijft   */
+  /* met de vinger of het scrollwiel gewoon werken.                      */
+  /* ---------------------------------------------------------------- */
+  function caseScroll() {
+    $$('.svc-tile__cases').forEach(function (list) {
+      if (list.dataset.scrollReady) return;
+      list.dataset.scrollReady = '1';
+
+      var nav = null;
+      var prev = null;
+      var next = null;
+
+      function step() {
+        var first = list.firstElementChild;
+        if (!first) return list.clientWidth;
+        var gap = parseFloat(getComputedStyle(list).columnGap) || 0;
+        return first.getBoundingClientRect().width + gap;
+      }
+
+      function overflowing() {
+        return list.scrollWidth - list.clientWidth > 2;
+      }
+
+      function build() {
+        var wrap = document.createElement('div');
+        wrap.className = 'svc-cases';
+        list.parentNode.insertBefore(wrap, list);
+        wrap.appendChild(list);
+
+        nav = document.createElement('div');
+        nav.className = 'svc-cases__nav';
+
+        prev = button('←', 'Vorige cases', -1);
+        next = button('→', 'Volgende cases', 1);
+        nav.appendChild(prev);
+        nav.appendChild(next);
+        wrap.appendChild(nav);
+
+        function button(glyph, label, dir) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'svc-cases__btn';
+          b.textContent = glyph;
+          b.setAttribute('aria-label', label);
+          b.setAttribute('aria-controls', list.id || '');
+          b.addEventListener('click', function () {
+            list.scrollBy({ left: step() * dir, behavior: reduce ? 'auto' : 'smooth' });
+            // De aan/uit-stand van de knoppen volgt uit het scroll-event.
+          });
+          return b;
+        }
+      }
+
+      function sync() {
+        var over = overflowing();
+        if (over && !nav) build();
+        if (!nav) return;
+        nav.hidden = !over;
+        // Een halve pixel speling: browsers ronden scrollLeft niet gelijk af.
+        prev.disabled = list.scrollLeft <= 1;
+        next.disabled = list.scrollLeft >= list.scrollWidth - list.clientWidth - 1;
+      }
+
+      list.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      // De beelden zijn lazy: pas als ze er zijn klopt scrollWidth.
+      $$('img', list).forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', sync, { once: true });
+      });
+      sync();
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Eigen keuzelijst                                                   */
+  /*                                                                    */
+  /* Een <select> laat zich aan de buitenkant stijlen, maar de lijst    */
+  /* die openklapt is een venster van het besturingssysteem: geen       */
+  /* oranje, geen mono, geen rechte hoeken. Daarom bouwen we er een     */
+  /* knop met een listbox omheen. De <select> zelf blijft staan en      */
+  /* blijft de waarde dragen die verstuurd wordt, dus zonder JS werkt   */
+  /* het formulier onveranderd.                                        */
+  /* ---------------------------------------------------------------- */
+  function cselect() {
+    $$('[data-cselect]').forEach(function (field) {
+      var native = $('select', field);
+      if (!native || field.querySelector('.cselect')) return;
+
+      var options = $$('option', native);
+      if (!options.length) return;
+
+      var label = $('label', field);
+      var id = native.id || 'cselect-' + Math.random().toString(36).slice(2, 8);
+      var listId = id + '-list';
+
+      var wrap = document.createElement('div');
+      wrap.className = 'cselect';
+
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'field__input cselect__button';
+      button.id = id + '-button';
+      button.setAttribute('role', 'combobox');
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-controls', listId);
+      button.setAttribute('aria-haspopup', 'listbox');
+      if (label && label.id) button.setAttribute('aria-labelledby', label.id + ' ' + button.id);
+
+      var value = document.createElement('span');
+      value.className = 'cselect__value';
+      button.appendChild(value);
+
+      var list = document.createElement('ul');
+      list.className = 'cselect__list';
+      list.id = listId;
+      list.setAttribute('role', 'listbox');
+      list.hidden = true;
+      if (label && label.id) list.setAttribute('aria-labelledby', label.id);
+
+      var items = options.map(function (option, i) {
+        var li = document.createElement('li');
+        li.className = 'cselect__option';
+        li.id = listId + '-' + i;
+        li.setAttribute('role', 'option');
+        li.textContent = option.textContent.trim();
+        li.addEventListener('click', function () {
+          choose(i);
+          close(true);
+        });
+        // Een klik begint met mousedown; zonder dit verliest de knop eerst de
+        // focus, sluit de lijst, en landt de klik naast de optie.
+        li.addEventListener('mousedown', function (e) { e.preventDefault(); });
+        list.appendChild(li);
+        return li;
+      });
+
+      var current = Math.max(0, native.selectedIndex);
+      var active = current;
+
+      function paint() {
+        value.textContent = options[current].textContent.trim();
+        items.forEach(function (li, i) {
+          li.setAttribute('aria-selected', i === current ? 'true' : 'false');
+          li.classList.toggle('is-active', i === active);
+        });
+        button.setAttribute('aria-activedescendant', list.hidden ? '' : items[active].id);
+      }
+
+      function choose(i) {
+        current = i;
+        active = i;
+        native.selectedIndex = i;
+        // Het formulier luistert op 'input' om de invultijd bij te houden.
+        native.dispatchEvent(new Event('input', { bubbles: true }));
+        native.dispatchEvent(new Event('change', { bubbles: true }));
+        paint();
+      }
+
+      function open() {
+        if (!list.hidden) return;
+        list.hidden = false;
+        button.setAttribute('aria-expanded', 'true');
+        active = current;
+        paint();
+        items[active].scrollIntoView({ block: 'nearest' });
+      }
+
+      function close(focus) {
+        if (list.hidden) return;
+        list.hidden = true;
+        button.setAttribute('aria-expanded', 'false');
+        button.removeAttribute('aria-activedescendant');
+        if (focus) button.focus();
+      }
+
+      function move(step) {
+        if (list.hidden) { open(); return; }
+        active = (active + step + items.length) % items.length;
+        paint();
+        items[active].scrollIntoView({ block: 'nearest' });
+      }
+
+      button.addEventListener('click', function () {
+        if (list.hidden) open(); else close(false);
+      });
+
+      button.addEventListener('keydown', function (e) {
+        switch (e.key) {
+          case 'ArrowDown': e.preventDefault(); move(1); break;
+          case 'ArrowUp': e.preventDefault(); move(-1); break;
+          case 'Home': if (!list.hidden) { e.preventDefault(); active = 0; paint(); } break;
+          case 'End': if (!list.hidden) { e.preventDefault(); active = items.length - 1; paint(); } break;
+          case 'Enter':
+          case ' ':
+            e.preventDefault();
+            if (list.hidden) open();
+            else { choose(active); close(true); }
+            break;
+          case 'Escape': if (!list.hidden) { e.preventDefault(); close(true); } break;
+          case 'Tab': close(false); break;
+        }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!wrap.contains(e.target)) close(false);
+      });
+
+      // De <select> blijft de waarde dragen, maar is niet langer het ding dat
+      // je aanwijst of aanspreekt: het label en de focus gaan naar de knop.
+      native.setAttribute('tabindex', '-1');
+      native.setAttribute('aria-hidden', 'true');
+      native.classList.add('cselect__native');
+      if (label) label.htmlFor = button.id;
+
+      native.parentNode.insertBefore(wrap, native);
+      wrap.appendChild(native);
+      wrap.appendChild(button);
+      wrap.appendChild(list);
+      paint();
+    });
+  }
+
+  /* ---------------------------------------------------------------- */
   /* Contactformulier: verstuurt via fetch en schuift dan een inkt-    */
   /* paneel over het formulier. Valt terug op een gewone POST als JS   */
   /* niet draait.                                                      */
@@ -1238,6 +1466,8 @@
     serviceJumps();
     workFilter();
     counters();
+    caseScroll();
+    cselect();
     contactForm();
     var mark = bitmark();
     bounceText();

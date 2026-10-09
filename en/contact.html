@@ -29,7 +29,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=25" />
+    <link rel="stylesheet" href="/css/styles.css?v=33" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
     <script>
@@ -39,6 +39,142 @@
 
       gtag('config', 'G-L8GZKB8CKW');
     </script>
+    <!-- seo:start -->
+    <meta property="og:image" content="https://2x8.be/assets/og/2x8-og-v1.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://2x8.be/assets/og/2x8-og-v1.png" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://2x8.be/#org",
+          "name": "2X8",
+          "url": "https://2x8.be/",
+          "email": "hello@2x8.be",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://2x8.be/assets/og/2x8-logo-v1.png",
+            "width": 512,
+            "height": 512
+          },
+          "image": "https://2x8.be/assets/og/2x8-og-v1.png",
+          "founder": [
+            {
+              "@type": "Person",
+              "name": "Florian Bracke",
+              "jobTitle": "Development & consultancy"
+            },
+            {
+              "@type": "Person",
+              "name": "Jasper Impens",
+              "jobTitle": "Design & front-end"
+            }
+          ],
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": 2
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "BE"
+          },
+          "knowsLanguage": [
+            "nl-BE",
+            "fr-BE",
+            "en"
+          ],
+          "knowsAbout": [
+            "Websites",
+            "Online shops",
+            "Platforms",
+            "Apps",
+            "Software",
+            "AI workflows",
+            "AI SEO",
+            "UI design",
+            "Branding",
+            "Figma",
+            "Front-end",
+            "Motion",
+            "Typography",
+            "Prototyping",
+            "Art direction",
+            "Back-end",
+            "Odoo",
+            "AI-workflows",
+            "Automation",
+            "Architecture",
+            "Consultancy",
+            "DevOps"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "email": "hello@2x8.be",
+            "availableLanguage": [
+              "Dutch",
+              "French",
+              "English"
+            ],
+            "url": "https://2x8.be/en/contact"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://2x8.be/#website",
+          "url": "https://2x8.be/en/",
+          "name": "2X8",
+          "publisher": {
+            "@id": "https://2x8.be/#org"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "ContactPage",
+          "@id": "https://2x8.be/en/contact#page",
+          "url": "https://2x8.be/en/contact",
+          "name": "Contact | 2X8",
+          "description": "Tell us where you're at. 2X8 answers within two working days, always directly with Florian and Jasper.",
+          "isPartOf": {
+            "@id": "https://2x8.be/#website"
+          },
+          "about": {
+            "@id": "https://2x8.be/#org"
+          },
+          "inLanguage": "en",
+          "breadcrumb": {
+            "@id": "https://2x8.be/en/contact#breadcrumb"
+          },
+          "mainEntity": {
+            "@id": "https://2x8.be/#org"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://2x8.be/en/contact#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://2x8.be/en/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Send us a message",
+              "item": "https://2x8.be/en/contact"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- seo:end -->
   </head>
   <body>
     <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
@@ -105,7 +241,7 @@
       <nav aria-label="Main menu" data-i18n-attr="aria-label:nav.menuLabel">
         <ul class="nav__links">
           <li><a href="/en/work/" data-i18n="nav.work">Work</a></li>
-          <li><a href="/en/services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/en/services/" data-i18n="nav.services">Services</a></li>
           <li><a href="/en/studio" data-i18n="nav.studio">Studio</a></li>
           <li><a href="/en/contact" aria-current="page" data-i18n="nav.contact">Contact</a></li>
         </ul>
@@ -128,7 +264,7 @@
       <button class="menu__close" type="button" data-menu-close data-i18n="nav.close">Close</button>
       <ul class="menu__links">
         <li><a href="/en/work/" data-menu-link><span data-i18n="nav.work">Work</span></a></li>
-        <li><a href="/en/services" data-menu-link><span data-i18n="nav.services">Services</span></a></li>
+        <li><a href="/en/services/" data-menu-link><span data-i18n="nav.services">Services</span></a></li>
         <li><a href="/en/studio" data-menu-link><span data-i18n="nav.studio">Studio</span></a></li>
         <li><a href="/en/contact" data-menu-link aria-current="page"><span data-i18n="nav.contact">Contact</span></a></li>
       </ul>
@@ -177,7 +313,7 @@
         <div class="csplit__main">
 
           <section class="cform" id="formulier" aria-labelledby="cform-title" data-cform-root>
-            <h1 class="display h-lg cform__title" id="cform-title" data-split data-i18n="contact.form.title">Tell us about it.</h1>
+            <h1 class="display h-lg cform__title" id="cform-title" data-split data-i18n="contact.form.title">Send us a message.</h1>
 
             <form class="cform__form" action="/mail.php" method="post" novalidate data-cform
               data-msg-sending="Sending…" data-i18n-attr="data-msg-sending:contact.js.sending,data-msg-name:contact.js.name,data-msg-email:contact.js.email,data-msg-message:contact.js.message,data-msg-fail:contact.js.fail,data-msg-offline:contact.js.offline"
@@ -208,13 +344,17 @@
                   <label class="field__label mono" for="cf-bedrijf" data-i18n="contact.form.company">Company</label>
                   <input class="field__input" type="text" id="cf-bedrijf" name="bedrijf" autocomplete="organization" />
                 </p>
-                <p class="field">
-                  <label class="field__label mono" for="cf-type" data-i18n="contact.form.kind">Subject</label>
+                <!-- De keuzelijst van het besturingssysteem valt buiten de huisstijl:
+                     met JS bouwt cselect() hier een eigen lijst omheen. Zonder JS
+                     blijft dit gewoon een <select> die werkt. -->
+                <p class="field" data-cselect>
+                  <label class="field__label mono" id="cf-type-label" for="cf-type" data-i18n="contact.form.kind">Subject</label>
                   <select class="field__input field__input--select" id="cf-type" name="type">
                     <option value="Website" data-i18n="contact.kind.site">Website</option>
                     <option value="Webshop" data-i18n="contact.kind.shop">Online shop</option>
                     <option value="App" data-i18n="contact.kind.app">App</option>
                     <option value="AI-workflow" data-i18n="contact.kind.ai">AI workflow</option>
+                    <option value="AI SEO" data-i18n="contact.kind.aiseo">AI SEO</option>
                     <option value="Software &amp; advies" data-i18n="contact.kind.software">Software &amp; consultancy</option>
                     <option value="Iets anders" data-i18n="contact.kind.other">Something else</option>
                   </select>
@@ -223,7 +363,7 @@
                   <label class="field__label mono" for="cf-bericht" data-i18n="contact.form.message">Message *</label>
                   <textarea class="field__input field__input--area" id="cf-bericht" name="bericht" rows="6" required
                     aria-describedby="err-bericht"
-                    placeholder="What you want to build, for whom, and by when. A few sentences will do."
+                    placeholder="What you want to build, for whom, and by when."
                     data-i18n-attr="placeholder:contact.form.messagePh"></textarea>
                   <span class="field__error" id="err-bericht" data-error-for="bericht" hidden></span>
                 </p>
@@ -260,11 +400,15 @@
           <div class="wrap footer__top">
             <ul class="footer__links mono">
               <li><a href="/en/work/" data-i18n="nav.work">Work</a></li>
-              <li><a href="/en/services" data-i18n="nav.services">Services</a></li>
+              <li><a href="/en/services/" data-i18n="nav.services">Services</a></li>
               <li><a href="/en/studio" data-i18n="nav.studio">Studio</a></li>
               <li><a href="mailto:hello@2x8.be">hello@2x8.be</a></li>
+              <!-- Verborgen tot de profielen bestaan: een link naar linkedin.com zonder
+                   profiel erachter is een doodlopende weg. Vul de echte URL in en haal dit
+                   commentaar weg; ze voeden ook sameAs in seo.js.
               <li><a href="https://www.linkedin.com/" rel="noopener" target="_blank">LinkedIn</a></li>
               <li><a href="https://www.instagram.com/" rel="noopener" target="_blank">Instagram</a></li>
+              -->
             </ul>
           </div>
           <div class="footer__mark" data-footer-mark>
@@ -306,6 +450,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="/js/main.js?v=25"></script>
+    <script src="/js/main.js?v=33"></script>
   </body>
 </html>

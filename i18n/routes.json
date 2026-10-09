@@ -21,9 +21,37 @@
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/werk", "fr": "/fr/projets/", "en": "/en/work/" }
     },
-    "diensten.html": {
+    "diensten/index.html": {
       "done": ["nl", "fr", "en"],
-      "slug": { "nl": "/diensten", "fr": "/fr/services", "en": "/en/services" }
+      "slug": { "nl": "/diensten/", "fr": "/fr/services/", "en": "/en/services/" }
+    },
+    "diensten/websites.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/websites", "fr": "/fr/services/sites-web", "en": "/en/services/websites" }
+    },
+    "diensten/webshops.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/webshops", "fr": "/fr/services/boutiques", "en": "/en/services/online-shops" }
+    },
+    "diensten/platformen.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/platformen", "fr": "/fr/services/plateformes", "en": "/en/services/platforms" }
+    },
+    "diensten/apps.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/apps", "fr": "/fr/services/applications", "en": "/en/services/apps" }
+    },
+    "diensten/software.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/software", "fr": "/fr/services/logiciels", "en": "/en/services/software" }
+    },
+    "diensten/ai-workflows.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/ai-workflows", "fr": "/fr/services/flux-ia", "en": "/en/services/ai-workflows" }
+    },
+    "diensten/ai-seo.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/diensten/ai-seo", "fr": "/fr/services/ai-seo", "en": "/en/services/ai-seo" }
     },
     "studio.html": {
       "done": ["nl", "fr", "en"],
@@ -40,6 +68,18 @@
     "cms.html": {
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/cms", "fr": "/fr/cms", "en": "/en/cms" }
+    },
+    "work/elevator-antwerp.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/elevator-antwerp", "fr": "/fr/projets/elevator-antwerp", "en": "/en/work/elevator-antwerp" }
+    },
+    "work/jasper-impens.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/jasper-impens", "fr": "/fr/projets/jasper-impens", "en": "/en/work/jasper-impens" }
+    },
+    "work/web-work.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/web-work", "fr": "/fr/projets/web-work", "en": "/en/work/web-work" }
     },
     "work/specter.html": {
       "done": ["nl", "fr", "en"],
@@ -65,13 +105,9 @@
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/work/delta", "fr": "/fr/projets/delta", "en": "/en/work/delta" }
     },
-    "work/jasper-impens.html": {
+    "work/salon-dola.html": {
       "done": ["nl", "fr", "en"],
-      "slug": { "nl": "/work/jasper-impens", "fr": "/fr/projets/jasper-impens", "en": "/en/work/jasper-impens" }
-    },
-    "work/elevator-antwerp.html": {
-      "done": ["nl", "fr", "en"],
-      "slug": { "nl": "/work/elevator-antwerp", "fr": "/fr/projets/elevator-antwerp", "en": "/en/work/elevator-antwerp" }
+      "slug": { "nl": "/work/salon-dola", "fr": "/fr/projets/salon-dola", "en": "/en/work/salon-dola" }
     }
   }
 }

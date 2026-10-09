@@ -7,7 +7,7 @@
     <meta
       name="description"
       data-i18n-attr="content:meta.description"
-      content="2X8, c’est le studio de Florian et Jasper. Nous construisons des sites et des boutiques en ligne, et nous conseillons sur les logiciels comme Odoo et Softtouch et sur les flux de travail IA."
+      content="2X8, c’est le studio de Florian et Jasper. Nous construisons des sites, des boutiques en ligne, des plateformes et des applications, et nous conseillons sur les logiciels comme Odoo et Notion, les flux de travail IA et l’AI SEO."
     />
     <link rel="canonical" href="https://2x8.be/fr/" />
     <link rel="alternate" hreflang="nl" href="https://2x8.be/" />
@@ -21,7 +21,7 @@
     <meta
       property="og:description"
       data-i18n-attr="content:meta.description"
-      content="2X8, c’est le studio de Florian et Jasper. Nous construisons des sites et des boutiques en ligne, et nous conseillons sur les logiciels comme Odoo et Softtouch et sur les flux de travail IA."
+      content="2X8, c’est le studio de Florian et Jasper. Nous construisons des sites, des boutiques en ligne, des plateformes et des applications, et nous conseillons sur les logiciels comme Odoo et Notion, les flux de travail IA et l’AI SEO."
     />
     <meta property="og:url" content="https://2x8.be/fr/" />
     <meta property="og:locale" content="fr_BE" />
@@ -37,7 +37,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=25" />
+    <link rel="stylesheet" href="/css/styles.css?v=33" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
     <script>
@@ -47,6 +47,118 @@
 
       gtag('config', 'G-L8GZKB8CKW');
     </script>
+    <!-- seo:start -->
+    <meta property="og:image" content="https://2x8.be/assets/og/2x8-og-v1.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://2x8.be/assets/og/2x8-og-v1.png" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://2x8.be/#org",
+          "name": "2X8",
+          "url": "https://2x8.be/",
+          "email": "hello@2x8.be",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://2x8.be/assets/og/2x8-logo-v1.png",
+            "width": 512,
+            "height": 512
+          },
+          "image": "https://2x8.be/assets/og/2x8-og-v1.png",
+          "founder": [
+            {
+              "@type": "Person",
+              "name": "Florian Bracke",
+              "jobTitle": "Développement & conseil"
+            },
+            {
+              "@type": "Person",
+              "name": "Jasper Impens",
+              "jobTitle": "Design & front-end"
+            }
+          ],
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": 2
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "BE"
+          },
+          "knowsLanguage": [
+            "nl-BE",
+            "fr-BE",
+            "en"
+          ],
+          "knowsAbout": [
+            "Sites web",
+            "Boutiques en ligne",
+            "Plateformes",
+            "Applications",
+            "Logiciels",
+            "Flux de travail IA",
+            "AI SEO",
+            "UI design",
+            "Branding",
+            "Figma",
+            "Front-end",
+            "Motion",
+            "Typographie",
+            "Prototyping",
+            "Art direction",
+            "Back-end",
+            "Odoo",
+            "AI-workflows",
+            "Automatisation",
+            "Architecture",
+            "Consultancy",
+            "DevOps"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "email": "hello@2x8.be",
+            "availableLanguage": [
+              "Dutch",
+              "French",
+              "English"
+            ],
+            "url": "https://2x8.be/fr/contact"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://2x8.be/#website",
+          "url": "https://2x8.be/fr/",
+          "name": "2X8",
+          "publisher": {
+            "@id": "https://2x8.be/#org"
+          },
+          "inLanguage": "fr"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://2x8.be/fr/#page",
+          "url": "https://2x8.be/fr/",
+          "name": "2X8 | Interfaces numériques, création et mise en œuvre",
+          "description": "2X8, c’est le studio de Florian et Jasper. Nous construisons des sites, des boutiques en ligne, des plateformes et des applications, et nous conseillons sur les logiciels comme Odoo et Notion, les flux de travail IA et l’AI SEO.",
+          "isPartOf": {
+            "@id": "https://2x8.be/#website"
+          },
+          "about": {
+            "@id": "https://2x8.be/#org"
+          },
+          "inLanguage": "fr"
+        }
+      ]
+    }
+    </script>
+    <!-- seo:end -->
   </head>
   <body>
     <a class="skip" href="#main" data-i18n="nav.skip">Aller au contenu</a>
@@ -113,7 +225,7 @@
       <nav aria-label="Menu principal" data-i18n-attr="aria-label:nav.menuLabel">
         <ul class="nav__links">
           <li><a href="/fr/projets/" data-i18n="nav.work">Projets</a></li>
-          <li><a href="/fr/services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/fr/services/" data-i18n="nav.services">Services</a></li>
           <li><a href="/fr/studio" data-i18n="nav.studio">Studio</a></li>
           <li><a href="/fr/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
@@ -136,7 +248,7 @@
       <button class="menu__close" type="button" data-menu-close data-i18n="nav.close">Fermer</button>
       <ul class="menu__links">
         <li><a href="/fr/projets/" data-menu-link><span data-i18n="nav.work">Projets</span></a></li>
-        <li><a href="/fr/services" data-menu-link><span data-i18n="nav.services">Services</span></a></li>
+        <li><a href="/fr/services/" data-menu-link><span data-i18n="nav.services">Services</span></a></li>
         <li><a href="/fr/studio" data-menu-link><span data-i18n="nav.studio">Studio</span></a></li>
         <li><a href="/fr/contact" data-menu-link><span data-i18n="nav.contact">Contact</span></a></li>
       </ul>
@@ -205,7 +317,76 @@
         <div class="wrap cases__grid">
           <article class="case-tile" data-wipe-up>
             <div class="case-tile__bar">
-              <span class="mono case-tile__idx">01 / 08</span>
+              <span class="mono case-tile__idx">01 / 10</span>
+              <h3 class="case-tile__name">Elevator Antwerp</h3>
+              <span class="tag" data-i18n="tag.website">Site web</span>
+            </div>
+            <a class="case-tile__media" href="/fr/projets/elevator-antwerp" data-i18n-attr="aria-label:case.elevator-antwerp.aria" aria-label="Elevator Antwerp, voir le projet">
+              <img
+                src="/assets/Elevator-Antwerp/Cover-elevator.png"
+                data-i18n-attr="alt:case.elevator-antwerp.alt"
+                alt="Elevator Antwerp, galerie mobile d’art contemporain"
+                loading="lazy"
+                decoding="async"
+                width="1671"
+                height="941"
+              />
+            </a>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n-html="case.elevator-antwerp.quote">&ldquo;Raconter des histoires avec l’art contemporain.&rdquo;</p>
+              <a class="link" href="/fr/projets/elevator-antwerp"><span data-i18n="cases.seeCase">Voir le projet</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="case-tile" data-wipe-up>
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">02 / 10</span>
+              <h3 class="case-tile__name">Jasper Impens</h3>
+              <span class="tag" data-i18n="tag.portfolio">Portfolio</span>
+            </div>
+            <a class="case-tile__media" href="/fr/projets/jasper-impens" data-i18n-attr="aria-label:case.jasper-impens.aria" aria-label="Portfolio de Jasper Impens, voir le projet">
+              <img
+                src="/assets/Jasper-site/Cover_Jasper1.png"
+                data-i18n-attr="alt:case.jasper-impens.alt" alt="Portfolio de Jasper Impens"
+                loading="lazy"
+                decoding="async"
+                width="1672"
+                height="941"
+              />
+              <video data-hover-reel src="/assets/Jasper-site/impens-web.mp4" aria-hidden="true" muted loop playsinline preload="metadata"></video>
+            </a>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n-html="case.jasper-impens.quote">&ldquo;Tout est pensé dans les moindres détails, donc ça marche, tout simplement.&rdquo;</p>
+              <a class="link" href="/fr/projets/jasper-impens"><span data-i18n="cases.seeCase">Voir le projet</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="case-tile" data-wipe-up>
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">03 / 10</span>
+              <h3 class="case-tile__name">WEB.WORK</h3>
+              <span class="tag" data-i18n="tag.ownbusiness">Activité propre</span>
+            </div>
+            <a class="case-tile__media" href="/fr/projets/web-work" data-i18n-attr="aria-label:case.web-work.aria" aria-label="WEB.WORK, voir le projet">
+              <img
+                src="/assets/Web-Work/Cover-webwork.png"
+                data-i18n-attr="alt:case.web-work.alt"
+                alt="WEB.WORK, l’activité propre de Florian Bracke"
+                loading="lazy"
+                decoding="async"
+                width="1672"
+                height="941"
+              />
+            </a>
+            <div class="case-tile__foot">
+              <p class="case-tile__quote" data-i18n-html="case.web-work.quote">&ldquo;Je construis votre site. Moi-même.&rdquo;</p>
+              <a class="link" href="/fr/projets/web-work"><span data-i18n="cases.seeCase">Voir le projet</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="case-tile" data-wipe-up>
+            <div class="case-tile__bar">
+              <span class="mono case-tile__idx">04 / 10</span>
               <h3 class="case-tile__name">Specter</h3>
               <span class="tag" data-i18n="tag.webshop">Boutique en ligne</span>
             </div>
@@ -223,72 +404,6 @@
             <div class="case-tile__foot">
               <p class="case-tile__quote" data-i18n-html="case.specter.quote">&ldquo;Coupé comme de l’architecture.&rdquo;</p>
               <a class="link" href="/fr/projets/specter"><span data-i18n="cases.seeCase">Voir le projet</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="case-tile" data-wipe-up>
-            <div class="case-tile__bar">
-              <span class="mono case-tile__idx">02 / 08</span>
-              <h3 class="case-tile__name">EQTY</h3>
-              <span class="tag" data-i18n="tag.app">Application</span>
-            </div>
-            <a class="case-tile__media" href="/fr/projets/eqty" data-i18n-attr="aria-label:case.eqty.aria" aria-label="EQTY, voir le projet">
-              <img
-                src="/assets/EQTY/COVER1.png"
-                data-i18n-attr="alt:case.eqty.alt" alt="EQTY, l’application qui enseigne l’investissement comme un processus"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="case-tile__foot">
-              <p class="case-tile__quote" data-i18n-html="case.eqty.quote">&ldquo;Understand before you invest.&rdquo;</p>
-              <a class="link" href="/fr/projets/eqty"><span data-i18n="cases.seeCase">Voir le projet</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-            </div>
-          </article>
-
-          <article class="case-tile" data-wipe-up>
-            <div class="case-tile__bar">
-              <span class="mono case-tile__idx">03 / 08</span>
-              <h3 class="case-tile__name">Studio Klei</h3>
-              <span class="tag" data-i18n="tag.webshop">Boutique en ligne</span>
-            </div>
-            <a class="case-tile__media" href="/fr/projets/studio-klei" data-i18n-attr="aria-label:case.studio-klei.aria" aria-label="Studio Klei, voir le projet">
-              <img
-                src="/assets/StudioKlei/COVER-KLEI1.png"
-                data-i18n-attr="alt:case.studio-klei.alt" alt="Studio Klei, céramique artisanale de Gand"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="case-tile__foot">
-              <p class="case-tile__quote" data-i18n-html="case.studio-klei.quote">&ldquo;De la céramique pour tous les jours.&rdquo;</p>
-              <a class="link" href="/fr/projets/studio-klei"><span data-i18n="cases.seeCase">Voir le projet</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="case-tile" data-wipe-up>
-            <div class="case-tile__bar">
-              <span class="mono case-tile__idx">04 / 08</span>
-              <h3 class="case-tile__name">NADIR</h3>
-              <span class="tag" data-i18n="tag.platform">Plateforme</span>
-            </div>
-            <a class="case-tile__media" href="/fr/projets/nadir" data-i18n-attr="aria-label:case.nadir.aria" aria-label="NADIR, voir le projet">
-              <img
-                src="/assets/Nadir/Nadir_Cover.png"
-                data-i18n-attr="alt:case.nadir.alt" alt="NADIR, tableau de bord des actions loin sous leur sommet"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="case-tile__foot">
-              <p class="case-tile__quote" data-i18n-html="case.nadir.quote">&ldquo;L’art d’acheter les géants tombés.&rdquo;</p>
-              <a class="link" href="/fr/projets/nadir"><span data-i18n="cases.seeCase">Voir le projet</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
             </div>
           </article>
 
@@ -499,12 +614,16 @@
           <div class="wrap footer__top">
             <ul class="footer__links mono">
               <li><a href="/fr/projets/" data-i18n="nav.work">Projets</a></li>
-              <li><a href="/fr/services" data-i18n="nav.services">Services</a></li>
+              <li><a href="/fr/services/" data-i18n="nav.services">Services</a></li>
               <li><a href="/fr/studio" data-i18n="nav.studio">Studio</a></li>
               <li><a href="/fr/contact" data-i18n="nav.contact">Contact</a></li>
               <li><a href="mailto:hello@2x8.be">hello@2x8.be</a></li>
+              <!-- Verborgen tot de profielen bestaan: een link naar linkedin.com zonder
+                   profiel erachter is een doodlopende weg. Vul de echte URL in en haal dit
+                   commentaar weg; ze voeden ook sameAs in seo.js.
               <li><a href="https://www.linkedin.com/" rel="noopener" target="_blank">LinkedIn</a></li>
               <li><a href="https://www.instagram.com/" rel="noopener" target="_blank">Instagram</a></li>
+              -->
             </ul>
           </div>
           <div class="footer__mark" data-footer-mark>
@@ -545,6 +664,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="/js/main.js?v=25"></script>
+    <script src="/js/main.js?v=33"></script>
   </body>
 </html>
