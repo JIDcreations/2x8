@@ -1432,102 +1432,79 @@ a.services-tabs__btn {
 
 /* ---------- Werkfilter: Alles / Websites / Apps / Platforms ---------- */
 /* De knoppen zijn dezelfde tabs als op de dienstenpagina (.services-tabs), dus
-   hier staat enkel de ruimte eromheen en wat er met een verborgen spotlight
-   gebeurt. Het verbergen zelf gebeurt met het hidden-attribuut in JS: zo blijft
-   een gefilterde case ook voor een schermlezer weg, niet enkel visueel. */
+   hier staat enkel de ruimte eromheen. Het verbergen zelf gebeurt met het
+   hidden-attribuut in JS: zo blijft een gefilterde case ook voor een
+   schermlezer weg, niet enkel visueel. */
 .work-filter {
   padding-block: var(--sp-5) var(--sp-4);
 }
-.spotlight[hidden] {
-  display: none;
+/* Op een gsm passen de vier knoppen samen op één rij in plaats van te breken. */
+@media (max-width: 599px) {
+  .work-filter {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  .work-filter .services-tabs__btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: 6px;
+    font-size: 13px;
+  }
 }
 
-/* ---------- Spotlights: real work, full-bleed ---------- */
-.spotlights {
-  border-top: 1px solid var(--line-strong);
+/* ---------- Werkpagina: alle cases in één raster ---------- */
+/* Dezelfde tegels als op de homepage (.case-tile), maar in een echt raster
+   zonder het verbreed-bij-hover-spel: met acht of meer tegels moet je vooral
+   rustig kunnen vergelijken. Drie per rij, twee op een tablet, één op een gsm. */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-3);
+  padding-bottom: var(--sp-8);
 }
-.spotlight {
-  padding-block: var(--sp-7);
-  border-bottom: 1px solid var(--line);
+.work-grid .case-tile {
+  transition: none;
 }
-.spotlight__grid {
-  align-items: center;
-  row-gap: clamp(32px, 5vw, 56px);
+.work-tile[hidden] {
+  display: none;
 }
-.spotlight__media {
-  grid-column: 1 / span 7;
-  position: relative;
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: #111;
+.case-tile__name a {
+  color: inherit;
+  text-decoration: none;
 }
-.spotlight__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  scale: 1;
-  transition: scale 1.2s var(--ease);
+.case-tile__name a:hover {
+  color: var(--orange-text);
 }
-.spotlight:hover .spotlight__media img,
-.spotlight__media:focus-within img {
-  scale: 1.03;
+.work-tile__body {
+  padding: clamp(16px, 2vw, 22px) clamp(16px, 2vw, 24px) 0;
 }
-.spotlight__text {
-  grid-column: 8 / -1;
-}
-.spotlight--reverse .spotlight__media {
-  grid-column: 6 / -1;
-  order: 2;
-}
-.spotlight--reverse .spotlight__text {
-  grid-column: 1 / span 5;
-  order: 1;
-}
-.spotlight__idx {
-  display: block;
-}
-.spotlight__name {
-  font-weight: 800;
-  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
-  letter-spacing: -0.05em;
-  line-height: 1;
-  margin-top: 8px;
-}
-.spotlight__quote {
-  font-size: clamp(1.2rem, 1.9vw, 1.7rem);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.3;
-  margin-top: 22px;
-  max-width: 30ch;
-}
-.spotlight__desc {
+.work-tile__desc {
+  margin: 0;
   color: var(--muted);
-  margin-top: 16px;
-  max-width: 46ch;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
-.spotlight__meta {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 22px;
-}
-.spotlight__actions {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
+.work-tile .case-tile__foot {
   align-items: center;
-  margin-top: 28px;
+  border-top: 0;
 }
-@media (max-width: 899px) {
-  .spotlight__media,
-  .spotlight__text,
-  .spotlight--reverse .spotlight__media,
-  .spotlight--reverse .spotlight__text {
-    grid-column: 1 / -1;
-    order: initial;
+.work-tile__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+.work-tile .case-tile__foot .link {
+  flex-shrink: 0;
+}
+@media (max-width: 1099px) {
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 699px) {
+  .work-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -3560,4 +3537,13 @@ a.services-tabs__btn {
   .svc-tile__thumb img {
     transition: none;
   }
+}
+
+/* ---------- Parallaxbeelden ---------- */
+/* main.js schuift elk [data-parallax]-beeld tot 8% omhoog binnen zijn kader.
+   Op 100% hoogte kijk je dan onderaan op de lege achtergrond; met 10% extra
+   blijft het kader altijd gevuld. Staat onderaan zodat het elke
+   height: 100% hierboven overschrijft. */
+img[data-parallax] {
+  height: 110%;
 }

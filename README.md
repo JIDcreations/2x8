@@ -25,6 +25,13 @@ built on the server, so whatever you push is exactly what visitors get (see "Dep
   holds founder portraits
 - `info/`: brand guide (standalone, not linked from the pages)
 
+The homepage shows four cases (01–04) and a button to `/werk`; the full list lives only there.
+`/werk` puts every case in one CSS grid (`.work-grid`: three per row, two on a tablet, one on a
+phone) using the same `.case-tile` as the homepage, plus a description and tech tags. No
+widen-on-hover there: with eight or more tiles you want to compare calmly. The Alles / Websites /
+Apps / Platforms filter hides tiles by their `data-work-category`. To add a case, copy a
+`.work-tile` in `werk.html` and bump the `NN / 08` counters.
+
 The work grid on the homepage widens the tile you hover and narrows its row neighbour
 (`.cases__grid` is a wrapping flex row, not a grid, so flex-grow can animate per row). A last tile
 left alone on its row — 5 of 5, 7 of 7 — is pinned to full width and opted out of that effect

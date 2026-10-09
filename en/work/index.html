@@ -29,7 +29,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=24" />
+    <link rel="stylesheet" href="/css/styles.css?v=25" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
     <script>
@@ -139,10 +139,6 @@
 
     <main id="main">
       <header class="case-head wrap">
-        <div class="case-head__top">
-          <a class="link" href="/en/"><span class="btn__arrow" aria-hidden="true">&larr;</span><span data-i18n="nav.home">Home</span></a>
-          <span class="byte">(08)</span>
-        </div>
         <h1 class="display case-head__title" data-split data-i18n="cases.title">Work.</h1>
         <p class="case-head__summary" data-reveal data-i18n="werk.summary">Eight live projects. No mockups, no concepts: online shop, brand site, app or platform, tested and shipped before it appears here.</p>
       </header>
@@ -154,260 +150,229 @@
         <button type="button" class="services-tabs__btn" data-work-filter-btn="platform" role="tab" aria-selected="false" tabindex="-1" data-i18n="werk.filter.platforms">Platforms</button>
       </div>
 
-      <section class="spotlights">
-        <article class="spotlight wrap" data-work-category="website">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="/en/work/specter" data-i18n-attr="aria-label:case.specter.aria" aria-label="Specter, view case" data-reveal>
-              <img
-                src="/assets/Specter/Cover-specter.png"
-                data-i18n-attr="alt:case.specter.alt" alt="Specter, brutalist tailoring shop"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">01 / 08</span>
-              <h2 class="spotlight__name">SPECTER</h2>
-              <p class="spotlight__quote" data-i18n-html="case.specter.quote">&ldquo;Cut like architecture.&rdquo;</p>
-              <p class="spotlight__desc" data-i18n="werk.specter.desc">A brutalist online shop for a bespoke tailoring atelier in Antwerp. Nine pieces, nothing off the rack, everything by appointment: the site had to carry the same restraint as the garment itself.</p>
-              <ul class="tags spotlight__meta">
-                <li class="tag" data-i18n-html="tag.webshop">Online shop</li>
-                <li class="tag" data-i18n-html="tag.tailoring">Tailoring</li>
-                <li class="tag">WordPress</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="/en/work/specter"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-                <a class="link" href="https://mediumslateblue-shrew-186739.hostingersite.com/" target="_blank" rel="noopener"
-                  ><span data-i18n="werk.visitSite">Visit the site</span><span class="btn__arrow" aria-hidden="true">&#8599;</span></a
-                >
-              </div>
-            </div>
+      <section class="wrap work-grid">
+        <article class="case-tile work-tile" data-work-category="website" data-wipe-up>
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">01 / 08</span>
+            <h2 class="case-tile__name"><a href="/en/work/specter">Specter</a></h2>
+            <span class="tag" data-i18n-html="tag.webshop">Online shop</span>
+          </div>
+          <a class="case-tile__media" href="/en/work/specter" data-i18n-attr="aria-label:case.specter.aria" aria-label="Specter, view case" tabindex="-1">
+            <img
+              src="/assets/Specter/Cover-specter.png"
+              data-i18n-attr="alt:case.specter.alt" alt="Specter, brutalist tailoring shop"
+              loading="lazy"
+              decoding="async"
+              width="1672"
+              height="941"
+            />
+          </a>
+          <div class="work-tile__body">
+            <p class="work-tile__desc" data-i18n="werk.specter.desc">A brutalist online shop for a bespoke tailoring atelier in Antwerp. Nine pieces, nothing off the rack, everything by appointment: the site had to carry the same restraint as the garment itself.</p>
+          </div>
+          <div class="case-tile__foot">
+            <ul class="tags work-tile__tags">
+              <li class="tag" data-i18n-html="tag.tailoring">Tailoring</li>
+              <li class="tag">WordPress</li>
+            </ul>
+            <a class="link" href="/en/work/specter"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
-        <article class="spotlight spotlight--reverse wrap" data-work-category="app">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="/en/work/eqty" data-i18n-attr="aria-label:case.eqty.aria" aria-label="EQTY, view case" data-reveal>
-              <img
-                src="/assets/EQTY/COVER1.png"
-                data-i18n-attr="alt:case.eqty.alt" alt="EQTY, the app that teaches investing as a process"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">02 / 08</span>
-              <h2 class="spotlight__name">EQTY</h2>
-              <p class="spotlight__quote" data-i18n-html="case.eqty.quote">&ldquo;Understand before you invest.&rdquo;</p>
-              <p class="spotlight__desc" data-i18n="werk.eqty.desc">A Dutch-language app that teaches investing as a process: 8 themes, 26 lessons, an onboarding quiz and reflection questions that decide, through subtle AI personalisation, what you see next.</p>
-              <ul class="tags spotlight__meta">
-                <li class="tag" data-i18n-html="tag.app">App</li>
-                <li class="tag" data-i18n-html="tag.education">Education</li>
-                <li class="tag">React Native</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="/en/work/eqty"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-                <a class="link" href="https://eqty.netlify.app/" target="_blank" rel="noopener"
-                  ><span data-i18n="werk.visitSite">Visit the site</span><span class="btn__arrow" aria-hidden="true">&#8599;</span></a
-                >
-              </div>
-            </div>
+        <article class="case-tile work-tile" data-work-category="app" data-wipe-up>
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">02 / 08</span>
+            <h2 class="case-tile__name"><a href="/en/work/eqty">EQTY</a></h2>
+            <span class="tag" data-i18n-html="tag.app">App</span>
+          </div>
+          <a class="case-tile__media" href="/en/work/eqty" data-i18n-attr="aria-label:case.eqty.aria" aria-label="EQTY, view case" tabindex="-1">
+            <img
+              src="/assets/EQTY/COVER1.png"
+              data-i18n-attr="alt:case.eqty.alt" alt="EQTY, the app that teaches investing as a process"
+              loading="lazy"
+              decoding="async"
+              width="1672"
+              height="941"
+            />
+          </a>
+          <div class="work-tile__body">
+            <p class="work-tile__desc" data-i18n="werk.eqty.desc">A Dutch-language app that teaches investing as a process: 8 themes, 26 lessons, an onboarding quiz and reflection questions that decide, through subtle AI personalisation, what you see next.</p>
+          </div>
+          <div class="case-tile__foot">
+            <ul class="tags work-tile__tags">
+              <li class="tag" data-i18n-html="tag.education">Education</li>
+              <li class="tag">React Native</li>
+            </ul>
+            <a class="link" href="/en/work/eqty"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
-        <article class="spotlight wrap" data-work-category="website">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="/en/work/studio-klei" data-i18n-attr="aria-label:case.studio-klei.aria" aria-label="Studio Klei, view case" data-reveal>
-              <img
-                src="/assets/StudioKlei/COVER-KLEI1.png"
-                data-i18n-attr="alt:case.studio-klei.alt" alt="Studio Klei, handmade ceramics from Ghent"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">03 / 08</span>
-              <h2 class="spotlight__name">STUDIO KLEI</h2>
-              <p class="spotlight__quote" data-i18n-html="case.studio-klei.quote">&ldquo;Ceramics for every day.&rdquo;</p>
-              <p class="spotlight__desc" data-i18n="werk.studio-klei.desc">A warm, Dutch-language online shop for a ceramics studio in Ghent. Categories, workshops and a cart, built to feel as personal as the handwork it sells.</p>
-              <ul class="tags spotlight__meta">
-                <li class="tag" data-i18n-html="tag.webshop">Online shop</li>
-                <li class="tag" data-i18n-html="tag.ceramics">Ceramics</li>
-                <li class="tag">WordPress</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="/en/work/studio-klei"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-                <a class="link" href="https://hotpink-crane-600793.hostingersite.com/" target="_blank" rel="noopener"
-                  ><span data-i18n="werk.visitSite">Visit the site</span><span class="btn__arrow" aria-hidden="true">&#8599;</span></a
-                >
-              </div>
-            </div>
+        <article class="case-tile work-tile" data-work-category="website" data-wipe-up>
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">03 / 08</span>
+            <h2 class="case-tile__name"><a href="/en/work/studio-klei">Studio Klei</a></h2>
+            <span class="tag" data-i18n-html="tag.webshop">Online shop</span>
+          </div>
+          <a class="case-tile__media" href="/en/work/studio-klei" data-i18n-attr="aria-label:case.studio-klei.aria" aria-label="Studio Klei, view case" tabindex="-1">
+            <img
+              src="/assets/StudioKlei/COVER-KLEI1.png"
+              data-i18n-attr="alt:case.studio-klei.alt" alt="Studio Klei, handmade ceramics from Ghent"
+              loading="lazy"
+              decoding="async"
+              width="1672"
+              height="941"
+            />
+          </a>
+          <div class="work-tile__body">
+            <p class="work-tile__desc" data-i18n="werk.studio-klei.desc">A warm, Dutch-language online shop for a ceramics studio in Ghent. Categories, workshops and a cart, built to feel as personal as the handwork it sells.</p>
+          </div>
+          <div class="case-tile__foot">
+            <ul class="tags work-tile__tags">
+              <li class="tag" data-i18n-html="tag.ceramics">Ceramics</li>
+              <li class="tag">WordPress</li>
+            </ul>
+            <a class="link" href="/en/work/studio-klei"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
-        <article class="spotlight spotlight--reverse wrap" data-work-category="platform">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="/en/work/nadir" data-i18n-attr="aria-label:case.nadir.aria" aria-label="NADIR, view case" data-reveal>
-              <img
-                src="/assets/Nadir/Nadir_Cover.png"
-                data-i18n-attr="alt:case.nadir.alt" alt="NADIR, dashboard of stocks far below their high"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">04 / 08</span>
-              <h2 class="spotlight__name">NADIR</h2>
-              <p class="spotlight__quote" data-i18n-html="case.nadir.quote">&ldquo;The art of buying fallen giants.&rdquo;</p>
-              <p class="spotlight__desc" data-i18n="werk.nadir.desc">A real-time dashboard that finds the stocks furthest below their 52-week high. Sector by sector, sorted by deepest fall, with sparklines and a full detail panel per stock.</p>
-              <ul class="tags spotlight__meta">
-                <li class="tag" data-i18n-html="tag.platform">Platform</li>
-                <li class="tag" data-i18n-html="tag.fintech">Fintech</li>
-                <li class="tag">Vanilla JS</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="/en/work/nadir"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-                <a class="link" href="https://github.com/JIDcreations/NADIR" target="_blank" rel="noopener"
-                  >GitHub<span class="btn__arrow" aria-hidden="true">&#8599;</span></a
-                >
-              </div>
-            </div>
+        <article class="case-tile work-tile" data-work-category="platform" data-wipe-up>
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">04 / 08</span>
+            <h2 class="case-tile__name"><a href="/en/work/nadir">NADIR</a></h2>
+            <span class="tag" data-i18n-html="tag.platform">Platform</span>
+          </div>
+          <a class="case-tile__media" href="/en/work/nadir" data-i18n-attr="aria-label:case.nadir.aria" aria-label="NADIR, view case" tabindex="-1">
+            <img
+              src="/assets/Nadir/Nadir_Cover.png"
+              data-i18n-attr="alt:case.nadir.alt" alt="NADIR, dashboard of stocks far below their high"
+              loading="lazy"
+              decoding="async"
+              width="1672"
+              height="941"
+            />
+          </a>
+          <div class="work-tile__body">
+            <p class="work-tile__desc" data-i18n="werk.nadir.desc">A real-time dashboard that finds the stocks furthest below their 52-week high. Sector by sector, sorted by deepest fall, with sparklines and a full detail panel per stock.</p>
+          </div>
+          <div class="case-tile__foot">
+            <ul class="tags work-tile__tags">
+              <li class="tag" data-i18n-html="tag.fintech">Fintech</li>
+              <li class="tag">Vanilla JS</li>
+            </ul>
+            <a class="link" href="/en/work/nadir"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
-        <article class="spotlight wrap" data-work-category="website">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="/en/work/keikoku" data-i18n-attr="aria-label:case.keikoku.aria" aria-label="Keikoku Atelier, view case" data-reveal>
-              <img
-                src="/assets/Keikuko/Cover_Keukuko1.png"
-                alt="Keikoku Atelier, architectuurstudio voor priv&eacute;woningen en hoofdkantoren"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">05 / 08</span>
-              <h2 class="spotlight__name">KEIKOKU ATELIER</h2>
-              <p class="spotlight__quote" data-i18n-html="case.keikoku.quote">&ldquo;Restraint is the material we use most.&rdquo;</p>
-              <p class="spotlight__desc" data-i18n="werk.keikoku.desc">A quiet, image-led site for an architecture practice that designs houses meant to last a hundred years. Four commissions across three continents, told in as much image as text.</p>
-              <ul class="tags spotlight__meta">
-                <li class="tag" data-i18n-html="tag.website">Website</li>
-                <li class="tag" data-i18n-html="tag.architecture">Architecture</li>
-                <li class="tag">Netlify</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="/en/work/keikoku"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-                <a class="link" href="https://keikokuimpens.netlify.app/" target="_blank" rel="noopener"
-                  ><span data-i18n="werk.visitSite">Visit the site</span><span class="btn__arrow" aria-hidden="true">&#8599;</span></a
-                >
-              </div>
-            </div>
+        <article class="case-tile work-tile" data-work-category="website" data-wipe-up>
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">05 / 08</span>
+            <h2 class="case-tile__name"><a href="/en/work/keikoku">Keikoku Atelier</a></h2>
+            <span class="tag" data-i18n-html="tag.website">Website</span>
+          </div>
+          <a class="case-tile__media" href="/en/work/keikoku" data-i18n-attr="aria-label:case.keikoku.aria" aria-label="Keikoku Atelier, view case" tabindex="-1">
+            <img
+              src="/assets/Keikuko/Cover_Keukuko1.png"
+              alt="Keikoku Atelier, architectuurstudio voor priv&eacute;woningen en hoofdkantoren"
+              loading="lazy"
+              decoding="async"
+              width="1672"
+              height="941"
+            />
+          </a>
+          <div class="work-tile__body">
+            <p class="work-tile__desc" data-i18n="werk.keikoku.desc">A quiet, image-led site for an architecture practice that designs houses meant to last a hundred years. Four commissions across three continents, told in as much image as text.</p>
+          </div>
+          <div class="case-tile__foot">
+            <ul class="tags work-tile__tags">
+              <li class="tag" data-i18n-html="tag.architecture">Architecture</li>
+              <li class="tag">Netlify</li>
+            </ul>
+            <a class="link" href="/en/work/keikoku"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
-        <article class="spotlight spotlight--reverse wrap" data-work-category="platform">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="/en/work/delta" data-i18n-attr="aria-label:case.delta.aria" aria-label="DLTA, view case" data-reveal>
-              <img
-                src="/assets/DLTA/DLTA-Cover.png"
-                data-i18n-attr="alt:case.delta.alt" alt="DLTA, portfolio dashboard with live crypto prices"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">06 / 08</span>
-              <h2 class="spotlight__name">DLTA</h2>
-              <p class="spotlight__quote" data-i18n-html="case.delta.quote">&ldquo;Delta-grade crypto clarity.&rdquo;</p>
-              <p class="spotlight__desc" data-i18n="werk.delta.desc">A crypto portfolio tracker that keeps every purchase lot per coin separate and works out profit and loss live, fully client-side, with an allocation donut and optional cloud sync.</p>
-              <ul class="tags spotlight__meta">
-                <li class="tag" data-i18n-html="tag.platform">Platform</li>
-                <li class="tag" data-i18n-html="tag.fintech">Fintech</li>
-                <li class="tag">Next.js</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="/en/work/delta"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-                <a class="link" href="https://github.com/JIDcreations/DLTA" target="_blank" rel="noopener"
-                  >GitHub<span class="btn__arrow" aria-hidden="true">&#8599;</span></a
-                >
-              </div>
-            </div>
+        <article class="case-tile work-tile" data-work-category="platform" data-wipe-up>
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">06 / 08</span>
+            <h2 class="case-tile__name"><a href="/en/work/delta">DLTA</a></h2>
+            <span class="tag" data-i18n-html="tag.platform">Platform</span>
+          </div>
+          <a class="case-tile__media" href="/en/work/delta" data-i18n-attr="aria-label:case.delta.aria" aria-label="DLTA, view case" tabindex="-1">
+            <img
+              src="/assets/DLTA/DLTA-Cover.png"
+              data-i18n-attr="alt:case.delta.alt" alt="DLTA, portfolio dashboard with live crypto prices"
+              loading="lazy"
+              decoding="async"
+              width="1672"
+              height="941"
+            />
+          </a>
+          <div class="work-tile__body">
+            <p class="work-tile__desc" data-i18n="werk.delta.desc">A crypto portfolio tracker that keeps every purchase lot per coin separate and works out profit and loss live, fully client-side, with an allocation donut and optional cloud sync.</p>
+          </div>
+          <div class="case-tile__foot">
+            <ul class="tags work-tile__tags">
+              <li class="tag" data-i18n-html="tag.fintech">Fintech</li>
+              <li class="tag">Next.js</li>
+            </ul>
+            <a class="link" href="/en/work/delta"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
-        <article class="spotlight wrap" data-work-category="website">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="/en/work/elevator-antwerp" data-i18n-attr="aria-label:case.elevator-antwerp.aria" aria-label="Elevator Antwerp, view case" data-reveal>
-              <img
-                src="/assets/Elevator-Antwerp/Cover-elevator.png"
-                data-i18n-attr="alt:case.elevator-antwerp.alt" alt="Elevator Antwerp, roaming gallery for contemporary art"
-                loading="lazy"
-                decoding="async"
-                width="1671"
-                height="941"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">07 / 08</span>
-              <h2 class="spotlight__name">ELEVATOR ANTWERP</h2>
-              <p class="spotlight__quote" data-i18n-html="case.elevator-antwerp.quote">&ldquo;Telling stories with contemporary art.&rdquo;</p>
-              <p class="spotlight__desc" data-i18n="werk.elevator-antwerp.desc">The site for a gallery with no fixed address: Elevator Antwerp takes over temporary spaces in the city, curates shows with contemporary artists, and moves on. A spare, image-led site where the work comes first.</p>
-              <ul class="tags spotlight__meta">
-                <li class="tag" data-i18n-html="tag.website">Website</li>
-                <li class="tag" data-i18n-html="tag.artgallery">Art &amp; gallery</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="/en/work/elevator-antwerp"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-                <a class="link" href="https://elevator-antwerp.com/" target="_blank" rel="noopener"
-                  ><span data-i18n="werk.visitSite">Visit the site</span><span class="btn__arrow" aria-hidden="true">&#8599;</span></a
-                >
-              </div>
-            </div>
+        <article class="case-tile work-tile" data-work-category="website" data-wipe-up>
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">07 / 08</span>
+            <h2 class="case-tile__name"><a href="/en/work/elevator-antwerp">Elevator Antwerp</a></h2>
+            <span class="tag" data-i18n-html="tag.website">Website</span>
+          </div>
+          <a class="case-tile__media" href="/en/work/elevator-antwerp" data-i18n-attr="aria-label:case.elevator-antwerp.aria" aria-label="Elevator Antwerp, view case" tabindex="-1">
+            <img
+              src="/assets/Elevator-Antwerp/Cover-elevator.png"
+              data-i18n-attr="alt:case.elevator-antwerp.alt" alt="Elevator Antwerp, roaming gallery for contemporary art"
+              loading="lazy"
+              decoding="async"
+              width="1671"
+              height="941"
+            />
+          </a>
+          <div class="work-tile__body">
+            <p class="work-tile__desc" data-i18n="werk.elevator-antwerp.desc">The site for a gallery with no fixed address: Elevator Antwerp takes over temporary spaces in the city, curates shows with contemporary artists, and moves on. A spare, image-led site where the work comes first.</p>
+          </div>
+          <div class="case-tile__foot">
+            <ul class="tags work-tile__tags">
+              <li class="tag" data-i18n-html="tag.artgallery">Art &amp; gallery</li>
+            </ul>
+            <a class="link" href="/en/work/elevator-antwerp"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
-        <article class="spotlight spotlight--reverse wrap" data-work-category="website">
-          <div class="spotlight__grid grid">
-            <a class="spotlight__media" href="/en/work/jasper-impens" data-i18n-attr="aria-label:case.jasper-impens.aria" aria-label="Jasper Impens’ portfolio, view case" data-reveal>
-              <img
-                src="/assets/Jasper-site/Cover_Jasper1.png"
-                data-i18n-attr="alt:case.jasper-impens.alt" alt="Jasper Impens’ portfolio"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="spotlight__text" data-reveal>
-              <span class="byte spotlight__idx">08 / 08</span>
-              <h2 class="spotlight__name">Impens Jasper COMMV</h2>
-              <p class="spotlight__quote" data-i18n-html="case.jasper-impens.quote">&ldquo;Everything worked out to the last detail, so it simply works.&rdquo;</p>
-              <p class="spotlight__desc" data-i18n="werk.jasper-impens.desc">Not a client project, but co-founder Jasper's own portfolio: five kinds of work, from brand sites to AI consultancy, each worked out to the last detail. More proof of the level we work at.</p>
-              <ul class="tags spotlight__meta">
-                <li class="tag" data-i18n-html="tag.portfolio">Portfolio</li>
-                <li class="tag" data-i18n-html="tag.designdev">Design &amp; development</li>
-              </ul>
-              <div class="spotlight__actions">
-                <a class="link" href="/en/work/jasper-impens"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-                <a class="link" href="https://www.jasperimpens.be/" target="_blank" rel="noopener"
-                  ><span data-i18n="werk.visitSite">Visit the site</span><span class="btn__arrow" aria-hidden="true">&#8599;</span></a
-                >
-              </div>
-            </div>
+        <article class="case-tile work-tile" data-work-category="website" data-wipe-up>
+          <div class="case-tile__bar">
+            <span class="mono case-tile__idx">08 / 08</span>
+            <h2 class="case-tile__name"><a href="/en/work/jasper-impens">Jasper Impens</a></h2>
+            <span class="tag" data-i18n-html="tag.portfolio">Portfolio</span>
+          </div>
+          <a class="case-tile__media" href="/en/work/jasper-impens" data-i18n-attr="aria-label:case.jasper-impens.aria" aria-label="Jasper Impens’ portfolio, view case" tabindex="-1">
+            <img
+              src="/assets/Jasper-site/Cover_Jasper1.png"
+              data-i18n-attr="alt:case.jasper-impens.alt" alt="Jasper Impens’ portfolio"
+              loading="lazy"
+              decoding="async"
+              width="1672"
+              height="941"
+            />
+          </a>
+          <div class="work-tile__body">
+            <p class="work-tile__desc" data-i18n="werk.jasper-impens.desc">Not a client project, but co-founder Jasper's own portfolio: five kinds of work, from brand sites to AI consultancy, each worked out to the last detail. More proof of the level we work at.</p>
+          </div>
+          <div class="case-tile__foot">
+            <ul class="tags work-tile__tags">
+              <li class="tag" data-i18n-html="tag.designdev">Design &amp; development</li>
+            </ul>
+            <a class="link" href="/en/work/jasper-impens"><span data-i18n="cases.seeCase">View case</span><span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
+
       </section>
 
       <section class="contact theme-ink" id="contact" data-theme-ink>
@@ -461,6 +426,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="/js/main.js?v=24"></script>
+    <script src="/js/main.js?v=25"></script>
   </body>
 </html>
