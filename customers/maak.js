@@ -10,6 +10,9 @@
 //       controleert of een wachtwoord bij de pagina hoort.
 //   node customers/maak.js publiceer <klant> [--pass <wachtwoord>]
 //       commit data/<klant>.json, pull --rebase, push, en test de live URL.
+//   node customers/maak.js cijfers <klant> --bestand <ga.json>
+//       zet de GA4-cijfers van één maand (uitvoer van `klantcontact.py ga ... --compare`)
+//       in het archief "Websitecijfers"; dezelfde maand opnieuw = overschrijven.
 //
 // Na `nieuw` vul je data/<klant>.json aan (secties, updates) en doe je `publiceer`.
 'use strict';
@@ -70,6 +73,48 @@ function vandaag() {
 }
 function link(s, p) {
   return `${HOST}/${s}?pass=${p}`;
+}
+const KANALEN = {
+  Direct: 'Rechtstreeks', 'Organic Search': 'Zoekmachines', 'Paid Search': 'Zoekadvertenties',
+  'Organic Social': 'Sociale media', 'Paid Social': 'Advertenties op sociale media', Referral: 'Andere websites',
+  Email: 'E-mail', Display: 'Banners', 'Organic Video': 'Video', 'Paid Video': 'Videoadvertenties',
+  'Organic Shopping': 'Shopping', 'Paid Shopping': 'Shoppingadvertenties', 'Cross-network': 'Advertenties',
+  'Paid Other': 'Andere advertenties', Affiliates: 'Partners', SMS: 'Sms', Unassigned: 'Onbekend',
+};
+const TOESTELLEN = { mobile: 'Gsm', desktop: 'Computer', tablet: 'Tablet', 'smart tv': 'Smart-tv' };
+const LANDEN = {
+  Belgium: 'België', Netherlands: 'Nederland', France: 'Frankrijk', Germany: 'Duitsland', Luxembourg: 'Luxemburg',
+  'United Kingdom': 'Verenigd Koninkrijk', 'United States': 'Verenigde Staten', Spain: 'Spanje', Italy: 'Italië',
+  Ireland: 'Ierland', Switzerland: 'Zwitserland', Austria: 'Oostenrijk', Poland: 'Polen', Sweden: 'Zweden',
+  Denmark: 'Denemarken', Norway: 'Noorwegen', Finland: 'Finland', Portugal: 'Portugal', Canada: 'Canada',
+  China: 'China', India: 'India', Japan: 'Japan', Singapore: 'Singapore', Türkiye: 'Turkije', Morocco: 'Marokko',
+  '(not set)': 'Onbekend',
+};
+// Eén maand uit de klantcontact.py-uitvoer, compact en met Nederlandse labels.
+function maandblok(ga) {
+  const h = ga.huidig || stop('Geen "huidig" in het GA-bestand.');
+  const { start, end } = h.periode;
+  if (!/^\d{4}-\d{2}-01$/.test(start) || end.slice(0, 7) !== start.slice(0, 7)) stop(`Geen volledige kalendermaand: ${start} tot ${end}`);
+  const kern = (t = {}) => ({
+    bezoekers: t.totalUsers || 0, sessies: t.sessions || 0, weergaven: t.screenPageViews || 0,
+    duur: Math.round(t.averageSessionDuration || 0), acties: t.keyEvents || 0,
+  });
+  const top = (rij, sleutel, waarde, n, namen = {}) =>
+    (rij || []).slice(0, n).map((r) => [namen[r[sleutel]] || r[sleutel], r[waarde] || 0]);
+  const dagen = Number(end.slice(8, 10));
+  const perDatum = Object.fromEntries((h.per_dag || []).map((r) => [r.date, r.sessions || 0]));
+  const per_dag = Array.from({ length: dagen }, (_, i) => perDatum[start.slice(0, 8).replace(/-/g, '') + String(i + 1).padStart(2, '0')] || 0);
+  return {
+    maand: start.slice(0, 7),
+    periode: { start, end },
+    totalen: kern(h.totalen),
+    vorige: ga.vorig ? { periode: ga.vorig.periode, ...kern(ga.vorig.totalen) } : null,
+    per_dag,
+    kanalen: top(h.kanalen, 'sessionDefaultChannelGroup', 'sessions', 6, KANALEN),
+    toestellen: top(h.apparaten, 'deviceCategory', 'sessions', 4, TOESTELLEN),
+    landen: top(h.landen, 'country', 'sessions', 5, LANDEN),
+    paginas: top(h.paginas, 'pagePath', 'screenPageViews', 6),
+  };
 }
 function git(...args) {
   return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] }).trim();
@@ -144,13 +189,28 @@ switch (cmd) {
         const met = await fetch(link(slug, opts.pass), { redirect: 'manual' });
         const html = await met.text();
         const okNaam = html.includes(`<h1>${data.naam.replace(/&/g, '&amp;')}</h1>`);
-        console.log(`Met wachtwoord: ${met.status}, naam op de pagina: ${okNaam ? 'ja' : 'NEE'} (verwacht 200 en ja)`);
-        if (met.status !== 200 || !okNaam) process.exit(2);
+        const maand = data.cijfers && data.cijfers[0] ? data.cijfers[0].maand : null;
+        const okCijfers = !maand || html.includes(`data-maand="${maand}"`);
+        console.log(`Met wachtwoord: ${met.status}, naam op de pagina: ${okNaam ? 'ja' : 'NEE'}` +
+          (maand ? `, cijfers ${maand}: ${okCijfers ? 'ja' : 'NEE'}` : '') + ' (verwacht 200 en ja)');
+        if (met.status !== 200 || !okNaam || !okCijfers) process.exit(2);
       }
       if (zonder.status !== 403) process.exit(2);
     })();
     break;
   }
+  case 'cijfers': {
+    const data = lees(slug);
+    const f = typeof opts.bestand === 'string' ? opts.bestand : stop('--bestand <ga.json> is verplicht');
+    const blok = maandblok(JSON.parse(fs.readFileSync(f, 'utf8')));
+    if (blok.per_dag.length !== Number(blok.periode.end.slice(8, 10))) stop('Interne fout: per_dag telt niet elke dag.');
+    data.cijfers = (data.cijfers || []).filter((m) => m.maand !== blok.maand).concat(blok)
+      .sort((a, b) => b.maand.localeCompare(a.maand));
+    data.bijgewerkt = vandaag();
+    schrijf(slug, data);
+    console.log(`Cijfers ${blok.maand} in data/${slug}.json: ${blok.totalen.bezoekers} bezoekers, ${blok.totalen.sessies} bezoeken (${data.cijfers.length} maanden in het archief).`);
+    break;
+  }
   default:
-    stop('Gebruik: maak.js nieuw|reset|check|publiceer <klant> ...');
+    stop('Gebruik: maak.js nieuw|reset|check|publiceer|cijfers <klant> ...');
 }

@@ -87,6 +87,9 @@ function link_html(string $tekst, ?string $url): string
 
 function sectie_html(array $s): string
 {
+    if (empty($s['tekst']) && empty($s['items']) && empty($s['lijst'])) {
+        return '';
+    }
     $uit = '<section class="sectie">';
     if (!empty($s['titel'])) {
         $uit .= '<h2>' . h($s['titel']) . '</h2>';
@@ -122,6 +125,218 @@ function sectie_html(array $s): string
     }
     $uit .= '</section>';
     return $uit;
+}
+
+// --- Websitecijfers (GA4), een blok per maand, nieuwste eerst ------------------
+
+function maand_nl(int $nr): string
+{
+    return ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'][$nr - 1] ?? '';
+}
+
+function getal($n): string
+{
+    return number_format((float) $n, 0, ',', '.');
+}
+
+function duur(int $s): string
+{
+    return $s < 60 ? $s . ' s' : intdiv($s, 60) . ' min ' . ($s % 60) . ' s';
+}
+
+function maandnaam(string $maand): string
+{
+    return ucfirst(maand_nl((int) substr($maand, 5, 2))) . ' ' . substr($maand, 0, 4);
+}
+
+function korte_datum(string $iso): string
+{
+    return (int) substr($iso, 8, 2) . ' ' . substr(maand_nl((int) substr($iso, 5, 2)), 0, 3);
+}
+
+function verschil($nu, $voor): string
+{
+    if (!is_numeric($voor) || $voor <= 0) {
+        return '';
+    }
+    $p = (int) round(($nu - $voor) / $voor * 100);
+    return '<span class="delta">' . ($p === 0 ? 'gelijk' : ($p > 0 ? '+' : '−') . abs($p) . '%') . '</span>';
+}
+
+// 4 -> 5, 14 -> 20, 177 -> 200: een rond maximum voor de as.
+function rond_op(int $max): int
+{
+    if ($max <= 5) {
+        return 5;
+    }
+    $orde = 10 ** (int) floor(log10($max));
+    foreach ([1, 2, 2.5, 5, 10] as $f) {
+        if ($f * $orde >= $max) {
+            return (int) ($f * $orde);
+        }
+    }
+    return 10 * $orde;
+}
+
+function staven(array $rijen, int $totaal): string
+{
+    $rijen = array_values(array_filter($rijen, fn($r) => is_array($r) && count($r) === 2));
+    if (!$rijen) {
+        return '<p class="leeg">Geen gegevens.</p>';
+    }
+    $max = max(1, ...array_map(fn($r) => (int) $r[1], $rijen));
+    $uit = '<ul class="staven">';
+    foreach ($rijen as [$naam, $waarde]) {
+        $aandeel = $totaal > 0 ? (int) round($waarde / $totaal * 100) : 0;
+        $uit .= '<li><span class="naam">' . h((string) $naam) . '</span>'
+            . '<span class="waarde">' . getal($waarde) . '<span class="aandeel">' . $aandeel . '%</span></span>'
+            . '<span class="staaf" style="width:' . round($waarde / $max * 100, 1) . '%"></span></li>';
+    }
+    return $uit . '</ul>';
+}
+
+function verloop(array $dagen, string $start): string
+{
+    $dagen = array_map('intval', $dagen);
+    $n = count($dagen);
+    if ($n < 2 || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $start)) {
+        return '';
+    }
+    $top = rond_op(max($dagen));
+    $punten = [];
+    foreach ($dagen as $i => $v) {
+        $punten[] = round($i / ($n - 1) * 600, 2) . ',' . round(160 - $v / $top * 160, 2);
+    }
+    $lijn = 'M' . implode(' L', $punten);
+    $svg = '<svg viewBox="0 0 600 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+        . '<line x1="0" y1="0" x2="600" y2="0" class="raster"/><line x1="0" y1="80" x2="600" y2="80" class="raster"/>'
+        . '<path d="' . $lijn . ' L600,160 L0,160 Z" class="vlak"/><path d="' . $lijn . '" class="lijn"/>'
+        . '<line x1="0" y1="160" x2="600" y2="160" class="basis"/></svg>';
+    $ytik = '';
+    foreach ([$top, $top / 2, 0] as $j => $t) {
+        $ytik .= '<span style="top:' . ($j * 50) . '%">' . getal($t) . '</span>';
+    }
+    $dag = fn(int $i) => date('Y-m-d', strtotime($start . ' +' . $i . ' days'));
+    $xtik = '';
+    foreach ([1, 8, 15, 22, $n] as $d) {
+        // de laatste dag krijgt altijd een label; een tussenlabel te dicht ertegen valt weg
+        if ($d === $n || $n - $d >= 4) {
+            $xtik .= '<span style="left:' . round(($d - 1) / ($n - 1) * 100, 2) . '%">' . h(korte_datum($dag($d - 1))) . '</span>';
+        }
+    }
+    $rijen = '';
+    foreach ($dagen as $i => $v) {
+        $rijen .= '<tr><td>' . h(korte_datum($dag($i))) . '</td><td>' . getal($v) . '</td></tr>';
+    }
+    return '<figure class="verloop" data-start="' . h($start) . '" data-top="' . $top . '" data-waarden="' . implode(',', $dagen) . '">'
+        . '<figcaption>Bezoeken per dag</figcaption>'
+        . '<div class="grafiek"><div class="yas">' . $ytik . '</div>'
+        . '<div class="plot" tabindex="0" role="img" aria-label="Bezoeken per dag, de drukste dag telde ' . getal(max($dagen)) . ' bezoeken. Lees per dag met de pijltjestoetsen.">'
+        . $svg . '<span class="kruis" hidden><span class="punt"></span></span><span class="tip" hidden></span></div>'
+        . '<div class="xas">' . $xtik . '</div></div>'
+        . '<details class="tabel"><summary>Toon als tabel</summary><table><thead><tr><th>Dag</th><th>Bezoeken</th></tr></thead><tbody>'
+        . $rijen . '</tbody></table></details></figure>';
+}
+
+function maand_html(array $m, bool $open): string
+{
+    $t = is_array($m['totalen'] ?? null) ? $m['totalen'] : [];
+    $v = is_array($m['vorige'] ?? null) ? $m['vorige'] : [];
+    $sessies = (int) ($t['sessies'] ?? 0);
+    $kern = [
+        ['Bezoekers', getal($t['bezoekers'] ?? 0), verschil($t['bezoekers'] ?? 0, $v['bezoekers'] ?? null)],
+        ['Bezoeken', getal($sessies), verschil($sessies, $v['sessies'] ?? null)],
+        ['Paginaweergaven', getal($t['weergaven'] ?? 0), verschil($t['weergaven'] ?? 0, $v['weergaven'] ?? null)],
+        ['Tijd per bezoek', duur((int) ($t['duur'] ?? 0)), verschil($t['duur'] ?? 0, $v['duur'] ?? null)],
+    ];
+    if (!empty($t['acties']) || !empty($v['acties'])) {
+        $kern[] = ['Contactacties', getal($t['acties'] ?? 0), verschil($t['acties'] ?? 0, $v['acties'] ?? null)];
+    }
+    $p = is_array($m['periode'] ?? null) ? $m['periode'] : [];
+    $vp = is_array($v['periode'] ?? null) ? $v['periode'] : null;
+    $maand = (string) ($m['maand'] ?? '');
+
+    $uit = '<details class="maand" data-maand="' . h($maand) . '"' . ($open ? ' open' : '') . '>'
+        . '<summary><span class="maand-naam">' . h(maandnaam($maand)) . '</span>'
+        . '<span class="maand-kort">' . getal($t['bezoekers'] ?? 0) . ' bezoekers</span>'
+        . '<svg class="pijl" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 6l4 4 4-4"/></svg></summary>'
+        . '<div class="maand-inhoud">';
+    if ($vp) {
+        $uit .= '<p class="meta">Percentages vergelijken met ' . h(datum_nl($vp['start'] ?? '')) . ' tot ' . h(datum_nl($vp['end'] ?? '')) . '.</p>';
+    }
+    $uit .= '<dl class="kern">';
+    foreach ($kern as [$label, $waarde, $delta]) {
+        $uit .= '<div><dt>' . h($label) . '</dt><dd><span class="getal">' . h($waarde) . '</span>' . $delta . '</dd></div>';
+    }
+    $uit .= '</dl>';
+    $uit .= verloop(is_array($m['per_dag'] ?? null) ? $m['per_dag'] : [], (string) ($p['start'] ?? ''));
+    $uit .= '<div class="duo"><div><h3>Waar bezoeken vandaan komen</h3>' . staven($m['kanalen'] ?? [], $sessies) . '</div>'
+        . '<div><h3>Toestel</h3>' . staven($m['toestellen'] ?? [], $sessies)
+        . '<h3>Land</h3>' . staven($m['landen'] ?? [], $sessies) . '</div></div>';
+    $paginas = array_values(array_filter($m['paginas'] ?? [], fn($r) => is_array($r) && count($r) === 2));
+    if ($paginas) {
+        $uit .= '<h3>Meest bekeken pagina\'s</h3><ol class="paginas">';
+        foreach ($paginas as [$pad, $aantal]) {
+            $uit .= '<li><span class="pad">' . h((string) $pad) . ($pad === '/' ? '<span class="opm-in">homepagina</span>' : '') . '</span>'
+                . '<span class="aantal">' . getal($aantal) . '</span></li>';
+        }
+        $uit .= '</ol>';
+    }
+    return $uit . '</div></details>';
+}
+
+function cijfers_html(array $maanden): string
+{
+    usort($maanden, fn($a, $b) => strcmp((string) ($b['maand'] ?? ''), (string) ($a['maand'] ?? '')));
+    $uit = '<section class="sectie cijfers" id="cijfers"><h2>Websitecijfers</h2>'
+        . '<p class="uitleg">Elke maand zetten we hier de cijfers van jullie website uit Google Analytics. '
+        . 'Een bezoeker is één persoon of toestel, een bezoek is één keer op de site komen.</p>';
+    foreach ($maanden as $i => $m) {
+        $uit .= maand_html($m, $i === 0);
+    }
+    return $uit . '</section>' . verloop_script();
+}
+
+// Kruisdraad en tooltip op de grafiek; de waarden staan ook in de tabel eronder.
+function verloop_script(): string
+{
+    return <<<'JS'
+<script>
+document.querySelectorAll('.verloop').forEach(function (f) {
+  var plot = f.querySelector('.plot'), kruis = f.querySelector('.kruis'), punt = f.querySelector('.punt'), tip = f.querySelector('.tip');
+  var w = f.dataset.waarden.split(',').map(Number), top = Number(f.dataset.top), start = new Date(f.dataset.start + 'T12:00:00');
+  var mnd = ['jan', 'feb', 'maa', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'], nu = -1;
+  function toon(i) {
+    nu = Math.max(0, Math.min(w.length - 1, i));
+    var x = nu / (w.length - 1) * 100, d = new Date(start);
+    d.setDate(d.getDate() + nu);
+    kruis.style.left = x + '%';
+    punt.style.bottom = (w[nu] / top * 100) + '%';
+    var b = document.createElement('strong');
+    b.textContent = w[nu] + (w[nu] === 1 ? ' bezoek' : ' bezoeken');
+    tip.replaceChildren(b, document.createTextNode(d.getDate() + ' ' + mnd[d.getMonth()]));
+    tip.style.left = x + '%';
+    tip.dataset.kant = x < 15 ? 'links' : x > 85 ? 'rechts' : '';
+    kruis.hidden = tip.hidden = false;
+  }
+  function verberg() { kruis.hidden = tip.hidden = true; nu = -1; }
+  plot.addEventListener('pointermove', function (e) {
+    var r = plot.getBoundingClientRect();
+    toon(Math.round(Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1) * (w.length - 1)));
+  });
+  plot.addEventListener('pointerleave', verberg);
+  plot.addEventListener('blur', verberg);
+  plot.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      toon(nu < 0 ? (e.key === 'ArrowRight' ? 0 : w.length - 1) : nu + (e.key === 'ArrowRight' ? 1 : -1));
+    } else if (e.key === 'Escape') {
+      verberg();
+    }
+  });
+});
+</script>
+JS;
 }
 
 function kop_html(string $titel): void
@@ -185,6 +400,10 @@ function toon_klantpagina(array $d): void
         }
     }
 
+    if (!empty($d['cijfers']) && is_array($d['cijfers'])) {
+        echo cijfers_html(array_values(array_filter($d['cijfers'], 'is_array')));
+    }
+
     if (!empty($d['updates']) && is_array($d['updates'])) {
         $updates = array_values(array_filter($d['updates'], 'is_array'));
         usort($updates, fn($a, $b) => strcmp((string) ($b['datum'] ?? ''), (string) ($a['datum'] ?? '')));
@@ -239,6 +458,66 @@ h1{font-size:clamp(32px,5vw,48px);font-weight:600;line-height:1.05;letter-spacin
 .voet a:hover{color:var(--orange)}
 .voet-kop{font-weight:600;margin-bottom:8px}
 .klein{margin-top:16px;color:var(--ash-2);font-size:13px}
-@media (max-width:560px){.items>div,.log li{grid-template-columns:1fr;gap:4px}}
+::selection{background:rgb(240 85 34 / .22)}
+:focus-visible{outline:2px solid var(--orange-text);outline-offset:3px}
+.uitleg{color:var(--ash);font-size:15px;max-width:60ch;margin-bottom:8px}
+.maand{border-bottom:1px solid var(--wash)}
+.maand summary{display:flex;align-items:baseline;gap:16px;padding:18px 0;cursor:pointer;list-style:none}
+.maand summary::-webkit-details-marker{display:none}
+.maand-naam{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.maand-kort{color:var(--ash);font-size:14px;margin-left:auto;font-variant-numeric:tabular-nums}
+.pijl{width:16px;height:16px;flex:none;align-self:center;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s cubic-bezier(.16,1,.3,1)}
+.maand[open] .pijl{transform:rotate(180deg)}
+.maand summary:hover .maand-naam{color:var(--orange-text)}
+.maand-inhoud{padding:0 0 40px}
+.maand-inhoud .meta{margin:0 0 20px}
+.kern{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--wash)}
+.kern>div{padding:16px 16px 18px 0;border-bottom:1px solid var(--wash)}
+.kern dt{color:var(--ash);font-size:13px}
+.kern dd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:6px}
+.getal{font-size:28px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.delta{color:var(--ash);font-size:13px;font-variant-numeric:tabular-nums}
+.cijfers h3{font-size:14px;font-weight:600;margin:40px 0 12px}
+.verloop{margin:40px 0 0}
+.verloop figcaption{font-size:14px;font-weight:600;margin-bottom:16px}
+.grafiek{display:grid;grid-template-columns:auto 1fr;column-gap:12px}
+.yas{position:relative;height:160px;color:var(--ash);font-size:12px;font-variant-numeric:tabular-nums;text-align:right;min-width:2ch}
+.yas span{position:absolute;right:0;transform:translateY(-50%);line-height:1}
+.plot{position:relative;height:160px;outline-offset:6px;cursor:crosshair;touch-action:pan-y}
+.plot svg{display:block;width:100%;height:100%;overflow:visible}
+.raster{stroke:var(--wash);stroke-width:1;vector-effect:non-scaling-stroke}
+.basis{stroke:var(--ash-2);stroke-width:1;vector-effect:non-scaling-stroke}
+.lijn{fill:none;stroke:var(--orange);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.vlak{fill:rgb(240 85 34 / .1)}
+.kruis{position:absolute;top:0;bottom:0;width:1px;background:var(--ink);pointer-events:none}
+.punt{position:absolute;left:-5px;width:10px;height:10px;margin-bottom:-5px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 2px var(--paper)}
+.tip{position:absolute;top:-8px;transform:translate(-50%,-100%);background:var(--ink);color:var(--paper);font-size:13px;padding:6px 10px;border-radius:4px;white-space:nowrap;pointer-events:none;display:flex;gap:8px;box-shadow:0 4px 12px rgb(10 10 10 / .18)}
+.tip[hidden],.kruis[hidden]{display:none}
+.tip[data-kant=links]{transform:translate(0,-100%)}
+.tip[data-kant=rechts]{transform:translate(-100%,-100%)}
+.tip strong{font-weight:600}
+.xas{grid-column:2;position:relative;height:28px;color:var(--ash);font-size:12px}
+.xas span{position:absolute;top:10px;transform:translateX(-50%);white-space:nowrap}
+.xas span:first-child{transform:none}
+.xas span:last-child{transform:translateX(-100%)}
+.tabel{margin-top:8px;font-size:14px}
+.tabel summary{cursor:pointer;color:var(--ash);width:max-content}
+.tabel summary:hover{color:var(--orange-text)}
+.tabel table{margin-top:12px;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tabel th,.tabel td{text-align:left;padding:4px 24px 4px 0;border-bottom:1px solid var(--wash)}
+.tabel th{font-weight:600}
+.duo{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,5vw,56px)}
+.staven li{display:grid;grid-template-columns:1fr auto;column-gap:12px;row-gap:6px;padding:8px 0}
+.staven .naam{font-size:15px}
+.staven .waarde{font-variant-numeric:tabular-nums;font-size:15px;font-weight:600}
+.aandeel{color:var(--ash);font-weight:400;margin-left:8px;display:inline-block;min-width:4ch;text-align:right}
+.staaf{grid-column:1/-1;height:8px;min-width:2px;background:var(--orange);border-radius:0 4px 4px 0}
+.paginas li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--wash)}
+.pad{font-family:var(--mono);font-size:13px;overflow-wrap:anywhere;padding-top:2px}
+.opm-in{font-family:var(--font);color:var(--ash);margin-left:8px}
+.aantal{font-variant-numeric:tabular-nums;font-weight:600}
+.leeg{color:var(--ash);font-size:14px}
+@media (prefers-reduced-motion:reduce){.pijl{transition:none}}
+@media (max-width:560px){.items>div,.log li{grid-template-columns:1fr;gap:4px}.duo{grid-template-columns:1fr}.kern{grid-template-columns:1fr 1fr}.maand-kort{display:none}}
 CSS;
 }
