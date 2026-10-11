@@ -527,5 +527,8 @@
   "case.huiskamer.alt": "Huiskamer, a shared space for psychologist and client",
   "case.huiskamer.aria": "Huiskamer, view case",
   "werk.huiskamer.desc": "A shared space for a psychologist and their clients between sessions: logging the days, writing down what weighs on them, small assignments. Warm like a living room, not like a medical file.",
-  "tag.mentalhealth": "Mental health"
+  "tag.mentalhealth": "Mental health",
+  "case.huiskamer.gallery1": "Today for the psychologist: the day’s appointments and what each client shared between sessions",
+  "case.huiskamer.gallery2": "A client file: next session, open assignments, two weeks of mood and the list for next time",
+  "case.huiskamer.gallery3": "A client’s logbook, with a note kept private between entries shared with the psychologist"
 }

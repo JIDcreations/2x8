@@ -527,5 +527,8 @@
   "case.huiskamer.alt": "Huiskamer, un espace partagé entre psychologue et client",
   "case.huiskamer.aria": "Huiskamer, voir le projet",
   "werk.huiskamer.desc": "Un espace partagé entre un psychologue et ses clients entre les séances : noter ses journées, écrire ce qui pèse, de petits exercices. Chaleureux comme un salon, pas comme un dossier médical.",
-  "tag.mentalhealth": "Santé mentale"
+  "tag.mentalhealth": "Santé mentale",
+  "case.huiskamer.gallery1": "Aujourd’hui côté psychologue : les rendez-vous du jour et ce que chaque client a partagé entre les séances",
+  "case.huiskamer.gallery2": "Le dossier d’un client : prochaine séance, exercices en cours, l’humeur de deux semaines et la liste pour la prochaine fois",
+  "case.huiskamer.gallery3": "Le journal d’un client, avec une note gardée privée parmi celles partagées avec le psychologue"
 }
