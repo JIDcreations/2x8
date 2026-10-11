@@ -16,7 +16,7 @@ built on the server, so whatever you push is exactly what visitors get (see "Dep
 - `cms.html`: WordPress, Shopify and Wix side by side. It hangs off the first bullet under
   Websites on the services page and is not in the nav — see "CMS page".
 - `work/*.html`: case pages (Specter, EQTY, Studio Klei, NADIR, Keikoku Atelier, DLTA, Elevator
-  Antwerp, Jasper Impens, WEB.WORK, Salon Dola). Salon Dola closes the list; its site lives in
+  Antwerp, Jasper Impens, WEB.WORK, Salon Dola, Huiskamer). Huiskamer closes the list, right after Salon Dola. Salon Dola's site lives in
   `salon-dola/`, a Vite build from the JIDcreations/Dola_V1 repo, and its case images were shot
   from that build with headless Chromium and reduced motion. Elevator Antwerp opens the list on purpose, with the two
   founders' own sites, Jasper Impens and WEB.WORK, right behind it, on the homepage and on `/werk`. The `work/` entries in `routes.json` are in that
@@ -45,7 +45,7 @@ The homepage shows the first four cases and a button to `/werk`; the full list l
 phone) using the same `.case-tile` as the homepage, plus a description and tech tags. No
 widen-on-hover there: with eight or more tiles you want to compare calmly. The Alles / Websites /
 Apps / Platforms filter hides tiles by their `data-work-category`. To add a case, copy a
-`.work-tile` in `werk.html` and bump the `NN / 10` counters (here and on the homepage).
+`.work-tile` in `werk.html` and bump the `NN / 11` counters (here and on the homepage).
 
 The work grid on the homepage widens the tile you hover and narrows its row neighbour
 (`.cases__grid` is a wrapping flex row, not a grid, so flex-grow can animate per row). A last tile

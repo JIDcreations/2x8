@@ -108,6 +108,10 @@
     "work/salon-dola.html": {
       "done": ["nl", "fr", "en"],
       "slug": { "nl": "/work/salon-dola", "fr": "/fr/projets/salon-dola", "en": "/en/work/salon-dola" }
+    },
+    "work/huiskamer.html": {
+      "done": ["nl", "fr", "en"],
+      "slug": { "nl": "/work/huiskamer", "fr": "/fr/projets/huiskamer", "en": "/en/work/huiskamer" }
     }
   }
 }
