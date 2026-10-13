@@ -5,6 +5,7 @@
   if (!form) return;
 
   const kaarten = [...document.querySelectorAll('.kaart')];
+  const pillen = [...document.querySelectorAll('.pil')];
   const radios = [...form.querySelectorAll('input[type="radio"]')];
   const teller = document.querySelector('.teller');
   const eenheid = document.querySelector('[data-eenheid]');
@@ -28,22 +29,15 @@
   };
   const link = (href, tekst) => Object.assign(document.createElement('a'), { href, textContent: tekst });
 
-  // Zelfde regel als op de server: gekozen thema eerst, hoogstens drie, de rest als aantal.
-  const themaregel = (k, thema) => {
-    const p = k.querySelector('.kaart__themas');
-    if (!p) return;
-    let ids = set(k, 'themas');
-    if (thema && ids.includes(thema)) ids = [thema, ...ids.filter((i) => i !== thema)];
-    const rest = ids.length - 3;
-    p.textContent = ids.slice(0, 3).map((i) => label[`thema:${i}`]).join(', ') + (rest > 0 ? ` en ${rest} andere` : '');
-  };
-
   function teken(f) {
     let n = 0;
     for (const k of kaarten) {
       k.hidden = !past(k, f);
       if (!k.hidden) n++;
-      themaregel(k, f.thema);
+    }
+    // De pill van de gekozen keuze licht op bij elke therapeut.
+    for (const p of pillen) {
+      p.classList.toggle('is-gekozen', p.dataset.thema ? p.dataset.thema === f.thema : p.dataset.doelgroep === f.doelgroep);
     }
     for (const r of radios) {
       const c = aantal({ ...f, [r.name]: r.value });
@@ -57,7 +51,6 @@
       ...['thema', 'doelgroep'].filter((naam) => f[naam]).map((naam) => {
         const a = link(adres({ ...f, [naam]: '' }), label[`${naam}:${f[naam]}`]);
         a.className = 'wis';
-        a.dataset.wis = naam;
         a.insertAdjacentHTML('afterbegin', '<span class="onzichtbaar">Filter weghalen: </span>');
         a.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>');
         const li = document.createElement('li');
@@ -88,19 +81,8 @@
 
   form.addEventListener('change', () => toon(staat()));
 
-  // Gsm: wie binnenkomt met ?thema=... ziet de gekozen keuze meteen in de schuivende rij.
-  // Pas na het lettertype meten, anders verschuiven de labels nog.
-  document.fonts.ready.then(() => {
-    for (const rij of form.querySelectorAll('.filter__keuzes')) {
-      const gekozen = rij.querySelector('label:has(:checked)');
-      if (gekozen && rij.scrollWidth > rij.clientWidth) {
-        rij.scrollLeft += gekozen.getBoundingClientRect().left - rij.getBoundingClientRect().left - parseFloat(getComputedStyle(rij).paddingLeft);
-      }
-    }
-  });
-
   // Links in de actieve filters en de lege toestand: zelfde keuze, zonder herladen.
-  document.querySelector('.resultaten').addEventListener('click', (e) => {
+  document.querySelector('.overzicht').addEventListener('click', (e) => {
     const a = e.target.closest('[data-actief] a, [data-opties] a');
     if (!a || e.metaKey || e.ctrlKey) return;
     e.preventDefault();

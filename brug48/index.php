@@ -21,8 +21,9 @@ if (BASE_URL !== '' && !str_starts_with($pad . '/', BASE_URL . '/')) {
 }
 $pad = substr($pad, strlen(BASE_URL)) ?: '/';
 
-// Eén schrijfwijze per pagina: geen slash op het einde, geen lege filterparameters.
-$schoon = $pad === '/' ? '/' : rtrim($pad, '/');
+// Eén schrijfwijze per pagina: geen dubbele of afsluitende slash, geen lege filterparameters.
+// (Dubbele slashes samenvoegen: anders wordt //ander-domein.be een redirect naar dat domein.)
+$schoon = '/' . trim(preg_replace('~/+~', '/', $pad), '/');
 $query = array_filter($_GET, fn($v) => $v !== '');
 if ($schoon !== $pad || count($query) !== count($_GET)) {
     header('Location: ' . url($schoon, $query), true, 301);

@@ -82,8 +82,8 @@ geruststellen, niet overweldigen.
 ## Content en beeld
 - Alle teksten letterlijk van de huidige site. Ontbreekt iets: leeg laten en melden.
 - Beeld: logo, headerfoto en de therapeutfoto's van de huidige site.
-- Headerfoto heeft een bronvermelding ("foto Fietsbult / blog van Fietsersbond Gent"):
-  vermelding behouden; rechten moeten gecheckt worden voor livegang.
+- Headerfoto komt van "Fietsbult / blog van Fietsersbond Gent". De vermelding op de pagina mag
+  weg (Florian, 13-10-2026); de rechten moeten wel gecheckt worden voor livegang.
 - Foto's en telefoonnummers van therapeuten staan erin, daarom de demo-beveiliging.
 
 ## Design: referenties en huisstijl

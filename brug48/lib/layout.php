@@ -50,11 +50,15 @@ $css = strtr($css, [
 <meta property="og:image" content="<?= e(SITE_URL . asset('assets/img/og-brug48.jpg')) ?>">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="theme-color" content="#EEEFE5">
+<meta name="theme-color" content="#F6F7F2">
 <link rel="icon" href="<?= e(asset('assets/img/favicon.svg')) ?>" type="image/svg+xml">
 <link rel="preload" href="<?= e(asset('assets/fonts/jost-var-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="<?= e(asset('assets/fonts/literata-var-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
-<script>document.documentElement.classList.add('js');addEventListener('pagereveal',e=>{if(e.viewTransition)document.documentElement.classList.add('overgang')})</script>
+<script>
+document.documentElement.classList.add('js');
+// Komt de bezoeker van een andere pagina van deze site, dan tekent de brug zich niet opnieuw.
+if (document.referrer.startsWith(location.origin + <?= json_encode(BASE_URL . '/') ?>)) document.documentElement.classList.add('binnen');
+</script>
 <style>
 <?= $css ?>
 </style>

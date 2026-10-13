@@ -19,6 +19,12 @@
   color: var(--steen);
 }
 @media (min-width: 44rem) { .pagina-intro__boog { --verhouding: 6; } }
+/* De therapeuten eronder staan in een of twee kolommen: de pijlers van de brug volgen die */
+.pagina-intro .brug .p-twee { display: none; }
+@media (min-width: 70rem) {
+  .pagina-intro .brug .p-drie { display: none; }
+  .pagina-intro .brug .p-twee { display: inline; }
+}
 @media (min-width: 70rem) {
   .pagina-intro__boog { --verhouding: 8; }
   .pagina-intro__tekst { grid-column: 1 / 3; }

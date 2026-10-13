@@ -10,8 +10,8 @@
   font-size: var(--t-groot);
 }
 .site-footer address { font-style: normal; color: var(--steen); }
-.site-footer__menu ul { display: grid; gap: var(--r-1); }
-.site-footer__menu a { font-family: var(--stem); color: var(--inkt); text-decoration-color: transparent; }
+.site-footer__menu ul { display: grid; }
+.site-footer__menu a { display: inline-block; padding-block: 0.6rem; font-family: var(--stem); color: var(--inkt); text-decoration-color: transparent; }
 .site-footer__menu a:hover, .site-footer__menu a[aria-current="page"] { text-decoration-color: var(--olijf); }
 .site-footer__demo {
   grid-column: 1 / -1;

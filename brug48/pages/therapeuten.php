@@ -12,6 +12,7 @@ section('pagina-intro', [
 ]);
 
 section('therapeuten-overzicht', [
+    'filter_knop' => 'Filter op thema of voor wie',
     'kop_thema' => 'Thema',
     'kop_doelgroep' => 'Voor wie',
     'alle_themas' => "Alle thema's",

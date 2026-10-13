@@ -12,7 +12,6 @@ section('hero', [
     'breedtes' => [640, 1200, 1754],
     'formaat' => [1754, 1240],
     'alt' => 'Fietsers steken een brug over het water over.',
-    'fotobron' => 'foto Fietsbult / blog van Fietsersbond Gent',
     'actie' => ['tekst' => 'Vind een therapeut', 'url' => url('/therapeuten')],
     'adres' => ['tekst' => 'Residentie Evrard, Vincent Evrardlaan 48 bus 202, 9050 Gentbrugge', 'url' => url('/locatie')],
 ]);
@@ -30,5 +29,4 @@ section('welkom', [
 section('zoeker', [
     'kop' => 'Waarmee kunnen we je helpen?',
     'tekst' => 'Kies een thema en je ziet meteen welke therapeuten erbij passen. Je neemt daarna rechtstreeks contact op.',
-    'kop_namen' => 'Of kies op naam',
 ]);

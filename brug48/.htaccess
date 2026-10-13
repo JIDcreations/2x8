@@ -4,7 +4,7 @@ AddType image/avif .avif
 RewriteEngine On
 
 # Bronmateriaal en interne bestanden niet serveren.
-RewriteRule (^|/)\. - [F]
+RewriteRule (^|/)\.(?!well-known/) - [F]
 RewriteRule ^(data|docs|lib|pages|tools)(/|$) - [F]
 RewriteRule ^assets/img/bron/ - [F]
 RewriteRule ^sections/.+\.php$ - [F]

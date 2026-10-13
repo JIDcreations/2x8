@@ -14,11 +14,11 @@ Stand: fase 2 (homepage en therapeutenoverzicht). Detailpagina en Locatie volgen
 | Sectie | Parameters | Beoogd block | Opmerking |
 |---|---|---|---|
 | `site-header` | `actief` (huidig pad) | template part `header` | logo + menu (Therapeuten, Locatie); het logo is de link naar Welkom |
-| `hero` | `titel`, `foto` (pad zonder breedte), `breedtes[]`, `formaat[b,h]`, `alt`, `fotobron`, `actie{tekst,url}`, `adres{tekst,url}` | `brug48/hero` | foto in een boogvenster met de brug erover; de entree-animatie zit hier |
+| `hero` | `titel`, `foto` (pad zonder breedte), `breedtes[]`, `formaat[b,h]`, `alt`, `actie{tekst,url}`, `adres{tekst,url}` | `brug48/hero` | foto in een boogvenster met de brug erover; de entree-animatie zit hier en speelt enkel bij een rechtstreeks bezoek |
 | `welkom` | `kop`, `alineas[]`, `nadruk` (index van de groot gezette alinea) | `brug48/tekst-met-kop` | teksten letterlijk |
-| `zoeker` | `kop`, `tekst`, `kop_namen` | dynamisch `brug48/zoeker` | leest thema's en therapeuten zelf (WP: termen van `thema` + CPT `therapeut`) |
+| `zoeker` | `kop`, `tekst` | dynamisch `brug48/zoeker` | thema's als pills met aantallen (WP: termen van `thema`) |
 | `pagina-intro` | `titel`, `tekst` | `brug48/pagina-intro` | titel onder de boog, zonder foto |
-| `therapeuten-overzicht` | `kop_thema`, `kop_doelgroep`, `alle_themas`, `iedereen`, `knop`, `stop`, `leeg`, `leeg_tekst` | dynamisch `brug48/therapeuten-overzicht` | filter + kaarten; leest data en `?thema=`/`?doelgroep=` zelf; JS maakt het vloeiend |
+| `therapeuten-overzicht` | `filter_knop`, `kop_thema`, `kop_doelgroep`, `alle_themas`, `iedereen`, `knop`, `stop`, `leeg`, `leeg_tekst` | dynamisch `brug48/therapeuten-overzicht` | openklapbare filter boven, kaarten met pills per thema en voor wie; leest data en `?thema=`/`?doelgroep=` zelf; JS maakt het vloeiend |
 | `crisishulp` | `kop`, `regels[{tekst,nummer,na}]`, `chat{tekst,url,label}` | `brug48/crisishulp` | nieuwe inhoud, goedgekeurd door Florian (13-10-2026) |
 | `site-footer` | `actief` | template part `footer` | adres, menu, crisishulp, demomelding zolang `DEMO` aan staat |
 | `melding` | `titel`, `tekst`, `link{tekst,url}` | patroon of `brug48/melding` | 404 en (tijdelijk) pagina's in opbouw |

@@ -14,8 +14,7 @@
 
 :root {
   /* Kleur: uit het logo en de headerfoto */
-  --mist: #EEEFE5;        /* grond; de lucht boven de brug */
-  --mist-licht: #F6F7F0;  /* licht vlak op de grond */
+  --mist: #F6F7F2;        /* grond; de lucht boven de brug */
   --inkt: #231F20;        /* "BRUG" in het logo; tekst */
   --steen: #55564A;       /* secundaire tekst op mist (6,4:1) */
   --veld: #AFAB55;        /* olijfveld, de balk van de huidige site; enkel inkt erop (6,8:1) */

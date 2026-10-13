@@ -21,7 +21,7 @@ Dan http://localhost:8048/brug48/. Lokaal vraagt de site geen wachtwoord.
 - `sections/<naam>/`: php, css en js per sectie.
 - `data/therapeuten.json`: enige bron voor therapeutdata.
 - `tools/scrape.py`: haalt teksten en foto's opnieuw van brug48.be (`python tools/scrape.py`).
-- `tools/beelden.py`: maakt WebP/AVIF, duotoonportretten en de Open Graph-afbeelding.
+- `tools/beelden.py`: maakt WebP/AVIF, vierkante portretten (de CSS toont ze zwart-wit) en de Open Graph-afbeelding.
 - Lettertypes (Jost, Literata; SIL Open Font License) staan lokaal in `assets/fonts/`.
 
 ## Demo op 2x8.be/brug48

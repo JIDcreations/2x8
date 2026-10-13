@@ -6,7 +6,6 @@
  * @param int[]  $p['breedtes']    beschikbare breedtes van de foto
  * @param int[]  $p['formaat']     [breedte, hoogte] van het origineel
  * @param string $p['alt']
- * @param string $p['fotobron']    bronvermelding, letterlijk
  * @param array  $p['actie']       ['tekst' => ..., 'url' => ...]
  * @param array  $p['adres']       ['tekst' => ..., 'url' => ...]
  */
@@ -26,7 +25,6 @@ $sizes = '(min-width: 84rem) 76rem, 92vw';
         </div>
         <?= brug() ?>
       </div>
-      <figcaption><?= e($p['fotobron']) ?></figcaption>
     </figure>
   </div>
   <div class="hero__tekst dek">

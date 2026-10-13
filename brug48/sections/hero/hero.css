@@ -17,19 +17,16 @@
   object-fit: cover;
   object-position: 50% 58%;
 }
+/* Eén moment, enkel bij een rechtstreeks bezoek aan home: de pijlers zakken, daarna tekent de
+   boog zich over het water. Komt de bezoeker van een andere pagina (.binnen), dan staat alles er al. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__venster img { animation: water-tot-rust 2600ms var(--zacht) both; }
+  html:not(.binnen) .hero .brug__pijlers { animation: pijlers-zakken 1100ms var(--zacht) both; }
+  html:not(.binnen) .hero .brug__boog { animation: boog-tekenen 1600ms var(--zacht) 350ms both; }
+  html:not(.binnen) .hero__venster img { animation: water-tot-rust 2600ms var(--zacht) both; }
 }
+@keyframes pijlers-zakken { from { clip-path: inset(-20% 0 100% 0); } to { clip-path: inset(-20% 0 0 0); } }
+@keyframes boog-tekenen { from { clip-path: inset(-10% 100% -10% -5%); } to { clip-path: inset(-10% -5% -10% -5%); } }
 @keyframes water-tot-rust { from { transform: scale(1.06); } to { transform: none; } }
-
-.hero__figuur figcaption {
-  margin-top: var(--r-1);
-  padding-inline: clamp(1rem, 2.2vw, 2.25rem);
-  color: var(--steen);
-  font-family: var(--stem);
-  font-size: var(--t-klein);
-  text-align: right;
-}
 
 .hero__tekst {
   row-gap: var(--r-4);

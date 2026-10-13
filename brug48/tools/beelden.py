@@ -1,6 +1,6 @@
 """Zet de bronbeelden om naar wat de site serveert (WebP + AVIF).
 
-- Portretten: vierkant, olijf-duotoon (inkt -> olijf -> mist), zoals de headerfoto.
+- Portretten: vierkant en in kleur; de site toont ze zwart-wit en in kleur bij hover (CSS).
 - Headerfoto: drie breedtes, kleur ongewijzigd, plus de Open Graph-afbeelding (1200x630).
 
 Gebruik (vanuit brug48/):  python tools/beelden.py
@@ -12,25 +12,6 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parent.parent
 BRON = ROOT / "assets/img/bron"
 UIT = ROOT / "assets/img"
-DUOTOON = [(0, "#231F20"), (0.55, "#7C7B3A"), (1, "#F1F2E8")]
-
-
-def rgb(h):
-    return tuple(int(h[i:i + 2], 16) for i in (1, 3, 5))
-
-
-def duotoon(im):
-    g = ImageOps.autocontrast(ImageOps.grayscale(im), cutoff=1)
-    lut = []
-    for c in range(3):
-        for i in range(256):
-            t = i / 255
-            for (p0, c0), (p1, c1) in zip(DUOTOON, DUOTOON[1:]):
-                if p0 <= t <= p1:
-                    u = (t - p0) / (p1 - p0)
-                    lut.append(round(rgb(c0)[c] + (rgb(c1)[c] - rgb(c0)[c]) * u))
-                    break
-    return Image.merge("RGB", [g.point(lut[c * 256:(c + 1) * 256]) for c in range(3)])
 
 
 def bewaar(im, pad):
@@ -47,7 +28,7 @@ def main():
             m = int(s * 0.15)
             im = im.crop((m, m, s - m, s - m))
         zijde = min(min(im.size), 480)
-        bewaar(duotoon(ImageOps.fit(im, (zijde, zijde), centering=(0.5, 0.4))), UIT / "therapeuten" / f.stem)
+        bewaar(ImageOps.fit(im, (zijde, zijde), centering=(0.5, 0.4)), UIT / "therapeuten" / f.stem)
         print(f.stem, zijde)
 
     hdr = Image.open(BRON / "6806649.jpg").convert("RGB")

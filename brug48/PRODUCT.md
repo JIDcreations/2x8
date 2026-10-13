@@ -67,8 +67,8 @@ benaderingen onder één dak.
 - Alle teksten letterlijk van de huidige site; herschrijven enkel na akkoord.
 - Nieuwe interfaceteksten spreken de bezoeker aan met **je**, zoals de therapeuten in hun eigen
   teksten.
-- Headerfoto met bronvermelding "foto Fietsbult / blog van Fietsersbond Gent": vermelding
-  blijft staan, rechten nog te checken.
+- Headerfoto van "Fietsbult / blog van Fietsersbond Gent": de vermelding op de pagina mag weg
+  (Florian, 13-10-2026), de rechten zijn nog te checken.
 
 ## Evidence on Hand
 
