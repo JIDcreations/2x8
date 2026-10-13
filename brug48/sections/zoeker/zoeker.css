@@ -1,0 +1,44 @@
+/* Het olijfveld: de balk van hun huidige site, hier als brede band. Enkel inkt op olijf. */
+.zoeker {
+  background: var(--veld);
+  color: var(--inkt);
+  padding-block: var(--r-5) var(--r-6);
+}
+.zoeker .dek { row-gap: var(--r-4); }
+.zoeker__intro, .zoeker__themas, .zoeker__kop-namen, .zoeker__namen { grid-column: 1 / -1; }
+.zoeker h2 { font-size: var(--t-kop); margin-bottom: var(--r-2); }
+.zoeker__intro p { max-width: 22em; }
+.zoeker a { color: var(--inkt); }
+.zoeker :focus-visible { outline-color: var(--inkt); }
+
+.zoeker__themas { display: flex; flex-wrap: wrap; gap: 0.625rem; }
+
+.zoeker .keuze:hover { background: var(--inkt); color: var(--veld); border-radius: 2em; }
+
+.zoeker__kop-namen {
+  margin-top: var(--r-3);
+  font-size: var(--t-groot);
+  font-weight: 400;
+}
+.zoeker__namen {
+  columns: 1;
+  column-gap: var(--r-4);
+  font-family: var(--stem);
+  font-size: var(--t-groot);
+  font-weight: 300;
+}
+.zoeker__namen li { break-inside: avoid; }
+.zoeker__namen a {
+  display: inline-block;
+  padding-block: 0.3em;
+  text-decoration-color: transparent;
+}
+.zoeker__namen a:hover { text-decoration-color: var(--inkt); }
+
+@media (min-width: 30rem) { .zoeker__namen { columns: 2; } }
+@media (min-width: 70rem) {
+  .zoeker__intro { grid-column: 1; }
+  .zoeker__themas { grid-column: 2 / 4; align-content: start; padding-top: 0.4rem; }
+  .zoeker__kop-namen { grid-column: 1; margin-top: var(--r-4); }
+  .zoeker__namen { grid-column: 2 / 4; columns: 3; margin-top: var(--r-4); }
+}

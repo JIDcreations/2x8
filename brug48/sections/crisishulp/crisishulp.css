@@ -1,0 +1,13 @@
+.crisishulp h2 {
+  margin-bottom: var(--r-2);
+  font-size: var(--t-groot);
+  font-weight: 400;
+}
+.crisishulp p { margin-bottom: var(--r-1); font-size: var(--t-basis); line-height: 1.55; }
+.crisishulp__nummer {
+  font-family: var(--stem);
+  font-size: 1.25em;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--inkt);
+}

@@ -1,0 +1,23 @@
+# Brug 48: eigen regels; die van de map erboven gelden hier niet.
+Options -MultiViews -Indexes
+RewriteEngine On
+
+# Bronmateriaal en interne bestanden niet serveren.
+RewriteRule (^|/)\. - [F]
+RewriteRule ^(data|docs|lib|pages|tools)(/|$) - [F]
+RewriteRule ^assets/img/bron/ - [F]
+RewriteRule ^sections/.+\.php$ - [F]
+RewriteRule ^config\.php$ - [F]
+RewriteRule \.(md|py|json)$ - [F]
+
+# Basic auth via PHP: sommige servers (LiteSpeed/CGI) geven de header anders niet door.
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Nette URL's: alles wat geen bestand is, gaat naar index.php.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+# DEMO: ook beelden en lettertypes niet indexeren. Weg bij livegang (zie README.md).
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

@@ -1,0 +1,182 @@
+/* Basis: gedeeld door alle secties. Sectie-specifieke stijl staat in sections/<naam>/<naam>.css. */
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--olijf) var(--mist);
+  scroll-padding-top: var(--r-4);
+}
+body {
+  margin: 0;
+  background: var(--mist);
+  color: var(--inkt);
+  font-family: var(--lees);
+  font-size: var(--t-basis);
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  caret-color: var(--diep);
+}
+img, svg { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--stem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+p { margin: 0 0 1em; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+strong { font-weight: 600; }
+
+a {
+  color: var(--diep);
+  text-decoration-thickness: var(--lijn);
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 300ms var(--zacht), color 300ms var(--zacht);
+}
+a:hover { text-decoration-color: var(--olijf); }
+:focus-visible {
+  outline: 2px solid var(--diep);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+::selection { background: var(--veld); color: var(--inkt); }
+
+/* Het dek: de inhoud ligt tussen de pijlers */
+.dek {
+  display: grid;
+  grid-template-columns: repeat(var(--overspanningen), minmax(0, 1fr));
+  width: 100%;
+  max-width: var(--dek-max);
+  margin-inline: auto;
+  padding-inline: var(--rand);
+}
+.dek > * { padding-inline: clamp(1rem, 2.2vw, 2.25rem); }
+/* Pijlers zichtbaar: een lijn op elke grens tussen overspanningen */
+.pijlers { position: relative; isolation: isolate; }
+.pijlers::before {
+  content: "";
+  position: absolute;
+  inset: 0 var(--rand);
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(to right, var(--pijler) var(--lijn), transparent var(--lijn));
+  background-size: calc((100% - var(--lijn)) / var(--overspanningen)) 100%;
+  background-repeat: repeat-x;
+}
+
+/* Knop: een vlak in diep olijf met een boogvormige bovenkant, zoals de brug */
+.knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  padding: 0.95em 1.6em 0.85em;
+  border-radius: 2.5em 2.5em 0.35em 0.35em;
+  background: var(--diep);
+  color: var(--mist);
+  font-family: var(--stem);
+  font-size: var(--t-basis);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: background-color 400ms var(--zacht), border-radius 600ms var(--zacht);
+}
+.knop:hover { background: var(--inkt); border-radius: 2.5em 2.5em 2.5em 2.5em; }
+.knop svg { width: 1.1em; height: 1.1em; flex: none; }
+
+/* De brug: gedeeld door hero en pagina-intro (zie brug() in lib/app.php) */
+.brug {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  view-transition-name: brug;
+}
+.brug line, .brug path {
+  fill: none;
+  stroke: var(--pijler);
+  stroke-width: var(--lijn);
+  vector-effect: non-scaling-stroke;
+}
+.brug .p-drie, .brug .p-twee { display: none; }
+@media (min-width: 44rem) and (max-width: 69.99rem) { .brug .p-twee { display: inline; } }
+@media (min-width: 70rem) { .brug .p-drie { display: inline; } }
+
+/* Eén moment bij het binnenkomen: de pijlers zakken, daarna tekent de boog zich over het water */
+@media (prefers-reduced-motion: no-preference) {
+  .brug__pijlers { animation: pijlers-zakken 1100ms var(--zacht) both; }
+  .brug__boog { animation: boog-tekenen 1600ms var(--zacht) 350ms both; }
+}
+@keyframes pijlers-zakken { from { clip-path: inset(-20% 0 100% 0); } to { clip-path: inset(-20% 0 0 0); } }
+@keyframes boog-tekenen { from { clip-path: inset(-10% 100% -10% -5%); } to { clip-path: inset(-10% -5% -10% -5%); } }
+
+/* Keuze: een klein boogvormig label, gedeeld met het therapeutenoverzicht */
+.keuze {
+  position: relative; /* houdt het verborgen keuzerondje binnen het label */
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6em;
+  padding: 0.55em 1.05em 0.5em;
+  border: var(--lijn) solid currentColor;
+  border-radius: 2em 2em 0.3em 0.3em;
+  font-family: var(--stem);
+  font-size: var(--t-basis);
+  font-weight: 400;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: background-color 400ms var(--zacht), color 400ms var(--zacht), border-radius 600ms var(--zacht);
+}
+.keuze__aantal {
+  font-size: var(--t-klein);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.naar-inhoud {
+  position: absolute;
+  left: var(--r-2);
+  top: -10rem;
+  z-index: 10;
+  padding: var(--r-1) var(--r-2);
+  background: var(--inkt);
+  color: var(--mist);
+  font-family: var(--stem);
+}
+.naar-inhoud:focus { top: var(--r-2); }
+main:focus { outline: none; }
+
+.onzichtbaar {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Van pagina naar pagina: de boog blijft liggen en schuift naar zijn nieuwe plaats */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+::view-transition-group(brug) { animation-duration: 900ms; animation-timing-function: var(--zacht); }
+/* enkel bij een paginawissel; bij filteren (.filteren) blijft de pagina zelf staan */
+html:not(.filteren)::view-transition-old(root) { animation: 350ms ease-in both pagina-uit; }
+html:not(.filteren)::view-transition-new(root) { animation: 600ms var(--zacht) 120ms both pagina-in; }
+@keyframes pagina-uit { to { opacity: 0; } }
+@keyframes pagina-in { from { opacity: 0; } }
+/* Na een overgang geen tweede entree: de boog is er al */
+.overgang .brug__pijlers, .overgang .brug__boog, .overgang .hero__venster img { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

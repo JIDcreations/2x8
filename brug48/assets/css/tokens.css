@@ -1,0 +1,62 @@
+/* Design-tokens Brug 48. Later 1-op-1 naar theme.json (settings.color.palette, typography, spacing). */
+@font-face {
+  font-family: "Jost";
+  src: url("{{jost}}") format("woff2");
+  font-weight: 300 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Literata";
+  src: url("{{literata}}") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+:root {
+  /* Kleur: uit het logo en de headerfoto */
+  --mist: #EEEFE5;        /* grond; de lucht boven de brug */
+  --mist-licht: #F6F7F0;  /* licht vlak op de grond */
+  --inkt: #231F20;        /* "BRUG" in het logo; tekst */
+  --steen: #55564A;       /* secundaire tekst op mist (6,4:1) */
+  --veld: #AFAB55;        /* olijfveld, de balk van de huidige site; enkel inkt erop (6,8:1) */
+  --olijf: #969606;       /* "48" in het logo; boog en pijlers, nooit tekst */
+  --diep: #3F4412;        /* links, knoppen, actieve keuze (8,9:1 op mist) */
+
+  /* Lijn: een gewicht voor alle structuur */
+  --lijn: 1px;
+  --pijler: color-mix(in srgb, var(--olijf) 80%, transparent); /* boog en pijlers, overal dezelfde lijn */
+
+  /* Typografie */
+  --stem: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --lees: "Literata", "Georgia", serif;
+  --t-klein: 0.875rem;
+  --t-basis: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --t-groot: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --t-kop: clamp(1.75rem, 1.35rem + 1.7vw, 2.75rem);
+  --t-display: clamp(2.5rem, 1.6rem + 3.4vw, 4.25rem);
+
+  /* Ruimte */
+  --r-1: 0.5rem;
+  --r-2: 1rem;
+  --r-3: 1.5rem;
+  --r-4: 2.5rem;
+  --r-5: 4rem;
+  --r-6: 6rem;
+  --r-7: 9rem;
+
+  /* Het dek: drie overspanningen tussen vier pijlers (twee op tablet, een op gsm) */
+  --dek-max: 84rem;
+  --rand: clamp(1rem, 4vw, 4rem);
+  --overspanningen: 1;
+
+  /* Beweging: traag en zacht */
+  --zacht: cubic-bezier(0.16, 1, 0.3, 1);
+  --traag: 900ms;
+}
+
+@media (min-width: 44rem) {
+  :root { --overspanningen: 2; }
+}
+@media (min-width: 70rem) {
+  :root { --overspanningen: 3; }
+}

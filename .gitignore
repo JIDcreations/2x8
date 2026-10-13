@@ -13,3 +13,7 @@
 # Hostinger pullt deze repo rechtstreeks in de docroot en draait geen Node,
 # dus de vertaalde pagina's moeten hier als gewone bestanden staan.
 # Na het aanpassen van Nederlandse copy: `node build.js` en beide mee committen.
+
+# Brug 48-demo: het wachtwoord zelf blijft lokaal; config.php bevat enkel de hash.
+/brug48/.demo-wachtwoord
+/brug48/.impeccable/review/

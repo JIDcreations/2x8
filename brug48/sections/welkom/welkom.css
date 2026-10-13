@@ -1,0 +1,28 @@
+.welkom {
+  row-gap: var(--r-3);
+  padding-block: var(--r-5) var(--r-6);
+}
+.welkom h2 {
+  grid-column: 1 / -1;
+  font-size: var(--t-kop);
+}
+.welkom__tekst {
+  grid-column: 1 / -1;
+  max-width: 38em;
+}
+.welkom__nadruk {
+  margin-block: var(--r-4);
+  font-family: var(--stem);
+  font-size: var(--t-groot);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+/* Tablet: de middelste pijler zou door de tekst lopen */
+@media (min-width: 44rem) and (max-width: 69.99rem) { .welkom::before { display: none; } }
+/* Desktop: de tekst ligt als een brugdek over de tweede en derde overspanning; de pijler
+   ertussen loopt erboven en eronder door. */
+@media (min-width: 70rem) {
+  .welkom h2 { grid-column: 1; }
+  .welkom__tekst { grid-column: 2 / 4; background: var(--mist); background-clip: content-box; }
+}

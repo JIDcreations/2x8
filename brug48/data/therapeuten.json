@@ -1,0 +1,2141 @@
+{
+  "bron": "https://www.brug48.be",
+  "opgehaald": "2026-10-13",
+  "themas": [
+    {
+      "id": "angst",
+      "label": "Angst en piekeren"
+    },
+    {
+      "id": "somberheid",
+      "label": "Somberheid en depressie"
+    },
+    {
+      "id": "stress-burn-out",
+      "label": "Stress en burn-out"
+    },
+    {
+      "id": "rouw-verlies",
+      "label": "Rouw en verlies"
+    },
+    {
+      "id": "trauma",
+      "label": "Trauma en ingrijpende ervaringen"
+    },
+    {
+      "id": "relatie",
+      "label": "Relatie en koppel"
+    },
+    {
+      "id": "gezin",
+      "label": "Gezin en opvoeding"
+    },
+    {
+      "id": "zelfbeeld",
+      "label": "Zelfbeeld en identiteit"
+    },
+    {
+      "id": "levensfase",
+      "label": "Levensfase en zingeving"
+    },
+    {
+      "id": "lichaam",
+      "label": "Lichamelijke klachten en ziekte"
+    },
+    {
+      "id": "adhd-autisme",
+      "label": "ADHD, autisme en hoogsensitiviteit"
+    },
+    {
+      "id": "zelfdestructief",
+      "label": "Zelfdestructieve gedachten"
+    },
+    {
+      "id": "verslaving",
+      "label": "Verslaving"
+    },
+    {
+      "id": "werk-sociaal",
+      "label": "Werk en sociaal leven"
+    }
+  ],
+  "doelgroepen": [
+    {
+      "id": "jongvolwassenen",
+      "label": "Jongvolwassenen"
+    },
+    {
+      "id": "volwassenen",
+      "label": "Volwassenen"
+    },
+    {
+      "id": "ouderen",
+      "label": "Ouderen"
+    },
+    {
+      "id": "koppels",
+      "label": "Koppels"
+    },
+    {
+      "id": "gezinnen",
+      "label": "Gezinnen"
+    },
+    {
+      "id": "hulpverleners",
+      "label": "Hulpverleners (supervisie en coaching)"
+    }
+  ],
+  "therapeuten": [
+    {
+      "slug": "katrien-boone",
+      "naam": "Katrien Boone",
+      "naam_op_pagina": "Katrien Boone",
+      "oude_url": "/katrien-boone.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/katrien-boone.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/editor/20170606-122311.jpeg",
+        "breedte": 201,
+        "hoogte": 201
+      },
+      "aanmeldingsstop": "",
+      "intro": "Ik werk hoofdzakelijk vanuit een cognitief-gedragstherapeutisch kader: de focus ligt op gedachten, gevoelens en gedrag. Indien aangewezen pas ik strategieën toe uit andere therapeutische benaderingen (systeemtherapie, experiëntiële therapie, schematherapie).<br>Tijdens een eerste gesprek verken ik je hulpvraag en je verwachtingen tav de therapie en stel ik een behandelingsplan voor. In de loop van het therapeutisch proces evalueren we regelmatig de beoogde doelstellingen om bij te sturen waar nodig. In overleg kunnen ook belangrijke derden betrokken worden bij de therapie.",
+      "themas": [
+        "angst",
+        "somberheid",
+        "stress-burn-out",
+        "levensfase",
+        "lichaam",
+        "rouw-verlies",
+        "adhd-autisme"
+      ],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "ouderen"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "Angst: faalangst, fobische klachten, paniekstoornis",
+          "ids": [
+            "angst"
+          ]
+        },
+        {
+          "tekst": "Depressieve klachten",
+          "ids": [
+            "somberheid"
+          ]
+        },
+        {
+          "tekst": "Burn-out klachten",
+          "ids": [
+            "stress-burn-out"
+          ]
+        },
+        {
+          "tekst": "Levensfaseproblematiek",
+          "ids": [
+            "levensfase"
+          ]
+        },
+        {
+          "tekst": "Stress – spannings klachten",
+          "ids": [
+            "stress-burn-out"
+          ]
+        },
+        {
+          "tekst": "Psychosomatische klachten",
+          "ids": [
+            "lichaam"
+          ]
+        },
+        {
+          "tekst": "Piekeren",
+          "ids": [
+            "angst"
+          ]
+        },
+        {
+          "tekst": "Omgaan met verlies",
+          "ids": [
+            "rouw-verlies"
+          ]
+        },
+        {
+          "tekst": "ADHD (coaching / therapie)",
+          "ids": [
+            "adhd-autisme"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "Jongvolwassenen",
+        "Volwassenen",
+        "Ouderen"
+      ],
+      "opleiding": [
+        "Licentiaat in de klinische psychologie",
+        "Postgraduaat in de cognitieve gedragstherapie",
+        "Opleiding in de systeemtherapie",
+        "Basiscursus schematherapie",
+        "Training Burn-out (The Human Link)",
+        "Professionele vorming Mindfulness (Edel Maex)"
+      ],
+      "erkenningen": [
+        "Erkend lid door de psychologencommissie (592109570) (www.compsy.be/psycholoog/9414)",
+        "Lid van de Vlaamse Vereniging voor Gedragstherapie (VVGT)"
+      ],
+      "werkmomenten": "",
+      "contact": {
+        "telefoon": [
+          "0496/380 816"
+        ],
+        "email": [],
+        "opmerking": []
+      },
+      "links": [
+        {
+          "tekst": "www.compsy.be/psycholoog/9414",
+          "url": "https://www.compsy.be/psycholoog/9414"
+        }
+      ],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "alinea",
+            "html": "Ik werk hoofdzakelijk vanuit een cognitief-gedragstherapeutisch kader: de focus ligt op gedachten, gevoelens en gedrag. Indien aangewezen pas ik strategieën toe uit andere therapeutische benaderingen (systeemtherapie, experiëntiële therapie, schematherapie).<br>Tijdens een eerste gesprek verken ik je hulpvraag en je verwachtingen tav de therapie en stel ik een behandelingsplan voor. In de loop van het therapeutisch proces evalueren we regelmatig de beoogde doelstellingen om bij te sturen waar nodig. In overleg kunnen ook belangrijke derden betrokken worden bij de therapie."
+          },
+          {
+            "type": "kop",
+            "tekst": "Specifieke thema's"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Angst: faalangst, fobische klachten, paniekstoornis",
+              "Depressieve klachten",
+              "Burn-out klachten",
+              "Levensfaseproblematiek",
+              "Stress – spannings klachten",
+              "Psychosomatische klachten",
+              "Piekeren",
+              "Omgaan met verlies",
+              "ADHD (coaching / therapie)"
+            ]
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Licentiaat in de klinische psychologie<br>Postgraduaat in de cognitieve gedragstherapie<br>Opleiding in de systeemtherapie<br>Basiscursus schematherapie<br>Training Burn-out (The Human Link)<br>Professionele vorming Mindfulness (Edel Maex)<br>Erkend lid door de psychologencommissie (592109570) (<a href=\"https://www.compsy.be/psycholoog/9414\">www.compsy.be/psycholoog/9414</a>)<br>Lid van de Vlaamse Vereniging voor Gedragstherapie (VVGT)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "Jongvolwassenen<br>Volwassenen<br>Ouderen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "0496/380 816"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "michael-callaert",
+      "naam": "Michaël Callaert",
+      "naam_op_pagina": "Michaël Callaert",
+      "oude_url": "/michael-callaert.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/michael-callaert.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/published/20210519-094949.jpg",
+        "breedte": 199,
+        "hoogte": 199
+      },
+      "aanmeldingsstop": "",
+      "intro": "Ik ben een analytisch georiënteerde systeemtherapeut wat wil zeggen dat ik zowel aandacht heb voor het intrapsychische (wat zich afspeelt in de ‘binnenwereld’) als voor het interpersoonlijke (wat zich afspeelt ‘tussen’ mensen). Tijdens een sessie ga ik met u in dialoog om samen meer zicht te krijgen op de aard van de moeilijkheden waar u op botst. Ik ga daarbij ook ervaringsgericht te werk, zodat een gesprek meer is dan louter een ‘praten over’ en stem daarbij af op uw aarzelingen en tempo. Ik ben erkend lid van de BVRGS (Belgische Vereniging voor Relatie- en Gezinstherapie en Systeeminterventie) en werk sinds 2007 als relatie- en gezinstherapeut in het Centrum Geestelijke Gezondheidszorg PassAnt.",
+      "themas": [
+        "relatie",
+        "angst",
+        "werk-sociaal",
+        "zelfdestructief",
+        "zelfbeeld",
+        "stress-burn-out",
+        "somberheid",
+        "gezin",
+        "trauma"
+      ],
+      "doelgroepen": [
+        "volwassenen",
+        "koppels"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "relatieproblemen tussen partners: veelvuldige conflicten, seksuele frustratie, derden binnen een relatie, vervreemding, niet gezien voelen in inzet, complementariteit als initiële bron van aantrekking die nu echter irritatie wekt, spanningen op vlak van afstand-nabijheid, macht en onmacht, bestaansrecht,…",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "psychische klachten en/of gedragsproblemen die uw functioneren binnen de context van werk, studie, vriendschappen, relatie of gezin bemoeilijken: gevoelens van angst, schuld, schaamte, te fel reageren in een bepaalde situatie of net te weinig, piekeren, twijfelen, uitstelgedrag, faalangst, zelfdestructief gedrag, slaapproblemen;",
+          "ids": [
+            "angst",
+            "werk-sociaal",
+            "zelfdestructief"
+          ]
+        },
+        {
+          "tekst": "zelfwaardeproblematiek: twijfel over voldoende liefdeswaardig te zijn, gevoeligheid voor afwijzing, krenking, miskenning en de wijze waarop dit het contact met anderen kleurt: aanpassen aan of verzetten tegen verwachtingen, over eigen limieten gaan, perfectionisme, zelf afwijzen om afwijzing te voorkomen of net aanklampend zijn, erkenning nastreven, seksuele bevestiging zoeken,…",
+          "ids": [
+            "zelfbeeld"
+          ]
+        },
+        {
+          "tekst": "energieproblemen: burn-out/bore-out. Met aandacht zowel voor individuele factoren als voor context-factoren;",
+          "ids": [
+            "stress-burn-out"
+          ]
+        },
+        {
+          "tekst": "stemmingsgerelateerde problemen zoals depressie, bipolariteit, dysthymie;",
+          "ids": [
+            "somberheid"
+          ]
+        },
+        {
+          "tekst": "nieuw-samengesteld-gezin problematiek;",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "slachtofferschap en/of verwerkingsproblemen.",
+          "ids": [
+            "trauma"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "koppels",
+        "volwassenen"
+      ],
+      "opleiding": [
+        "Licentiaat Wijsbegeerte (KUL, 2004)",
+        "Maatschappelijk Werk (KHL, 2007)",
+        "Dramatische Kunst (Conservatorium Brussel, 1998)",
+        "4 jarige opleiding relatie- en gezinstherapie (Kern, Sint Niklaas, 2013)"
+      ],
+      "erkenningen": [
+        "Lid van de Belgische Vereniging voor Relatie- en Gezinstherapie Systeemcounseling (BVRGS) bvrgs.be/therapeut/micha-l-callaert)"
+      ],
+      "werkmomenten": "",
+      "contact": {
+        "telefoon": [
+          "0479/22.37.61"
+        ],
+        "email": [
+          "Michaelcallaert@gmail.com"
+        ],
+        "opmerking": []
+      },
+      "links": [
+        {
+          "tekst": "bvrgs.be/therapeut/micha-l-callaert",
+          "url": "https://bvrgs.be/therapeut/micha-l-callaert"
+        }
+      ],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "alinea",
+            "html": "U kan mij telefonisch of via mail contacteren om een afspraak te maken voor een eerste gesprek. Tijdens het intakegesprek nemen we de tijd om uw hulpvraag te verkennen. Ook u kan dan een inschatting maken of u samen met mij op weg wil. Een belangrijk aspect van een effectieve therapie is namelijk de kwaliteit van de therapeutische relatie, m.a.w. of ‘het klikt’ tussen u en de therapeut. We bekijken onder welke vorm we van start gaan (individueel, samen met uw partner, ouder-kind gesprekken, gezinsgesprekken) en hoe frequent. Een sessie duurt 1 uur en kost 70 euro. Gedeeltelijke terugbetaling is mogelijk afhankelijk van de mutualiteit waarbij u aangesloten bent."
+          },
+          {
+            "type": "kop",
+            "tekst": "Interessegebieden"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "relatieproblemen tussen partners: veelvuldige conflicten, seksuele frustratie, derden binnen een relatie, vervreemding, niet gezien voelen in inzet, complementariteit als initiële bron van aantrekking die nu echter irritatie wekt, spanningen op vlak van afstand-nabijheid, macht en onmacht, bestaansrecht,…",
+              "psychische klachten en/of gedragsproblemen die uw functioneren binnen de context van werk, studie, vriendschappen, relatie of gezin bemoeilijken: gevoelens van angst, schuld, schaamte, te fel reageren in een bepaalde situatie of net te weinig, piekeren, twijfelen, uitstelgedrag, faalangst, zelfdestructief gedrag, slaapproblemen;",
+              "zelfwaardeproblematiek: twijfel over voldoende liefdeswaardig te zijn, gevoeligheid voor afwijzing, krenking, miskenning en de wijze waarop dit het contact met anderen kleurt: aanpassen aan of verzetten tegen verwachtingen, over eigen limieten gaan, perfectionisme, zelf afwijzen om afwijzing te voorkomen of net aanklampend zijn, erkenning nastreven, seksuele bevestiging zoeken,…",
+              "energieproblemen: burn-out/bore-out. Met aandacht zowel voor individuele factoren als voor context-factoren;",
+              "stemmingsgerelateerde problemen zoals depressie, bipolariteit, dysthymie;",
+              "nieuw-samengesteld-gezin problematiek;",
+              "slachtofferschap en/of verwerkingsproblemen."
+            ]
+          },
+          {
+            "type": "alinea",
+            "html": "Ik ben een analytisch georiënteerde systeemtherapeut wat wil zeggen dat ik zowel aandacht heb voor het intrapsychische (wat zich afspeelt in de ‘binnenwereld’) als voor het interpersoonlijke (wat zich afspeelt ‘tussen’ mensen). Tijdens een sessie ga ik met u in dialoog om samen meer zicht te krijgen op de aard van de moeilijkheden waar u op botst. Ik ga daarbij ook ervaringsgericht te werk, zodat een gesprek meer is dan louter een ‘praten over’ en stem daarbij af op uw aarzelingen en tempo. Ik ben erkend lid van de BVRGS (Belgische Vereniging voor Relatie- en Gezinstherapie en Systeeminterventie) en werk sinds 2007 als relatie- en gezinstherapeut in het Centrum Geestelijke Gezondheidszorg PassAnt."
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Licentiaat Wijsbegeerte (KUL, 2004)<br>Maatschappelijk Werk (KHL, 2007)<br>Dramatische Kunst (Conservatorium Brussel, 1998)<br>4 jarige opleiding relatie- en gezinstherapie (Kern, Sint Niklaas, 2013)<br>Lid van de Belgische Vereniging voor Relatie- en Gezinstherapie Systeemcounseling (BVRGS) <a href=\"https://bvrgs.be/therapeut/micha-l-callaert\">bvrgs.be/therapeut/micha-l-callaert</a>)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep:"
+          },
+          {
+            "type": "alinea",
+            "html": "koppels<br>volwassenen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "0479/22.37.61<br><a href=\"mailto:Michaelcallaert@gmail.com\">Michaelcallaert@gmail.com</a>"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "katja-desauw",
+      "naam": "Katja Desauw",
+      "naam_op_pagina": "Katja Desauw",
+      "oude_url": "/katja-desauw.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/katja-desauw.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/editor/dsc03106.jpeg",
+        "breedte": 183,
+        "hoogte": 183
+      },
+      "aanmeldingsstop": "Op dit moment is er tijdelijk geen ruimte om nieuwe cliënten aan te nemen. Ik hoop dat u snel de juiste ondersteuning vindt bij een andere hulpverlener.",
+      "intro": "Als systeemtherapeut vertrek ik vanuit de wisselwerking tussen mensen en hun omgeving. Wie we zijn, wordt mee gevormd door de contexten waarin we opgroeien, leven en werken. Tegelijk oefenen we zelf ook invloed uit op deze contexten.<br>Binnen onze relaties zoeken we voortdurend naar een evenwicht tussen nabijheid en afstand, autonomie en verbondenheid, grenzen stellen en tegemoetkomen aan de verwachtingen van anderen. Wanneer dit evenwicht verstoord raakt, kunnen spanningen, klachten of terugkerende patronen ontstaan.<br>In therapie besteed ik aandacht aan de invloed van belangrijke relaties, zowel uit het verleden als in het heden. De manier waarop we ons verhouden tot ouders, broers en zussen, leeftijdsgenoten, partners en andere betekenisvolle personen kan een blijvende impact hebben op hoe we onszelf zien en hoe we relaties aangaan.<br>Soms dragen mensen relationele kwetsuren met zich mee die hun oorsprong vinden in deze relaties en ervaringen. Soms kunnen deze ervaringen diepe sporen nalaten en een invloed hebben op hoe iemand zichzelf, anderen en de wereld ervaart. Vanuit deze interesse heb ik mij verder gespecialiseerd in psychotrauma.<br>Vanuit deze benadering en mijn ervaring in het werken met cliënten hecht ik veel belang aan de betekenis van emoties. Angst, schaamte, schuld, verdriet en kwaadheid zijn gevoelens die ons iets vertellen over wat voor ons belangrijk is. Ze spelen een belangrijke rol in hoe we onszelf begrijpen en hoe we ons verhouden tot anderen.",
+      "themas": [
+        "relatie",
+        "gezin",
+        "trauma",
+        "angst",
+        "somberheid",
+        "stress-burn-out",
+        "lichaam",
+        "levensfase"
+      ],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "koppels",
+        "gezinnen"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "relatie- en gezinsproblemen",
+          "ids": [
+            "relatie",
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "terugkerende patronen in relaties",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "trauma en relationele kwetsuren",
+          "ids": [
+            "trauma"
+          ]
+        },
+        {
+          "tekst": "moeilijkheden rond verbinding, vertrouwen en grenzen",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "angst, schaamte, schuld, verdriet of kwaadheid",
+          "ids": [
+            "angst",
+            "somberheid"
+          ]
+        },
+        {
+          "tekst": "burn-out, stress en slaapproblemen",
+          "ids": [
+            "stress-burn-out"
+          ]
+        },
+        {
+          "tekst": "psychosomatische klachten",
+          "ids": [
+            "lichaam"
+          ]
+        },
+        {
+          "tekst": "chronische pijn, chronisch vermoeidheidssyndroom en chronische aandoeningen",
+          "ids": [
+            "lichaam"
+          ]
+        },
+        {
+          "tekst": "levensfase- en zingevingsvragen",
+          "ids": [
+            "levensfase"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "jongvolwassenen (vanaf 15 jaar)",
+        "volwassenen",
+        "koppels en gezinnen"
+      ],
+      "opleiding": [
+        "Licentiaat in de Klinische Psychologie (Universiteit Gent, 2003)",
+        "4 jarige Opleiding Relatie- en Gezinstherapie (KERN, 2013)",
+        "Training Burn-out (The Human Link, 2017)",
+        "Basiscursus schematherapie (Schematherapie Vlaanderen, 2021)",
+        "Getuigschrift psychotraumatherapie (KUL, 2021-2023)"
+      ],
+      "erkenningen": [
+        "Erkend lid door de psychologencommissie (802110274) (www.compsy.be/psycholoog/10106)",
+        "Lid van Belgische Vereniging voor Relatie- en Gezinstherapie en Systeemcounseling (BVRGS)"
+      ],
+      "werkmomenten": "woensdag- en vrijdagvoormiddag",
+      "contact": {
+        "telefoon": [
+          "0479/31.76.92"
+        ],
+        "email": [],
+        "opmerking": []
+      },
+      "links": [
+        {
+          "tekst": "www.compsy.be/psycholoog/10106",
+          "url": "https://www.compsy.be/psycholoog/10106"
+        }
+      ],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "kop",
+            "tekst": "Tijdelijke aanmeldingsstop"
+          },
+          {
+            "type": "alinea",
+            "html": "Op dit moment is er tijdelijk geen ruimte om nieuwe cliënten aan te nemen. Ik hoop dat u snel de juiste ondersteuning vindt bij een andere hulpverlener."
+          },
+          {
+            "type": "kop",
+            "tekst": "Over mij en mijn visie"
+          },
+          {
+            "type": "alinea",
+            "html": "Als systeemtherapeut vertrek ik vanuit de wisselwerking tussen mensen en hun omgeving. Wie we zijn, wordt mee gevormd door de contexten waarin we opgroeien, leven en werken. Tegelijk oefenen we zelf ook invloed uit op deze contexten.<br>Binnen onze relaties zoeken we voortdurend naar een evenwicht tussen nabijheid en afstand, autonomie en verbondenheid, grenzen stellen en tegemoetkomen aan de verwachtingen van anderen. Wanneer dit evenwicht verstoord raakt, kunnen spanningen, klachten of terugkerende patronen ontstaan.<br>In therapie besteed ik aandacht aan de invloed van belangrijke relaties, zowel uit het verleden als in het heden. De manier waarop we ons verhouden tot ouders, broers en zussen, leeftijdsgenoten, partners en andere betekenisvolle personen kan een blijvende impact hebben op hoe we onszelf zien en hoe we relaties aangaan.<br>Soms dragen mensen relationele kwetsuren met zich mee die hun oorsprong vinden in deze relaties en ervaringen. Soms kunnen deze ervaringen diepe sporen nalaten en een invloed hebben op hoe iemand zichzelf, anderen en de wereld ervaart. Vanuit deze interesse heb ik mij verder gespecialiseerd in psychotrauma.<br>Vanuit deze benadering en mijn ervaring in het werken met cliënten hecht ik veel belang aan de betekenis van emoties. Angst, schaamte, schuld, verdriet en kwaadheid zijn gevoelens die ons iets vertellen over wat voor ons belangrijk is. Ze spelen een belangrijke rol in hoe we onszelf begrijpen en hoe we ons verhouden tot anderen."
+          },
+          {
+            "type": "alinea",
+            "html": "Daarnaast deed ik in mijn professionele loopbaan ervaring op binnen de psychosomatiek, waar lichamelijke klachten vaak verweven zijn met emotionele belasting, ingrijpende levenservaringen en de context waarin iemand leeft. Deze ervaringen hebben mijn overtuiging versterkt dat psychische en lichamelijke klachten niet los kunnen worden gezien van de relationele en maatschappelijke omgeving waarin ze ontstaan en voortbestaan.<br>In mijn therapeutisch werk probeer ik daarom steeds oog te hebben voor zowel de persoon als de context, en voor de betekenis die klachten en moeilijkheden krijgen binnen iemands levensverhaal."
+          },
+          {
+            "type": "kop",
+            "tekst": "Intake en begeleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "U kunt mij telefonisch contacteren om een eerste gesprek in te plannen. In de intake bekijken we samen wat er speelt en wat u verwacht van therapie. Als we beslissen om samen verder te gaan, spreken we af hoe de begeleiding eruit kan zien en wat voor u helpend is (zoals de frequentie van de gesprekken en de mogelijke betrokkenheid van partner of gezin)."
+          },
+          {
+            "type": "alinea",
+            "html": "Thema's die we samen kunnen verkennen:"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "relatie- en gezinsproblemen",
+              "terugkerende patronen in relaties",
+              "trauma en relationele kwetsuren",
+              "moeilijkheden rond verbinding, vertrouwen en grenzen",
+              "angst, schaamte, schuld, verdriet of kwaadheid",
+              "burn-out, stress en slaapproblemen",
+              "psychosomatische klachten",
+              "chronische pijn, chronisch vermoeidheidssyndroom en chronische aandoeningen",
+              "levensfase- en zingevingsvragen"
+            ]
+          },
+          {
+            "type": "kop",
+            "tekst": "Praktische informatie"
+          },
+          {
+            "type": "alinea",
+            "html": "Een gesprek duurt 60 minuten en kost €65. Betalen gebeurt op het einde van de sessie, cash of via Payconiq. Annuleren kan kosteloos tot 24 uur op voorhand; daarna wordt de sessie aangerekend. Afhankelijk van uw mutualiteit is een gedeeltelijke terugbetaling mogelijk."
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Licentiaat in de Klinische Psychologie (Universiteit Gent, 2003)<br>4 jarige Opleiding Relatie- en Gezinstherapie (KERN, 2013)<br>Training Burn-out (The Human Link, 2017)<br>Basiscursus schematherapie (Schematherapie Vlaanderen, 2021)<br>Getuigschrift psychotraumatherapie (KUL, 2021-2023)<br>Erkend lid door de psychologencommissie (802110274) (<a href=\"https://www.compsy.be/psycholoog/10106\">www.compsy.be/psycholoog/10106</a>)<br>Lid van Belgische Vereniging voor Relatie- en Gezinstherapie en Systeemcounseling (BVRGS)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "jongvolwassenen (vanaf 15 jaar)<br>volwassenen<br>koppels en gezinnen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Werkdagen"
+          },
+          {
+            "type": "alinea",
+            "html": "woensdag- en vrijdagvoormiddag"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "0479/31.76.92"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pieter-govaerts",
+      "naam": "Pieter Govaerts",
+      "naam_op_pagina": "Pieter Govaerts",
+      "oude_url": "/pieter-govaerts.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/pieter-govaerts.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/published/img-8812-zw.jpeg",
+        "breedte": 153,
+        "hoogte": 153
+      },
+      "aanmeldingsstop": "Momenteel heb ik onvoldoende ruimte om nieuwe begeleidingen op een zorgvuldige manier op te nemen. Om de kwaliteit en continuïteit van lopende trajecten te waarborgen, hanteer ik daarom tijdelijk een aanmeldingsstop. Ik hoop dat je ondertussen snel de ondersteuning vindt die je nodig hebt en wens je veel succes in je zoektocht.",
+      "intro": "Mensen lopen soms vast in hun relatie, gezin, werk of persoonlijke leven. Problemen ontstaan niet in een vacuüm, maar krijgen vaak vorm binnen de relaties en contexten waarin we leven. Daarom kijk ik niet alleen naar individuele klachten, maar ook naar de interacties, betekenissen en patronen die ermee verbonden zijn.",
+      "themas": [
+        "relatie",
+        "gezin",
+        "trauma",
+        "zelfbeeld",
+        "levensfase",
+        "werk-sociaal",
+        "adhd-autisme",
+        "rouw-verlies",
+        "verslaving"
+      ],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "koppels",
+        "gezinnen",
+        "hulpverleners"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "Relatiebegeleiding en -bemiddeling",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "Communicatieproblemen",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "Opvoedingsvragen",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "Nieuw samengestelde gezinnen",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "Gezinsconflicten",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "Ingrijpende gebeurtenissen binnen het gezin",
+          "ids": [
+            "gezin",
+            "trauma"
+          ]
+        },
+        {
+          "tekst": "Gender- en identiteitsvragen",
+          "ids": [
+            "zelfbeeld"
+          ]
+        },
+        {
+          "tekst": "Overgangen en veranderingen in de levensloop",
+          "ids": [
+            "levensfase"
+          ]
+        },
+        {
+          "tekst": "Jongvolwassenheid",
+          "ids": [
+            "levensfase"
+          ]
+        },
+        {
+          "tekst": "Relatievorming",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "Ouderschap",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "Werk- en loopbaantransities",
+          "ids": [
+            "werk-sociaal",
+            "levensfase"
+          ]
+        },
+        {
+          "tekst": "Hoogbegaafdheid",
+          "ids": [
+            "adhd-autisme"
+          ]
+        },
+        {
+          "tekst": "Rouw en verlies",
+          "ids": [
+            "rouw-verlies"
+          ]
+        },
+        {
+          "tekst": "Scheiding",
+          "ids": [
+            "rouw-verlies",
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "Ingrijpende levensgebeurtenissen",
+          "ids": [
+            "trauma"
+          ]
+        },
+        {
+          "tekst": "Verslavingsproblematiek",
+          "ids": [
+            "verslaving"
+          ]
+        },
+        {
+          "tekst": "Supervisie voor hulpverleners",
+          "ids": [
+            "hulpverleners"
+          ]
+        },
+        {
+          "tekst": "Coaching voor zorgverleners",
+          "ids": [
+            "hulpverleners"
+          ]
+        },
+        {
+          "tekst": "Reflectie op professionele relaties en teamdynamieken",
+          "ids": [
+            "hulpverleners"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "(Jong)volwassenen",
+        "Koppels",
+        "Gezinnen"
+      ],
+      "opleiding": [
+        "Licentiaat in de klinische psychologie (UGent)",
+        "Postgraduaat in de relatie-, gezins- en systeempsychotherapie (Context KU Leuven)",
+        "Postgraduaat Supervisor in de Relatie- en Gezinstherapie & Systeemcounseling (Thomas More)",
+        "Postgraduaat in de verslavingszorg (UGent)",
+        "Jaaropleiding partnerrelatietherapie (School 4 Power)",
+        "Jaaropleiding hechting (Rapunzel)"
+      ],
+      "erkenningen": [
+        "Lid van de Belgische Vereniging voor Relatietherapie, Gezinstherapie en Systeemcounseling (BVRGS)",
+        "Erkend lid door de Psychologencommissie (831109817) (www.compsy.be/psycholoog/9660)"
+      ],
+      "werkmomenten": "",
+      "contact": {
+        "telefoon": [
+          "0485/19.29.03"
+        ],
+        "email": [],
+        "opmerking": [
+          "Je kan me telefonisch bereiken op 0485/19.29.03, bij voorkeur tussen 18u en 20u. Wanneer ik niet bereikbaar ben, mag je gerust een bericht inspreken op de voicemail. Ik neem dan zo snel mogelijk contact met je op, telefonisch of via een bericht."
+        ]
+      },
+      "links": [
+        {
+          "tekst": "www.compsy.be/psycholoog/9660",
+          "url": "https://www.compsy.be/psycholoog/9660"
+        }
+      ],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "kop",
+            "tekst": "Aanmeldingsstop"
+          },
+          {
+            "type": "alinea",
+            "html": "Momenteel heb ik onvoldoende ruimte om nieuwe begeleidingen op een zorgvuldige manier op te nemen. Om de kwaliteit en continuïteit van lopende trajecten te waarborgen, hanteer ik daarom tijdelijk een aanmeldingsstop. Ik hoop dat je ondertussen snel de ondersteuning vindt die je nodig hebt en wens je veel succes in je zoektocht."
+          },
+          {
+            "type": "kop",
+            "tekst": "Contact"
+          },
+          {
+            "type": "alinea",
+            "html": "Je kan me telefonisch bereiken op <strong>0485/19.29.03</strong>, bij voorkeur tussen <strong>18u en 20u</strong>. Wanneer ik niet bereikbaar ben, mag je gerust een bericht inspreken op de voicemail. Ik neem dan zo snel mogelijk contact met je op, telefonisch of via een bericht."
+          },
+          {
+            "type": "alinea",
+            "html": "Tijdens een eerste oriënterend gesprek verkennen we samen je hulpvraag en bekijken we welke ondersteuning aangewezen is. We staan stil bij wat er speelt, welke verwachtingen er zijn en of mijn werkwijze aansluit bij wat je zoekt."
+          },
+          {
+            "type": "kop",
+            "tekst": "Werkwijze"
+          },
+          {
+            "type": "alinea",
+            "html": "Mensen lopen soms vast in hun relatie, gezin, werk of persoonlijke leven. Problemen ontstaan niet in een vacuüm, maar krijgen vaak vorm binnen de relaties en contexten waarin we leven. Daarom kijk ik niet alleen naar individuele klachten, maar ook naar de interacties, betekenissen en patronen die ermee verbonden zijn."
+          },
+          {
+            "type": "alinea",
+            "html": "Ik werk vanuit een systeemtherapeutisch denkkader, waarbij aandacht is voor de invloed die mensen op elkaar uitoefenen en voor de bredere context waarin moeilijkheden ontstaan en blijven bestaan. Daarbij kunnen belangrijke relaties, familiegeschiedenis, levensgebeurtenissen en sociale omstandigheden een plaats krijgen in het gesprek."
+          },
+          {
+            "type": "alinea",
+            "html": "Therapie is voor mij een samenwerkingsproces. In open en respectvolle gesprekken onderzoeken we wat vastgelopen is, welke patronen zich blijven herhalen en welke mogelijkheden er zijn om opnieuw beweging te creëren. We staan niet enkel stil bij moeilijkheden, maar ook bij aanwezige krachten, steunbronnen en mogelijkheden tot verandering."
+          },
+          {
+            "type": "alinea",
+            "html": "Wanneer dat zinvol is, kunnen partners, gezinsleden of andere belangrijke betrokkenen mee uitgenodigd worden in een gesprek."
+          },
+          {
+            "type": "alinea",
+            "html": "Het doel van de begeleiding is niet alleen het verminderen van klachten, maar ook het versterken van verbinding, veerkracht en keuzevrijheid in hoe mensen met zichzelf en met anderen omgaan."
+          },
+          {
+            "type": "kop",
+            "tekst": "Evaluatie en frequentie"
+          },
+          {
+            "type": "alinea",
+            "html": "De begeleiding wordt regelmatig samen geëvalueerd. We bekijken of de gesprekken tegemoetkomen aan de hulpvraag en welke volgende stappen wenselijk zijn."
+          },
+          {
+            "type": "alinea",
+            "html": "De frequentie van de gesprekken bepalen we in onderling overleg en stemmen we af op de noden en mogelijkheden van de cliënt."
+          },
+          {
+            "type": "kop",
+            "tekst": "Praktisch"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Een gesprek duurt 60 minuten.",
+              "De kostprijs bedraagt 80 euro per sessie.",
+              "Betaling gebeurt na afloop van het gesprek.",
+              "Bij annulatie minder dan 24 uur vooraf wordt het gesprek aangerekend.",
+              "Afhankelijk van leeftijd en mutualiteit is voor een aantal sessies een gedeeltelijke terugbetaling mogelijk."
+            ]
+          },
+          {
+            "type": "kop",
+            "tekst": "Waarvoor kan je bij mij terecht?"
+          },
+          {
+            "type": "kop",
+            "tekst": "Relaties en gezinnen"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Relatiebegeleiding en -bemiddeling",
+              "Communicatieproblemen",
+              "Opvoedingsvragen",
+              "Nieuw samengestelde gezinnen",
+              "Gezinsconflicten",
+              "Ingrijpende gebeurtenissen binnen het gezin"
+            ]
+          },
+          {
+            "type": "kop",
+            "tekst": "Levensloop en persoonlijke ontwikkeling"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Gender- en identiteitsvragen",
+              "Overgangen en veranderingen in de levensloop",
+              "Jongvolwassenheid",
+              "Relatievorming",
+              "Ouderschap",
+              "Werk- en loopbaantransities",
+              "Hoogbegaafdheid"
+            ]
+          },
+          {
+            "type": "kop",
+            "tekst": "Verlies en herstel"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Rouw en verlies",
+              "Scheiding",
+              "Ingrijpende levensgebeurtenissen",
+              "Verslavingsproblematiek"
+            ]
+          },
+          {
+            "type": "kop",
+            "tekst": "Professionele begeleiding"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Supervisie voor hulpverleners",
+              "Coaching voor zorgverleners",
+              "Reflectie op professionele relaties en teamdynamieken"
+            ]
+          },
+          {
+            "type": "alinea",
+            "html": "Naast mijn werk als therapeut ben ik actief als supervisor, intervisor en opleider binnen de geestelijke gezondheidszorg. Ik ben daarnaast coördinator en bezieler van <strong>Dialoog in Verbinding</strong>, een initiatief dat zorgverleners en zorgteams ondersteunt via intervisie, supervisie, coaching en vorming. Vanuit een relationele en dialogische visie zetten we in op verbinding, samenwerking, reflectie en het benutten van aanwezige krachten, zodat mensen en teams kunnen groeien in complexe zorgcontexten."
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Licentiaat in de klinische psychologie (UGent)<br>Postgraduaat in de relatie-, gezins- en systeempsychotherapie (Context KU Leuven)<br>Postgraduaat Supervisor in de Relatie- en Gezinstherapie &amp; Systeemcounseling (Thomas More)<br>Postgraduaat in de verslavingszorg (UGent)<br>Jaaropleiding partnerrelatietherapie (School 4 Power)<br>Jaaropleiding hechting (Rapunzel)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Erkenning en lidmaatschap"
+          },
+          {
+            "type": "alinea",
+            "html": "Lid van de Belgische Vereniging voor Relatietherapie, Gezinstherapie en Systeemcounseling (BVRGS)<br>Erkend lid door de Psychologencommissie (831109817) (<a href=\"https://www.compsy.be/psycholoog/9660\">www.compsy.be/psycholoog/9660</a>)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "(Jong)volwassenen<br>Koppels<br>Gezinnen<br>(Jong)volwassenen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "0485/19.29.03"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "ilse-heylen",
+      "naam": "Ilse Heylen",
+      "naam_op_pagina": "ILSE HEYLEN",
+      "oude_url": "/ilse-heylen.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/ilse-heylen.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/ilse_orig.jpg",
+        "breedte": 478,
+        "hoogte": 479
+      },
+      "aanmeldingsstop": "Tijdelijke aanmeldingsstop: om goede hulp te kunnen blijven bieden kan ik even geen nieuwe cliënten aannemen. Ik hoop dat je, wanneer je op zoek bent naar hulp, gauw iemand anders vindt bij wie je terecht kan.",
+      "intro": "Sinds 2003 coach en begeleid ik (jong) volwassenen. Mijn kracht is dat ik goed kan aanvoelen wat de cliënt nodig heeft. Ik leg daarbij de focus op het detecteren van waar jij de verbinding verloren bent. De verbinding met jezelf of met de omgeving.",
+      "themas": [
+        "rouw-verlies",
+        "somberheid",
+        "adhd-autisme",
+        "relatie",
+        "angst",
+        "levensfase",
+        "stress-burn-out",
+        "trauma"
+      ],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "koppels"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "Rouw, verlieservaringen",
+          "ids": [
+            "rouw-verlies"
+          ]
+        },
+        {
+          "tekst": "Depressie",
+          "ids": [
+            "somberheid"
+          ]
+        },
+        {
+          "tekst": "Hoogsensitiviteit, ASS, AD(H)D,hoogbegaafdheid",
+          "ids": [
+            "adhd-autisme"
+          ]
+        },
+        {
+          "tekst": "Relatieproblemen",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "Angsten",
+          "ids": [
+            "angst"
+          ]
+        },
+        {
+          "tekst": "Piekeren",
+          "ids": [
+            "angst"
+          ]
+        },
+        {
+          "tekst": "Zingevingsvragen",
+          "ids": [
+            "levensfase"
+          ]
+        },
+        {
+          "tekst": "Burn-out en bore-out",
+          "ids": [
+            "stress-burn-out"
+          ]
+        },
+        {
+          "tekst": "Trauma",
+          "ids": [
+            "trauma"
+          ]
+        },
+        {
+          "tekst": "Hechting",
+          "ids": [
+            "relatie"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "(Jong)volwassenen",
+        "Koppels"
+      ],
+      "opleiding": [
+        "EMDR in therapie en coaching (EMDR centre London & P&P consult-NPC erkend door EAP en BNVIP)",
+        "Level 1 EMDR Integrativa, lid van EMDR-Belgium",
+        "Postgraduaat in de Integratieve Humanistische psychotherapie (AIHP Gent, erkend door BNVIP)",
+        "Contextuele en systemische counseling (VSPW Balans Gent)",
+        "Creatieve therapie (VSPW Balans Gent )",
+        "Sociaal cultureel werk (Artesis Plantijn Hogeschool)",
+        "Focusing L1 en L2 (Focusing Vlaanderen)",
+        "Vrouwen en autisme ( Rino groep Utrecht)",
+        "Lichaamsgerichte aanpak van trauma’s (Autisme Centraal)",
+        "Stress en burn-out (Luc Swinnen)",
+        "Suïcidepreventie (CGG-SP)",
+        "Rouw en verlies (IPRR Leuven)",
+        "Loopbaancoaching (Bridges for choice Mechelen)"
+      ],
+      "erkenningen": [
+        "Lid van Belgische Vereniging voor Relatie-en Gezinstherapie en Systeemcounseling (BVRGS), Belgisch Nederlandse Vereniging voor Integratieve psychologie (BNVIP), European Association for Psychotherapy (EAP)"
+      ],
+      "werkmomenten": "",
+      "contact": {
+        "telefoon": [],
+        "email": [
+          "Ilsebrug48@gmail.com"
+        ],
+        "opmerking": []
+      },
+      "links": [],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "alinea",
+            "html": "<strong>Tijdelijke aanmeldingsstop: om goede hulp te kunnen blijven bieden kan ik even geen nieuwe cliënten aannemen. Ik hoop dat je, wanneer je op zoek bent naar hulp, gauw iemand anders vindt bij wie je terecht kan.</strong>"
+          },
+          {
+            "type": "alinea",
+            "html": "Sinds 2003 coach en begeleid ik (jong) volwassenen. Mijn kracht is dat ik goed kan aanvoelen wat de cliënt nodig heeft. Ik leg daarbij de focus op het detecteren van waar jij de verbinding verloren bent. De verbinding met jezelf of met de omgeving."
+          },
+          {
+            "type": "alinea",
+            "html": "Mensen die een plaats zoeken waar ze hun verhaal kunnen brengen en tegelijkertijd ook geholpen worden in het opbouwen van hun zelfwaardegevoel zijn bij mij aan het juiste adres. Ik geloof in samen op weg gaan en kijken waar groei zich kan manifesteren."
+          },
+          {
+            "type": "alinea",
+            "html": "In de voorbije jaren bouwde ik in het bijzonder ervaring op in het begeleiden van hoogsensitieve mensen en vrouwen met autisme."
+          },
+          {
+            "type": "alinea",
+            "html": "In 2014 startte ik met het volgen van gespecialiseerde vakopleidingen, die ik sinds 2018 ook toepas in mijn werk als integratieve psychotherapeut."
+          },
+          {
+            "type": "alinea",
+            "html": "De integratieve visie is dat iedere mens een uniek en ondeelbaar geheel is van denken en gedrag, van voelen en het lichamelijke, maar ook van het sociale en spirituele. Integratieve psychotherapie kan helpen om deze dimensies met elkaar in balans te brengen zodat er ruimte voor groei kan ontstaan.<br>Mijn aanpak is eclectisch en pragmatisch. Dit wil zeggen dat er gewerkt wordt vanuit verschillende invalshoeken. Dit kan vanuit een eerder cognitief kader zijn, via lichaamswerk of vanuit een creatieve insteek."
+          },
+          {
+            "type": "alinea",
+            "html": "Ik heb een warm hart voor mensen met verlieservaringen. Dit kan levend verlies zijn ( ontslag, scheiding, verbroken vriendschap, een gemiste of verkeerde diagnose, ziekte,…) of rouw rond een overlijden."
+          },
+          {
+            "type": "alinea",
+            "html": "In mijn therapeutische begeleiding staan drie waarden centraal:"
+          },
+          {
+            "type": "kop",
+            "tekst": "Wederzijds respect"
+          },
+          {
+            "type": "alinea",
+            "html": "Ik treed andere mensen mild, begripvol en met respect tegemoet en ga daarbij uit van wederkerigheid."
+          },
+          {
+            "type": "kop",
+            "tekst": "Professionaliteit"
+          },
+          {
+            "type": "alinea",
+            "html": "Ik bewaak afspraken en ga zorgvuldig om met grenzen en privacy. Ik volg op regelmatige tijdstippen intervisie en supervisie.<br>In een eerste gesprek toetsen we af of mijn aanpak werkt voor jou en overloop ik samen met jou wat een mogelijk behandelplan zou kunnen zijn.<br>Ik ben lid van beroepsverenigingen (BVGRS, BNVIP en EAP).<br>Gedeeltelijke terugbetaling is mogelijk via uw mutualiteit."
+          },
+          {
+            "type": "kop",
+            "tekst": "Persoonlijke betrokkenheid"
+          },
+          {
+            "type": "alinea",
+            "html": "Ik voel me zeer betrokken bij het welzijn van anderen. Ik doe gerichte interventies en stimuleer activiteiten die het welbevinden van de ander kunnen vergroten."
+          },
+          {
+            "type": "kop",
+            "tekst": "Interessegebieden:"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Rouw, verlieservaringen",
+              "Depressie",
+              "Hoogsensitiviteit, ASS, AD(H)D,hoogbegaafdheid",
+              "Relatieproblemen",
+              "Angsten",
+              "Piekeren",
+              "Zingevingsvragen",
+              "Burn-out en bore-out",
+              "Trauma",
+              "Hechting"
+            ]
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "EMDR in therapie en coaching (EMDR centre London &amp; P&amp;P consult-NPC erkend door EAP en BNVIP)<br>Level 1 EMDR Integrativa, lid van EMDR-Belgium<br>Postgraduaat in de Integratieve Humanistische psychotherapie (AIHP Gent, erkend door BNVIP)<br>Contextuele en systemische counseling (VSPW Balans Gent)<br>Creatieve therapie (VSPW Balans Gent )<br>Sociaal cultureel werk (Artesis Plantijn Hogeschool)<br>Focusing L1 en L2 (Focusing Vlaanderen)<br>Vrouwen en autisme ( Rino groep Utrecht)<br>Lichaamsgerichte aanpak van trauma’s (Autisme Centraal)<br>Stress en burn-out (Luc Swinnen)<br>Suïcidepreventie (CGG-SP)<br>Rouw en verlies (IPRR Leuven)<br>Loopbaancoaching (Bridges for choice Mechelen)<br>Lid van Belgische Vereniging voor Relatie-en Gezinstherapie en Systeemcounseling (BVRGS), Belgisch Nederlandse Vereniging voor Integratieve psychologie (BNVIP), European Association for Psychotherapy (EAP)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "(Jong)volwassenen<br>Koppels"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "<a href=\"mailto:Ilsebrug48@gmail.com\">Ilsebrug48@gmail.com</a>"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "sarah-jocque",
+      "naam": "Sarah Jocqué",
+      "naam_op_pagina": "sarah jocqué",
+      "oude_url": "/sarah-jocqueacute.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/sarah-jocque.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/published/img-20231015-wa0007.jpg",
+        "breedte": 192,
+        "hoogte": 206
+      },
+      "aanmeldingsstop": "",
+      "intro": "U kan voor therapie zowel individueel, als koppel of als gezin bij me terecht. Ik vertrek hierbij vanuit een systemisch denkkader. Dit betekent dat ik veel belang hecht aan het sociale systeem waarin je leeft (thuis, werk, school,…). Binnen een sociaal systeem beïnvloeden mensen elkaar. Gedachten, gedrag, gevoelens en verwachtingen ontstaan in wisselwerking met anderen uit onze omgeving. Dit is een complex proces waarbij soms moeilijkheden optreden. Als systeemtherapeut zal ik problemen bekijken tegen de achtergrond van je interactie met anderen.<br>Voor een aanmelding kan u contact opnemen via telefoon of e-mail. Indien de telefoon niet wordt opgenomen, kan u steeds een voicemail nalaten. In een eerste sessie verkennen we samen verder jouw/jullie hulpvraag. Op basis van dit gesprek beslissen we samen of er verdere afspraken worden ingepland. Hoe frequent de sessies doorgaan en de duur van de therapie bespreken we gaandeweg samen. Samen staan we ook regelmatig stil bij het verloop van de sessies. Tijdens de gesprekken zoeken we samen naar manieren om bepaalde zaken op een rij te krijgen, te plaatsen, anders aan te pakken, opdat jij/jullie je beter kan/kunnen voelen.",
+      "themas": [
+        "relatie",
+        "gezin",
+        "werk-sociaal",
+        "rouw-verlies",
+        "somberheid",
+        "angst",
+        "zelfbeeld",
+        "stress-burn-out",
+        "lichaam"
+      ],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "koppels",
+        "gezinnen"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "Relationele vragen: conflicten, uit elkaar groeien, eenzaamheid, seksualiteit, ontrouw,…",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "Gezinsvragen: opvoedingsondersteuning, ingrijpende gebeurtenissen, nieuw samengestelde gezinnen, verwerken van een echtscheiding, kinderwens, een zwangerschap of geboorte die anders liep dan verwacht, vragen rondom de geboorte,",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "Moederschap: als je je evenwicht maar niet lijkt terug te vinden na het moeder worden, band tussen moeder en kind,…",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "Vragen rond sociaal functioneren: werk, sociaal leven, vrienden,…",
+          "ids": [
+            "werk-sociaal"
+          ]
+        },
+        {
+          "tekst": "Verwerking van verlieservaringen: overlijden, relatiebreuk, miskraam, abortus, gezondheid…",
+          "ids": [
+            "rouw-verlies"
+          ]
+        },
+        {
+          "tekst": "Emotionele problemen: onverwerkt verdriet, depressieve gevoelens, neerslachtigheid, niet goed in je vel zitten, faalangst, laag zelfbeeld, perfectionisme, stress, piekeren, onzekerheid, boosheid, eenzaamheid, burn-out,…",
+          "ids": [
+            "somberheid",
+            "angst",
+            "zelfbeeld",
+            "stress-burn-out"
+          ]
+        },
+        {
+          "tekst": "Psycho-oncologie: begeleiding bij kankerdiagnose en behandeling",
+          "ids": [
+            "lichaam"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "(Jong)volwassenen",
+        "Koppels",
+        "Gezinnen"
+      ],
+      "opleiding": [
+        "Master in de Klinische Psychologie (2005, Universiteit Gent)",
+        "Tweejarige opleiding Systemische Gezinscounseling (2011, vzw Kern Sint-Niklaas)",
+        "Vierjarige opleiding Relatie- Gezins- en Systeemtherapie (2017, vzw Rapunzel Diest)",
+        "Eénjarige opleiding Rouw en Verlies vanuit Systemisch Perspectief (2018, Kuleuven)",
+        "Module 1 Mindfulnesstraining (2021, Edel Maex)",
+        "Basiscursus Schematherapie (2022, Schematherapie Vlaanderen)"
+      ],
+      "erkenningen": [],
+      "werkmomenten": "Enkel op woensdagvoormiddag",
+      "contact": {
+        "telefoon": [
+          "0496/535032"
+        ],
+        "email": [
+          "Sarah.Jocque@gmail.com"
+        ],
+        "opmerking": []
+      },
+      "links": [],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "alinea",
+            "html": "U kan voor therapie zowel individueel, als koppel of als gezin bij me terecht. Ik vertrek hierbij vanuit een systemisch denkkader. Dit betekent dat ik veel belang hecht aan het sociale systeem waarin je leeft (thuis, werk, school,…). Binnen een sociaal systeem beïnvloeden mensen elkaar. Gedachten, gedrag, gevoelens en verwachtingen ontstaan in wisselwerking met anderen uit onze omgeving. Dit is een complex proces waarbij soms moeilijkheden optreden. Als systeemtherapeut zal ik problemen bekijken tegen de achtergrond van je interactie met anderen.<br>Voor een aanmelding kan u contact opnemen via telefoon of e-mail. Indien de telefoon niet wordt opgenomen, kan u steeds een voicemail nalaten. In een eerste sessie verkennen we samen verder jouw/jullie hulpvraag. Op basis van dit gesprek beslissen we samen of er verdere afspraken worden ingepland. Hoe frequent de sessies doorgaan en de duur van de therapie bespreken we gaandeweg samen. Samen staan we ook regelmatig stil bij het verloop van de sessies. Tijdens de gesprekken zoeken we samen naar manieren om bepaalde zaken op een rij te krijgen, te plaatsen, anders aan te pakken, opdat jij/jullie je beter kan/kunnen voelen."
+          },
+          {
+            "type": "kop",
+            "tekst": "Werkdomeinen"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Relationele vragen: conflicten, uit elkaar groeien, eenzaamheid, seksualiteit, ontrouw,…",
+              "Gezinsvragen: opvoedingsondersteuning, ingrijpende gebeurtenissen, nieuw samengestelde gezinnen, verwerken van een echtscheiding, kinderwens, een zwangerschap of geboorte die anders liep dan verwacht, vragen rondom de geboorte,",
+              "Moederschap: als je je evenwicht maar niet lijkt terug te vinden na het moeder worden, band tussen moeder en kind,…",
+              "Vragen rond sociaal functioneren: werk, sociaal leven, vrienden,…",
+              "Verwerking van verlieservaringen: overlijden, relatiebreuk, miskraam, abortus, gezondheid…",
+              "Emotionele problemen: onverwerkt verdriet, depressieve gevoelens, neerslachtigheid, niet goed in je vel zitten, faalangst, laag zelfbeeld, perfectionisme, stress, piekeren, onzekerheid, boosheid, eenzaamheid, burn-out,…",
+              "Psycho-oncologie: begeleiding bij kankerdiagnose en behandeling"
+            ]
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Master in de Klinische Psychologie (2005, Universiteit Gent)<br>Tweejarige opleiding Systemische Gezinscounseling (2011, vzw Kern Sint-Niklaas)<br>Vierjarige opleiding Relatie- Gezins- en Systeemtherapie (2017, vzw Rapunzel Diest)<br>Eénjarige opleiding Rouw en Verlies vanuit Systemisch Perspectief (2018, Kuleuven)<br>Module 1 Mindfulnesstraining (2021, Edel Maex)<br>Basiscursus Schematherapie (2022, Schematherapie Vlaanderen)<br>Naast mijn werk in de groepspraktijk ben ik werkzaam als klinisch psycholoog en systeemtherapeut te AZ Groeninge in Kortrijk"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "(Jong)volwassenen<br>Koppels<br>Gezinnen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Werkmomenten:"
+          },
+          {
+            "type": "alinea",
+            "html": "Enkel op woensdagvoormiddag"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens:"
+          },
+          {
+            "type": "alinea",
+            "html": "<a href=\"mailto:Sarah.Jocque@gmail.com\">Sarah.Jocque@gmail.com</a><br>0496/535032"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "uus-knops",
+      "naam": "Uus Knops",
+      "naam_op_pagina": "uus knops",
+      "oude_url": "/uus-knops.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/uus-knops.png",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/img-3737_orig.png",
+        "breedte": 1024,
+        "hoogte": 1024
+      },
+      "aanmeldingsstop": "",
+      "intro": "Welkom! In 2010 ben ik afgestudeerd als psychiater en in 2009 als cognitief gedragstherapeut. Intussen noem ik mijn stijl eclectisch, een mengeling van alles wat ik intussen geleerd, ervaren en meegemaakt heb. Omgaan met rouw is daar een belangrijk deel van, sinds de dood van mijn broer Casper. Als psychiater werk ik intussen vele jaren als interimpsychiater op verschillende soorten afdelingen.",
+      "themas": [
+        "angst",
+        "somberheid",
+        "rouw-verlies"
+      ],
+      "doelgroepen": [
+        "volwassenen",
+        "hulpverleners"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "angst- of stemmingsstoornissen, zoals depressiviteit, en zeker ook rouw",
+          "ids": [
+            "angst",
+            "somberheid",
+            "rouw-verlies"
+          ]
+        },
+        {
+          "tekst": "supervisie of coaching wil als hulpverlener, zorgprofessional, psycholoog, psychiater,…",
+          "ids": [
+            "hulpverleners"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "Volwassenen"
+      ],
+      "opleiding": [
+        "Geaccrediteerd arts, aanvullend gespecialiseerd in de psychiatrie (2010) en in de cognitieve gedragstherapie (2009)"
+      ],
+      "erkenningen": [],
+      "werkmomenten": "Meestal op maandagvoor- en namiddag",
+      "contact": {
+        "telefoon": [],
+        "email": [
+          "dokterknops@hotmail.com"
+        ],
+        "opmerking": []
+      },
+      "links": [
+        {
+          "tekst": "www.uusknops.be",
+          "url": "http://www.uusknops.be/"
+        }
+      ],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "alinea",
+            "html": "Welkom! In 2010 ben ik afgestudeerd als psychiater en in 2009 als cognitief gedragstherapeut. Intussen noem ik mijn stijl eclectisch, een mengeling van alles wat ik intussen geleerd, ervaren en meegemaakt heb. Omgaan met rouw is daar een belangrijk deel van, sinds de dood van mijn broer Casper. Als psychiater werk ik intussen vele jaren als interimpsychiater op verschillende soorten afdelingen."
+          },
+          {
+            "type": "alinea",
+            "html": "Enerzijds ben je welkom als je als volwassene begeleiding zoekt op vlak van angst- of stemmingsstoornissen, zoals depressiviteit, en zeker ook rouw.<br>Anderzijds begeleid ik je ook graag als je supervisie of coaching wil als hulpverlener, zorgprofessional, psycholoog, psychiater,…"
+          },
+          {
+            "type": "alinea",
+            "html": "Ik bied gesprekstherapie aan en kan ook medicatie inzetten. Ik ben geaccrediteerd en gedeconventioneerd. Mijn consultaties gaan vooral door overdag, meestal op maandag. Tussendoor ben ik niet bereikbaar. Dat wil zeggen dat ik niet de geschikte therapeut ben voor crisisgevoelige mensen."
+          },
+          {
+            "type": "alinea",
+            "html": "Voorts ben ik ook auteur van verschillende boeken over rouw, verlies en zwaarte. Ik organiseer Rouwreizen, zowel voor een dag, als voor meerdere dagen op het eiland Terschelling, door de Belgische bossen en Hoge Venen, en ook in de woestijn van Marokko. Alle info vind je op mijn website <a href=\"http://www.uusknops.be/\">www.uusknops.be</a>"
+          },
+          {
+            "type": "alinea",
+            "html": "Voor een aanmelding mag je mailen naar <a href=\"mailto:dokterknops@hotmail.com\">dokterknops@hotmail.com</a> met een korte duiding van je vraag."
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Geaccrediteerd arts, aanvullend gespecialiseerd in de psychiatrie (2010) en in de cognitieve gedragstherapie (2009)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "Volwassenen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Werkmomenten"
+          },
+          {
+            "type": "alinea",
+            "html": "Meestal op maandagvoor- en namiddag"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "<a href=\"mailto:dokterknops@hotmail.com\">dokterknops@hotmail.com</a>"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "kristien-lemaitre",
+      "naam": "Kristien Lemaitre",
+      "naam_op_pagina": "KRistien lemaitre",
+      "oude_url": "/kristien-lemaitre.html",
+      "foto": null,
+      "aanmeldingsstop": "",
+      "intro": "Beeldvorming, hypothesevorming wordt telkens afgestemd op de hulpvraag en de behandelfase. Soms kan dit leiden tot bijkomend advies en /of oriëntering naar nog meer gespecialiseerde zorg of diensten.<br>Medicatie wordt voorgesteld waar geïndiceerd, en wordt geïntegreerd in een bredere benadering met nadruk op gesprekken.",
+      "themas": [],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "ouderen"
+      ],
+      "themas_origineel": [],
+      "doelgroep_origineel": [
+        "Jongvolwassenen",
+        "Volwassenen",
+        "Ouderen"
+      ],
+      "opleiding": [
+        "Geaccrediteerd arts, aanvullend gespecialiseerd in de Psychiatrie (Ugent 1998) en 4 jarige experiëntiële therapieopleiding (KUL)"
+      ],
+      "erkenningen": [],
+      "werkmomenten": "",
+      "contact": {
+        "telefoon": [
+          "0496/ 29 61 16"
+        ],
+        "email": [
+          "kristien.lemaitre@gmail.com"
+        ],
+        "opmerking": [
+          "waar mogelijk wordt telefonisch contact beantwoord binnen de paar werkdagen op het volgende nummer: 0496/ 29 61 16",
+          "er is geen telefoonpermanentie in het weekend",
+          "mail: kristien.lemaitre@gmail.com",
+          "ik vraag graag omzichtigheid bij het gebruik van mail: de digitale veiligheid wordt maximaal geïnstalleerd; veiligheid begint ook bij goed selectie van de inhoud van uw bericht"
+        ]
+      },
+      "links": [],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "alinea",
+            "html": "Beeldvorming, hypothesevorming wordt telkens afgestemd op de hulpvraag en de behandelfase. Soms kan dit leiden tot bijkomend advies en /of oriëntering naar nog meer gespecialiseerde zorg of diensten.<br>Medicatie wordt voorgesteld waar geïndiceerd, en wordt geïntegreerd in een bredere benadering met nadruk op gesprekken."
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Geaccrediteerd arts, aanvullend gespecialiseerd in de Psychiatrie (Ugent 1998) en 4 jarige experiëntiële therapieopleiding (KUL)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "Jongvolwassenen<br>Volwassenen<br>Ouderen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "waar mogelijk wordt telefonisch contact beantwoord binnen de paar werkdagen op het volgende nummer: 0496/ 29 61 16<br>er is geen telefoonpermanentie in het weekend<br>mail: <strong><a href=\"mailto:kristien.lemaitre@gmail.com\">kristien.lemaitre@gmail.com</a></strong><br>ik vraag graag omzichtigheid bij het gebruik van mail: de digitale veiligheid wordt maximaal geïnstalleerd; veiligheid begint ook bij goed selectie van de inhoud van uw bericht"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "charlotte-ohms",
+      "naam": "Charlotte Ohms",
+      "naam_op_pagina": "charlotte ohms",
+      "oude_url": "/charlotte-ohms.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/charlotte-ohms.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/published/foto-charlotte-ohms.jpg",
+        "breedte": 182,
+        "hoogte": 187
+      },
+      "aanmeldingsstop": "",
+      "intro": "Soms kom je vast te zitten in de manier waarop je met jezelf of met anderen omgaat.<br>Je merkt spanningen in je relatie of gezin, voelt afstand waar je nabijheid verlangt, of loopt vast in patronen die zich blijven herhalen. Misschien worstel je met gevoelens die moeilijk te plaatsen zijn, of met vragen over wie je bent, wat je nodig hebt en hoe je verder wil.<br>Bij mij kan je terecht voor <strong>individuele therapie</strong>, <strong>koppel- of gezinstherapie</strong> en <strong>supervisie</strong>.",
+      "themas": [
+        "zelfbeeld",
+        "levensfase",
+        "relatie",
+        "gezin",
+        "angst",
+        "somberheid",
+        "stress-burn-out",
+        "rouw-verlies",
+        "trauma"
+      ],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "koppels",
+        "gezinnen",
+        "hulpverleners"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "Identiteits- en levensfasevragen",
+          "ids": [
+            "zelfbeeld",
+            "levensfase"
+          ]
+        },
+        {
+          "tekst": "Relationele moeilijkheden of communicatieproblemen",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "Spanningen binnen het gezin",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "Gevoelens van angst, somberheid of stress",
+          "ids": [
+            "angst",
+            "somberheid",
+            "stress-burn-out"
+          ]
+        },
+        {
+          "tekst": "Verlies, rouw en ingrijpende ervaringen",
+          "ids": [
+            "rouw-verlies",
+            "trauma"
+          ]
+        },
+        {
+          "tekst": "supervisie aan voor professionals binnen de geestelijke gezondheidszorg en aanverwante domeinen",
+          "ids": [
+            "hulpverleners"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "(Jong)volwassenen",
+        "Koppels",
+        "Gezinnen"
+      ],
+      "opleiding": [
+        "Master in de psychologie – Universiteit Gent (2006–2010)",
+        "Diploma van leraar – Universiteit Gent (2011)",
+        "Postgraduaat Systeemtheoretische Psychotherapie – Interactie-Academie Antwerpen (2014–2017)",
+        "Postgraduaat Supervisor in de relatie- en gezinstherapie & systeemcounseling - Thomas More i.s.m. IPRR vzw en Rapunzel vzw (2024–2025)"
+      ],
+      "erkenningen": [
+        "Erkend psycholoog bij de Psychologencommissie (erkenningsnummer 831109817)",
+        "Lid van de Belgische Vereniging voor Relatietherapie, Gezinstherapie en Systeemcounseling (BVRGS)"
+      ],
+      "werkmomenten": "Enkel op donderdagnamiddag",
+      "contact": {
+        "telefoon": [
+          "0490 46 89 72"
+        ],
+        "email": [
+          "charlotteohms@gmail.com"
+        ],
+        "opmerking": []
+      },
+      "links": [],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "kop",
+            "tekst": "Individuele therapie – Relatie- en gezinstherapie – Supervisie"
+          },
+          {
+            "type": "alinea",
+            "html": "Soms kom je vast te zitten in de manier waarop je met jezelf of met anderen omgaat.<br>Je merkt spanningen in je relatie of gezin, voelt afstand waar je nabijheid verlangt, of loopt vast in patronen die zich blijven herhalen. Misschien worstel je met gevoelens die moeilijk te plaatsen zijn, of met vragen over wie je bent, wat je nodig hebt en hoe je verder wil.<br>Bij mij kan je terecht voor <strong>individuele therapie</strong>, <strong>koppel- of gezinstherapie</strong> en <strong>supervisie</strong>."
+          },
+          {
+            "type": "alinea",
+            "html": "Samen staan we stil bij wat er speelt en zoeken we naar manieren om opnieuw beweging te brengen in wat vastgelopen is.<br>Ik werk met mensen die onder andere worstelen met:"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Identiteits- en levensfasevragen",
+              "Relationele moeilijkheden of communicatieproblemen",
+              "Spanningen binnen het gezin",
+              "Gevoelens van angst, somberheid of stress",
+              "Verlies, rouw en ingrijpende ervaringen",
+              "…"
+            ]
+          },
+          {
+            "type": "alinea",
+            "html": "In therapie vertrekken we steeds vanuit jouw vraag. We onderzoeken samen wat je helpt om overeind te blijven, wat je belemmert en welke patronen zich blijven herhalen. Door hier samen bij stil te staan, kan er geleidelijk verandering ontstaan — in hoe je jezelf ervaart, hoe je met gevoelens omgaat en hoe je je verhoudt tot de mensen om je heen."
+          },
+          {
+            "type": "kop",
+            "tekst": "Systemisch werken"
+          },
+          {
+            "type": "alinea",
+            "html": "Ik werk vanuit een <strong>systemisch denkkader</strong>. Dat betekent dat we niet alleen kijken naar jou als individu, maar ook naar de relaties en contexten waarvan je deel uitmaakt — zoals je gezin, partner, werk, vriendschappen en je levensgeschiedenis.<br>Binnen deze systemen ontstaan patronen die steunend kunnen zijn, maar soms ook knellen. Samen onderzoeken we deze dynamieken en wat ze vandaag voor jou betekenen.<br>Je bent welkom <strong>alleen, als koppel of als gezin</strong>."
+          },
+          {
+            "type": "kop",
+            "tekst": "Supervisie"
+          },
+          {
+            "type": "alinea",
+            "html": "Als <strong>erkend systemisch supervisor</strong> bied ik supervisie aan voor professionals binnen de geestelijke gezondheidszorg en aanverwante domeinen.<br>In supervisie staan we stil bij vragen en uitdagingen uit jouw werkcontext of bij concrete casussen. De focus ligt op reflectie, professionele groei en het versterken van je professionele identiteit binnen een systemisch referentiekader."
+          },
+          {
+            "type": "alinea",
+            "html": "Naast mijn werk in <strong>Brug48</strong> ben ik ook werkzaam binnen <strong>PCGS</strong> en geef ik als zelfstandige opleiding en intervisie."
+          },
+          {
+            "type": "kop",
+            "tekst": "Praktisch"
+          },
+          {
+            "type": "alinea",
+            "html": "Een gesprek duurt <strong>ongeveer 1 uur</strong> en kost <strong>€75</strong>.<br>Betalen kan cash of via Payconiq na elke sessie.<br>Bij annulatie minder dan 24 uur op voorhand wordt de sessie aangerekend."
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Master in de psychologie – Universiteit Gent (2006–2010)<br>Diploma van leraar – Universiteit Gent (2011)<br>Postgraduaat Systeemtheoretische Psychotherapie – Interactie-Academie Antwerpen (2014–2017)<br>Postgraduaat Supervisor in de relatie- en gezinstherapie &amp; systeemcounseling - Thomas More i.s.m. IPRR vzw en Rapunzel vzw (2024–2025)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Erkenning en lidmaatschap"
+          },
+          {
+            "type": "alinea",
+            "html": "Erkend psycholoog bij de Psychologencommissie (erkenningsnummer 831109817)"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Lid van de Belgische Vereniging voor Relatietherapie, Gezinstherapie en Systeemcounseling (BVRGS)"
+            ]
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "(Jong)volwassenen<br>Koppels<br>Gezinnen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Werkmomenten"
+          },
+          {
+            "type": "alinea",
+            "html": "Enkel op donderdagnamiddag"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "<a href=\"mailto:charlotteohms@gmail.com\">charlotteohms@gmail.com</a><br>0490 46 89 72"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "tine-van-der-heyden",
+      "naam": "Tine Van der Heyden",
+      "naam_op_pagina": "Tine Van der Heyden",
+      "oude_url": "/tine-van-der-heyden.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/tine-van-der-heyden.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/editor/portrettine_1.jpeg",
+        "breedte": 197,
+        "hoogte": 197
+      },
+      "aanmeldingsstop": "",
+      "intro": "Sinds 2003 ben ik werkzaam in de hulpverlening en sinds 2008 werk ik als zelfstandig psychotherapeut.",
+      "themas": [
+        "relatie",
+        "somberheid",
+        "angst",
+        "zelfbeeld",
+        "werk-sociaal",
+        "rouw-verlies",
+        "levensfase",
+        "stress-burn-out"
+      ],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "koppels"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "Relationele vragen (bv. conflicten, uit elkaar groeien, eenzaamheid, seksualiteit, ontrouw, kinderwens, …)",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "Emotionele problemen (bv. depressieve gevoelens, angst, onzekerheid, …)",
+          "ids": [
+            "somberheid",
+            "angst",
+            "zelfbeeld"
+          ]
+        },
+        {
+          "tekst": "Sociaal functioneren (bv. op werk, sociaal leven, vrienden, ...)",
+          "ids": [
+            "werk-sociaal"
+          ]
+        },
+        {
+          "tekst": "Verlieservaringen (bv. overlijden, relatiebreuk, miskraam, abortus, ziekte, …)",
+          "ids": [
+            "rouw-verlies"
+          ]
+        },
+        {
+          "tekst": "Zingevingsvragen",
+          "ids": [
+            "levensfase"
+          ]
+        },
+        {
+          "tekst": "Burn-out klachten",
+          "ids": [
+            "stress-burn-out"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "(Jong)volwassenen",
+        "Koppels"
+      ],
+      "opleiding": [
+        "Licentiaat klinische psychologie (2002)",
+        "Postgraduaat Relatie- en Gezinstherapie",
+        "Training Burn-out (The Human Link, 2017)",
+        "EFT Externship",
+        "EFT Core Skills"
+      ],
+      "erkenningen": [
+        "Lid van de Belgische vereniging voor Relatie-, Gezinstherapie en Systeemcounseling (BVRGS)",
+        "Erkend lid door de Psychologencommissie (792108555) (www.compsy.be/psycholoog/8408)"
+      ],
+      "werkmomenten": "",
+      "contact": {
+        "telefoon": [
+          "0473/322993"
+        ],
+        "email": [],
+        "opmerking": []
+      },
+      "links": [
+        {
+          "tekst": "www.compsy.be/psycholoog/8408",
+          "url": "https://www.compsy.be/psycholoog/8408"
+        }
+      ],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "alinea",
+            "html": "Sinds 2003 ben ik werkzaam in de hulpverlening en sinds 2008 werk ik als zelfstandig psychotherapeut."
+          },
+          {
+            "type": "alinea",
+            "html": "De basis van waaruit ik werk is systeemtherapie, contextuele therapie en Emotionally Focused Therapy (EFT). Verder integreer ik ook elementen uit oa. experiëntiële therapie, cognitieve gedragstherapie, mindfulness, …"
+          },
+          {
+            "type": "alinea",
+            "html": "Systeemtheorie zegt dat mensen deel uitmaken van diverse sociale systemen (gezin, werk, school,…) en dat er wederzijdse beïnvloeding is tussen leden van dit systeem. Verandering bij één persoon zorgt voor beweging in het hele systeem. Dit is een normaal en gezond proces. Soms echter ontstaan er door deze wisselwerking met anderen moeilijkheden die kunnen zorgen voor relatieproblemen of individuele problemen."
+          },
+          {
+            "type": "alinea",
+            "html": "Contextuele therapie komt vooral tot uiting in de aandacht voor betekenisvolle relaties en gebeurtenissen doorheen de tijd en voor de specifieke manier waarop we op basis van deze ervaringen relaties met anderen aangaan."
+          },
+          {
+            "type": "alinea",
+            "html": "Emotionally Focused Therapy (EFT) is een model voor relatietherapie dat gebaseerd is op bevindingen uit hechtingsonderzoek en elementen integreert uit het systeemdenken en experiëntiele therapie."
+          },
+          {
+            "type": "alinea",
+            "html": "Specifieke thema’s:"
+          },
+          {
+            "type": "lijst",
+            "items": [
+              "Relationele vragen (bv. conflicten, uit elkaar groeien, eenzaamheid, seksualiteit, ontrouw, kinderwens, …)",
+              "Emotionele problemen (bv. depressieve gevoelens, angst, onzekerheid, …)",
+              "Sociaal functioneren (bv. op werk, sociaal leven, vrienden, ...)",
+              "Verlieservaringen (bv. overlijden, relatiebreuk, miskraam, abortus, ziekte, …)",
+              "Zingevingsvragen",
+              "Burn-out klachten"
+            ]
+          },
+          {
+            "type": "alinea",
+            "html": "In een eerste gesprek kijken we samen naar wat er op dit moment in je leven gaande is familiaal, relationeel en bij jezelf. Verder bekijken we ook je vraag en verwachtingen van de therapie en je krijgt informatie over mijn manier van werken. Op basis hiervan kijken we hoe we de therapie vorm kunnen geven. Gedurende de sessies zoeken we samen naar positieve veranderingen die jou/jullie terug op weg kunnen helpen."
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Licentiaat klinische psychologie (2002)<br>Postgraduaat Relatie- en Gezinstherapie<br>Training Burn-out (The Human Link, 2017)<br>EFT Externship<br>EFT Core Skills<br>Lid van de Belgische vereniging voor Relatie-,<br>Gezinstherapie en Systeemcounseling (BVRGS)<br>Erkend lid door de Psychologencommissie (792108555) (<a href=\"https://www.compsy.be/psycholoog/8408\">www.compsy.be/psycholoog/8408</a>)"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "(Jong)volwassenen<br>Koppels"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "0473/322993"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "iben-verstuyf",
+      "naam": "Iben Verstuyf",
+      "naam_op_pagina": "IBEN VERSTUYF",
+      "oude_url": "/iben-verstuyf.html",
+      "foto": {
+        "bestand": "assets/img/bron/therapeuten/iben-verstuyf.jpg",
+        "bron_url": "https://www.brug48.be/uploads/1/0/6/7/106717951/published/foto-iben-verstuyf.jpg",
+        "breedte": 200,
+        "hoogte": 200
+      },
+      "aanmeldingsstop": "",
+      "intro": "Veel zorgen en moeilijkheden die we ervaren, gaan over onszelf en de mensen die we liefhebben. Soms lopen koppels of gezinnen vast, maar vinden ze de juiste manier niet hierdoor te geraken. Ik geloof heel hard in de kracht van de relaties die we hebben. Inzetten op deze relaties loont elke keer opnieuw en brengt ons dichter bijeen. Ik ga met koppels en gezinnen aan de slag rond verschillende moeilijkheden en uitdagingen, korte en lange trajecten.",
+      "themas": [
+        "relatie",
+        "zelfbeeld",
+        "levensfase",
+        "angst",
+        "somberheid",
+        "trauma",
+        "zelfdestructief",
+        "stress-burn-out",
+        "gezin",
+        "rouw-verlies"
+      ],
+      "doelgroepen": [
+        "jongvolwassenen",
+        "volwassenen",
+        "koppels",
+        "gezinnen"
+      ],
+      "themas_origineel": [
+        {
+          "tekst": "relatiemoeilijkheden",
+          "ids": [
+            "relatie"
+          ]
+        },
+        {
+          "tekst": "vragen rond seksualiteit en geaardheid",
+          "ids": [
+            "zelfbeeld"
+          ]
+        },
+        {
+          "tekst": "levensfasemoeilijkheden",
+          "ids": [
+            "levensfase"
+          ]
+        },
+        {
+          "tekst": "angsten",
+          "ids": [
+            "angst"
+          ]
+        },
+        {
+          "tekst": "depressieve gevoelens",
+          "ids": [
+            "somberheid"
+          ]
+        },
+        {
+          "tekst": "moeilijke en traumatische ervaringen",
+          "ids": [
+            "trauma"
+          ]
+        },
+        {
+          "tekst": "zelfdestructieve neigingen",
+          "ids": [
+            "zelfdestructief"
+          ]
+        },
+        {
+          "tekst": "zelfmoordgedachten",
+          "ids": [
+            "zelfdestructief"
+          ]
+        },
+        {
+          "tekst": "stress en piekeren",
+          "ids": [
+            "stress-burn-out",
+            "angst"
+          ]
+        },
+        {
+          "tekst": "vastgelopen gezinssituaties",
+          "ids": [
+            "gezin"
+          ]
+        },
+        {
+          "tekst": "verlieservaringen en rouw",
+          "ids": [
+            "rouw-verlies"
+          ]
+        },
+        {
+          "tekst": "identiteitsvragen…",
+          "ids": [
+            "zelfbeeld"
+          ]
+        }
+      ],
+      "doelgroep_origineel": [
+        "(Jong)volwassenen",
+        "Koppels",
+        "Gezinnen"
+      ],
+      "opleiding": [
+        "Master in de klinische psychologie",
+        "Postgraduaat in de relatie-, gezins- en systeempsychotherapie, KU Leuven (2020 – 2024)"
+      ],
+      "erkenningen": [
+        "Erkend lid door de psychologencommissie (961124173)"
+      ],
+      "werkmomenten": "",
+      "contact": {
+        "telefoon": [
+          "0493/94.30.74"
+        ],
+        "email": [],
+        "opmerking": []
+      },
+      "links": [
+        {
+          "tekst": "www.compsy.be/nl/profile/public-profile/24173",
+          "url": "https://www.compsy.be/psycholoog/24173"
+        }
+      ],
+      "inhoud": {
+        "hoofd": [
+          {
+            "type": "kop",
+            "tekst": "Therapie voor koppels/gezinnen"
+          },
+          {
+            "type": "alinea",
+            "html": "Veel zorgen en moeilijkheden die we ervaren, gaan over onszelf en de mensen die we liefhebben. Soms lopen koppels of gezinnen vast, maar vinden ze de juiste manier niet hierdoor te geraken. Ik geloof heel hard in de kracht van de relaties die we hebben. Inzetten op deze relaties loont elke keer opnieuw en brengt ons dichter bijeen. Ik ga met koppels en gezinnen aan de slag rond verschillende moeilijkheden en uitdagingen, korte en lange trajecten."
+          },
+          {
+            "type": "kop",
+            "tekst": "Therapie voor individuen"
+          },
+          {
+            "type": "alinea",
+            "html": "Daarnaast werk ik ook individueel. Opnieuw vanuit een systemische blik. We gaan samen op zoek naar de best passende manier voor jou. Elke vraag is uniek en vergt dus een eigen zoektocht en proces."
+          },
+          {
+            "type": "alinea",
+            "html": "Mensen kunnen bij mij terecht met enkele van de volgende zorgen:<br>relatiemoeilijkheden; vragen rond seksualiteit en geaardheid;<br>levensfasemoeilijkheden; angsten; depressieve gevoelens; moeilijke en traumatische ervaringen; zelfdestructieve neigingen; zelfmoordgedachten; stress en piekeren; vastgelopen gezinssituaties; verlieservaringen en rouw; identiteitsvragen…"
+          },
+          {
+            "type": "kop",
+            "tekst": "Praktisch"
+          },
+          {
+            "type": "alinea",
+            "html": "Je kan vrijblijvend telefonisch contact opnemen voor een eerste verkennend gesprek. In dit gesprek zoeken we samen of we een traject kunnen aanvatten rond jouw vraag. De frequentie, hulpvraag en manier van werken kunnen we op dat moment samen exploreren. Binnen één begeleiding kunnen verschillende thema’s aan bod komen."
+          },
+          {
+            "type": "alinea",
+            "html": "Een gesprek kost €75 en duurt ongeveer 50 minuten. Er kan cash en via overschrijving betaald worden. Graag minstens 24uur op voorhand verwittigen als je niet op de afspraak kan geraken. Zo niet, wordt de afspraak wel aangerekend."
+          },
+          {
+            "type": "alinea",
+            "html": "Naast Brug48 werk ik voornamelijk binnen Psychiatrisch Centrum Gent-Sleidinge (PCGS)."
+          }
+        ],
+        "zij": [
+          {
+            "type": "kop",
+            "tekst": "Opleiding"
+          },
+          {
+            "type": "alinea",
+            "html": "Master in de klinische psychologie<br>Postgraduaat in de relatie-, gezins- en<br>systeempsychotherapie, KU Leuven (2020 – 2024)<br>Erkend lid door de psychologencommissie (961124173)<br><a href=\"https://www.compsy.be/psycholoog/24173\">www.compsy.be/nl/profile/public-profile/24173</a>"
+          },
+          {
+            "type": "kop",
+            "tekst": "Doelgroep"
+          },
+          {
+            "type": "alinea",
+            "html": "(Jong)volwassenen<br>Koppels<br>Gezinnen"
+          },
+          {
+            "type": "kop",
+            "tekst": "Contactgegevens"
+          },
+          {
+            "type": "alinea",
+            "html": "0493/94.30.74"
+          }
+        ]
+      }
+    }
+  ]
+}

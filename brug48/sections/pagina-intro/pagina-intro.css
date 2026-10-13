@@ -1,0 +1,25 @@
+.pagina-intro__boog {
+  --verhouding: 4;
+  position: relative;
+  grid-column: 1 / -1;
+  aspect-ratio: var(--verhouding);
+  max-height: 10rem;
+  margin-top: calc(18% / var(--verhouding));
+  padding: 0;
+}
+/* De titel staat onder de boog, in de ruimte tussen de pijlers */
+.pagina-intro__tekst {
+  grid-column: 1 / -1;
+  padding-bottom: var(--r-5);
+}
+.pagina-intro h1 { font-size: var(--t-display); }
+.pagina-intro p {
+  max-width: 30em;
+  margin-top: var(--r-3);
+  color: var(--steen);
+}
+@media (min-width: 44rem) { .pagina-intro__boog { --verhouding: 6; } }
+@media (min-width: 70rem) {
+  .pagina-intro__boog { --verhouding: 8; }
+  .pagina-intro__tekst { grid-column: 1 / 3; }
+}

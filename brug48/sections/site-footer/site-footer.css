@@ -1,0 +1,30 @@
+.site-footer {
+  padding-top: var(--r-5);
+  border-top: var(--lijn) solid var(--pijler);
+}
+.site-footer .pijlers { row-gap: var(--r-4); padding-bottom: var(--r-5); }
+.site-footer .pijlers > * { grid-column: 1 / -1; }
+.site-footer__naam {
+  margin-bottom: var(--r-1);
+  font-family: var(--stem);
+  font-size: var(--t-groot);
+}
+.site-footer address { font-style: normal; color: var(--steen); }
+.site-footer__menu ul { display: grid; gap: var(--r-1); }
+.site-footer__menu a { font-family: var(--stem); color: var(--inkt); text-decoration-color: transparent; }
+.site-footer__menu a:hover, .site-footer__menu a[aria-current="page"] { text-decoration-color: var(--olijf); }
+.site-footer__demo {
+  grid-column: 1 / -1;
+  max-width: 60ch;
+  padding-block: var(--r-2) var(--r-3);
+  font-family: var(--stem);
+  font-size: var(--t-klein);
+  color: var(--steen);
+}
+@media (min-width: 44rem) {
+  .site-footer .pijlers > * { grid-column: auto; }
+  .site-footer .crisishulp { grid-column: 2; }
+}
+@media (min-width: 70rem) {
+  .site-footer .crisishulp { grid-column: 3; }
+}

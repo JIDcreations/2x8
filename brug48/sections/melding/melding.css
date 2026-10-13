@@ -1,0 +1,12 @@
+.melding__boog {
+  position: relative;
+  grid-column: 1 / -1;
+  aspect-ratio: 6;
+  max-height: 10rem;
+  margin-top: 3%;
+  padding: 0;
+}
+.melding__tekst { grid-column: 1 / -1; padding-bottom: var(--r-6); }
+.melding h1 { font-size: var(--t-kop); margin-bottom: var(--r-3); }
+.melding p { max-width: 30em; margin-bottom: var(--r-4); color: var(--steen); }
+@media (min-width: 70rem) { .melding__tekst { grid-column: 1 / 3; } }

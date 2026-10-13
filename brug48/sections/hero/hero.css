@@ -1,0 +1,72 @@
+.hero__figuur {
+  --verhouding: 1.3;
+  grid-column: 1 / -1;
+  margin: calc(18% / var(--verhouding)) 0 0;
+  padding: 0;
+}
+.hero__boog { position: relative; }
+.hero__venster {
+  aspect-ratio: var(--verhouding);
+  overflow: hidden;
+  clip-path: ellipse(70% 100% at 50% 100%);
+  background: var(--veld);
+}
+.hero__venster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 58%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero__venster img { animation: water-tot-rust 2600ms var(--zacht) both; }
+}
+@keyframes water-tot-rust { from { transform: scale(1.06); } to { transform: none; } }
+
+.hero__figuur figcaption {
+  margin-top: var(--r-1);
+  padding-inline: clamp(1rem, 2.2vw, 2.25rem);
+  color: var(--steen);
+  font-family: var(--stem);
+  font-size: var(--t-klein);
+  text-align: right;
+}
+
+.hero__tekst {
+  row-gap: var(--r-4);
+  padding-block: var(--r-4) var(--r-6);
+}
+.hero h1 {
+  grid-column: 1 / -1;
+  max-width: 15ch;
+  font-size: var(--t-display);
+}
+.hero__actie {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: var(--r-3);
+  justify-items: start;
+  align-content: end;
+}
+.hero__adres {
+  max-width: 24em;
+  font-family: var(--stem);
+  font-size: var(--t-klein);
+  line-height: 1.5;
+}
+.hero__adres a { color: var(--steen); }
+.hero__adres a:hover { color: var(--inkt); }
+
+@media (min-width: 44rem) {
+  .hero__figuur { --verhouding: 1.9; }
+}
+@media (min-width: 70rem) {
+  /* H1 en "Vind een therapeut" blijven boven de vouw, ook op een laag scherm */
+  .hero__figuur { --verhouding: 2.45; margin-top: min(calc(18% / var(--verhouding)), 7.2svh); }
+  .hero__boog { container-type: inline-size; }
+  /* hoogte begrenzen zonder dat de breedte meekrimpt (max-height + aspect-ratio zou dat doen) */
+  .hero__venster { aspect-ratio: auto; height: min(100cqi / 2.45, 40svh); }
+  .hero__venster img { object-position: 50% 45%; } /* fietsers ook aan de randen onder de boog */
+  .hero__tekst { padding-top: var(--r-3); }
+  .hero h1 { grid-column: 1 / 3; }
+  .hero__actie { grid-column: 3; align-content: start; padding-top: 0.9rem; }
+}
