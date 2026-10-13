@@ -146,6 +146,9 @@ function duur(int $s): string
 
 function maandnaam(string $maand): string
 {
+    if (preg_match('/^(\d{4})-Q([1-4])$/', $maand, $q)) {
+        return 'Q' . $q[2] . ' ' . $q[1];
+    }
     return ucfirst(maand_nl((int) substr($maand, 5, 2))) . ' ' . substr($maand, 0, 4);
 }
 
@@ -218,7 +221,9 @@ function verloop(array $dagen, string $start): string
     }
     $dag = fn(int $i) => date('Y-m-d', strtotime($start . ' +' . $i . ' days'));
     $xtik = '';
-    foreach ([1, 8, 15, 22, $n] as $d) {
+    // een maand: om de week; langer (kwartaal): de 1e van elke maand
+    $tikken = $n > 31 ? [...array_filter(range(1, $n), fn($d) => substr($dag($d - 1), 8) === '01'), $n] : [1, 8, 15, 22, $n];
+    foreach ($tikken as $d) {
         // de laatste dag krijgt altijd een label; een tussenlabel te dicht ertegen valt weg
         if ($d === $n || $n - $d >= 4) {
             $xtik .= '<span style="left:' . round(($d - 1) / ($n - 1) * 100, 2) . '%">' . h(korte_datum($dag($d - 1))) . '</span>';
@@ -289,7 +294,7 @@ function cijfers_html(array $maanden): string
 {
     usort($maanden, fn($a, $b) => strcmp((string) ($b['maand'] ?? ''), (string) ($a['maand'] ?? '')));
     $uit = '<section class="sectie cijfers" id="cijfers"><h2>Websitecijfers</h2>'
-        . '<p class="uitleg">Elke maand zetten we hier de cijfers van jullie website uit Google Analytics. '
+        . '<p class="uitleg">Elk kwartaal zetten we hier de cijfers van jullie website uit Google Analytics. '
         . 'Een bezoeker is één persoon of toestel, een bezoek is één keer op de site komen.</p>';
     foreach ($maanden as $i => $m) {
         $uit .= maand_html($m, $i === 0);

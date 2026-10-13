@@ -11,8 +11,9 @@
 //   node customers/maak.js publiceer <klant> [--pass <wachtwoord>]
 //       commit data/<klant>.json, pull --rebase, push, en test de live URL.
 //   node customers/maak.js cijfers <klant> --bestand <ga.json>
-//       zet de GA4-cijfers van één maand (uitvoer van `klantcontact.py ga ... --compare`)
-//       in het archief "Websitecijfers"; dezelfde maand opnieuw = overschrijven.
+//       zet de GA4-cijfers van één kalendermaand of kalenderkwartaal (uitvoer van
+//       `klantcontact.py ga ... --compare`) in het archief "Websitecijfers";
+//       dezelfde periode opnieuw = overschrijven.
 //
 // Na `nieuw` vul je data/<klant>.json aan (secties, updates) en doe je `publiceer`.
 'use strict';
@@ -87,25 +88,34 @@ const LANDEN = {
   'United Kingdom': 'Verenigd Koninkrijk', 'United States': 'Verenigde Staten', Spain: 'Spanje', Italy: 'Italië',
   Ireland: 'Ierland', Switzerland: 'Zwitserland', Austria: 'Oostenrijk', Poland: 'Polen', Sweden: 'Zweden',
   Denmark: 'Denemarken', Norway: 'Noorwegen', Finland: 'Finland', Portugal: 'Portugal', Canada: 'Canada',
-  China: 'China', India: 'India', Japan: 'Japan', Singapore: 'Singapore', Türkiye: 'Turkije', Morocco: 'Marokko',
+  China: 'China', India: 'India', Japan: 'Japan', Singapore: 'Singapore', Türkiye: 'Turkije', Morocco: 'Marokko', Czechia: 'Tsjechië',
   '(not set)': 'Onbekend',
 };
-// Eén maand uit de klantcontact.py-uitvoer, compact en met Nederlandse labels.
+const DAG = 864e5;
+function aantalDagen({ start, end }) {
+  return (Date.parse(end) - Date.parse(start)) / DAG + 1;
+}
+// Eén maand of kwartaal uit de klantcontact.py-uitvoer, compact en met Nederlandse labels.
 function maandblok(ga) {
   const h = ga.huidig || stop('Geen "huidig" in het GA-bestand.');
   const { start, end } = h.periode;
-  if (!/^\d{4}-\d{2}-01$/.test(start) || end.slice(0, 7) !== start.slice(0, 7)) stop(`Geen volledige kalendermaand: ${start} tot ${end}`);
+  const [j, m] = start.split('-').map(Number);
+  const laatsteDag = (mnd) => new Date(Date.UTC(j, mnd, 0)).toISOString().slice(0, 10); // mnd 1-12
+  let sleutel;
+  if (/^\d{4}-\d{2}-01$/.test(start) && end === laatsteDag(m)) sleutel = start.slice(0, 7);
+  else if (/^\d{4}-(01|04|07|10)-01$/.test(start) && end === laatsteDag(m + 2)) sleutel = `${j}-Q${(m + 2) / 3}`;
+  else stop(`Geen volledige kalendermaand of kalenderkwartaal: ${start} tot ${end}`);
   const kern = (t = {}) => ({
     bezoekers: t.totalUsers || 0, sessies: t.sessions || 0, weergaven: t.screenPageViews || 0,
     duur: Math.round(t.averageSessionDuration || 0), acties: t.keyEvents || 0,
   });
   const top = (rij, sleutel, waarde, n, namen = {}) =>
     (rij || []).slice(0, n).map((r) => [namen[r[sleutel]] || r[sleutel], r[waarde] || 0]);
-  const dagen = Number(end.slice(8, 10));
   const perDatum = Object.fromEntries((h.per_dag || []).map((r) => [r.date, r.sessions || 0]));
-  const per_dag = Array.from({ length: dagen }, (_, i) => perDatum[start.slice(0, 8).replace(/-/g, '') + String(i + 1).padStart(2, '0')] || 0);
+  const per_dag = Array.from({ length: aantalDagen(h.periode) },
+    (_, i) => perDatum[new Date(Date.parse(start) + i * DAG).toISOString().slice(0, 10).replace(/-/g, '')] || 0);
   return {
-    maand: start.slice(0, 7),
+    maand: sleutel, // "2026-09" of "2026-Q3"
     periode: { start, end },
     totalen: kern(h.totalen),
     vorige: ga.vorig ? { periode: ga.vorig.periode, ...kern(ga.vorig.totalen) } : null,
@@ -203,12 +213,12 @@ switch (cmd) {
     const data = lees(slug);
     const f = typeof opts.bestand === 'string' ? opts.bestand : stop('--bestand <ga.json> is verplicht');
     const blok = maandblok(JSON.parse(fs.readFileSync(f, 'utf8')));
-    if (blok.per_dag.length !== Number(blok.periode.end.slice(8, 10))) stop('Interne fout: per_dag telt niet elke dag.');
+    if (blok.per_dag.length !== aantalDagen(blok.periode)) stop('Interne fout: per_dag telt niet elke dag.');
     data.cijfers = (data.cijfers || []).filter((m) => m.maand !== blok.maand).concat(blok)
       .sort((a, b) => b.maand.localeCompare(a.maand));
     data.bijgewerkt = vandaag();
     schrijf(slug, data);
-    console.log(`Cijfers ${blok.maand} in data/${slug}.json: ${blok.totalen.bezoekers} bezoekers, ${blok.totalen.sessies} bezoeken (${data.cijfers.length} maanden in het archief).`);
+    console.log(`Cijfers ${blok.maand} in data/${slug}.json: ${blok.totalen.bezoekers} bezoekers, ${blok.totalen.sessies} bezoeken (${data.cijfers.length} periodes in het archief).`);
     break;
   }
   default:
