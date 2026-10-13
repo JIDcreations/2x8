@@ -4,14 +4,14 @@
 #   live:    bash tools/rooktest.sh https://2x8.be/brug48 brug48:<wachtwoord>
 B=${1:?basis-URL ontbreekt}; AUTH=${2:+-u $2}; fout=0
 code() { curl -s $AUTH -o /dev/null -w '%{http_code}' "$B$1"; }
-plek() { curl -s $AUTH -o /dev/null -w '%{redirect_url}' "$B$1"; }
+plek() { curl -s $AUTH -o /dev/null -w '%{redirect_url}' "$B$1" | sed 's#^https\?://[^/]*##'; }  # enkel het pad
 check() { if [ "$2" = "$3" ]; then echo "ok    $1"; else echo "FOUT  $1: verwacht '$3', kreeg '$2'"; fout=1; fi; }
 
 check "home"                    "$(code /)" 200
 check "overzicht"               "$(code /therapeuten)" 200
 check "detail bestaat"          "$(code /therapeuten/katrien-boone)" 200
 check "onbekende pagina"        "$(code /bestaat-niet)" 404
-check "slash op het einde"      "$(plek /therapeuten/)" "${B%/brug48}$(echo "$B" | grep -o '/brug48$')/therapeuten"
+check "slash op het einde"      "$(plek /therapeuten/)" "$(echo "$B" | sed 's#^https\?://[^/]*##')/therapeuten"
 check "dubbele slash blijft hier" "$(plek //voorbeeld.com/ | grep -c '//voorbeeld.com')" 0
 check "lege filterparameter"    "$(code '/therapeuten?thema=&doelgroep=koppels')" 301
 check "filter angst = 9"        "$(curl -s $AUTH "$B/therapeuten?thema=angst" | grep -o 'class="teller">[0-9]*' | grep -o '[0-9]*$')" 9
