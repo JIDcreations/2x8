@@ -1,5 +1,6 @@
 # Brug 48: eigen regels; die van de map erboven gelden hier niet.
 Options -MultiViews -Indexes
+AddType image/avif .avif
 RewriteEngine On
 
 # Bronmateriaal en interne bestanden niet serveren.

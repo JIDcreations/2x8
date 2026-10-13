@@ -120,6 +120,7 @@ function demo_poort(): void
         [$gebruiker, $wachtwoord] = array_pad(explode(':', (string) base64_decode(substr($auth, 6)), 2), 2, null);
     }
     if ($gebruiker === DEMO_GEBRUIKER && is_string($wachtwoord) && password_verify($wachtwoord, DEMO_WACHTWOORD_HASH)) {
+        header('Cache-Control: private, no-store'); // geen CDN of proxy die een beveiligde pagina bewaart
         return;
     }
     header('WWW-Authenticate: Basic realm="Brug 48 (voorstel)", charset="UTF-8"');
