@@ -20,10 +20,10 @@ ini_set('display_errors', '0');
 /* ---------- Config ---------------------------------------------------- */
 
 const MAIL_TO        = 'hello@2x8.be';          // waar de aanvragen toekomen
-// Blinde kopie van elke aanvraag, zodat ze ook persoonlijk binnenkomt. Staat
-// alleen op de melding naar de studio: de bevestiging blijft tussen de
-// bezoeker en ons.
-const MAIL_BCC       = ['florianbracke@gmail.com', 'jasperimpens@gmail.com'];
+// Blinde kopie van elke aanvraag, zodat ze ook persoonlijk binnenkomt, staat
+// als 'bcc' in het configuratiebestand buiten de docroot (zie config()), zodat
+// de persoonlijke adressen niet in de repo staan. Ze gaan alleen mee op de
+// melding naar de studio: de bevestiging blijft tussen de bezoeker en ons.
 const MAIL_FROM      = 'hello@2x8.be';          // moet op het eigen domein staan, anders faalt SPF
 const MAIL_FROM_NAME = '2X8';
 const SITE_URL       = 'https://2x8.be';
@@ -414,7 +414,7 @@ $confirm = confirm_mail($data);
 
 // De melding naar de studio is de belangrijke: slaagt die niet, dan is het
 // bericht weg en moet de bezoeker dat weten.
-$sentStudio = send_mail(MAIL_TO, $studio['subject'], $studio['html'], $studio['text'], $data['email'], MAIL_BCC);
+$sentStudio = send_mail(MAIL_TO, $studio['subject'], $studio['html'], $studio['text'], $data['email'], (array) config('bcc', []));
 if (!$sentStudio) {
     respond(false, 'Het versturen lukte niet. Mail ons gerust rechtstreeks op ' . MAIL_TO . '.', [], 500);
 }

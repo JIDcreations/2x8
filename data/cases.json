@@ -1,0 +1,610 @@
+[
+  {
+    "slug": "2x8-zelf",
+    "naam": "2X8 zelf",
+    "soort": "tools",
+    "eigen": true,
+    "label": "Automatisatie",
+    "klant": "2X8",
+    "jaar": "2026",
+    "wat": "Automatisatie, Notion",
+    "kaart": "Een aanvraag op onze site wordt een offerte, komt in Notion, wacht op akkoord en wordt een factuur. Niemand typt iets over.",
+    "intro": "Wat we voor klanten bouwen, draait eerst bij ons. Onze eigen werking loopt van contactformulier tot factuur zonder dat iemand iets overtypt.",
+    "blokken": [
+      {
+        "titel": "Het probleem",
+        "tekst": "Elke aanvraag komt binnen als losse tekst. Wie er een offerte van wil maken, typt naam, vraag en prijs opnieuw over. Daarna nog eens voor de factuur."
+      },
+      {
+        "titel": "Wat we bouwden",
+        "tekst": "Het contactformulier op 2x8.be maakt zelf een offerte op. Die komt in Notion terecht, wacht daar op ons akkoord en wordt na goedkeuring een factuur. Vijf stappen, één keer invullen."
+      },
+      {
+        "titel": "Wat het oplevert",
+        "tekst": "Geen overtypwerk meer tussen aanvraag en factuur, en dezelfde nette documenten bij elke klant. Het is ook ons bewijs: wat we jou voorstellen, gebruiken we zelf elke dag."
+      }
+    ],
+    "flow": true,
+    "status": "Elke dag in gebruik"
+  },
+  {
+    "slug": "elevator-antwerp",
+    "naam": "Elevator Antwerp",
+    "soort": "websites",
+    "eigen": false,
+    "label": "Website",
+    "klant": "Elevator Antwerp",
+    "jaar": "2026",
+    "wat": "Design, development",
+    "online": "https://elevator-antwerp.com/",
+    "kaart": "Een galerie die reist, met één vaste plek online: wat er nu te zien is en welke werken te koop zijn.",
+    "intro": "Een rustige website voor een galerie zonder vaste locatie: hedendaagse kunst, tijdelijke tentoonstellingen en werken die te koop zijn.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "Elevator Antwerp heeft geen vaste ruimte. De galerie duikt op tijdelijke plekken in de stad op en verdwijnt weer als het project eindigt. De site moest dat verhaal dragen, ook als er geen adres is."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Rustig en typografisch, zodat de werken de hoofdrol krijgen. Tentoonstellingen, beschikbare werken en het verhaal van de galerie staan als drie duidelijke ingangen bovenaan."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Eén herkenbare plek online voor een galerie op reis: wat er nu te zien is en wat je kan kopen."
+      }
+    ],
+    "cover": {
+      "src": "assets/cases/elevator-antwerp/cover.webp",
+      "w": 1600,
+      "h": 901,
+      "alt": "Elevator Antwerp op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/elevator-antwerp/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "Elevator Antwerp homepage: ’Telling stories with contemporary art’"
+      },
+      {
+        "src": "assets/cases/elevator-antwerp/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "Tentoonstellingspagina Gallery XIII"
+      },
+      {
+        "src": "assets/cases/elevator-antwerp/g3.webp",
+        "w": 1000,
+        "h": 1250,
+        "alt": "Overzicht van beschikbare werken op Elevator Antwerp"
+      }
+    ]
+  },
+  {
+    "slug": "studio-klei",
+    "naam": "Studio Klei",
+    "soort": "websites",
+    "eigen": false,
+    "label": "Webshop",
+    "klant": "Studio Klei",
+    "jaar": "2026",
+    "wat": "Design, development, WooCommerce",
+    "online": "https://hotpink-crane-600793.hostingersite.com/",
+    "kaart": "Eén shop die keramiek verkoopt én workshops boekt. Geen tweede systeem ernaast.",
+    "intro": "Een warme webshop voor een keramiekatelier in Gent: mokken, kommen en vazen, en workshops die je meteen boekt.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "Handgemaakt keramiek verdrinkt snel in een webshop die eruitziet als elke andere. Studio Klei wilde een shop die even persoonlijk voelt als het atelier zelf."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Drie duidelijke categorieën: mokken, kommen en borden, vazen. De workshops staan naast de producten in plaats van weggestopt. Het verhaal van het atelier krijgt een volwaardige plek."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Eén shop voor verkoop én workshopboekingen, trouw aan de eigen belofte: keramiek voor elke dag."
+      }
+    ],
+    "cover": {
+      "src": "assets/cases/studio-klei/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "Studio Klei op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/studio-klei/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "Studio Klei homepage: ’Keramiek voor elke dag’ hero"
+      },
+      {
+        "src": "assets/cases/studio-klei/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "Categoriepagina Mokken & bekers van Studio Klei"
+      },
+      {
+        "src": "assets/cases/studio-klei/g3.webp",
+        "w": 1000,
+        "h": 1250,
+        "alt": "De pagina ’Een dag in het atelier’ van Studio Klei"
+      }
+    ]
+  },
+  {
+    "slug": "huiskamer",
+    "naam": "Huiskamer",
+    "soort": "tools",
+    "eigen": true,
+    "label": "Platform",
+    "klant": "Eigen project",
+    "jaar": "2026",
+    "wat": "Design, development",
+    "kaart": "Een prototype voor psychologen: sessies, logboek, opdrachten en facturen op één plek. Het uur gaat naar het gesprek.",
+    "intro": "Een gedeelde plek voor een psycholoog en de cliënten tussen de sessies door, zodat de volgende sessie begint waar de vorige weken ophielden.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "Tussen twee sessies zitten vaak twee of drie weken. Het begin van elk uur gaat naar bijpraten, en de details die het meest tellen zijn tegen dan vergeten."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "De cliënt heeft drie plekken: Vandaag, een Logboek en Sessies. Alles wordt gedeeld met de psycholoog of met één tik privé gehouden, en privé blijft privé. De psycholoog begint de dag met een overzicht van wat elke cliënt deelde of afwerkte."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Een klikbaar prototype van beide kanten, met sessiepagina’s, opdrachten, afspraken en facturen. Warm van toon, zodat het voelt als een huiskamer en niet als een medisch dossier."
+      }
+    ],
+    "cover": {
+      "src": "assets/cases/huiskamer/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "Huiskamer op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/huiskamer/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "Vandaag bij de psycholoog: de afspraken van de dag en wat elke cliënt tussen de sessies deelde"
+      },
+      {
+        "src": "assets/cases/huiskamer/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "Het dossier van een cliënt: volgende sessie, open opdrachten, de stemming van twee weken en het lijstje voor volgende keer"
+      },
+      {
+        "src": "assets/cases/huiskamer/g3.webp",
+        "w": 1000,
+        "h": 1250,
+        "alt": "Het logboek van een cliënt, met een notitie enkel voor zichzelf tussen wat gedeeld is met de psycholoog"
+      }
+    ],
+    "status": "Klikbaar prototype"
+  },
+  {
+    "slug": "salon-dola",
+    "naam": "Salon Dola",
+    "soort": "websites",
+    "eigen": false,
+    "label": "Onepager",
+    "klant": "Salon Dola",
+    "jaar": "2026",
+    "wat": "Design, development",
+    "kaart": "Eén pagina. Na één scroll weet je bij wie je terechtkomt en hoe je een afspraak maakt.",
+    "intro": "Een onepager voor een kapsalon in Moerbeke: zwart-wit, één lettertype, en een afspraak die altijd één stap ver is.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "Tim ontvangt bij hem thuis, één klant per keer en enkel op afspraak. Wie hem via Instagram vindt, zit meestal op een gsm en wil drie dingen weten: wie is Tim, hoe voelt het salon, en hoe maak ik een afspraak."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Het logo is puur typografie, dus de site ook. De punt achter DOLA groeit bij het scrollen uit tot een volledig scherm en je stapt het salon binnen. Bellen of een aanvraag sturen kan vanaf elke plek op de pagina."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Eén pagina die rustig, persoonlijk en strak voelt. Na één scroll weet je bij wie je terechtkomt en hoe je een afspraak maakt."
+      }
+    ],
+    "cover": {
+      "src": "assets/cases/salon-dola/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "Salon Dola op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/salon-dola/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "De sectie over Tim op de site van Salon Dola"
+      },
+      {
+        "src": "assets/cases/salon-dola/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "De sectie over het salon, met een foto van het interieur"
+      },
+      {
+        "src": "assets/cases/salon-dola/g3.webp",
+        "w": 1000,
+        "h": 1250,
+        "alt": "De behandelingen van Salon Dola op een smal scherm"
+      }
+    ]
+  },
+  {
+    "slug": "specter",
+    "naam": "Specter",
+    "soort": "websites",
+    "eigen": false,
+    "label": "Webshop",
+    "klant": "Specter Atelier",
+    "jaar": "2026",
+    "wat": "Design, development, WooCommerce",
+    "online": "https://mediumslateblue-shrew-186739.hostingersite.com/",
+    "kaart": "Een kledingwinkel die van ver rustig oogt en van dichtbij klopt.",
+    "intro": "Een webshop voor een maatkleding-atelier in Antwerpen: negen stuks, geen rek, alles op afspraak.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "Specter verkoopt niets van het rek. Negen stuks, elk op maat gezet in een privéfitting. De site moest dat voelbaar maken in plaats van het te verstoppen achter een standaard webshop."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Beton, schaduw en precisie in plaats van productcarrousels. Elk stuk krijgt één pagina, één maatkeuze en de keuze tussen een fitting aanvragen of meteen bestellen."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Een winkel die van ver rustig oogt en van dichtbij precies aanvoelt, net zoals de kleding."
+      }
+    ],
+    "video": "assets/video/specter-web.mp4",
+    "cover": {
+      "src": "assets/cases/specter/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "Specter op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/specter/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "Specter homepage: ’Cut like architecture’ hero over een betonnen trap"
+      },
+      {
+        "src": "assets/cases/specter/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "De Index: het volledige shopoverzicht met filters en zoekfunctie"
+      },
+      {
+        "src": "assets/cases/specter/g3.webp",
+        "w": 1000,
+        "h": 1250,
+        "alt": "De atelierpagina van Specter"
+      }
+    ]
+  },
+  {
+    "slug": "keikoku",
+    "naam": "Keikoku Atelier",
+    "soort": "websites",
+    "eigen": false,
+    "label": "Website",
+    "klant": "Keikoku Atelier",
+    "jaar": "2026",
+    "wat": "Design, development",
+    "online": "https://keikokuimpens.netlify.app/",
+    "kaart": "Een architectenbureau dat wegneemt tot enkel het nodige overblijft. De site doet hetzelfde.",
+    "intro": "Een rustige, beeldgedreven site voor een architectenbureau dat huizen ontwerpt die honderd jaar moeten meegaan.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "Het bureau zweert bij wegnemen: ramen, muren en gebaren schrappen tot enkel de structuur overblijft. Die terughoudendheid moest uit de site zelf spreken, niet alleen uit de tekst."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Grote foto’s, weinig tekst, en vier projecten verteld in evenveel beeld als woorden. Coördinaten als stille signatuur in plaats van versiering."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Een site die het principe van het bureau toepast op het scherm."
+      }
+    ],
+    "video": "assets/video/keikuko-web.mp4",
+    "cover": {
+      "src": "assets/cases/keikoku/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "Keikoku Atelier op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/keikoku/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "Keikoku Atelier homepage hero"
+      },
+      {
+        "src": "assets/cases/keikoku/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "Overzicht ’Selected commissions’ met de vier vlaggenschipprojecten"
+      },
+      {
+        "src": "assets/cases/keikoku/g3.webp",
+        "w": 1000,
+        "h": 1250,
+        "alt": "De studio-sectie van Keikoku Atelier"
+      }
+    ]
+  },
+  {
+    "slug": "nadir",
+    "naam": "NADIR",
+    "soort": "tools",
+    "eigen": true,
+    "label": "Dashboard",
+    "klant": "Eigen project",
+    "jaar": "2026",
+    "wat": "Design, development",
+    "kaart": "Een live dashboard dat toont welke aandelen het diepst gevallen zijn. Rustig, zonder tickerchaos.",
+    "intro": "Een live dashboard dat aandelen opspoort die het diepst gevallen zijn tegenover hun hoogste koers van het voorbije jaar.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "Is een aandeel goedkoop, of terecht ingestort? NADIR moest tientallen aandelen continu opvolgen zonder de gebruiker te laten verdrinken in cijfers."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Live koersen per sector, gesorteerd op de diepste val. Elke kaart toont prijs, dagverandering en een lijntje van het voorbije jaar. Een detailpaneel geeft de volledige grafiek en de redenering erachter."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Een rustig dashboard dat in één oogopslag toont wat de moeite waard is om verder te bekijken."
+      }
+    ],
+    "cover": {
+      "src": "assets/cases/nadir/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "NADIR op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/nadir/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "NADIR-dashboard met aandelenkaarten gesorteerd op diepste val"
+      },
+      {
+        "src": "assets/cases/nadir/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "NADIR gefilterd op de sector semiconductors"
+      },
+      {
+        "src": "assets/cases/nadir/g3.webp",
+        "w": 580,
+        "h": 1000,
+        "alt": "Detailpaneel van een aandeel met koersgrafiek en beleggingsthese"
+      }
+    ],
+    "status": "Eigen project"
+  },
+  {
+    "slug": "delta",
+    "naam": "DLTA",
+    "soort": "tools",
+    "eigen": true,
+    "label": "Dashboard",
+    "klant": "Eigen project",
+    "jaar": "2026",
+    "wat": "Design, development, Next.js",
+    "kaart": "Een tracker die elke aankoop apart bijhoudt en live je winst en verlies berekent. Zonder account.",
+    "intro": "Een cryptotracker die elke aankoop apart bijhoudt en live winst en verlies berekent, volledig in je browser.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "De meeste trackers herleiden alles tot één gemiddelde aankoopprijs. Wie in stukjes koopt, ziet niet meer wat elke aankoop apart oplevert."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Elke aankoop blijft een apart lot met datum, bedrag en prijs. Live koersen rekenen per lot en per portefeuille. Alles blijft lokaal bewaard, met optionele synchronisatie."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Evenveel vertrouwen in de details als in het totaal, en je hebt geen account nodig om te beginnen."
+      }
+    ],
+    "cover": {
+      "src": "assets/cases/delta/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "DLTA op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/delta/g1.webp",
+        "w": 1600,
+        "h": 260,
+        "alt": "BTC-, ETH- en XRP-kaarten met live koers en winst of verlies"
+      },
+      {
+        "src": "assets/cases/delta/g2.webp",
+        "w": 1600,
+        "h": 445,
+        "alt": "Allocatiedonut per munt in DLTA"
+      },
+      {
+        "src": "assets/cases/delta/g3.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "Het formulier om een aankoop toe te voegen, met live prijsvoorbeeld"
+      }
+    ],
+    "status": "Eigen project"
+  },
+  {
+    "slug": "eqty",
+    "naam": "EQTY",
+    "soort": "tools",
+    "eigen": true,
+    "label": "App",
+    "klant": "Eigen project",
+    "jaar": "2026",
+    "wat": "Design, development, React Native",
+    "online": "https://eqty.netlify.app/",
+    "kaart": "Een app die beleggen leert als een proces: korte lessen en vragen die bepalen wat je daarna ziet.",
+    "intro": "Een Nederlandstalige app die beleggen leert als een proces: een korte quiz, lessen per thema en vragen die bepalen wat je daarna ziet.",
+    "blokken": [
+      {
+        "titel": "Uitdaging",
+        "tekst": "Beleggen wordt meestal uitgelegd als een lijst producten. EQTY vertrekt van een ander idee: het is een reeks beslissingen. De app moest dat leerbaar maken zonder dat het als huiswerk voelt."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Acht thema’s, 26 lessen. Een quiz plaatst je meteen op het juiste niveau. Na elke les volgt een vraag, en je antwoord bepaalt welke les daarna komt. Geen trading, geen financieel advies."
+      },
+      {
+        "titel": "Resultaat",
+        "tekst": "Een volledige, werkende app met een eigen launchsite, gebouwd voor de gsm vanaf dag één."
+      }
+    ],
+    "video": "assets/video/eqty-reel-web.mp4",
+    "cover": {
+      "src": "assets/cases/eqty/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "EQTY op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/eqty/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "EQTY-onboarding: geen broker, maar een voorbereidingslaag, met 26 lessen in 8 thema’s"
+      },
+      {
+        "src": "assets/cases/eqty/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "De opbouw van EQTY, van onboarding tot het opvolgen van je voortgang"
+      }
+    ]
+  },
+  {
+    "slug": "jasper-impens",
+    "naam": "Jasper Impens",
+    "soort": "websites",
+    "eigen": true,
+    "label": "Portfolio",
+    "klant": "Jasper, medeoprichter",
+    "jaar": "2026",
+    "wat": "Design, development",
+    "online": "https://www.jasperimpens.be/",
+    "kaart": "Het portfolio van Jasper. Hetzelfde niveau van afwerking, zonder briefing van iemand anders.",
+    "intro": "Geen klantproject, maar het eigen portfolio van Jasper. We tonen het omdat het laat zien hoe we werken als niemand anders de briefing schrijft.",
+    "blokken": [
+      {
+        "titel": "Waarom we het tonen",
+        "tekst": "Hetzelfde niveau van afwerking dat we op elk 2X8-project leggen, alleen zonder opdrachtgever."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Vijf soorten werk, elk uitgewerkt van eerste schets tot een site die online staat."
+      },
+      {
+        "titel": "Wat je eraan hebt",
+        "tekst": "Dezelfde lat leggen we bij elk project, of het nu een webshop, een architectensite of een tool is."
+      }
+    ],
+    "video": "assets/video/impens-web.mp4",
+    "cover": {
+      "src": "assets/cases/jasper-impens/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "Jasper Impens op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/jasper-impens/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "Homepage van jasperimpens.be"
+      },
+      {
+        "src": "assets/cases/jasper-impens/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "Werkoverzicht van jasperimpens.be, gefilterd op type werk"
+      },
+      {
+        "src": "assets/cases/jasper-impens/g3.webp",
+        "w": 1000,
+        "h": 1250,
+        "alt": "De Passion-pagina van jasperimpens.be"
+      }
+    ]
+  },
+  {
+    "slug": "web-work",
+    "naam": "WEB.WORK",
+    "soort": "websites",
+    "eigen": true,
+    "label": "Website",
+    "klant": "Florian, medeoprichter",
+    "jaar": "2026",
+    "wat": "Design, development",
+    "online": "https://web-work.be/",
+    "kaart": "De site van Florian: diensten met een prijs erbij, werk met de live link ernaast, vragen meteen beantwoord.",
+    "intro": "Geen klantproject, maar de site van WEB.WORK, de eigen zaak van Florian. Webdevelopment uit Gent, met een vaste prijs en één aanspreekpunt.",
+    "blokken": [
+      {
+        "titel": "Waarom we het tonen",
+        "tekst": "Om dezelfde reden als het portfolio van Jasper: zo bouwen we als niemand anders de briefing schrijft."
+      },
+      {
+        "titel": "Aanpak",
+        "tekst": "Eén pagina met alles wat een klant wil weten: vier diensten met een prijs, recent werk met de live link, en de vragen die iedereen stelt, meteen beantwoord. Gewone HTML, zodat ook een zoekmachine alles leest."
+      },
+      {
+        "titel": "Wat je eraan hebt",
+        "tekst": "Eerst samen op een rij zetten wat er is en wat er moet komen, daarna een voorstel met een vaste prijs. Zo werkt 2X8 ook."
+      }
+    ],
+    "cover": {
+      "src": "assets/cases/web-work/cover.webp",
+      "w": 1600,
+      "h": 900,
+      "alt": "WEB.WORK op een scherm"
+    },
+    "galerij": [
+      {
+        "src": "assets/cases/web-work/g1.webp",
+        "w": 1600,
+        "h": 900,
+        "alt": "Het overzicht Recent werk op web-work.be"
+      },
+      {
+        "src": "assets/cases/web-work/g2.webp",
+        "w": 1400,
+        "h": 1050,
+        "alt": "De dienstenpagina van web-work.be, met de prijs per dienst"
+      },
+      {
+        "src": "assets/cases/web-work/g3.webp",
+        "w": 1000,
+        "h": 1250,
+        "alt": "De pagina Over mij op web-work.be, met een portret uit bits"
+      }
+    ]
+  }
+]

@@ -1,19 +1,25 @@
 .DS_Store
 
-# Raw screen recordings — huge (100MB+), some exceed GitHub's hard limit.
-# The site only references the compressed *-web.mp4 derivatives in assets/.
+# Ruwe schermopnames: te groot voor GitHub. De site gebruikt de *-web.mp4 in assets/video/.
 *.mov
 
-# Mailconfiguratie met de Brevo-sleutel. De echte hoort buiten de docroot
-# (~/2x8-mail-config.php op de server), nooit hier.
+# Mailconfiguratie met de Brevo-sleutel en de BCC-adressen. De echte staat buiten de docroot.
 2x8-mail-config.php
 2x8-mail.log
 
-# /fr en /en staan bewust WEL in deze repo, ook al maakt build.js ze.
-# Hostinger pullt deze repo rechtstreeks in de docroot en draait geen Node,
-# dus de vertaalde pagina's moeten hier als gewone bestanden staan.
-# Na het aanpassen van Nederlandse copy: `node build.js` en beide mee committen.
+# Klantgegevens van customers.2x8.be (teksten en wachtwoord-hashes). Deze repo is publiek.
+customers/data/
 
-# Brug 48-demo: het wachtwoord zelf blijft lokaal; config.php bevat enkel de hash.
-/brug48/.demo-wachtwoord
-/brug48/.impeccable/review/
+# Interne notities en inspiratie: blijven lokaal.
+CLAUDE.md
+START-PROMPT.md
+inspiratie/
+
+# Meegekopieerd uit V1 zodat bestaande links blijven werken bij de deploy, maar niet
+# in deze publieke repo: klantpagina's en demo's met gegevens van klanten en prospecten.
+customers/
+salon-dola/
+sanitairverschraegen/
+tiger-auto-parts/
+tke/
+leef-tijd/

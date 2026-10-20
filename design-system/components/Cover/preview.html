@@ -1,0 +1,40 @@
+<!-- @dsCard height=288 -->
+<div class="cv">
+  <svg class="cv-art" viewBox="0 0 960 288" width="960" height="288" aria-hidden="true">
+    <!--
+      blocks: violet, oranje, hemel, salie, zon as 104px tiles (space-1 gaps) and 216px two-wide tiles, corners radius-l
+      arrangement: a bento grid of three rows bleeding off the top and bottom, like widgets on a phone screen
+      pattern: tiles cut by the radius tokens, some merged two-wide; the oranje tile carries the X from the official logo (the beeldmerk), the salie tile the cirkel symbol, both in inkt
+      scales: tile 104px, gap space-1 (8px), radius-l (32px), symbol stroke 14 on a 120 grid scaled to the tile
+    -->
+    <rect class="t violet" x="496" y="-40" width="216" height="104"/>
+    <rect class="t hemel" x="720" y="-40" width="104" height="104"/>
+    <rect class="t zon" x="832" y="-40" width="140" height="104"/>
+
+    <rect class="t oranje" x="496" y="72" width="104" height="104"/>
+    <rect class="t salie" x="608" y="72" width="216" height="104"/>
+    <rect class="t violet" x="832" y="72" width="140" height="104"/>
+
+    <rect class="t zon" x="496" y="184" width="216" height="104"/>
+    <rect class="t hemel" x="720" y="184" width="104" height="104"/>
+    <rect class="t oranje" x="832" y="184" width="140" height="104"/>
+
+    <g class="x" transform="translate(409.43 45.56) scale(0.14525)"><path d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"/></g>
+    <g class="sym" transform="translate(672 80) scale(.7333)"><circle cx="60" cy="60" r="38"/></g>
+  </svg>
+  <div class="cv-text">
+    <div class="cv-name">2X8 2.0</div>
+    <div class="cv-tag">Websites die klanten brengen. Tools die uren besparen.</div>
+  </div>
+</div>
+<style>
+  .cv { position: relative; width: 960px; height: 288px; background: var(--kalk); overflow: hidden; }
+  .cv-art { position: absolute; inset: 0; }
+  .t { rx: var(--radius-l); ry: var(--radius-l); }
+  .violet { fill: var(--violet); } .oranje { fill: var(--oranje); } .hemel { fill: var(--hemel); } .salie { fill: var(--salie); } .zon { fill: var(--zon); }
+  .x { fill: var(--inkt); }
+  .sym { fill: none; stroke: var(--inkt); stroke-width: 14; }
+  .cv-text { position: absolute; left: 40px; bottom: 32px; max-width: 440px; }
+  .cv-name { font-family: var(--font-sans); font-weight: 900; font-size: 104px; line-height: .9; letter-spacing: -.04em; color: var(--inkt); }
+  .cv-tag { margin-top: 14px; font-family: var(--font-sans); font-size: 14px; line-height: 20px; color: var(--inkt-zacht); }
+</style>

@@ -15,4 +15,6 @@
 
 return [
     'brevo_api_key' => 'xkeysib-...',
+    // Persoonlijke adressen die een blinde kopie van elke aanvraag krijgen.
+    'bcc'           => ['iemand@example.com'],
 ];

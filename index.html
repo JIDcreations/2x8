@@ -1,674 +1,500 @@
 <!doctype html>
-<html lang="nl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title data-i18n="meta.title">2X8 | Digitale interfaces, creatie en implementatie</title>
-    <meta
-      name="description"
-      data-i18n-attr="content:meta.description"
-      content="2X8 is de studio van Florian en Jasper. We bouwen websites, webshops, platformen en apps, en we adviseren over software zoals Odoo en Notion, AI-workflows en AI SEO."
-    />
-    <link rel="canonical" href="https://2x8.be/" />
-    <link rel="alternate" hreflang="nl" href="https://2x8.be/" />
-    <link rel="alternate" hreflang="fr" href="https://2x8.be/fr/" />
-    <link rel="alternate" hreflang="en" href="https://2x8.be/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://2x8.be/" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="theme-color" content="#0A0A0A" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" data-i18n-attr="content:meta.title" content="2X8 | Digitale interfaces, creatie en implementatie" />
-    <meta
-      property="og:description"
-      data-i18n-attr="content:meta.description"
-      content="2X8 is de studio van Florian en Jasper. We bouwen websites, webshops, platformen en apps, en we adviseren over software zoals Odoo en Notion, AI-workflows en AI SEO."
-    />
-    <meta property="og:url" content="https://2x8.be/" />
-    <meta property="og:locale" content="nl_BE" />
-    <script>
-      document.documentElement.classList.add("js");
-      try {
-        if (sessionStorage.getItem("2x8-intro")) document.documentElement.classList.add("intro-seen");
-      } catch (e) {}
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=JetBrains+Mono:wght@500&display=swap"
-    />
-    <link rel="stylesheet" href="css/styles.css?v=33" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8GZKB8CKW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2X8 | Websites die klanten brengen, tools die uren besparen</title>
+  <meta name="description" content="2X8 is een studio uit Gent. We bouwen websites die klanten brengen en tools die uren werk besparen. Allebei leveren ze je meer winst op.">
+  <link rel="canonical" href="https://2x8.be/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://2x8.be/">
+  <meta property="og:title" content="2X8 | Meer klanten. Minder werk.">
+  <meta property="og:description" content="We bouwen websites die klanten brengen en tools die uren werk besparen.">
+  <meta property="og:locale" content="nl_BE">
+  <meta name="theme-color" content="#EAEAE7">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-      gtag('config', 'G-L8GZKB8CKW');
-    </script>
-    <!-- seo:start -->
-    <meta property="og:image" content="https://2x8.be/assets/og/2x8-og-v1.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://2x8.be/assets/og/2x8-og-v1.png" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://2x8.be/#org",
-          "name": "2X8",
-          "url": "https://2x8.be/",
-          "email": "hello@2x8.be",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://2x8.be/assets/og/2x8-logo-v1.png",
-            "width": 512,
-            "height": 512
-          },
-          "image": "https://2x8.be/assets/og/2x8-og-v1.png",
-          "founder": [
-            {
-              "@type": "Person",
-              "name": "Florian Bracke",
-              "jobTitle": "Development & consultancy"
-            },
-            {
-              "@type": "Person",
-              "name": "Jasper Impens",
-              "jobTitle": "Design & front-end"
-            }
-          ],
-          "numberOfEmployees": {
-            "@type": "QuantitativeValue",
-            "value": 2
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "BE"
-          },
-          "knowsLanguage": [
-            "nl-BE",
-            "fr-BE",
-            "en"
-          ],
-          "knowsAbout": [
-            "Websites",
-            "Webshops",
-            "Platformen",
-            "Apps",
-            "Software",
-            "AI-workflows",
-            "AI SEO",
-            "UI design",
-            "Branding",
-            "Figma",
-            "Front-end",
-            "Motion",
-            "Typografie",
-            "Prototyping",
-            "Art direction",
-            "Back-end",
-            "Odoo",
-            "Automatisatie",
-            "Architectuur",
-            "Consultancy",
-            "DevOps"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "sales",
-            "email": "hello@2x8.be",
-            "availableLanguage": [
-              "Dutch",
-              "French",
-              "English"
-            ],
-            "url": "https://2x8.be/contact"
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://2x8.be/#website",
-          "url": "https://2x8.be/",
-          "name": "2X8",
-          "publisher": {
-            "@id": "https://2x8.be/#org"
-          },
-          "inLanguage": "nl"
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://2x8.be/#page",
-          "url": "https://2x8.be/",
-          "name": "2X8 | Digitale interfaces, creatie en implementatie",
-          "description": "2X8 is de studio van Florian en Jasper. We bouwen websites, webshops, platformen en apps, en we adviseren over software zoals Odoo en Notion, AI-workflows en AI SEO.",
-          "isPartOf": {
-            "@id": "https://2x8.be/#website"
-          },
-          "about": {
-            "@id": "https://2x8.be/#org"
-          },
-          "inLanguage": "nl"
-        }
-      ]
-    }
-    </script>
-    <!-- seo:end -->
-  </head>
-  <body>
-    <a class="skip" href="#main" data-i18n="nav.skip">Naar inhoud</a>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-system/tokens.css">
+  <link rel="stylesheet" href="design-system/components/bundle.css">
+  <link rel="stylesheet" href="css/site.css">
 
-    <div class="loader" data-loader aria-hidden="true">
-      <div class="loader__row">
-        <svg
-          class="logo"
-          viewBox="159 334 1602 412"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="2X8"
-          fill="currentColor"
-        >
-          <g class="logo-glyph" data-glyph="2">
-            <path
-              d="M631.88,744.78l-380.98.15c-52.35.02-91.61-45.1-87.77-96.29-2.19-28.65,6.69-54.62,26.04-75.51,28.99-30.05,71.29-43.61,111.25-55.85,51.43-15.75,102.96-27.51,155.27-39.1,10.9-2.41,17.42-13.61,13.87-23.29-3.1-8.47-11.77-11.93-20.45-11.56-22.68.96-44.06,3.82-66.33,8.6l-128,27.43c-17.36,3.72-33.37,7.93-50.85,9.85-20.93,2.3-39.23-11.95-40.79-32.93v-25.42c1.76-30.44,16.49-57.62,41.62-74.98,18.68-12.91,40.37-20.64,63.89-20.65l302.95-.14c19.38,0,37.01,4.38,53.56,13.45,38.43,21.05,57.81,66.09,45.98,108.4-10.11,36.19-46.73,62.64-81.21,74.36l-66.15,22.48-147.71,49.12c-8.27,2.75-11.91,12.52-10.89,18.94,1.36,8.65,9.19,14.36,18.38,13.83,22.68-1.31,44.2-5.27,66.57-10.36l117.29-26.66,64.75-13.68c21.14-4.47,41.94,12.48,41.86,34.46l-.32,83.93c-.08,20.36-19.17,41.43-41.83,41.44Z"
-            ></path>
-          </g>
-          <g class="logo-glyph" data-glyph="x">
-            <path
-              d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"
-            ></path>
-          </g>
-          <g class="logo-glyph" data-glyph="8">
-            <path
-              d="M1635.18,745.06l-290.89.07c-27.09,0-52.74-8.86-74.04-24.55-30.01-22.11-46.01-58.27-42.46-95.02,3.32-34.45,23.75-63.69,52.83-81.64,2.55-1.57,3.42-3.89,3.5-6.2.12-3.04-1.84-4.54-4.61-6.46-20.18-13.94-35.81-33.55-43.04-57.25-11.88-38.91.54-79.82,31.34-106.97,22.31-19.66,51.65-31.85,82.6-31.86l286.92-.1c65.97-.02,123.62,53.95,115.95,119.41-3.75,32.06-22.58,58.76-48.59,77.06-2.43,1.71-3.72,3.83-3.83,6.1-.15,3.2,1.35,4.97,4.4,6.88,29.71,18.58,50.15,49.54,51.82,85.03,3.06,65.11-57.46,115.48-121.9,115.5ZM1559.6,495.95c20.03-.13,31.67-19.82,30.92-37.61-.75-17.97-13.09-34.87-32.21-34.9l-127.53-.21c-20.93-.03-34.17,16.8-34.51,36.19-.38,21.38,14.88,37.53,37.01,37.38l126.32-.84ZM1558.77,656.39c20.02-.03,32.05-19.01,31.87-36.75-.18-18.39-12.84-35.86-32.39-35.88l-128.76-.14c-20.41-.02-33.35,16.85-33.58,36.01-.23,18.54,12.03,37,32.34,36.97l130.52-.21Z"
-            ></path>
-          </g>
-        </svg>
-        <span class="loader__dec" data-loader-dec>000</span>
-      </div>
-      <div class="loader__row">
-        <span class="loader__bits" data-loader-bits>00000000</span>
-      </div>
-    </div>
+  <script>
+    /* Beweging enkel met JavaScript en zonder reduced motion. Valt GSAP weg, dan toont de pagina zich na 2,5 s toch. */
+    (function (d) {
+      d.classList.add("js");
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        d.classList.add("anim", "beweeg");
+        setTimeout(function () { d.classList.remove("anim"); }, 2500);
+      }
+    })(document.documentElement);
+  </script>
 
-    <header class="nav" data-nav>
-      <a href="/" class="nav__logo" aria-label="2X8 home"><svg
-          class="logo"
-          viewBox="159 334 1602 412"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="2X8"
-          fill="currentColor"
-        >
-          <g class="logo-glyph" data-glyph="2">
-            <path
-              d="M631.88,744.78l-380.98.15c-52.35.02-91.61-45.1-87.77-96.29-2.19-28.65,6.69-54.62,26.04-75.51,28.99-30.05,71.29-43.61,111.25-55.85,51.43-15.75,102.96-27.51,155.27-39.1,10.9-2.41,17.42-13.61,13.87-23.29-3.1-8.47-11.77-11.93-20.45-11.56-22.68.96-44.06,3.82-66.33,8.6l-128,27.43c-17.36,3.72-33.37,7.93-50.85,9.85-20.93,2.3-39.23-11.95-40.79-32.93v-25.42c1.76-30.44,16.49-57.62,41.62-74.98,18.68-12.91,40.37-20.64,63.89-20.65l302.95-.14c19.38,0,37.01,4.38,53.56,13.45,38.43,21.05,57.81,66.09,45.98,108.4-10.11,36.19-46.73,62.64-81.21,74.36l-66.15,22.48-147.71,49.12c-8.27,2.75-11.91,12.52-10.89,18.94,1.36,8.65,9.19,14.36,18.38,13.83,22.68-1.31,44.2-5.27,66.57-10.36l117.29-26.66,64.75-13.68c21.14-4.47,41.94,12.48,41.86,34.46l-.32,83.93c-.08,20.36-19.17,41.43-41.83,41.44Z"
-            ></path>
-          </g>
-          <g class="logo-glyph" data-glyph="x">
-            <path
-              d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"
-            ></path>
-          </g>
-          <g class="logo-glyph" data-glyph="8">
-            <path
-              d="M1635.18,745.06l-290.89.07c-27.09,0-52.74-8.86-74.04-24.55-30.01-22.11-46.01-58.27-42.46-95.02,3.32-34.45,23.75-63.69,52.83-81.64,2.55-1.57,3.42-3.89,3.5-6.2.12-3.04-1.84-4.54-4.61-6.46-20.18-13.94-35.81-33.55-43.04-57.25-11.88-38.91.54-79.82,31.34-106.97,22.31-19.66,51.65-31.85,82.6-31.86l286.92-.1c65.97-.02,123.62,53.95,115.95,119.41-3.75,32.06-22.58,58.76-48.59,77.06-2.43,1.71-3.72,3.83-3.83,6.1-.15,3.2,1.35,4.97,4.4,6.88,29.71,18.58,50.15,49.54,51.82,85.03,3.06,65.11-57.46,115.48-121.9,115.5ZM1559.6,495.95c20.03-.13,31.67-19.82,30.92-37.61-.75-17.97-13.09-34.87-32.21-34.9l-127.53-.21c-20.93-.03-34.17,16.8-34.51,36.19-.38,21.38,14.88,37.53,37.01,37.38l126.32-.84ZM1558.77,656.39c20.02-.03,32.05-19.01,31.87-36.75-.18-18.39-12.84-35.86-32.39-35.88l-128.76-.14c-20.41-.02-33.35,16.85-33.58,36.01-.23,18.54,12.03,37,32.34,36.97l130.52-.21Z"
-            ></path>
-          </g>
-        </svg></a>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://2x8.be/#studio",
+    "name": "2X8",
+    "url": "https://2x8.be/",
+    "email": "hello@2x8.be",
+    "logo": "https://2x8.be/design-system/logo/2x8-logo-inkt.svg",
+    "description": "We bouwen websites die klanten brengen en tools die uren werk besparen.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Gent", "addressCountry": "BE" },
+    "areaServed": "BE",
+    "founder": [
+      { "@type": "Person", "name": "Jasper Impens", "jobTitle": "Design en front-end" },
+      { "@type": "Person", "name": "Florian Bracke", "jobTitle": "Development en consultancy" }
+    ]
+  }
+  </script>
+</head>
+<body class="x8">
+  <a class="skip" href="#inhoud">Naar inhoud</a>
 
-      <nav aria-label="Hoofdmenu" data-i18n-attr="aria-label:nav.menuLabel">
-        <ul class="nav__links">
-          <li><a href="/werk" data-i18n="nav.work">Werk</a></li>
-          <li><a href="/diensten/" data-i18n="nav.services">Diensten</a></li>
-          <li><a href="/studio" data-i18n="nav.studio">Studio</a></li>
-          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
-        </ul>
+  <!-- nav:start -->
+  <header class="nav">
+    <div class="nav__in">
+      <a class="nav__logo" href="index.html" aria-label="2X8, naar de homepage">
+        <span class="x8-logo x8-logo--klein" data-logo><img src="design-system/logo/2x8-logo-inkt.svg" alt="2X8" width="109" height="28"></span>
+      </a>
+      <nav class="nav__links" aria-label="Hoofdmenu">
+        <a href="websites.html">Websites</a>
+        <a href="tools.html">Tools</a>
+        <a href="werk.html">Werk</a>
+        <a href="over-ons.html">Over ons</a>
       </nav>
-
-      <div class="nav__right">
-        <nav class="langs" aria-label="Taal / Langue / Language">
-          <ul class="langs__list">
-          <li><a class="langs__link is-current" href="/" hreflang="nl" lang="nl" aria-current="true">NL</a></li>
-          <li><a class="langs__link" href="/fr/" hreflang="fr" lang="fr">FR</a></li>
-          <li><a class="langs__link" href="/en/" hreflang="en" lang="en">EN</a></li>
-          </ul>
-        </nav>
-        <a class="btn btn--sm" href="/contact" data-magnetic data-i18n="cta.start">Start een project</a>
-        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-open data-i18n="nav.open">
-          Menu
-        </button>
-      </div>
-    </header>
-
-    <div class="menu theme-ink" id="menu" data-menu hidden>
-      <button class="menu__close" type="button" data-menu-close data-i18n="nav.close">Sluit</button>
-      <ul class="menu__links">
-        <li><a href="/werk" data-menu-link><span data-i18n="nav.work">Werk</span></a></li>
-        <li><a href="/diensten/" data-menu-link><span data-i18n="nav.services">Diensten</span></a></li>
-        <li><a href="/studio" data-menu-link><span data-i18n="nav.studio">Studio</span></a></li>
-        <li><a href="/contact" data-menu-link><span data-i18n="nav.contact">Contact</span></a></li>
-      </ul>
-      <div class="menu__foot">
-        <a class="link" href="mailto:hello@2x8.be">hello@2x8.be</a>
-      </div>
+      <a class="x8-knop x8-knop--kleur nav__knop" href="contact.html">Plan een gesprek</a>
+      <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
     </div>
+    <div class="menu" id="menu" hidden>
+      <nav class="x8-lijst menu__lijst" aria-label="Menu">
+        <a class="x8-rij" href="websites.html"><span class="x8-rij__woord">Websites</span><span class="x8-rij__vak x8-k-oranje"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#monitor-smartphone"></use></svg></span></a>
+        <a class="x8-rij" href="tools.html"><span class="x8-rij__woord">Tools</span><span class="x8-rij__vak x8-k-hemel"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#widget-5"></use></svg></span></a>
+        <a class="x8-rij" href="werk.html"><span class="x8-rij__woord">Werk</span><span class="x8-rij__vak x8-k-limoen"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#graph-up"></use></svg></span></a>
+        <a class="x8-rij" href="over-ons.html"><span class="x8-rij__woord">Over ons</span><span class="x8-rij__vak x8-k-violet"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#users-group-two-rounded"></use></svg></span></a>
+        <a class="x8-rij" href="contact.html"><span class="x8-rij__woord">Contact</span><span class="x8-rij__vak x8-k-zon"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#letter"></use></svg></span></a>
+      </nav>
+    </div>
+  </header>
+  <!-- nav:end -->
 
-    <main id="main">
-      <section class="hero" data-hero>
-        <div class="wrap">
-          <h1 class="hero__title display" data-hero-title>
-            <span data-i18n-html="hero.title">Digitale interfaces, <br class="br" />creatie en implementatie</span><span class="cursor" aria-hidden="true"></span>
+  <main id="inhoud">
+
+    <!-- 1. Hero -->
+    <section class="hero intro" aria-labelledby="hero-kop">
+      <div class="wrap hero__in">
+        <div class="hero__tekst">
+          <p class="t-label hero__label" data-in>Studio uit Gent. Jasper en Florian.</p>
+          <h1 id="hero-kop" class="hero__kop">
+            <span class="lijn"><span>Meer klanten.</span></span>
+            <span class="lijn"><span>Minder werk.</span></span>
           </h1>
-
-          <div class="hero__row grid">
-            <div class="hero__cta" data-hero-fade>
-              <a class="link" href="#work"><span data-i18n="hero.seeWork">Bekijk werk</span><span class="btn__arrow" aria-hidden="true">↓</span></a>
-              <a class="btn" href="/contact" data-magnetic
-                ><span data-i18n="cta.start">Start een project</span><span class="btn__arrow" aria-hidden="true">→</span></a
-              >
-            </div>
+          <p class="t-lead hero__lead" data-in>We bouwen <strong>websites</strong> die klanten brengen en <strong>tools</strong> die uren werk besparen. Allebei leveren ze je meer winst op.</p>
+          <div class="knoppen" data-in>
+            <a class="x8-knop x8-knop--kleur" href="contact.html">Plan een gesprek <span class="x8-knop__symbool" data-symbool="pijl-rechts" data-dikte="18"></span></a>
+            <a class="x8-knop x8-knop--rand" href="#tijd">Hoeveel tijd verlies jij?</a>
           </div>
         </div>
 
-        <div class="hero__mark" data-hero-mark aria-hidden="true">
-          <svg
-            class="logo"
-            viewBox="159 334 1602 412"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label
-            fill="currentColor"
-          >
-            <g class="logo-glyph" data-glyph="2">
-              <path
-                d="M631.88,744.78l-380.98.15c-52.35.02-91.61-45.1-87.77-96.29-2.19-28.65,6.69-54.62,26.04-75.51,28.99-30.05,71.29-43.61,111.25-55.85,51.43-15.75,102.96-27.51,155.27-39.1,10.9-2.41,17.42-13.61,13.87-23.29-3.1-8.47-11.77-11.93-20.45-11.56-22.68.96-44.06,3.82-66.33,8.6l-128,27.43c-17.36,3.72-33.37,7.93-50.85,9.85-20.93,2.3-39.23-11.95-40.79-32.93v-25.42c1.76-30.44,16.49-57.62,41.62-74.98,18.68-12.91,40.37-20.64,63.89-20.65l302.95-.14c19.38,0,37.01,4.38,53.56,13.45,38.43,21.05,57.81,66.09,45.98,108.4-10.11,36.19-46.73,62.64-81.21,74.36l-66.15,22.48-147.71,49.12c-8.27,2.75-11.91,12.52-10.89,18.94,1.36,8.65,9.19,14.36,18.38,13.83,22.68-1.31,44.2-5.27,66.57-10.36l117.29-26.66,64.75-13.68c21.14-4.47,41.94,12.48,41.86,34.46l-.32,83.93c-.08,20.36-19.17,41.43-41.83,41.44Z"
-              ></path>
-            </g>
-            <g class="logo-glyph" data-glyph="x">
-              <path
-                d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"
-              ></path>
-            </g>
-            <g class="logo-glyph" data-glyph="8">
-              <path
-                d="M1635.18,745.06l-290.89.07c-27.09,0-52.74-8.86-74.04-24.55-30.01-22.11-46.01-58.27-42.46-95.02,3.32-34.45,23.75-63.69,52.83-81.64,2.55-1.57,3.42-3.89,3.5-6.2.12-3.04-1.84-4.54-4.61-6.46-20.18-13.94-35.81-33.55-43.04-57.25-11.88-38.91.54-79.82,31.34-106.97,22.31-19.66,51.65-31.85,82.6-31.86l286.92-.1c65.97-.02,123.62,53.95,115.95,119.41-3.75,32.06-22.58,58.76-48.59,77.06-2.43,1.71-3.72,3.83-3.83,6.1-.15,3.2,1.35,4.97,4.4,6.88,29.71,18.58,50.15,49.54,51.82,85.03,3.06,65.11-57.46,115.48-121.9,115.5ZM1559.6,495.95c20.03-.13,31.67-19.82,30.92-37.61-.75-17.97-13.09-34.87-32.21-34.9l-127.53-.21c-20.93-.03-34.17,16.8-34.51,36.19-.38,21.38,14.88,37.53,37.01,37.38l126.32-.84ZM1558.77,656.39c20.02-.03,32.05-19.01,31.87-36.75-.18-18.39-12.84-35.86-32.39-35.88l-128.76-.14c-20.41-.02-33.35,16.85-33.58,36.01-.23,18.54,12.03,37,32.34,36.97l130.52-.21Z"
-              ></path>
-            </g>
-          </svg>
+        <ul class="hero__tegels" aria-label="Wat we doen">
+          <li class="kol kol--1">
+            <a class="x8-tegel x8-k-oranje" href="websites.html"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#monitor-smartphone"></use></svg></span><span class="x8-tegel__woord">Websites</span></a>
+            <a class="x8-tegel x8-k-petrol" href="websites.html#hosting"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#cloud-check"></use></svg></span><span class="x8-tegel__woord">Hosting</span></a>
+          </li>
+          <li class="kol kol--2">
+            <a class="x8-tegel x8-k-hemel" href="tools.html"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#widget-5"></use></svg></span><span class="x8-tegel__woord">Tools</span></a>
+            <a class="x8-tegel x8-k-wit" href="over-ons.html"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#users-group-two-rounded"></use></svg></span><span class="x8-tegel__woord">2 x 8</span></a>
+          </li>
+          <li class="kol kol--3">
+            <a class="x8-tegel x8-k-salie" href="tools.html"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#routing-2"></use></svg></span><span class="x8-tegel__woord">Automatisatie</span></a>
+            <a class="x8-tegel x8-k-limoen" href="werk.html"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#graph-up"></use></svg></span><span class="x8-tegel__woord">Resultaat</span></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. Herken je dit? Problemen wisselen terwijl je scrolt -->
+    <section class="pijn" aria-labelledby="pijn-kop">
+      <div class="pijn__plak">
+        <div class="wrap pijn__in">
+          <h2 class="t-label pijn__label" id="pijn-kop">Herken je dit?</h2>
+          <ol class="pijn__lijst">
+            <li class="pijn__item">
+              <p class="pijn__zin">Je typt elke offerte opnieuw over.</p>
+              <span class="x8-tegel x8-k-salie pijn__tegel"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#bill-list"></use></svg></span><span class="x8-tegel__woord">Offertes</span></span>
+            </li>
+            <li class="pijn__item">
+              <p class="pijn__zin">Je Excel gaat rond via mail.</p>
+              <span class="x8-tegel x8-k-hemel pijn__tegel"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#document-text"></use></svg></span><span class="x8-tegel__woord">Documenten</span></span>
+            </li>
+            <li class="pijn__item">
+              <p class="pijn__zin">Je plant je ronde op gevoel.</p>
+              <span class="x8-tegel x8-k-violet pijn__tegel"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#map-arrow-square"></use></svg></span><span class="x8-tegel__woord">Routes</span></span>
+            </li>
+            <li class="pijn__item">
+              <p class="pijn__zin">Je foto's staan in drie systemen.</p>
+              <span class="x8-tegel x8-k-leisteen pijn__tegel"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#folder-with-files"></use></svg></span><span class="x8-tegel__woord">Eén plek</span></span>
+            </li>
+            <li class="pijn__item pijn__item--slot">
+              <p class="pijn__zin"><strong>Dat hoeft niet meer.</strong></p>
+              <span class="x8-tegel x8-k-limoen pijn__tegel"><span class="x8-tegel__symbool"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#check-circle"></use></svg></span><span class="x8-tegel__woord">Resultaat</span></span>
+            </li>
+          </ol>
+          <p class="t-label pijn__teller" aria-hidden="true"><span>1</span> / 5</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section wrap rule">
-        <div class="intro grid">
-          <span class="byte" aria-hidden="true">00000010 × 00001000</span>
-          <p class="intro__text" data-words data-i18n="intro.text">
-            Wij zijn een klein team, maar een volledig pakket. We ontwerpen en bouwen interfaces waar mensen graag mee
-            werken, en we richten de software in die erachter draait. Het is ons doel om jouw zaak efficiënt te laten
-            draaien.
-          </p>
-        </div>
-      </section>
-
-      <section class="cases rule" id="work">
-        <div class="wrap cases__head">
-          <h2 class="display h-lg cases__head-title" data-split data-i18n="cases.title">Werk.</h2>
-        </div>
-
-        <div class="wrap cases__grid">
-          <article class="case-tile" data-wipe-up>
-            <div class="case-tile__bar">
-              <span class="mono case-tile__idx">01 / 11</span>
-              <h3 class="case-tile__name">Elevator Antwerp</h3>
-              <span class="tag" data-i18n="tag.website">Website</span>
-            </div>
-            <a class="case-tile__media" href="/work/elevator-antwerp" data-i18n-attr="aria-label:case.elevator-antwerp.aria" aria-label="Elevator Antwerp, bekijk case">
-              <img
-                src="assets/Elevator-Antwerp/Cover-elevator.png"
-                data-i18n-attr="alt:case.elevator-antwerp.alt"
-                alt="Elevator Antwerp, mobiele galerie voor hedendaagse kunst"
-                loading="lazy"
-                decoding="async"
-                width="1671"
-                height="941"
-              />
-            </a>
-            <div class="case-tile__foot">
-              <p class="case-tile__quote" data-i18n-html="case.elevator-antwerp.quote">&ldquo;Telling stories with contemporary art.&rdquo;</p>
-              <a class="link" href="/work/elevator-antwerp"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="case-tile" data-wipe-up>
-            <div class="case-tile__bar">
-              <span class="mono case-tile__idx">02 / 11</span>
-              <h3 class="case-tile__name">Jasper Impens</h3>
-              <span class="tag" data-i18n="tag.portfolio">Portfolio</span>
-            </div>
-            <a class="case-tile__media" href="/work/jasper-impens" data-i18n-attr="aria-label:case.jasper-impens.aria" aria-label="Portfolio van Jasper Impens, bekijk case">
-              <img
-                src="assets/Jasper-site/Cover_Jasper1.png"
-                data-i18n-attr="alt:case.jasper-impens.alt" alt="Portfolio van Jasper Impens"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-              <video data-hover-reel src="assets/Jasper-site/impens-web.mp4" aria-hidden="true" muted loop playsinline preload="metadata"></video>
-            </a>
-            <div class="case-tile__foot">
-              <p class="case-tile__quote" data-i18n-html="case.jasper-impens.quote">&ldquo;Everything worked out to the last detail, so it simply works.&rdquo;</p>
-              <a class="link" href="/work/jasper-impens"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="case-tile" data-wipe-up>
-            <div class="case-tile__bar">
-              <span class="mono case-tile__idx">03 / 11</span>
-              <h3 class="case-tile__name">WEB.WORK</h3>
-              <span class="tag" data-i18n="tag.ownbusiness">Eigen zaak</span>
-            </div>
-            <a class="case-tile__media" href="/work/web-work" data-i18n-attr="aria-label:case.web-work.aria" aria-label="WEB.WORK, bekijk case">
-              <img
-                src="assets/Web-Work/Cover-webwork.png"
-                data-i18n-attr="alt:case.web-work.alt"
-                alt="WEB.WORK, de eigen zaak van Florian Bracke"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-            </a>
-            <div class="case-tile__foot">
-              <p class="case-tile__quote" data-i18n-html="case.web-work.quote">&ldquo;Ik bouw je site. Zelf.&rdquo;</p>
-              <a class="link" href="/work/web-work"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="case-tile" data-wipe-up>
-            <div class="case-tile__bar">
-              <span class="mono case-tile__idx">04 / 11</span>
-              <h3 class="case-tile__name">Specter</h3>
-              <span class="tag" data-i18n="tag.webshop">Webshop</span>
-            </div>
-            <a class="case-tile__media" href="/work/specter" data-i18n-attr="aria-label:case.specter.aria" aria-label="Specter, bekijk case">
-              <img
-                src="assets/Specter/Cover-specter.png"
-                data-i18n-attr="alt:case.specter.alt" alt="Specter, brutalistische tailoring webshop"
-                loading="lazy"
-                decoding="async"
-                width="1672"
-                height="941"
-              />
-              <video data-hover-reel src="assets/Specter/specter-web.mp4" aria-hidden="true" muted loop playsinline preload="metadata"></video>
-            </a>
-            <div class="case-tile__foot">
-              <p class="case-tile__quote" data-i18n-html="case.specter.quote">&ldquo;Cut like architecture.&rdquo;</p>
-              <a class="link" href="/work/specter"><span data-i18n="cases.seeCase">Bekijk case</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
+    <!-- 3. Het interactieve moment -->
+    <section class="sectie tijd" id="tijd" aria-labelledby="tijd-kop">
+      <div class="wrap">
+        <div class="kop-blok">
+          <p class="t-label">Reken even mee</p>
+          <h2 id="tijd-kop" class="t-kop">Hoeveel tijd <strong>verlies</strong> jij?</h2>
+          <p class="t-lead">Schuif en kijk wat herhaalwerk je elk jaar kost. Het zijn jouw cijfers, niet de onze.</p>
         </div>
 
-        <div class="wrap cases__foot">
-          <a class="btn" href="/werk" data-magnetic><span data-i18n="cases.all">Bekijk alle cases</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-        </div>
-      </section>
-
-      <!-- Tijdelijk verborgen op verzoek: haal het hidden-attribuut weg om "Blader zelf even mee" terug te zetten. -->
-      <section class="lab rule" id="lab" hidden>
-        <div class="wrap lab__head">
-          <h2 class="display h-lg" data-split data-i18n="lab.title">Blader zelf even mee.</h2>
-        </div>
-
-        <div class="wrap">
-          <div class="finder" data-finder>
-            <div class="finder__bar">
-              <div class="finder__dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="finder__path mono" data-finder-path data-i18n-html="lab.path">2X8 &rsaquo; Werk</div>
-              <label class="finder__search">
-                <span class="sr-only" data-i18n="lab.searchLabel">Zoek bestanden</span>
-                <input type="text" class="finder__search-input" data-i18n-attr="placeholder:lab.searchPlaceholder" placeholder="Zoek&hellip;" data-finder-search />
-              </label>
+        <form class="tijd__raster" id="rekenmodule" onsubmit="return false">
+          <div class="tijd__regelaars">
+            <div class="regelaar">
+              <label for="r-offertes">Offertes per week</label>
+              <output for="r-offertes" data-toon="offertes">5</output>
+              <input type="range" id="r-offertes" name="offertes" min="0" max="30" step="1" value="5">
             </div>
-
-            <div class="finder__body">
-              <nav class="finder__sidebar" data-i18n-attr="aria-label:lab.projects" aria-label="Projecten">
-                <span class="mono muted finder__sidebar-label" data-i18n="lab.favourites">Favorieten</span>
-                <ul class="finder__sidebar-list">
-                  <li><button type="button" class="finder__sidebar-item is-active" data-finder-project="specter" aria-current="true">Specter</button></li>
-                  <li><button type="button" class="finder__sidebar-item" data-finder-project="studio-klei">Studio Klei</button></li>
-                  <li><button type="button" class="finder__sidebar-item" data-finder-project="keikoku">Keikoku Atelier</button></li>
-                  <li><button type="button" class="finder__sidebar-item" data-finder-project="jasper-impens">Jasper Impens</button></li>
-                </ul>
-                <span class="mono muted finder__sidebar-label" data-i18n="lab.other">Overig</span>
-                <ul class="finder__sidebar-list">
-                  <li><button type="button" class="finder__sidebar-item" data-finder-project="readme">README.md</button></li>
-                </ul>
-              </nav>
-
-              <div class="finder__main">
-                <div class="finder__grid is-active" data-finder-grid="specter">
-                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Specter/Cover-specter.png" data-i18n-attr="data-finder-alt:case.specter.alt" data-finder-alt="Specter, brutalistische tailoring webshop">
-                    <span class="finder__file-icon" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">Cover-specter.png</span>
-                  </button>
-                  <button type="button" class="finder__file" data-finder-preview="video" data-finder-src="assets/Specter/specter-web.mp4">
-                    <span class="finder__file-icon" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">specter-web.mp4</span>
-                  </button>
-                  <a class="finder__file finder__file--link" href="/work/specter">
-                    <span class="finder__file-icon finder__file-icon--link" aria-hidden="true"></span>
-                    <span class="finder__file-name mono" data-i18n="lab.caseLink">Bekijk-case.link</span>
-                  </a>
-                </div>
-
-                <div class="finder__grid" data-finder-grid="studio-klei">
-                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/StudioKlei/COVER-KLEI1.png" data-i18n-attr="data-finder-alt:case.studio-klei.alt" data-finder-alt="Studio Klei, handgemaakt keramiek uit Gent">
-                    <span class="finder__file-icon" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">COVER-KLEI1.png</span>
-                  </button>
-                  <a class="finder__file finder__file--link" href="/work/studio-klei">
-                    <span class="finder__file-icon finder__file-icon--link" aria-hidden="true"></span>
-                    <span class="finder__file-name mono" data-i18n="lab.caseLink">Bekijk-case.link</span>
-                  </a>
-                </div>
-
-                <div class="finder__grid" data-finder-grid="keikoku">
-                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Keikuko/Cover_Keukuko1.png" data-i18n-attr="data-finder-alt:case.keikoku.alt" data-finder-alt="Keikoku Atelier, architectuurstudio">
-                    <span class="finder__file-icon" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">Cover_Keukuko1.png</span>
-                  </button>
-                  <button type="button" class="finder__file" data-finder-preview="video" data-finder-src="assets/Keikuko/keikuko-web.mp4">
-                    <span class="finder__file-icon" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">keikuko-web.mp4</span>
-                  </button>
-                  <a class="finder__file finder__file--link" href="/work/keikoku">
-                    <span class="finder__file-icon finder__file-icon--link" aria-hidden="true"></span>
-                    <span class="finder__file-name mono" data-i18n="lab.caseLink">Bekijk-case.link</span>
-                  </a>
-                </div>
-
-                <div class="finder__grid" data-finder-grid="jasper-impens">
-                  <button type="button" class="finder__file" data-finder-preview="image" data-finder-src="assets/Jasper-site/Cover_Jasper1.png" data-i18n-attr="data-finder-alt:case.jasper-impens.alt" data-finder-alt="Portfolio van Jasper Impens">
-                    <span class="finder__file-icon" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">Cover_Jasper1.png</span>
-                  </button>
-                  <button type="button" class="finder__file" data-finder-preview="video" data-finder-src="assets/Jasper-site/impens-web.mp4">
-                    <span class="finder__file-icon" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">impens-web.mp4</span>
-                  </button>
-                  <a class="finder__file finder__file--link" href="/work/jasper-impens">
-                    <span class="finder__file-icon finder__file-icon--link" aria-hidden="true"></span>
-                    <span class="finder__file-name mono" data-i18n="lab.caseLink">Bekijk-case.link</span>
-                  </a>
-                </div>
-
-                <div class="finder__grid" data-finder-grid="readme">
-                  <button type="button" class="finder__file" data-finder-preview="text" data-i18n-attr="data-finder-text:lab.readme" data-finder-text="2X8 &mdash; klein team, volledig pakket.&#10;&#10;Twee makers, acht bits per byte. Open een map om te bladeren, of mail hello@2x8.be als je iets wil bouwen.">
-                    <span class="finder__file-icon" aria-hidden="true"></span>
-                    <span class="finder__file-name mono">README.md</span>
-                  </button>
-                </div>
-
-                <div class="finder__preview" data-finder-preview-pane hidden>
-                  <button type="button" class="link finder__back" data-finder-back><span class="btn__arrow" aria-hidden="true">&larr;</span><span data-i18n="lab.back">Terug</span></button>
-                  <div class="finder__preview-body" data-finder-preview-body></div>
-                </div>
-              </div>
+            <div class="regelaar">
+              <label for="r-minuten">Minuten per offerte</label>
+              <output for="r-minuten" data-toon="minuten">30 min</output>
+              <input type="range" id="r-minuten" name="minuten" min="5" max="120" step="5" value="30">
             </div>
-
-            <div class="finder__status mono muted" data-finder-status aria-live="polite" data-i18n="lab.items">3 items</div>
+            <div class="regelaar">
+              <label for="r-overtypen">Uren per week overtypen, zoeken en doorsturen</label>
+              <output for="r-overtypen" data-toon="overtypen">3 u</output>
+              <input type="range" id="r-overtypen" name="overtypen" min="0" max="20" step="1" value="3">
+            </div>
+            <div class="regelaar">
+              <label for="r-tarief">Wat een uur van jou waard is</label>
+              <output for="r-tarief" data-toon="tarief">60 euro</output>
+              <input type="range" id="r-tarief" name="tarief" min="20" max="150" step="5" value="60">
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section class="marquee" aria-label="Tools waar we mee werken" data-i18n-attr="aria-label:marquee.label" data-marquee>
-        <div class="marquee__track" data-marquee-track>
-          <ul class="marquee__set">
-            <li class="marquee__item">Odoo</li>
-            <li class="marquee__item">Softtouch</li>
-            <li class="marquee__item">Figma</li>
-            <li class="marquee__item">WordPress</li>
-            <li class="marquee__item">Netlify</li>
-            <li class="marquee__item">n8n</li>
-            <li class="marquee__item">Claude</li>
-            <li class="marquee__item">Shopify</li>
+          <div class="x8-bento tijd__bento" aria-live="polite">
+            <div class="x8-widget x8-k-hemel">
+              <span class="x8-widget__label">Uren per week</span>
+              <span class="x8-widget__getal" data-uit="week">5,5</span>
+            </div>
+            <div class="x8-widget x8-k-salie">
+              <span class="x8-widget__label">Uren per jaar</span>
+              <span class="x8-widget__getal" data-uit="jaar">253</span>
+            </div>
+            <div class="x8-widget x8-k-limoen">
+              <span class="x8-widget__label">Werkdagen per jaar</span>
+              <span class="x8-widget__getal" data-uit="dagen">32</span>
+            </div>
+            <div class="x8-widget x8-k-zon x8-widget--breed tijd__kost">
+              <span class="x8-widget__label">Wat dat je per jaar kost, in euro</span>
+              <span class="x8-widget__getal" data-uit="kost">15.180</span>
+            </div>
+            <div class="x8-widget x8-k-wit x8-widget--breed tijd__uitleg">
+              <p class="x8-widget__tekst">Die tijd kan je <strong>terugkrijgen</strong>. In een gesprek van een half uur zoeken we waar.</p>
+              <span class="t-label tijd__voet">Gerekend met 46 werkweken en dagen van 8 uur.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 4. Twee pijlers -->
+    <section class="sectie pijlers" id="diensten" aria-label="Wat we doen">
+      <div class="wrap pijlers__raster">
+
+        <article class="pijler" aria-labelledby="pijler-web">
+          <div class="pijler__kop">
+            <span class="pijler__vak x8-k-oranje"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#monitor-smartphone"></use></svg></span>
+            <p class="t-label">Websites</p>
+          </div>
+          <h2 id="pijler-web" class="t-kop">Websites die <strong>klanten</strong> brengen</h2>
+          <p class="pijler__tekst">Je site moet één ding doen: mensen laten bellen, mailen of kopen. Wij ontwerpen hem, bouwen hem en houden hem online. Jij hoeft er niet mee bezig te zijn.</p>
+          <ul class="pijler__lijst">
+            <li>Zegt in tien seconden wat je doet</li>
+            <li>Gevonden in Google en in AI-antwoorden</li>
+            <li>Snel op elke gsm</li>
+            <li>Hosting, updates en onderhoud erbij</li>
           </ul>
-          <ul class="marquee__set" aria-hidden="true">
-            <li class="marquee__item">Odoo</li>
-            <li class="marquee__item">Softtouch</li>
-            <li class="marquee__item">Figma</li>
-            <li class="marquee__item">WordPress</li>
-            <li class="marquee__item">Netlify</li>
-            <li class="marquee__item">n8n</li>
-            <li class="marquee__item">Claude</li>
-            <li class="marquee__item">Shopify</li>
+          <div class="pijler__voet">
+            <p class="pijler__feit"><strong>2 dagen</strong> tot je site online staat. Niet 2 weken.</p>
+            <p class="t-label pijler__prijs">Onepager vanaf 900 euro, website vanaf 1.900 euro, webshop vanaf 2.900 euro. Excl. btw.</p>
+            <a class="t-label pijler__link" href="websites.html">Alles over websites</a>
+          </div>
+        </article>
+
+        <article class="pijler" id="tools" aria-labelledby="pijler-tools">
+          <div class="pijler__kop">
+            <span class="pijler__vak x8-k-hemel"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#widget-5"></use></svg></span>
+            <p class="t-label">Tools en automatisatie</p>
+          </div>
+          <h2 id="pijler-tools" class="t-kop">Tools die <strong>uren</strong> besparen</h2>
+          <p class="pijler__tekst">We kijken hoe je nu werkt en zoeken waar je tijd verliest. Dat programmeren we weg, met de software die je al gebruikt.</p>
+          <ul class="pijler__lijst">
+            <li>Je contactformulier maakt de offerte</li>
+            <li>Een nette pdf in plaats van een Excel</li>
+            <li>Een route uit je klantenlijst in Google Sheets</li>
+            <li>Foto's en documenten op één plek</li>
           </ul>
+          <div class="pijler__voet">
+            <p class="pijler__feit"><strong>Gratis</strong> pilot voor de eerste bedrijven.</p>
+            <a class="t-label pijler__link" href="#demo">Bekijk hoe een offerte zichzelf maakt</a>
+            <a class="t-label pijler__link" href="tools.html">Alles over tools</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4b. Een tool die werkt, op de pagina zelf -->
+    <section class="sectie demo" id="demo" aria-labelledby="demo-kop">
+      <div class="wrap">
+        <div class="kop-blok kop-blok--rij">
+          <div>
+            <p class="t-label">Demo, met voorbeeldgegevens</p>
+            <h2 id="demo-kop" class="t-kop">Een offerte die <strong>zichzelf</strong> maakt</h2>
+          </div>
+          <p class="t-body">Iemand vult je contactformulier in. Een paar seconden later ligt er een offerte klaar om te versturen. Zo werkt onze eigen zaak ook.</p>
         </div>
-      </section>
-      <section class="section wrap rule" id="studio">
-        <div class="teaser-head">
-          <h2 class="display h-lg" data-split data-i18n="studio.title">2 mensen. 8 bits.</h2>
-        </div>
-        <div class="studio-layout">
-          <div class="studio-backdrop theme-ink" data-parallax-group>
-            <div class="studio-portraits studio-portraits--equal">
-              <div class="studio-portrait studio-portrait--a" data-wipe-up data-parallax-y="-1">
-                <div class="studio-portrait__media">
-                  <img
-                    src="assets/Studio/jasper.jpeg"
-                    alt="Jasper"
-                    loading="lazy"
-                    decoding="async"
-                    width="1122"
-                    height="1402"
-                    data-parallax
-                  />
-                </div>
-                <strong class="studio-portrait__name">Jasper</strong>
-                <span class="studio-portrait__role" data-i18n-html="studio.role.jasper">Design &amp; front-end</span>
-              </div>
-              <svg class="studio-x" viewBox="706 334 495 411" xmlns="http://www.w3.org/2000/svg"
-                   aria-hidden="true" focusable="false" fill="currentColor">
-                <path d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"></path>
-              </svg>
-              <div class="studio-portrait studio-portrait--b" data-wipe-up data-parallax-y="1">
-                <div class="studio-portrait__media">
-                  <img
-                    src="assets/Studio/florian.jpeg?v=2"
-                    alt="Florian"
-                    loading="lazy"
-                    decoding="async"
-                    width="1122"
-                    height="1402"
-                    data-parallax
-                  />
-                </div>
-                <strong class="studio-portrait__name">Florian</strong>
-                <span class="studio-portrait__role" data-i18n-html="studio.role.florian">Development &amp; consultancy</span>
-              </div>
-            </div>
+
+        <div class="demo__raster" data-demo>
+          <div class="demo__kaart demo__form" aria-label="Contactformulier">
+            <p class="t-label demo__titel">Contactformulier</p>
+            <dl class="demo__velden">
+              <div><dt>Naam</dt><dd data-typ="Sofie Peeters">Sofie Peeters</dd></div>
+              <div><dt>Wat wil je laten doen?</dt><dd data-typ="Badkamer schilderen">Badkamer schilderen</dd></div>
+              <div><dt>Oppervlakte</dt><dd data-typ="24 m²">24 m²</dd></div>
+              <div><dt>Wanneer?</dt><dd data-typ="Maart">Maart</dd></div>
+            </dl>
+            <span class="demo__verstuur">Verstuur</span>
           </div>
 
-          <div class="studio-side">
-            <div class="studio-stats" data-counter>
-              <div class="studio-stat">
-                <span class="studio-stat__num" data-count-to="2">0</span>
-                <span class="mono muted" data-i18n="studio.stat.makers">Makers</span>
-              </div>
-              <div class="studio-stat">
-                <span class="studio-stat__num" data-count-to="8">0</span>
-                <span class="mono muted" data-i18n="studio.stat.bits">Bits per byte</span>
-              </div>
-              <div class="studio-stat">
-                <span class="studio-stat__num studio-stat__num--zero" data-count-to="0">0</span>
-                <span class="mono muted" data-i18n="studio.stat.managers">Account-managers ertussen</span>
-              </div>
+          <div class="demo__midden">
+            <span class="demo__schakel x8-k-salie"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#settings"></use></svg></span>
+            <ol class="demo__log t-label">
+              <li>Aanvraag gelezen</li>
+              <li>Prijs berekend</li>
+              <li>Pdf opgemaakt</li>
+              <li>Klaar om te versturen</li>
+            </ol>
+          </div>
+
+          <div class="demo__kaart demo__offerte" aria-label="Offerte">
+            <div class="demo__offerte-kop">
+              <span class="x8-logo demo__logo" data-logo><img src="design-system/logo/2x8-logo-inkt.svg" alt="2X8" width="78" height="20"></span>
+              <span class="t-label">Offerte voor Sofie Peeters</span>
             </div>
-            <a class="link" href="/studio"><span data-i18n="studio.more">Meer over ons</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+            <table class="demo__tabel">
+              <tbody>
+                <tr data-lijn><td>Schilderwerk badkamer, 24 m²</td><td>432 euro</td></tr>
+                <tr data-lijn><td>Voorbereiding en afplakken</td><td>120 euro</td></tr>
+                <tr data-lijn><td>Planning</td><td>Maart</td></tr>
+              </tbody>
+              <tfoot>
+                <tr data-lijn><td>Totaal excl. btw</td><td>552 euro</td></tr>
+              </tfoot>
+            </table>
+            <span class="x8-chip x8-k-limoen demo__klaar">Klaar om te versturen</span>
           </div>
         </div>
-      </section>
-      <section class="contact theme-ink" id="contact" data-theme-ink>
-        <footer class="footer">
-          <div class="wrap footer__top">
-            <ul class="footer__links mono">
-              <li><a href="/werk" data-i18n="nav.work">Werk</a></li>
-              <li><a href="/diensten/" data-i18n="nav.services">Diensten</a></li>
-              <li><a href="/studio" data-i18n="nav.studio">Studio</a></li>
-              <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
-              <li><a href="mailto:hello@2x8.be">hello@2x8.be</a></li>
-              <!-- Verborgen tot de profielen bestaan: een link naar linkedin.com zonder
-                   profiel erachter is een doodlopende weg. Vul de echte URL in en haal dit
-                   commentaar weg; ze voeden ook sameAs in seo.js.
-              <li><a href="https://www.linkedin.com/" rel="noopener" target="_blank">LinkedIn</a></li>
-              <li><a href="https://www.instagram.com/" rel="noopener" target="_blank">Instagram</a></li>
-              -->
-            </ul>
-          </div>
-          <div class="footer__mark" data-footer-mark>
-            <svg
-          class="logo"
-          viewBox="159 334 1602 412"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="2X8"
-          fill="currentColor"
-        >
-          <g class="logo-glyph" data-glyph="2">
-            <path
-              d="M631.88,744.78l-380.98.15c-52.35.02-91.61-45.1-87.77-96.29-2.19-28.65,6.69-54.62,26.04-75.51,28.99-30.05,71.29-43.61,111.25-55.85,51.43-15.75,102.96-27.51,155.27-39.1,10.9-2.41,17.42-13.61,13.87-23.29-3.1-8.47-11.77-11.93-20.45-11.56-22.68.96-44.06,3.82-66.33,8.6l-128,27.43c-17.36,3.72-33.37,7.93-50.85,9.85-20.93,2.3-39.23-11.95-40.79-32.93v-25.42c1.76-30.44,16.49-57.62,41.62-74.98,18.68-12.91,40.37-20.64,63.89-20.65l302.95-.14c19.38,0,37.01,4.38,53.56,13.45,38.43,21.05,57.81,66.09,45.98,108.4-10.11,36.19-46.73,62.64-81.21,74.36l-66.15,22.48-147.71,49.12c-8.27,2.75-11.91,12.52-10.89,18.94,1.36,8.65,9.19,14.36,18.38,13.83,22.68-1.31,44.2-5.27,66.57-10.36l117.29-26.66,64.75-13.68c21.14-4.47,41.94,12.48,41.86,34.46l-.32,83.93c-.08,20.36-19.17,41.43-41.83,41.44Z"
-            ></path>
-          </g>
-          <g class="logo-glyph" data-glyph="x">
-            <path
-              d="M1168.34,745.06l-85.65-.33c-8.67-.03-18.61-5.59-24.43-12.16l-81.87-92.42c-11.31-12.76-27.91-15.32-41.2-3.57l-20.11,20.22-68.63,76.64c-6.22,6.95-16.17,11.44-25.38,11.44l-84.84-.05c-17.06,0-29.59-15.24-29.64-31.57l-.15-53.08c-.05-17.8,7.88-30.09,20.98-40.82l86.07-70.41c5.59-4.57,7.41-12.85,6.62-18.86-2.2-16.83-31.45-27.13-50.49-36.41-24.62-11.99-62.8-25.22-62.76-55.14l.1-73.57c.02-15.59,13.84-29.47,29.65-29.54l88.13-.36c12.03-.05,22.91,5.84,30.82,14.42l56.42,61.16,25.7,26.21c10.17,10.38,26.74,8.84,36.99-1.76l82.51-85.36c9.67-10,21.69-14.92,35.76-14.88l77.11.21c16.73.05,31.18,13.29,31.2,30.09l.07,48.03c.02,13.3-7.45,24.47-18.02,32.38l-94.58,70.79c-5.59,4.18-7.82,11.43-7.79,17.43.04,6.42,3.43,12.31,9.1,16.6l91.38,69.02c11.09,8.37,19.76,20.04,19.75,34.36l-.03,60.47c0,17.39-14.99,30.87-32.81,30.8Z"
-            ></path>
-          </g>
-          <g class="logo-glyph" data-glyph="8">
-            <path
-              d="M1635.18,745.06l-290.89.07c-27.09,0-52.74-8.86-74.04-24.55-30.01-22.11-46.01-58.27-42.46-95.02,3.32-34.45,23.75-63.69,52.83-81.64,2.55-1.57,3.42-3.89,3.5-6.2.12-3.04-1.84-4.54-4.61-6.46-20.18-13.94-35.81-33.55-43.04-57.25-11.88-38.91.54-79.82,31.34-106.97,22.31-19.66,51.65-31.85,82.6-31.86l286.92-.1c65.97-.02,123.62,53.95,115.95,119.41-3.75,32.06-22.58,58.76-48.59,77.06-2.43,1.71-3.72,3.83-3.83,6.1-.15,3.2,1.35,4.97,4.4,6.88,29.71,18.58,50.15,49.54,51.82,85.03,3.06,65.11-57.46,115.48-121.9,115.5ZM1559.6,495.95c20.03-.13,31.67-19.82,30.92-37.61-.75-17.97-13.09-34.87-32.21-34.9l-127.53-.21c-20.93-.03-34.17,16.8-34.51,36.19-.38,21.38,14.88,37.53,37.01,37.38l126.32-.84ZM1558.77,656.39c20.02-.03,32.05-19.01,31.87-36.75-.18-18.39-12.84-35.86-32.39-35.88l-128.76-.14c-20.41-.02-33.35,16.85-33.58,36.01-.23,18.54,12.03,37,32.34,36.97l130.52-.21Z"
-            ></path>
-          </g>
-        </svg>
-          </div>
-          <div class="wrap footer__bottom">
-            <span class="mono muted" data-i18n="footer.rights">© 2026 2X8. Alle rechten voorbehouden.</span>
-            <a class="mono muted" href="/privacy" data-i18n="footer.privacy">Privacybeleid</a>
-          </div>
-        </footer>
-      </section>
-    </main>
+        <button class="x8-knop x8-knop--rand demo__opnieuw" type="button" hidden>Speel opnieuw</button>
+      </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script src="js/main.js?v=33"></script>
-  </body>
+    <!-- 5. Hoe we werken -->
+    <section class="sectie aanpak" id="aanpak" aria-labelledby="aanpak-kop">
+      <div class="wrap">
+        <div class="kop-blok kop-blok--rij">
+          <div>
+            <p class="t-label">Hoe we werken</p>
+            <h2 id="aanpak-kop" class="t-kop">Vijf <strong>stappen</strong></h2>
+          </div>
+          <p class="t-body">Geen lang traject. Je weet altijd waar we staan, en je praat altijd met wie het bouwt.</p>
+        </div>
+
+        <ol class="x8-lijst stappen">
+          <li class="x8-rij">
+            <span class="x8-rij__woord"><span class="stap__nr t-label">01</span><span class="stap__woord">Gesprek</span><span class="stap__uitleg">Een half uur. Je vertelt hoe je zaak draait.</span></span>
+            <span class="x8-rij__vak x8-k-zon"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#phone-calling"></use></svg></span>
+          </li>
+          <li class="x8-rij">
+            <span class="x8-rij__woord"><span class="stap__nr t-label">02</span><span class="stap__woord">Vragenlijst</span><span class="stap__uitleg">Welke software gebruik je al? Wij doen het onderzoek.</span></span>
+            <span class="x8-rij__vak x8-k-violet"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#clipboard-list"></use></svg></span>
+          </li>
+          <li class="x8-rij">
+            <span class="x8-rij__woord"><span class="stap__nr t-label">03</span><span class="stap__woord">Voorstel</span><span class="stap__uitleg">Wat we bouwen, wat het kost en wat het je oplevert.</span></span>
+            <span class="x8-rij__vak x8-k-limoen"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#pen-new-square"></use></svg></span>
+          </li>
+          <li class="x8-rij">
+            <span class="x8-rij__woord"><span class="stap__nr t-label">04</span><span class="stap__woord">Bouwen</span><span class="stap__uitleg">Kort op de bal. Je ziet het groeien.</span></span>
+            <span class="x8-rij__vak x8-k-hemel"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#code-square"></use></svg></span>
+          </li>
+          <li class="x8-rij">
+            <span class="x8-rij__woord"><span class="stap__nr t-label">05</span><span class="stap__woord">Opvolgen</span><span class="stap__uitleg">We blijven erbij en meten wat het oplevert.</span></span>
+            <span class="x8-rij__vak x8-k-petrol"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#refresh-circle"></use></svg></span>
+          </li>
+        </ol>
+
+        <div class="pilot x8-k-limoen">
+          <div class="pilot__tekst">
+            <p class="t-label">Gratis pilot</p>
+            <h3 class="t-kop">Je eerste tool <strong>gratis</strong></h3>
+            <p class="t-body">Voor de eerste bedrijven bouwen we een pilot zonder kosten. In ruil deel je de cijfers met ons en mogen we er een case over maken.</p>
+          </div>
+          <a class="x8-knop" href="contact.html">Vraag een pilot aan <span class="x8-knop__symbool" data-symbool="pijl-rechts" data-dikte="18"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Werk -->
+    <section class="sectie werk" id="werk" aria-labelledby="werk-kop">
+      <div class="wrap">
+        <div class="kop-blok kop-blok--rij">
+          <div>
+            <p class="t-label">Werk</p>
+            <h2 id="werk-kop" class="t-kop">Werk dat <strong>draait</strong></h2>
+          </div>
+          <p class="t-body">Sites die klanten binnenhalen en tools die werk wegnemen. Een greep.</p>
+        </div>
+
+        <div class="werk__raster">
+          <!-- cases:start -->
+  <article class="case case--breed" data-soort="tools">
+            <a class="case__beeld case__flow" href="work/2x8-zelf.html" aria-label="2X8 zelf">
+              <span class="flow__stap x8-k-zon"><span><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#letter"></use></svg></span>Aanvraag</span>
+              <span class="flow__pijl" data-symbool="pijl-rechts"></span>
+              <span class="flow__stap x8-k-hemel"><span><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#bill-list"></use></svg></span>Offerte</span>
+              <span class="flow__pijl" data-symbool="pijl-rechts"></span>
+              <span class="flow__stap x8-k-violet"><span><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#notebook"></use></svg></span>Notion</span>
+              <span class="flow__pijl" data-symbool="pijl-rechts"></span>
+              <span class="flow__stap x8-k-salie"><span><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#check-circle"></use></svg></span>Akkoord</span>
+              <span class="flow__pijl" data-symbool="pijl-rechts"></span>
+              <span class="flow__stap x8-k-limoen"><span><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#bill-check"></use></svg></span>Factuur</span>
+            </a>
+            <div class="case__info">
+              <h3 class="case__naam"><a href="work/2x8-zelf.html">2X8 zelf</a></h3>
+              <p>Een aanvraag op onze site wordt een offerte, komt in Notion, wacht op akkoord en wordt een factuur. Niemand typt iets over.</p>
+              <span class="x8-chip x8-k-hemel">Automatisatie</span> <span class="x8-chip">Eigen project</span>
+            </div>
+          </article>
+          <article class="case" data-soort="websites">
+            <a class="case__beeld" href="work/studio-klei.html"><img src="assets/cases/studio-klei/cover.webp" alt="Studio Klei op een scherm" width="1600" height="900" loading="lazy" decoding="async"></a>
+            <div class="case__info">
+              <h3 class="case__naam"><a href="work/studio-klei.html">Studio Klei</a></h3>
+              <p>Eén shop die keramiek verkoopt én workshops boekt. Geen tweede systeem ernaast.</p>
+              <span class="x8-chip x8-k-oranje">Webshop</span>
+            </div>
+          </article>
+          <article class="case" data-soort="tools">
+            <a class="case__beeld" href="work/huiskamer.html"><img src="assets/cases/huiskamer/cover.webp" alt="Huiskamer op een scherm" width="1600" height="900" loading="lazy" decoding="async"></a>
+            <div class="case__info">
+              <h3 class="case__naam"><a href="work/huiskamer.html">Huiskamer</a></h3>
+              <p>Een prototype voor psychologen: sessies, logboek, opdrachten en facturen op één plek. Het uur gaat naar het gesprek.</p>
+              <span class="x8-chip x8-k-hemel">Platform</span> <span class="x8-chip">Eigen project</span>
+            </div>
+          </article>
+          <article class="case" data-soort="websites">
+            <a class="case__beeld" href="work/elevator-antwerp.html"><img src="assets/cases/elevator-antwerp/cover.webp" alt="Elevator Antwerp op een scherm" width="1600" height="901" loading="lazy" decoding="async"></a>
+            <div class="case__info">
+              <h3 class="case__naam"><a href="work/elevator-antwerp.html">Elevator Antwerp</a></h3>
+              <p>Een galerie die reist, met één vaste plek online: wat er nu te zien is en welke werken te koop zijn.</p>
+              <span class="x8-chip x8-k-oranje">Website</span>
+            </div>
+          </article>
+          <article class="case" data-soort="websites">
+            <a class="case__beeld" href="work/salon-dola.html"><img src="assets/cases/salon-dola/cover.webp" alt="Salon Dola op een scherm" width="1600" height="900" loading="lazy" decoding="async"></a>
+            <div class="case__info">
+              <h3 class="case__naam"><a href="work/salon-dola.html">Salon Dola</a></h3>
+              <p>Eén pagina. Na één scroll weet je bij wie je terechtkomt en hoe je een afspraak maakt.</p>
+              <span class="x8-chip x8-k-oranje">Onepager</span>
+            </div>
+          </article>
+  <!-- cases:end -->
+        </div>
+
+        <a class="x8-knop x8-knop--rand werk__alles" href="werk.html">Al ons werk <span class="x8-knop__symbool" data-symbool="pijl-rechts" data-dikte="18"></span></a>
+      </div>
+    </section>
+
+    <!-- 7. Wie -->
+    <section class="sectie over" id="over" aria-labelledby="over-kop">
+      <div class="wrap over__raster">
+        <div class="over__tekst">
+          <p class="t-label">Over ons</p>
+          <h2 id="over-kop" class="t-kop">Twee mensen. <strong>Acht</strong> bits.</h2>
+          <p class="t-body">De naam telt op: twee makers, acht bits per byte. Je praat altijd rechtstreeks met ons, van het eerste gesprek tot lang na de lancering. Geen account-manager ertussen.</p>
+          <span class="x8-beeldmerk over__merk" data-beeldmerk aria-hidden="true"></span>
+        </div>
+
+        <figure class="persoon">
+          <img src="assets/studio/jasper.webp" alt="Portret van Jasper Impens" width="800" height="1000" loading="lazy" decoding="async">
+          <figcaption>
+            <span class="persoon__naam">Jasper Impens</span>
+            <span class="t-label">Design en front-end</span>
+            <span class="persoon__zin">Maakt van je zaak een site die mensen in één keer snappen.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="persoon">
+          <img src="assets/studio/florian.webp" alt="Portret van Florian Bracke" width="800" height="1000" loading="lazy" decoding="async">
+          <figcaption>
+            <span class="persoon__naam">Florian Bracke</span>
+            <span class="t-label">Development en consultancy</span>
+            <span class="persoon__zin">Bouwt de techniek erachter en kijkt wat je software al kan.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 8. Contact -->
+    <section class="sectie contact" id="contact" aria-labelledby="contact-kop">
+      <div class="wrap">
+        <div class="contact__vlak x8-k-zon">
+          <div class="contact__tekst">
+            <p class="t-label">Contact</p>
+            <h2 id="contact-kop" class="contact__kop">Waar verlies <strong>jij</strong> tijd?</h2>
+            <p class="t-lead">Plan een gesprek van een half uur. Je krijgt antwoord binnen twee werkdagen.</p>
+            <div class="knoppen">
+              <a class="x8-knop contact__knop" href="contact.html">Plan een gesprek <span class="x8-knop__symbool" data-symbool="pijl-rechts" data-dikte="18"></span></a>
+              <a class="x8-knop x8-knop--rand" href="mailto:hello@2x8.be">hello@2x8.be</a>
+            </div>
+          </div>
+          <span class="contact__symbool" aria-hidden="true"><svg class="icoon" aria-hidden="true"><use href="design-system/iconen/solar.svg#round-arrow-right-up"></use></svg></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- voet:start -->
+  <footer class="voet">
+    <div class="wrap">
+      <div class="voet__rij">
+        <nav class="voet__links" aria-label="Footer">
+          <a href="websites.html">Websites</a>
+          <a href="tools.html">Tools</a>
+          <a href="werk.html">Werk</a>
+          <a href="over-ons.html">Over ons</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <p class="t-label">Gent, België. <a href="mailto:hello@2x8.be">hello@2x8.be</a></p>
+      </div>
+      <span class="x8-logo voet__logo" data-logo><img src="design-system/logo/2x8-logo-inkt.svg" alt="2X8" width="1596" height="412"></span>
+      <p class="t-label voet__klein">&copy; 2026 2X8. Alle rechten voorbehouden. Iconen: <a href="https://www.figma.com/community/file/1166831539721848736">Solar</a> van 480 Design, CC BY 4.0.</p>
+    </div>
+  </footer>
+  <!-- voet:end -->
+
+  <script src="design-system/components/bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/site.js" defer></script>
+</body>
 </html>

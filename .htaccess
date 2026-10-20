@@ -5,10 +5,21 @@ RewriteEngine On
 # 0. Deze repo wordt rechtstreeks in de docroot gepulld, dus staat er ook
 #    bronmateriaal in dat niemand hoort te kunnen opvragen.
 RewriteRule (^|/)\.(git|github|claude)(/|$)           - [F,L]
-RewriteRule ^(build\.js|seo\.js|README\.md|mail-config\.example\.php)$ - [F,L]
+RewriteRule ^(build\.js|seo\.js|bouw\.js|README\.md|CLAUDE\.md|START-PROMPT\.md|mail-config\.example\.php)$ - [F,L]
+RewriteRule ^(data|inspiratie)/                           - [F,L]
 RewriteRule ^i18n/                                     - [F,L]
 RewriteRule ^docs/                                     - [F,L]
 RewriteRule (^|/)\.gitignore$                          - [F,L]
+
+# 0b. URL's van de vorige site die niet meer bestaan. Permanent, zodat zoekmachines meeverhuizen.
+RewriteRule ^studio/?$                                    /over-ons [R=301,L]
+RewriteRule ^diensten/?$                                  /websites [R=301,L]
+RewriteRule ^diensten/(websites|webshops|ai-seo)/?$       /websites [R=301,L]
+RewriteRule ^diensten/(software|ai-workflows|platformen|apps)/?$ /tools [R=301,L]
+RewriteRule ^cms/?$                                       /websites [R=301,L]
+RewriteRule ^software/shopify/?$                          /websites [R=301,L]
+# Frans en Engels komen terug na de Nederlandse versie. Tot dan tijdelijk naar de homepage.
+RewriteRule ^(fr|en)(/.*)?$                               / [R=302,L]
 
 # 1. /index.html (of /map/index.html) -> /
 RewriteCond %{REQUEST_URI} !^/backup/

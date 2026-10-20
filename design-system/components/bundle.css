@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&family=DM+Mono:wght@400;500&display=swap");
+
+/* 2X8: componenten. Kleuren, maten en families komen uit tokens.css. */
+
+.x8 { font-family: var(--font-sans); color: var(--inkt); }
+.x8-symbool { display: block; width: 100%; height: 100%; }
+
+/* Kleurvarianten, gedeeld door tegels, widgets en lijst-rijen */
+.x8-k-violet { background: var(--violet); color: var(--inkt); }
+.x8-k-oranje { background: var(--oranje); color: var(--inkt); }
+.x8-k-petrol { background: var(--petrol); color: var(--op-petrol); }
+.x8-k-limoen { background: var(--limoen); color: var(--inkt); }
+.x8-k-hemel { background: var(--hemel); color: var(--inkt); }
+.x8-k-salie { background: var(--salie); color: var(--inkt); }
+.x8-k-zon { background: var(--zon); color: var(--inkt); }
+.x8-k-leisteen { background: var(--leisteen); color: var(--inkt); }
+.x8-k-wit { background: var(--wit); color: var(--inkt); }
+
+/* Logo */
+.x8-logo { display: inline-block; height: 1em; font-size: 96px; color: var(--inkt); line-height: 0; }
+.x8-logo__svg { display: block; height: 100%; width: auto; aspect-ratio: 1596 / 412; }
+.x8-logo--klein { font-size: 28px; }
+.x8-logo--kalk { color: var(--kalk); }
+
+/* Beeldmerk: de X uit het logo op een oranje tegel */
+.x8-beeldmerk { display: inline-block; width: 1em; height: 1em; font-size: 96px; border-radius: .22em; overflow: hidden; background: var(--oranje); color: var(--inkt); line-height: 0; }
+.x8-beeldmerk__svg { display: block; width: 100%; height: 100%; }
+
+/* Tegel */
+.x8-tegel { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-3); aspect-ratio: 4 / 5; padding: var(--space-3); border-radius: var(--radius-l); text-decoration: none; transition: transform 240ms cubic-bezier(.2,.8,.2,1); }
+.x8-tegel__symbool { width: 58%; aspect-ratio: 1; }
+.x8-tegel__woord { font-family: var(--font-sans); font-size: 28px; line-height: 1.05; font-weight: 700; letter-spacing: -.01em; margin: 0; }
+a.x8-tegel:hover { transform: translateY(-4px) rotate(-1deg); }
+
+/* Widgets in een bento-raster */
+.x8-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-1); }
+.x8-widget { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-1); min-height: 132px; padding: var(--space-2); border-radius: var(--radius-m); min-width: 0; }
+.x8-widget--breed { grid-column: span 2; }
+.x8-widget--hoog { grid-row: span 2; }
+.x8-widget__label { font-family: var(--font-mono); font-size: 12px; line-height: 16px; letter-spacing: .02em; }
+.x8-widget__getal { font-family: var(--font-sans); font-size: 56px; line-height: 1; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.x8-widget__tekst { font-size: 15px; line-height: 21px; margin: 0; }
+.x8-widget__symbool { width: 48px; height: 48px; }
+
+/* Lijst-rij */
+.x8-lijst { display: grid; gap: 6px; }
+.x8-rij { display: grid; grid-template-columns: 1fr auto; gap: 6px; text-decoration: none; color: var(--inkt); }
+.x8-rij__woord { display: flex; align-items: center; min-height: 88px; padding: 0 var(--space-3); background: var(--wit); border-radius: var(--radius-m); font-weight: 750; font-size: 56px; letter-spacing: -.035em; line-height: 1; min-width: 0; }
+.x8-rij__vak { width: 88px; height: 88px; border-radius: var(--radius-m); padding: 16px; transition: transform 240ms cubic-bezier(.2,.8,.2,1); }
+a.x8-rij:hover .x8-rij__vak { transform: rotate(-6deg); }
+
+/* Knop */
+.x8-knop { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 24px; border-radius: var(--radius-pill); border: 2px solid var(--inkt); background: var(--inkt); color: var(--kalk); font-family: var(--font-sans); font-size: 17px; font-weight: 650; letter-spacing: -.01em; text-decoration: none; cursor: pointer; transition: transform 200ms ease, background-color 200ms ease, color 200ms ease; }
+.x8-knop:hover { transform: translateY(-2px); }
+.x8-knop--kleur { background: var(--oranje); border-color: var(--oranje); color: var(--inkt); }
+.x8-knop--rand { background: none; color: var(--inkt); }
+.x8-knop--rand:hover { background: var(--inkt); color: var(--kalk); }
+.x8-knop__symbool { width: 18px; height: 18px; }
+.x8-knop:focus-visible, .x8-chip:focus-visible, .x8-tegel:focus-visible, .x8-rij:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* Chip */
+.x8-chip { display: inline-flex; align-items: center; height: 32px; padding: 0 14px; border-radius: var(--radius-pill); font-family: var(--font-sans); font-size: 14px; font-weight: 600; border: 1px solid transparent; }
+.x8-chip:not([class*="x8-k-"]) { background: var(--wit); color: var(--inkt); border-color: var(--rand); }
+
+@media (prefers-reduced-motion: reduce) { .x8-tegel, .x8-rij__vak, .x8-knop { transition: none; } a.x8-tegel:hover, .x8-knop:hover { transform: none; } a.x8-rij:hover .x8-rij__vak { transform: none; } }

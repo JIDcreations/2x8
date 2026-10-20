@@ -1,0 +1,38 @@
+/* 2X8 2.0, gegenereerd uit tokens.json. Pas tokens.json aan, niet dit bestand. */
+:root {
+  --kalk: #EAEAE7;
+  --wit: #F8F7F4;
+  --rand: #D6D5D0;
+  --inkt: #181818;
+  --inkt-zacht: #5F5E59;
+  --violet: #9A82F5;
+  --oranje: #EE6A43;
+  --petrol: #3E6E78;
+  --op-petrol: var(--kalk);
+  --limoen: #DDF07E;
+  --hemel: #7FB3CC;
+  --salie: #6FA585;
+  --zon: #F5B544;
+  --leisteen: #A4A8AE;
+  --focus: var(--inkt);
+  --font-sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-5: 40px;
+  --space-8: 64px;
+  --space-15: 120px;
+  --radius-s: 12px;
+  --radius-m: 20px;
+  --radius-l: 32px;
+  --radius-pill: 999px;
+  color-scheme: light;
+}
+.t-display { font-family: var(--font-sans); font-size: 88px; line-height: 0.92; font-weight: 800; letter-spacing: -0.035em; }
+.t-kop { font-family: var(--font-sans); font-size: 44px; line-height: 1; font-weight: 750; letter-spacing: -0.02em; }
+.t-tegel { font-family: var(--font-sans); font-size: 28px; line-height: 1.05; font-weight: 700; letter-spacing: -0.01em; }
+.t-getal { font-family: var(--font-sans); font-size: 64px; line-height: 1; font-weight: 600; letter-spacing: -0.03em; }
+.t-lead { font-family: var(--font-sans); font-size: 20px; line-height: 30px; font-weight: 450; }
+.t-body { font-family: var(--font-sans); font-size: 16px; line-height: 26px; font-weight: 400; }
+.t-label { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0.02em; }
